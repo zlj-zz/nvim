@@ -1,0 +1,7 @@
+# ignore everything
+
+# === nvim ===
+/plugged
+/tmp
+
+init.vim.html
