@@ -1,0 +1,6 @@
+fzf
+ctags
+the_silver_searcher
+xclip
+nodejs
+figlet
