@@ -1,5 +1,7 @@
 # This is my neovim
 
+**This is just my configuration of NEOVIM, for reference only.**
+
 ![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
 
 
@@ -12,7 +14,7 @@
     * [Config Python path](#config-python-path)
     * [For Taglist:](#for-taglist)
     * [For FZF](#for-fzf)
-    * [And also...](#and-also)
+    * [And may also...](#and-may-also)
 * [Keyboard Shortcuts](#keyboard-shortcuts)
     * [Curosr movement](#curosr-movement)
     * [Remapped cursor movement](#remapped-cursor-movement)
@@ -66,7 +68,7 @@ Install `fzf`
 
 Install `ag` (`the_silver_searcher`)
 
-### And also...
+### And may also...
 
 Install `figlet` for inputing text ASCII art
 
@@ -79,14 +81,6 @@ let `<LEADER>` to be `<space>`.
 let `S` to save file (same as command `:w`).
 
 let `Q` to quit (same as command `:q`).
-
-You can use `ZZ` command, this command writes the file and exits.
-
-In normal mode make `Y` to copy till the end of the line (same as `y$`).
-
-In visual mode make `Y` copy to system clipboard (same as `"+y`).
-
-let `ctrl+a` to select all (same as `ggVG`).
 
 ### Curosr movement
 
@@ -112,7 +106,8 @@ let `ctrl+a` to select all (same as `ggVG`).
 | `alt`+`l`  | → in insert mode                                          | `<right>`  |
 | `alt`+`a`  | move cursor to head in insert mode                        | `<home>`   |
 | `alt`+`s`  | move cursor to tail in insert mode                        | `<end>`    |
-| `#`        | move cursor to head                                       | `0`        |
+| `0`        | move cursor to head in normal mode                        | `0`        |
+| `4`        | move cursor to head in normal mode                        | `$`        |
 
 ### Remapped commands in Normal Mode
 
@@ -147,6 +142,14 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 ### Other
 
+You can use `ZZ` command, this command writes the file and exits.
+
+In normal mode make `Y` to copy till the end of the line (same as `y$`).
+
+In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
+
+let `ctrl+a` to select all (same as `ggVG`).
+
 `c-z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
 
 `dip` clear the black lien around the current cursor.
@@ -161,19 +164,12 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 **coc-complete** (a auto-complete plugin)
 
-| shortcut          | action        |
-|-------------------|---------------|
-| `<tab>`           | next item     |
-| `<shift>`+`<tab>` | previous item |
-| `<enter>`         | select item   |
-
-| shortcut | action                  |
-|----------|-------------------------|
-| `gd`     | jump to definition      |
-| `gt`     | jump to type definition |
-| `gi`     | jump to implementation  |
-| `gr`     | jump to references      |
-| `rn`     | symbol renaming         |
+| shortcut          | action          |  | shortcut | action                  |
+|-------------------|-----------------|--|----------|-------------------------|
+| `<tab>`           | next item       |  | `gd`     | jump to definition      |
+| `<shift>`+`<tab>` | previous item   |  | `gt`     | jump to type definition |
+| `<enter>`         | select item     |  | `gi`     | jump to implementation  |
+| `rn`              | symbol renaming |  | `gr`     | jump to references      |
 
 ![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif) 
 
@@ -269,6 +265,6 @@ sudo pacman -S sdl sdl-mixer
 ```
 
 
-
+<font size=50px; ><b>Thank you for your watch</b></font>
 
 
