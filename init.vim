@@ -65,11 +65,11 @@ set termencoding=utf-8
 set pyxversion=3
 set autoread
 
-set ts=2                 " Tab's width
-set softtabstop=2        " INSERT ident length
-set shiftwidth=2         " ident length
+set ts=4                 " Tab's width
+set softtabstop=4        " INSERT ident length
+set shiftwidth=4         " ident length
 set expandtab            " tab replace black space
-autocmd FileType python,markdown setlocal ts=4 softtabstop=4 shiftwidth=4
+autocmd FileType html,css setlocal ts=2 softtabstop=2 shiftwidth=2
 
 set wrap                 " auto wrap
 set showmatch            " bracket highlight
@@ -157,6 +157,7 @@ noremap! <m-l> <Right>
 noremap 4 $
 noremap 6 ^
 noremap ; :
+noremap ` ~
 
 
 "===========================
@@ -465,7 +466,7 @@ Plug 'junegunn/fzf.vim',{'on': 'FZF'}
 noremap <c-f> :FZF<CR>
 
 " Formatter
-Plug 'Chiel92/vim-autoformat',{'on': 'AutoFormat'}
+Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
 " === AutoFormat
 nnoremap \f :Autoformat<CR>
 
