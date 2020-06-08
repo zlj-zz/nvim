@@ -265,6 +265,6 @@ sudo pacman -S sdl sdl-mixer
 ```
 
 
-<font size=50px; ><b>Thank you for your watch</b></font>
+<font size=50px; ><b>This is bottom</b></font>
 
 

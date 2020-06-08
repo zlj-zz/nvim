@@ -289,23 +289,26 @@ Plug 'KabbAmine/vCoolor.vim'
 "Plug 'pechocrin/any-jump.vim'
 
 " Pretty Dress
-Plug 'theniceboy/eleline.vim'
 " === eleline.vim
+Plug 'theniceboy/eleline.vim'
 let g:airline_powerline_fonts = 0
 
 Plug 'bling/vim-bufferline'
 
-Plug 'skywind3000/vim-keysound', {'on': 'KeysoundEnable'}
-let g:keysound_enable = 0
-" options [default, typewriter, mario, bubble, sword]
-let g:keysound_theme = 'default' 
-let g:keysound_volume = 1000
-let g:keysound_py_version = 3
+" === xtabline
+" {{{
+Plug 'mg979/vim-xtabline'     " top tabline
+let g:xtabline_settings = {}
+let g:xtabline_settings.enable_mappings = 0
+let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+let g:xtabline_settings.enable_persistance = 0
+let g:xtabline_settings.last_open_first = 1
+noremap \p :XTabInfo<CR>
+" }}}
 
 
-
-
-" ======= color theme {{{
+" === color theme ===
+" {{{
 "Plug 'liuchengxu/space-vim-theme'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'rakr/vim-one'
@@ -350,7 +353,8 @@ map cbg :call ChangeGuibg()<CR>
 Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 " }}}
 
-" +++Sidebar++++++++++++++++++++++++++++++++++{{{
+" +++ Sidebar +++
+" {{{
 
 
 Plug 'mhinz/vim-startify'
@@ -446,8 +450,9 @@ call s:setup_keymaps()
 " }}}
 
 
+" === rnvimr
+" {{{
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-" === rnvimr {{{
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
 nnoremap <silent> ra :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
@@ -470,22 +475,25 @@ Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
 " === AutoFormat
 nnoremap \f :Autoformat<CR>
 
-" NerdCommenter
-Plug 'scrooloose/nerdcommenter' " in <space>cn to comment a line
+" NerdCommenter  " in <space>cn to comment a line
+Plug 'scrooloose/nerdcommenter' 
 
 " Genreal Highlighter
 Plug 'jaxbot/semantic-highlight.vim'
 
 " show indentation line
-Plug 'Yggdroot/indentLine'
 "=== indentLine
+Plug 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 238
 let g:indentLine_char = '|'
 
-Plug 'luochen1990/rainbow'
 " === rainbow
+Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
+
+" Other visual enhancement
+Plug 'ryanoasis/vim-devicons' " add icon to vim plug
 
 
 "" Find & Replace
@@ -507,34 +515,11 @@ set statusline=%{anzu#search_status()}
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'}
 " === goyo
 map <LEADER>gy :Goyo<CR>
-" Vim Applications-日历
-Plug 'itchyny/calendar.vim',{'on': ['Calendar -position=tab', 'Calendar -view=clock -position=here']}
-" === vim-calendar {{{
-noremap \c :Calendar -position=tab<CR>
-noremap \\ :Calendar -view=clock -position=here<CR> " open clock
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-augroup calendar-mappings
-    autocmd!
-    " diamond cursor
-    autocmd FileType calendar nmap <buffer> k <Plug>(calendar_up)
-    autocmd FileType calendar nmap <buffer> h <Plug>(calendar_left)
-    autocmd FileType calendar nmap <buffer> j <Plug>(calendar_down)
-    autocmd FileType calendar nmap <buffer> l <Plug>(calendar_right)
-    autocmd FileType calendar nmap <buffer> <c-k> <Plug>(calendar_move_up)
-    autocmd FileType calendar nmap <buffer> <c-h> <Plug>(calendar_move_left)
-    autocmd FileType calendar nmap <buffer> <c-j> <Plug>(calendar_move_down)
-    autocmd FileType calendar nmap <buffer> <c-l> <Plug>(calendar_move_right)
-    autocmd FileType calendar nmap <buffer> a <Plug>(calendar_start_insert)
-    autocmd FileType calendar nmap <buffer> A <Plug>(calendar_start_insert_head)
-    " unmap <C-n>, <C-p> for other plugins
-    autocmd FileType calendar nunmap <buffer> <C-n>
-    autocmd FileType calendar nunmap <buffer> <C-p>
-augroup END
-" }}}
+" === vim-calendar
 
 
-" Auto Complete Coc {{{
+" Auto Complete Coc
+" {{{
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
 Plug 'wellle/tmux-complete.vim'
 " === coc
@@ -616,7 +601,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " }}}
 
 
-" Snippets {{{
+" Snippets 
+" {{{
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -626,14 +612,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
-" }}}
-
-
-" Python {{{
-Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
-Plug 'tweekmonster/braceless.vim'
 " }}}
 
 
@@ -651,7 +629,17 @@ let g:vim_jsx_pretty_colorful_config = 1
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 
 
-"" Go {{{
+" Python 
+" {{{
+Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
+Plug 'tweekmonster/braceless.vim'
+" }}}
+
+
+" Go
+" {{{
 "Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 "" ===
 "" === vim-go
@@ -686,7 +674,10 @@ Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javas
 " Editor Enhancement
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi'
-" === vim-visual-multi {{{
+
+
+" === vim-visual-multi
+" {{{
 "let g:VM_theme             = 'iceblue'
 "let g:VM_default_mappings = 0
 let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
@@ -751,17 +742,6 @@ let g:rust_fold = 1
 let g:php_folding = 1
 
 
-" Other visual enhancement
-Plug 'ryanoasis/vim-devicons' " add icon to vim plug
-Plug 'luochen1990/rainbow'    " rainbow brackets
-" === xtabline
-Plug 'mg979/vim-xtabline'     " top tabline
-let g:xtabline_settings = {}
-let g:xtabline_settings.enable_mappings = 0
-let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
-let g:xtabline_settings.enable_persistance = 0
-let g:xtabline_settings.last_open_first = 1
-noremap \p :XTabInfo<CR>
 
 Plug 'wincent/terminus'
 " Dependencies
@@ -770,7 +750,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'roxma/nvim-yarp'
 
 
-" Markdown {{{
+" Markdown
+" {{{
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
@@ -820,6 +801,18 @@ nmap ga <Plug>(EasyAlign)
 
 " Swift
 "Plug 'keith/swift.vim'
+
+" vim-keysound
+" {{{
+Plug 'skywind3000/vim-keysound', {'on': 'KeysoundToggle'}
+noremap <LEADER>ks :KeysoundToggle<CR>
+let g:keysound_enable = 0
+" options [default, typewriter, mario, bubble, sword]
+let g:keysound_theme = 'default' 
+let g:keysound_volume = 1000
+let g:keysound_py_version = 3
+" }}}
+
 
 call plug#end()
 " --------------------------------------------}}}
