@@ -231,6 +231,8 @@ nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
 nnoremap <LEADER>sc :set spell!<CR>
 "  paste mode
 nnoremap <leader>pm :set paste!<cr>
+" lazygit
+noremap gl :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
 
 " Auto change directory to current dir
 autocmd BufEnter * silent! lcd %:p:h
