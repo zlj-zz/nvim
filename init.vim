@@ -235,7 +235,7 @@ nnoremap <leader>pm :set paste!<cr>
 noremap gl :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
 
 " Auto change directory to current dir
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 " --------------------------------------------}}}
 
 " when you open file, back to last edit position
@@ -352,7 +352,7 @@ map cbg :call ChangeGuibg()<CR>
 
 
 " let you can use fcitx in vim
-Plug 'https://github.com/vim-scripts/fcitx.vim.git'
+"Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 " }}}
 
 " +++ Sidebar +++
@@ -603,7 +603,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " }}}
 
 
-" Snippets 
+" Snippets
 " {{{
 " Track the engine.
 Plug 'SirVer/ultisnips'
@@ -631,7 +631,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 
 
-" Python 
+" Python
 " {{{
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
