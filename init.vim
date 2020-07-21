@@ -94,9 +94,10 @@ set whichwrap+=<,>,h,l
 set foldenable          " allow flod (help fold)
 "set foldlevel=100       " does not automatically fold on startup
 set foldmethod=marker   " option: [manual indent marker]
+autocmd FileType python setlocal foldmethod=indent
 
 " 设置空白字符的视觉提示
-set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:▫
+set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:-
 " --------------------------------------------}}}
 
 " === KEY MAP ================================{{{
