@@ -28,13 +28,19 @@ if empty(glob(NHOME.'/autoload/plug.vim'))
 endif
 
 " === Create a '_machine_specific.vim' file to adjust machine specific stuff, like python interpreter location
-"let has_machine_specific_file = 1
-"if empty(glob('~/.config/nvim/_machine_specific.vim'))
-"    let has_machine_specific_file = 0
-"    silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
-"endif
-"!source g:NHOME.'/_machine_specific.vim'
+let has_machine_specific_file = 1
+if empty(glob(g:NHOME.'/_machine_specific.vim'))
+    let has_machine_specific_file = 0
+    "silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
+    silent! exec "touch ".g:NHOME."/_machine_specific.vim"
+endif
+execute 'source '.g:NHOME.'/_machine_specific.vim'
 
+if has(has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:isWin = 1
+else
+    let g:isWin = 0
+endif
 
 " ====================
 " =                  =
@@ -352,28 +358,22 @@ let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 Plug 'elzr/vim-json'
 Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-
 "Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-" === jsx
-let g:vim_jsx_pretty_colorful_config = 1
 
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 
 
 " Python
-" {{{
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
-" }}}
 
 
 " Go
-" {{{
 "Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 "" ===
 "" === vim-go
@@ -402,7 +402,6 @@ Plug 'tweekmonster/braceless.vim'
 "let g:go_highlight_variable_assignments = 0
 "let g:go_highlight_variable_declarations = 0
 "let g:go_doc_keywordprg_enabled = 0
-" }}}
 
 
 " Editor Enhancement
@@ -428,12 +427,9 @@ let g:VM_maps["Undo"]      = 'u'
 let g:VM_maps["Redo"]      = '<C-r>'
 
 Plug 'scrooloose/nerdcommenter' " in <space>cn to comment a line;<space>cu to uncomment a line
-"Plug 'AndrewRadev/switch.vim' " gs to switch
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
-" === vim-after-object
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 Plug 'tpope/vim-capslock'   " Ctrl+L (insert) to toggle capslock
 Plug 'easymotion/vim-easymotion'
@@ -545,19 +541,25 @@ call plug#end()
 
 
 
-"===============================
-"=                             =
-"=      plugin setting         =
-"=                             =
-"===============================
+"===============================================
+"=                                             =
+"=               plugin settings               =
+"=                                             =
+"===============================================
 
-" +++ vim-illuminate +++
+" |||||||                ||||||
+" ||||||| vim-illuminate ||||||
+" |||||||                ||||||
 let g:Illuminate_delay = 750
 
-" +++ eleline.vim +++
+" |||||||             ||||||
+" ||||||| eleline.vim ||||||
+" |||||||             ||||||
 let g:airline_powerline_fonts = 0
 
-" +++ xtabline +++
+" |||||||             ||||||
+" |||||||   xtabline  ||||||
+" |||||||             ||||||
 let g:xtabline_settings = {}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
@@ -565,7 +567,9 @@ let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
 noremap \p :XTabInfo<CR>
 
-" +++ vim-startify +++
+" |||||||              ||||||
+" ||||||| vim-startity ||||||
+" |||||||              ||||||
 nmap <F5> <c-t>:Startify<cr>
 let g:ascii = [
       \ '           __',
@@ -598,7 +602,9 @@ let g:startify_lists = [
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ ]
 
-" +++ undotree +++
+" |||||||             ||||||
+" |||||||   undotree  ||||||
+" |||||||             ||||||
 noremap <F6> :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
@@ -613,7 +619,9 @@ function g:Undotree_CustomMap()
     nmap <buffer> J 5<plug>UndotreePreviousState
 endfunc
 
-" +++ nerdtree +++
+" |||||||             ||||||
+" |||||||   nerdtree  ||||||
+" |||||||             ||||||
 map <F7> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeShowBookmarks=1
@@ -626,7 +634,9 @@ function! s:initVariable(var, value)
 endfunction
 call s:initVariable("g:NERDTreeMapOpenSplit", "h")
 
-" +++ tagbar +++
+" |||||||             ||||||
+" |||||||   tagbar    ||||||
+" |||||||             ||||||
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_sort=0  " close auto sort
 let g:tagbar_width=30  " set window width
@@ -649,7 +659,9 @@ function! s:setup_keymaps() abort
 endfunction
 call s:setup_keymaps()
 
-" +++ rnvimr +++
+" |||||||             ||||||
+" |||||||   rnvimr    ||||||
+" |||||||             ||||||
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
 nnoremap <silent> ra :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
@@ -661,27 +673,41 @@ let g:rnvimr_layout = { 'relative': 'editor',
             \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}] 
 
-" +++ fzf.vim +++ (sudo pacman -S fzf)
+" |||||||             |||||| (sudo pacman -S fzf)
+" |||||||   fzf.vim   ||||||
+" |||||||             ||||||
 noremap <c-f> :FZF<CR>
 
-" +++ vim-autoformat +++
+" |||||||                ||||||
+" ||||||| vim-autoformat ||||||
+" |||||||                ||||||
 nnoremap \f :Autoformat<CR>
 
-" +++ indentLine +++
+" |||||||             ||||||
+" ||||||| indentLine  ||||||
+" |||||||             ||||||
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 238
 let g:indentLine_char = '|'
 
-" +++ rainbow +++
+" |||||||             ||||||
+" |||||||   rainbow   ||||||
+" |||||||             ||||||
 let g:rainbow_active = 1
 
-" +++ vim-anzu +++
+" |||||||             ||||||
+" |||||||  vim-anzu   ||||||
+" |||||||             ||||||
 set statusline=%{anzu#search_status()}
 
-" +++ goyo.vim +++
+" |||||||             ||||||
+" |||||||  goyo.vim   ||||||
+" |||||||             ||||||
 map <LEADER>gy :Goyo<CR>
 
-" +++ coc +++
+" |||||||             ||||||
+" |||||||      coc    ||||||
+" |||||||             ||||||
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 "set signcolumn=no  " no side bar
@@ -758,9 +784,15 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+" |||||||             ||||||
+" |||||||     jsx     ||||||
+" |||||||             ||||||
+let g:vim_jsx_pretty_colorful_config = 1
 
-
-
+" |||||||                  ||||||
+" ||||||| vim-after-object ||||||
+" |||||||                  ||||||
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 
 
@@ -773,7 +805,7 @@ exec "nohlsearch"
 
 
 " Open the _machine_specific.vim file if it has just been created
-"if has_machine_specific_file == 0
-"    exec "e ~/.config/nvim/_machine_specific.vim"
-"endif
+if has_machine_specific_file == 0
+    exec "e ".g:NHOME."/_machine_specific.vim"
+endif
 
