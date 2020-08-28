@@ -287,6 +287,7 @@ augroup END
 "===========================
 call plug#begin('~/.config/nvim/plugged')
 "call plug#begin()
+"Plug 'https://github.com/vim-scripts/fcitx.vim.git'  " let you can use fcitx in vim
 Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
 Plug 'RRethy/vim-illuminate'   " illuminating the other uses of the current word under the cursor
 Plug 'AndrewRadev/splitjoin.vim'
@@ -318,7 +319,6 @@ func! ChangeGuibg() " transparent background toggle
     endif
 endfunc
 map cbg :call ChangeGuibg()<CR>
-"Plug 'https://github.com/vim-scripts/fcitx.vim.git'  " let you can use fcitx in vim
 
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
@@ -336,209 +336,51 @@ Plug 'ryanoasis/vim-devicons' " add icon to vim plug
 "Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } " Find & Replace
 Plug 'osyo-manga/vim-anzu' " show search position
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
-
+" Editor Enhancement
+Plug 'jiangmiao/auto-pairs'
+Plug 'mg979/vim-visual-multi'
 
 " Auto Complete Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
 Plug 'wellle/tmux-complete.vim'
-
-
 " Snippets
-" Track the engine.
-Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
-
+Plug 'SirVer/ultisnips' " Track the engine.
+Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
 " HTML, CSS, JavaScript, PHP, JSON, etc.
 Plug 'elzr/vim-json'
 Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-
-
 " Python
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
-
-
 " Go
 "Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
-"" ===
-"" === vim-go
-"let g:go_def_mapping_enabled = 0
-"let g:go_template_autocreate = 0
-"let g:go_textobj_enabled = 0
-"let g:go_auto_type_info = 1
-"let g:go_def_mapping_enabled = 0
-"let g:go_highlight_array_whitespace_error = 1
-"let g:go_highlight_build_constraints = 1
-"let g:go_highlight_chan_whitespace_error = 1
-"let g:go_highlight_extra_types = 1
-"let g:go_highlight_fields = 1
-"let g:go_highlight_format_strings = 1
-"let g:go_highlight_function_calls = 1
-"let g:go_highlight_function_parameters = 1
-"let g:go_highlight_functions = 1
-"let g:go_highlight_generate_tags = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_space_tab_error = 1
-"let g:go_highlight_string_spellcheck = 1
-"let g:go_highlight_structs = 1
-"let g:go_highlight_trailing_whitespace_error = 1
-"let g:go_highlight_types = 1
-"let g:go_highlight_variable_assignments = 0
-"let g:go_highlight_variable_declarations = 0
-"let g:go_doc_keywordprg_enabled = 0
-
-
-" Editor Enhancement
-Plug 'jiangmiao/auto-pairs'
-Plug 'mg979/vim-visual-multi'
-
-
-" === vim-visual-multi
-"let g:VM_theme             = 'iceblue'
-"let g:VM_default_mappings = 0
-let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-let g:VM_maps = {}
-let g:VM_custom_motions  = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0', '4': '$'}
-let g:VM_maps['i']         = 'i'
-let g:VM_maps['I']         = 'I'
-let g:VM_maps['Find Under']         = '<C-u>'
-let g:VM_maps['Find Subword Under'] = '<C-u>'
-let g:VM_maps['Find Next']         = ''
-let g:VM_maps['Find Prev']         = ''
-let g:VM_maps['Remove Region'] = 'q'
-let g:VM_maps['Skip Region'] = ''
-let g:VM_maps["Undo"]      = 'u'
-let g:VM_maps["Redo"]      = '<C-r>'
 
 Plug 'scrooloose/nerdcommenter' " in <space>cn to comment a line;<space>cu to uncomment a line
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
-
 Plug 'tpope/vim-capslock'   " Ctrl+L (insert) to toggle capslock
 Plug 'easymotion/vim-easymotion'
-" === vim-easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_do_shade = 0
-let g:EasyMotion_smartcase = 1
-map ' <Plug>(easymotion-bd-f)
-nmap ' <Plug>(easymotion-bd-f)
-"map E <Plug>(easymotion-j)
-"map U <Plug>(easymotion-k)
-"nmap f <Plug>(easymotion-overwin-f)
-"map \; <Plug>(easymotion-prefix)
-"nmap ' <Plug>(easymotion-overwin-f2)
-"map 'l <Plug>(easymotion-bd-jk)
-"nmap 'l <Plug>(easymotion-overwin-line)
-"map  'w <Plug>(easymotion-bd-w)
-"nmap 'w <Plug>(easymotion-overwin-w)
-
-
 Plug 'Konfekt/FastFold'
-" === fastfold f
-nmap zuz <Plug>(FastFoldUpdate)
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
-let g:markdown_folding = 1
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
-let g:xml_syntax_folding = 1
-let g:javaScript_fold = 1
-let g:sh_fold_enabled= 7
-let g:ruby_fold = 1
-let g:perl_fold = 1
-let g:perl_fold_blocks = 1
-let g:r_syntax_folding = 1
-let g:rust_fold = 1
-let g:php_folding = 1
-
-
-
 Plug 'wincent/terminus'
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'roxma/nvim-yarp'
 
-
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'theniceboy/bullets.vim'
-" ===
-" Markdown Snippets
-autocmd FileType markdown source ~/.config/nvim/my_extra/md-snippets.vim
-" auto spell
-autocmd BufRead,BufNewFile *.md setlocal spell
-" ===
-" === MarkdownPreview
-" ===
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
-let g:mkdp_open_ip = ''
-let g:mkdp_echo_preview_url = 0
-let g:mkdp_browserfunc = ''
-let g:mkdp_preview_options = {
-            \ 'mkit': {},
-            \ 'katex': {},
-            \ 'uml': {},
-            \ 'maid': {},
-            \ 'disable_sync_scroll': 0,
-            \ 'sync_scroll_type': 'middle',
-            \ 'hide_yaml_meta': 1
-            \ }
-let g:mkdp_markdown_css = ''
-let g:mkdp_highlight_css = ''
-let g:mkdp_port = ''
-let g:mkdp_page_title = '「${name}」'
-let g:mkdp_browser = 'firefox'
-" ===
-" === vim-table-mode
-noremap <LEADER>tm :TableModeToggle<CR>
-"let g:table_mode_disable_mappings = 1
-let g:table_mode_cell_text_object_i_map = 'k<Bar>'
-Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
-" ===
-" === vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-
-" Swift
-"Plug 'keith/swift.vim'
-
-" vim-keysound
-Plug 'skywind3000/vim-keysound', {'on': 'KeysoundToggle'}
-noremap <LEADER>ks :KeysoundToggle<CR>
-let g:keysound_enable = 0
-" options [default, typewriter, mario, bubble, sword]
-let g:keysound_theme = 'default' 
-let g:keysound_volume = 1000
-let g:keysound_py_version = 3
-
 call plug#end()
-
 
 
 "===============================================
@@ -602,9 +444,9 @@ let g:startify_lists = [
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ ]
 
-" |||||||             ||||||
-" |||||||   undotree  ||||||
-" |||||||             ||||||
+" |||||||              ||||||
+" |||||||   undotree   ||||||
+" |||||||              ||||||
 noremap <F6> :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
@@ -714,8 +556,10 @@ map <LEADER>gy :Goyo<CR>
 let g:coc_global_extensions = [
         \'coc-lists', 'coc-snippets', 'coc-explorer', 
         \'coc-python', 'coc-pyright', 
-        \'coc-vimlsp', 'coc-sh', 'coc-json', 
-        \'coc-java', 'coc-html', 'coc-css', 'coc-stylelint', 
+        \'coc-vimlsp', 'coc-sh', 
+        \'coc-json', 
+        \'coc-html', 'coc-css', 
+        \'coc-java', 
         \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss', 
         \'coc-git', 'coc-gitignore', 
         \'coc-sourcekit', 'coc-flutter', 
@@ -794,11 +638,117 @@ let g:vim_jsx_pretty_colorful_config = 1
 " |||||||                  ||||||
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
+" |||||||                  ||||||
+" |||||||   vim-snippet    ||||||
+" |||||||                  ||||||
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+
+" |||||||                       ||||||
+" |||||||   vim-visual-multi    ||||||
+" |||||||                       ||||||
+"let g:VM_theme             = 'iceblue'
+"let g:VM_default_mappings = 0
+let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps = {}
+let g:VM_custom_motions  = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0', '4': '$'}
+let g:VM_maps['i']         = 'i'
+let g:VM_maps['I']         = 'I'
+let g:VM_maps['Find Under']         = '<C-u>'
+let g:VM_maps['Find Subword Under'] = '<C-u>'
+let g:VM_maps['Find Next']         = ''
+let g:VM_maps['Find Prev']         = ''
+let g:VM_maps['Remove Region'] = 'q'
+let g:VM_maps['Skip Region'] = ''
+let g:VM_maps["Undo"]      = 'u'
+let g:VM_maps["Redo"]      = '<C-r>'
+
+" |||||||                     ||||||
+" |||||||   vim-easymotion    ||||||
+" |||||||                     ||||||
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_shade = 0
+let g:EasyMotion_smartcase = 1
+map ' <Plug>(easymotion-bd-f)
+nmap ' <Plug>(easymotion-bd-f)
+"map E <Plug>(easymotion-j)
+"map U <Plug>(easymotion-k)
+"nmap f <Plug>(easymotion-overwin-f)
+"map \; <Plug>(easymotion-prefix)
+"nmap ' <Plug>(easymotion-overwin-f2)
+"map 'l <Plug>(easymotion-bd-jk)
+"nmap 'l <Plug>(easymotion-overwin-line)
+"map  'w <Plug>(easymotion-bd-w)
+"nmap 'w <Plug>(easymotion-overwin-w)
+
+" |||||||               ||||||
+" |||||||   FastFold    ||||||
+" |||||||               ||||||
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
+
+" ===
+" Markdown Snippets
+autocmd FileType markdown exec 'source '.g:NHOME.'/my_extra/md-snippets.vim'
+" auto spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+" ===
+" === MarkdownPreview
+" ===
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+            \ 'mkit': {},
+            \ 'katex': {},
+            \ 'uml': {},
+            \ 'maid': {},
+            \ 'disable_sync_scroll': 0,
+            \ 'sync_scroll_type': 'middle',
+            \ 'hide_yaml_meta': 1
+            \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_browser = 'firefox'
+" ===
+" === vim-table-mode
+noremap <LEADER>tm :TableModeToggle<CR>
+"let g:table_mode_disable_mappings = 1
+let g:table_mode_cell_text_object_i_map = 'k<Bar>'
+Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
+" ===
+" === vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 
 
 " experimental
 set lazyredraw
-
 
 " === Necessary Commands to Execute
 exec "nohlsearch"
