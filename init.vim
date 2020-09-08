@@ -160,8 +160,6 @@ noremap! <m-l> <Right>
 "noremap! <M-j> <S-Left>
 "noremap! <M-l> <S-Right>
 " jump to sentence tail
-noremap 4 $
-noremap 6 ^
 noremap ; :
 noremap ` ~
 
