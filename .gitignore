@@ -6,3 +6,6 @@
 
 init.vim.html
 _machine_specific.vim
+
+.*.*
+*.vim*

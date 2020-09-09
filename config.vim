@@ -20,7 +20,9 @@ set cursorline           " highlight current line
 set syntax=on            " turn on syntax highlight
 
 set encoding=utf-8       " set coding is utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+if g:isWin == 0 
+    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+endif
 set termencoding=utf-8
 set pyxversion=3
 set autoread
