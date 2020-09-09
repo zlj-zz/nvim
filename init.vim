@@ -365,7 +365,6 @@ Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to 
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'junegunn/vim-after-object' " da= to delete what's after =
 Plug 'tpope/vim-capslock'   " Ctrl+L (insert) to toggle capslock
-Plug 'easymotion/vim-easymotion'
 Plug 'Konfekt/FastFold'
 Plug 'wincent/terminus'
 " Dependencies
@@ -663,24 +662,6 @@ let g:VM_maps['Remove Region'] = 'q'
 let g:VM_maps['Skip Region'] = ''
 let g:VM_maps["Undo"]      = 'u'
 let g:VM_maps["Redo"]      = '<C-r>'
-
-" |||||||                     ||||||
-" |||||||   vim-easymotion    ||||||
-" |||||||                     ||||||
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_do_shade = 0
-let g:EasyMotion_smartcase = 1
-map ' <Plug>(easymotion-bd-f)
-nmap ' <Plug>(easymotion-bd-f)
-"map E <Plug>(easymotion-j)
-"map U <Plug>(easymotion-k)
-"nmap f <Plug>(easymotion-overwin-f)
-"map \; <Plug>(easymotion-prefix)
-"nmap ' <Plug>(easymotion-overwin-f2)
-"map 'l <Plug>(easymotion-bd-jk)
-"nmap 'l <Plug>(easymotion-overwin-line)
-"map  'w <Plug>(easymotion-bd-w)
-"nmap 'w <Plug>(easymotion-overwin-w)
 
 " |||||||               ||||||
 " |||||||   FastFold    ||||||
