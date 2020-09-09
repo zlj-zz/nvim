@@ -58,50 +58,50 @@ let g:startify_files_number = 15
 "      \ { 'type': 'sessions',  'header': ['   Sessions']       },
 "      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
 "      \ ]
-"
-"if g:isWin == 0
-"    " |||||||              ||||||
-"    " |||||||   undotree   ||||||
-"    " |||||||              ||||||
-"    noremap <F6> :UndotreeToggle<CR>
-"    let g:undotree_DiffAutoOpen = 1
-"    let g:undotree_SetFocusWhenToggle = 1
-"    let g:undotree_ShortIndicators = 1
-"    let g:undotree_WindowLayout = 2
-"    let g:undotree_DiffpanelHeight = 8
-"    let g:undotree_SplitWidth = 24
-"    function g:Undotree_CustomMap()
-"        nmap <buffer> k <plug>UndotreeNextState
-"        nmap <buffer> j <plug>UndotreePreviousState
-"        nmap <buffer> K 5<plug>UndotreeNextState
-"        nmap <buffer> J 5<plug>UndotreePreviousState
-"    endfunc
-"
-"    " |||||||             ||||||
-"    " |||||||   tagbar    ||||||
-"    " |||||||             ||||||
-"    nmap <F8> :TagbarToggle<CR>
-"    let g:tagbar_sort=0  " close auto sort
-"    let g:tagbar_width=30  " set window width
-"    "let g:tagbar_autopreview = 1
-"    let g:tagbar_autofocus = 1
-"    "autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
-"    function! s:init_var(var, value) abort
-"        if !exists('g:tagbar_' . a:var)
-"            execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
-"        endif
-"    endfunction
-"    function! s:setup_keymaps() abort
-"        let keymaps = [
-"                    \ ['togglecaseinsensitive', ''],
-"                    \ ]
-"        for [map, key] in keymaps
-"            call s:init_var('map_' . map, key)
-"            unlet key
-"        endfor
-"    endfunction
-"    call s:setup_keymaps()
-"endif
+
+" |||||||              ||||||
+" |||||||   undotree   ||||||
+" |||||||              ||||||
+noremap <F6> :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+let g:undotree_SplitWidth = 24
+function g:Undotree_CustomMap()
+    nmap <buffer> k <plug>UndotreeNextState
+    nmap <buffer> j <plug>UndotreePreviousState
+    nmap <buffer> K 5<plug>UndotreeNextState
+    nmap <buffer> J 5<plug>UndotreePreviousState
+endfunc
+
+if g:isWin == 0
+    " |||||||             ||||||
+    " |||||||   tagbar    ||||||
+    " |||||||             ||||||
+    nmap <F8> :TagbarToggle<CR>
+    let g:tagbar_sort=0  " close auto sort
+    let g:tagbar_width=30  " set window width
+    "let g:tagbar_autopreview = 1
+    let g:tagbar_autofocus = 1
+    "autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
+    function! s:init_var(var, value) abort
+        if !exists('g:tagbar_' . a:var)
+            execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
+        endif
+    endfunction
+    function! s:setup_keymaps() abort
+        let keymaps = [
+                    \ ['togglecaseinsensitive', ''],
+                    \ ]
+        for [map, key] in keymaps
+            call s:init_var('map_' . map, key)
+            unlet key
+        endfor
+    endfunction
+    call s:setup_keymaps()
+endif
 
 " |||||||             ||||||
 " |||||||   nerdtree  ||||||
@@ -260,16 +260,16 @@ let g:rainbow_active = 1
 "" ||||||| vim-after-object ||||||
 "" |||||||                  ||||||
 "autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
-"
-"" |||||||                  ||||||
-"" |||||||   vim-snippet    ||||||
-"" |||||||                  ||||||
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
-"
+
+" |||||||                  ||||||
+" |||||||   vim-snippet    ||||||
+" |||||||                  ||||||
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+
 "" |||||||                       ||||||
 "" |||||||   vim-visual-multi    ||||||
 "" |||||||                       ||||||

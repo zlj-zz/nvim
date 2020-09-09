@@ -40,45 +40,48 @@ endif
 
 Plug 'mhinz/vim-startify' " enter navigation menu
 Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
+Plug 'mbbill/undotree',{'on': 'UndotreeToggle'} " Undo Tree, to see history
+"" Editor Enhancement
 Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
-Plug 'Yggdroot/indentLine' " show indentation line
 Plug 'luochen1990/rainbow'
+Plug 'Yggdroot/indentLine' " show indentation line
 Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
-Plug 'ryanoasis/vim-devicons' " add icon to vim plug
+Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu to uncomment
+Plug 'jiangmiao/auto-pairs'
+" HTML, CSS, JavaScript, PHP, JSON, etc.
+"Plug 'elzr/vim-json'
+"Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+" Python
+Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
+Plug 'tweekmonster/braceless.vim'
+" Snippets
+Plug 'SirVer/ultisnips' " Track the engine.
+Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+
 
 if g:isWin == 0
+    Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags " Tagbar, easy read program, function bar
+    Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     "Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
 
     "Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     "Plug 'junegunn/fzf.vim',{'on': 'FZF'} " File navigation
 
-    "Plug 'scrooloose/nerdcommenter'  " in <space>cn to comment a line
     ""Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } " Find & Replace
-    "Plug 'osyo-manga/vim-anzu' " show search position
     "Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
-    "" Editor Enhancement
-    "Plug 'jiangmiao/auto-pairs'
+
     "Plug 'mg979/vim-visual-multi'
 
     "" Auto Complete Coc
     ""Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
     "Plug 'wellle/tmux-complete.vim'
-    "" Snippets
-    ""Plug 'SirVer/ultisnips' " Track the engine.
-    "Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
-    "" HTML, CSS, JavaScript, PHP, JSON, etc.
-    "Plug 'elzr/vim-json'
-    "Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-    "Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-    "Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-    "Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-    "Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-    "" Python
-    "Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
-    "Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-    "Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
-    "Plug 'tweekmonster/braceless.vim'
     "" Go
     ""Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
@@ -102,10 +105,5 @@ if g:isWin == 0
 
 
 
-
-
-
-    "Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags " Tagbar, easy read program, function bar
-    "Plug 'mbbill/undotree',{'on': 'UndotreeToggle'} " Undo Tree, to see history
 endif
 call plug#end()
