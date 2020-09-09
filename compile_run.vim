@@ -34,3 +34,10 @@ func! CompileRunGcc()
     endif
 endfunc
 
+map <F9> :call CompileRunGcc()<CR>
+
+" =============== ipython run ================
+"noremap ,i :sp<CR><C-w>j:term ipython<CR> i %run
+" --------------------------------------------
+" Open up pudb, a python debug,(pip install --user pudb)
+"noremap <c-d> :tab sp<CR>:term python3 -m pudb %<CR>

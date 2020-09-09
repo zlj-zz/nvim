@@ -15,3 +15,7 @@ autocmd Filetype markdown inoremap <buffer> ,m - [ ] <Enter><++><ESC>kA
 autocmd Filetype markdown inoremap <buffer> ,p ![](<++>) <++><Esc>F[a
 autocmd Filetype markdown inoremap <buffer> ,a [](<++>) <++><Esc>F[a
 
+" auto open spell check if the fiel type is md
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+

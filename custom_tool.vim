@@ -114,3 +114,10 @@ func! CreateTmpFile()
     silent! exec "!mkdir ~/.config/nvim/demo"
     silent! exec "!touch ~/.config/nvim/demo/tmp.{c,py,java,js,html,css,sh}"
 endfunc
+
+
+"augroup fileTitle
+"  autocmd FileType c,cpp,python,java,sh 
+"  nmap tit :call SetTitle()<CR>
+"  nmap upd :call SetLastModifiedTime(-1)<CR>
+"augroup END
