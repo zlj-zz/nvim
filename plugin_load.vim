@@ -8,7 +8,7 @@ Plug 'KabbAmine/vCoolor.vim'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'bling/vim-bufferline'
+"Plug 'bling/vim-bufferline'
 "Plug 'mg979/vim-xtabline'     " top tabline
 "" === color theme ===
 Plug 'ajmwagar/vim-deus'
@@ -58,7 +58,13 @@ Plug 'tweekmonster/braceless.vim'
 " Go
 "Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 " Dart && Flutter
-"Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
+Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml']  }
+
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+let g:dartfmt_options = ["-l 100"]
 " Markdown
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Dependencies

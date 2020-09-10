@@ -7,6 +7,7 @@
 "" |||||||                ||||||
 "" ||||||| vim-illuminate ||||||
 "" |||||||                ||||||
+set laststatus=2
 let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -149,21 +150,23 @@ map <LEADER>gy :Goyo<CR>
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 "set signcolumn=no  " no side bar
 let g:coc_global_extensions = [
-        \'coc-lists', 
-        \'coc-snippets', 
-        \'coc-explorer', 
-        \'coc-git', 
-        \'coc-gitignore', 
-        \'coc-python', 
-        \'coc-pyright', 
-        \'coc-vimlsp', 
-        \'coc-sh', 
-        \'coc-json', 
-        \'coc-html', 
-        \'coc-css', 
-        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss', 
-        \'coc-sourcekit', 'coc-flutter', 
-        \'coc-yank',  'coc-translator', 
+        \'coc-lists',
+        \'coc-snippets',
+        \'coc-explorer',
+        \'coc-git',
+        \'coc-gitignore',
+        \'coc-vimlsp',
+        \'coc-sh',
+        \'coc-python',
+        \'coc-pyright',
+        \'coc-flutter',
+        \'coc-flutter-tools',
+        \'coc-json',
+        \'coc-html',
+        \'coc-css',
+        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
+        \'coc-sourcekit',
+        \'coc-yank',  'coc-translator',
     \]
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)

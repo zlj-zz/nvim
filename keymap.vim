@@ -119,7 +119,7 @@ nnoremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 " resource neovim config
 map rc :source $MYVIMRC<CR>
 " Opening a terminal window
-nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
+nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +1<CR>:term<CR>
 tnoremap <C-N> <C-\><C-N>
 " find two same word
 nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1
