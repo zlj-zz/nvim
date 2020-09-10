@@ -15,11 +15,13 @@ map Q :q<CR>
 map <c-q> :q!<CR>
 " make Y to copy till the end of the line
 nnoremap Y y$
-" Copy to system clipboard
-vnoremap <c-c> "+y
 " Indentation
 nnoremap < <<
 nnoremap > >>
+" Copy to system clipboard
+vnoremap <c-c> "+y
+" Past from system clipboard
+vnoremap <c-v> "+p
 " select all
 map <c-a> ggVG
 
@@ -127,8 +129,10 @@ nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
 nnoremap <LEADER>sc :set spell!<CR>
 "  paste mode
 nnoremap <leader>pm :set paste!<cr>
-" lazygit
-noremap gl :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
+if g:isWin == 0
+    " lazygit
+    noremap gl :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
+endif
 
 " Auto change directory to current dir
 "autocmd BufEnter * silent! lcd %:p:h

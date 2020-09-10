@@ -7,12 +7,21 @@
 "" |||||||                ||||||
 "" ||||||| vim-illuminate ||||||
 "" |||||||                ||||||
+let g:airline_theme='atomic'
+let g:airline#extensions#tabline#enabled = 1
+
+
+"  |||||||                ||||||
+"" ||||||| vim-illuminate ||||||
+"" |||||||                ||||||
 "let g:Illuminate_delay = 750
-"
+
+
 "" |||||||             ||||||
 "" ||||||| eleline.vim ||||||
 "" |||||||             ||||||
 "let g:airline_powerline_fonts = 0
+
 
 " |||||||             ||||||
 " |||||||   xtabline  ||||||
@@ -23,6 +32,7 @@ let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
 noremap \p :XTabInfo<CR>
+
 
 " |||||||              ||||||
 " ||||||| vim-startity ||||||
@@ -94,20 +104,17 @@ endfunction
 call s:initVariable("g:NERDTreeMapOpenSplit", "h")
 
 
-"" |||||||             |||||| (sudo pacman -S fzf)
-"" |||||||   fzf.vim   ||||||
-"" |||||||             ||||||
-"noremap <c-f> :FZF<CR>
-"
 " |||||||                ||||||
 " ||||||| vim-autoformat ||||||
 " |||||||                ||||||
 nnoremap \f :Autoformat<CR>
 
+
 " |||||||                        ||||||
 " ||||||| semantic-highlight.vim ||||||
 " |||||||                        ||||||
 noremap \h :SemanticHighlightToggle<cr>
+
 
 " |||||||             ||||||
 " ||||||| indentLine  ||||||
@@ -116,16 +123,18 @@ let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 238
 let g:indentLine_char = '|'
 
+
 " |||||||             ||||||
 " |||||||   rainbow   ||||||
 " |||||||             ||||||
 let g:rainbow_active = 1
 
+
 "" |||||||             ||||||
 "" |||||||  vim-anzu   ||||||
 "" |||||||             ||||||
 "set statusline=%{anzu#search_status()}
-"
+
 
 " |||||||             ||||||
 " |||||||  goyo.vim   ||||||
@@ -140,14 +149,19 @@ map <LEADER>gy :Goyo<CR>
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 "set signcolumn=no  " no side bar
 let g:coc_global_extensions = [
-        \'coc-lists', 'coc-snippets', 'coc-explorer', 
-        \'coc-python', 'coc-pyright', 
-        \'coc-vimlsp', 'coc-sh', 
+        \'coc-lists', 
+        \'coc-snippets', 
+        \'coc-explorer', 
+        \'coc-git', 
+        \'coc-gitignore', 
+        \'coc-python', 
+        \'coc-pyright', 
+        \'coc-vimlsp', 
+        \'coc-sh', 
         \'coc-json', 
-        \'coc-html', 'coc-css', 
-        \'coc-java', 
+        \'coc-html', 
+        \'coc-css', 
         \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss', 
-        \'coc-git', 'coc-gitignore', 
         \'coc-sourcekit', 'coc-flutter', 
         \'coc-yank',  'coc-translator', 
     \]
@@ -300,7 +314,6 @@ let g:php_folding = 1
 "let g:mkdp_port = ''
 "let g:mkdp_page_title = '「${name}」'
 "let g:mkdp_browser = 'firefox'
-"" ===
 
 
 " |||||||                ||||||
@@ -372,4 +385,10 @@ if g:isWin == 0
                 \ 'row': 0,
                 \ 'style': 'minimal' }
     let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}] 
+
+
+    " |||||||             |||||| (sudo pacman -S fzf)
+    " |||||||   fzf.vim   ||||||
+    " |||||||             ||||||
+    noremap <c-f> :FZF<CR>
 endif
