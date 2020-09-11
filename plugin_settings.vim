@@ -4,29 +4,23 @@
 "=                                             =
 "===============================================
 
-"" |||||||                ||||||
-"" ||||||| vim-illuminate ||||||
-"" |||||||                ||||||
+" \\\\\\
+" >>>>>>> vim-illuminate 
+" //////
 set laststatus=2
 let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 1
 
 
-"  |||||||                ||||||
-"" ||||||| vim-illuminate ||||||
-"" |||||||                ||||||
+" \\\\\\
+" >>>>>>> vim-illuminate 
+" //////
 "let g:Illuminate_delay = 750
 
 
-"" |||||||             ||||||
-"" ||||||| eleline.vim ||||||
-"" |||||||             ||||||
-"let g:airline_powerline_fonts = 0
-
-
-" |||||||             ||||||
-" |||||||   xtabline  ||||||
-" |||||||             ||||||
+" \\\\\\
+" >>>>>>> xtabline 
+" //////
 let g:xtabline_settings = {}
 let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
@@ -35,9 +29,9 @@ let g:xtabline_settings.last_open_first = 1
 noremap \p :XTabInfo<CR>
 
 
-" |||||||              ||||||
-" ||||||| vim-startity ||||||
-" |||||||              ||||||
+"" \\\\\\
+"" >>>>>>> vim-startity 
+"" //////
 nmap <F5> <c-t>:Startify<cr>
 let g:ascii = [
       \ '           __',
@@ -71,9 +65,9 @@ let g:startify_files_number = 15
 "      \ ]
 
 
-" |||||||              ||||||
-" |||||||   undotree   ||||||
-" |||||||              ||||||
+"" \\\\\\
+"" >>>>>>> undotree 
+"" //////
 noremap <F6> :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
@@ -89,9 +83,9 @@ function g:Undotree_CustomMap()
 endfunc
 
 
-" |||||||             ||||||
-" |||||||   nerdtree  ||||||
-" |||||||             ||||||
+"" \\\\\\
+"" >>>>>>> nerdtree 
+"" //////
 map <F7> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeShowBookmarks=1
@@ -105,47 +99,47 @@ endfunction
 call s:initVariable("g:NERDTreeMapOpenSplit", "h")
 
 
-" |||||||                ||||||
-" ||||||| vim-autoformat ||||||
-" |||||||                ||||||
+" \\\\\\
+" >>>>>>> vim-autoformat 
+" //////
 nnoremap \f :Autoformat<CR>
 
 
-" |||||||                        ||||||
-" ||||||| semantic-highlight.vim ||||||
-" |||||||                        ||||||
+" \\\\\\
+" >>>>>>> semantic-highlight.vim 
+" //////
 noremap \h :SemanticHighlightToggle<cr>
 
 
-" |||||||             ||||||
-" ||||||| indentLine  ||||||
-" |||||||             ||||||
+" \\\\\\
+" >>>>>>> indentLine 
+" //////
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 238
 let g:indentLine_char = '|'
 
 
-" |||||||             ||||||
-" |||||||   rainbow   ||||||
-" |||||||             ||||||
+" \\\\\\
+" >>>>>>> rainbow 
+" //////
 let g:rainbow_active = 1
 
 
-"" |||||||             ||||||
-"" |||||||  vim-anzu   ||||||
-"" |||||||             ||||||
+" \\\\\\
+" >>>>>>> vim-anzu 
+" //////
 "set statusline=%{anzu#search_status()}
 
 
-" |||||||             ||||||
-" |||||||  goyo.vim   ||||||
-" |||||||             ||||||
+" \\\\\\
+" >>>>>>> goyo.vim 
+" //////
 map <LEADER>gy :Goyo<CR>
 
 
-" |||||||             ||||||
-" |||||||      coc    ||||||
-" |||||||             ||||||
+" \\\\\\
+" >>>>>>> coc 
+" //////
 " fix the most annoying bug that coc has
 "silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 "set signcolumn=no  " no side bar
@@ -232,28 +226,30 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 
-"" |||||||             ||||||
-"" |||||||     jsx     ||||||
-"" |||||||             ||||||
+" \\\\\\
+" >>>>>>> jsx 
+" //////
 "let g:vim_jsx_pretty_colorful_config = 1
-"
-"" |||||||                  ||||||
-"" ||||||| vim-after-object ||||||
-"" |||||||                  ||||||
+
+
+" \\\\\\
+" >>>>>>> vim-after-object 
+" //////
 "autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
-" |||||||                  ||||||
-" |||||||   vim-snippet    ||||||
-" |||||||                  ||||||
+
+" \\\\\\
+" >>>>>>> vim-snippet 
+" //////
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
 
-"" |||||||                       ||||||
-"" |||||||   vim-visual-multi    ||||||
-"" |||||||                       ||||||
+" \\\\\\
+" >>>>>>> vim-visual-multi 
+" //////
 ""let g:VM_theme             = 'iceblue'
 ""let g:VM_default_mappings = 0
 "let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
@@ -271,9 +267,9 @@ let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.
 "let g:VM_maps["Redo"]      = '<C-r>'
 
 
-" |||||||               ||||||
-" |||||||   FastFold    ||||||
-" |||||||               ||||||
+" \\\\\\
+" >>>>>>> FastFold 
+" //////
 nmap zuz <Plug>(FastFoldUpdate)
 let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
@@ -292,43 +288,43 @@ let g:rust_fold = 1
 let g:php_folding = 1
 
 
-"" ===
-"" === MarkdownPreview
-"" ===
-"let g:mkdp_auto_start = 0
-"let g:mkdp_auto_close = 1
-"let g:mkdp_refresh_slow = 0
-"let g:mkdp_command_for_global = 0
-"let g:mkdp_open_to_the_world = 0
-"let g:mkdp_open_ip = ''
-"let g:mkdp_echo_preview_url = 0
-"let g:mkdp_browserfunc = ''
-"let g:mkdp_preview_options = {
-"            \ 'mkit': {},
-"            \ 'katex': {},
-"            \ 'uml': {},
-"            \ 'maid': {},
-"            \ 'disable_sync_scroll': 0,
-"            \ 'sync_scroll_type': 'middle',
-"            \ 'hide_yaml_meta': 1
-"            \ }
-"let g:mkdp_markdown_css = ''
-"let g:mkdp_highlight_css = ''
-"let g:mkdp_port = ''
-"let g:mkdp_page_title = '「${name}」'
-"let g:mkdp_browser = 'firefox'
+" \\\\\\
+" >>>>>>> MarkdownPreview 
+" //////
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+            \ 'mkit': {},
+            \ 'katex': {},
+            \ 'uml': {},
+            \ 'maid': {},
+            \ 'disable_sync_scroll': 0,
+            \ 'sync_scroll_type': 'middle',
+            \ 'hide_yaml_meta': 1
+            \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_browser = 'firefox'
 
 
-" |||||||                ||||||
-" ||||||| vim-table-mode ||||||
-" |||||||                ||||||
+"" \\\\\\
+"" >>>>>>> vim-table-mode 
+"" //////
 noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
-
-"" ===
-"" === vim-easy-align
+" \\\\\\
+" >>>>>>> vim-easy-align 
+" //////
 "xmap ga <Plug>(EasyAlign)
 "nmap ga <Plug>(EasyAlign)
 
@@ -346,12 +342,12 @@ if g:isWin == 0
             let g:bg_flag = 1
         endif
     endfunc
-
-
     map cbg :call ChangeGuibg()<CR>
-    " |||||||             ||||||
-    " |||||||   tagbar    ||||||
-    " |||||||             ||||||
+
+
+    " \\\\\\
+    " >>>>>>> tagbar 
+    " //////
     nmap <F8> :TagbarToggle<CR>
     let g:tagbar_sort=0  " close auto sort
     let g:tagbar_width=30  " set window width
@@ -375,9 +371,9 @@ if g:isWin == 0
     call s:setup_keymaps()
 
 
-    " |||||||             ||||||
-    " |||||||   rnvimr    ||||||
-    " |||||||             ||||||
+  " \\\\\\
+  " >>>>>>> rnvimr 
+  " //////
     let g:rnvimr_ex_enable = 1
     let g:rnvimr_pick_enable = 1
     nnoremap <silent> ra :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
@@ -390,8 +386,8 @@ if g:isWin == 0
     let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}] 
 
 
-    " |||||||             |||||| (sudo pacman -S fzf)
-    " |||||||   fzf.vim   ||||||
-    " |||||||             ||||||
+    " \\\\\\             (sudo pacman -S fzf)
+    " >>>>>>> fzf.vim 
+    " //////
     noremap <c-f> :FZF<CR>
 endif

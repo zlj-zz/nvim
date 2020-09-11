@@ -66,7 +66,9 @@ let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 let g:dartfmt_options = ["-l 100"]
 " Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 " Dependencies
 Plug 'kana/vim-textobj-user'
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
@@ -87,8 +89,6 @@ if g:isWin == 0
     "Plug 'wincent/terminus'
 
     "" Markdown
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
-    Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
     "Plug 'theniceboy/bullets.vim'
 endif
 

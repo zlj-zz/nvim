@@ -1,6 +1,7 @@
 # This is my neovim
 
 **This is just my configuration of NEOVIM, for reference only.**
+> now can use the configuration in windows easyly.
 
 ![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
 
@@ -31,8 +32,8 @@
     * [vim-startify](#vim-startify)
     * [vim-markdown-toc](#vim-markdown-toc)
     * [vim-table-mode](#vim-table-mode)
-    * [nerdcommenter](#nerdcommenter)
-    * [vim-keysound](#vim-keysound)
+    * [~~nerdcommenter~~](#nerdcommenter)
+    * [~~vim-keysound~~](#vim-keysound)
 
 <!-- vim-markdown-toc -->
 
@@ -106,8 +107,8 @@ let `Q` to quit (same as command `:q`).
 | `alt`+`l`  | → in insert mode                                          | `<right>`  |
 | `alt`+`a`  | move cursor to head in insert mode                        | `<home>`   |
 | `alt`+`s`  | move cursor to tail in insert mode                        | `<end>`    |
-| `0`        | move cursor to head in normal mode                        | `0`        |
-| `4`        | move cursor to head in normal mode                        | `$`        |
+| `0`        | ~~move cursor to head in normal mode~~                    | `0`        |
+| `4`        | ~~move cursor to head in normal mode~~                    | `$`        |
 
 ### Remapped commands in Normal Mode
 
@@ -147,6 +148,8 @@ You can use `ZZ` command, this command writes the file and exits.
 In normal mode make `Y` to copy till the end of the line (same as `y$`).
 
 In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
+
+In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`).
 
 let `ctrl+a` to select all (same as `ggVG`).
 
@@ -229,7 +232,7 @@ First start will generate 5 temporary file with suffixes of `.c`, `.java`, `.py`
 
 ![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
 
-### vim-markdown-toc 
+### vim-markdown-toc
 
 >(generate table of contents for markdown files)
 
@@ -244,7 +247,7 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 | `space` `t` `m` | toggle table mode |
 | `space` `t` `r` | realign table     |
 
-### nerdcommenter
+### ~~nerdcommenter~~
 
 > A code comment plugin.
 
@@ -253,7 +256,7 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
 
-### vim-keysound
+### ~~vim-keysound~~
 
 *make your vim a typewriter*
 
