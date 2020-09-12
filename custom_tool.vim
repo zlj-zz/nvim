@@ -91,17 +91,17 @@ endfunc
 func! SetLastModifiedTime(lineno)
     let modif_time = strftime("%Y-%m-%d")
     if a:lineno == "-1"
-            let line = getline(7)
+        let line = getline(7)
     else
-            let line = getline(a:lineno)
+        let line = getline(a:lineno)
     endif
     if line =~ 'Last Modified:'
-            let line = strpart(line, 0, stridx(line, ":")).": ".modif_time
+        let line = strpart(line, 0, stridx(line, ":")).": ".modif_time
     endif
     if a:lineno == "-1"
-            call setline(7, line)
+        call setline(7, line)
     else
-            call append(a:lineno, line)
+        call append(a:lineno, line)
     endif
 endfunc
 
@@ -117,7 +117,35 @@ endfunc
 
 
 "augroup fileTitle
-"  autocmd FileType c,cpp,python,java,sh 
-"  nmap tit :call SetTitle()<CR>
-"  nmap upd :call SetLastModifiedTime(-1)<CR>
+    "autocmd FileType c,cpp,python,java,sh
+    "nmap tit :call SetTitle()<CR>
+    "nmap upd :call SetLastModifiedTime(-1)<CR>
 "augroup END
+
+"func! OpenFloatingWin()
+    "let height = &lines - 3
+    "let width = float2nr(&colums - (&colums * 2 / 10))
+    "let col = float2nr((&colums - width) / 2)
+
+    "let opts = {
+                "\ 'relative': 'editor',
+                "\ 'row': height * 0.3,
+                "\ 'col': col + 30,
+                "\ 'width': width * 2 / 3,
+                "\ 'height': height / 2
+                "\}
+
+    "let buf = nvim_create_buf(v:false, v:true)
+    "let win = nvim_open_win(buf, v:true, opts)
+
+    "" 设置浮动窗口高亮
+    "call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+    "setlocal
+                "\ buftype=nofile
+                "\ nobuflisted
+                "\ bufhidden=hide
+                "\ nonumber
+                "\ norelativenumber
+                "\ signcolumn=no
+"endfunction
