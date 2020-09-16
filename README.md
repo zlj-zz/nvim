@@ -1,3 +1,35 @@
+<!-- vim-markdown-toc GFM -->
+
+* [This is my neovim](#this-is-my-neovim)
+    * [After Installation, You Need To](#after-installation-you-need-to)
+    * [After Installation, You Might Want To](#after-installation-you-might-want-to)
+        * [First of all(neovim)](#first-of-allneovim)
+        * [For Python Debugger (via `vimspector`)](#for-python-debugger-via-vimspector)
+        * [Config Python path](#config-python-path)
+        * [For Taglist:](#for-taglist)
+        * [For FZF](#for-fzf)
+        * [And may also...](#and-may-also)
+    * [Keyboard Shortcuts](#keyboard-shortcuts)
+        * [Curosr movement](#curosr-movement)
+        * [Remapped cursor movement](#remapped-cursor-movement)
+        * [Remapped commands in Normal Mode](#remapped-commands-in-normal-mode)
+        * [Window management](#window-management)
+        * [Tab management](#tab-management)
+        * [Other](#other)
+    * [Plugin](#plugin)
+        * [Coc](#coc)
+        * [vim-visual-multi](#vim-visual-multi)
+        * [vim-easymotion](#vim-easymotion)
+        * [vim-after-object](#vim-after-object)
+        * [vim-easy-align](#vim-easy-align)
+        * [vim-startify](#vim-startify)
+        * [vim-markdown-toc](#vim-markdown-toc)
+        * [vim-table-mode](#vim-table-mode)
+        * [~~nerdcommenter~~](#nerdcommenter)
+        * [~~vim-keysound~~](#vim-keysound)
+* [Use for vim](#use-for-vim)
+
+<!-- vim-markdown-toc -->
 # This is my neovim
 
 **This is just my configuration of NEOVIM, for reference only.**
@@ -6,36 +38,6 @@
 ![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
 
 
-<!-- vim-markdown-toc GFM -->
-
-* [After Installation, You Need To](#after-installation-you-need-to)
-* [After Installation, You Might Want To](#after-installation-you-might-want-to)
-    * [First of all](#first-of-all)
-    * [For Python Debugger (via `vimspector`)](#for-python-debugger-via-vimspector)
-    * [Config Python path](#config-python-path)
-    * [For Taglist:](#for-taglist)
-    * [For FZF](#for-fzf)
-    * [And may also...](#and-may-also)
-* [Keyboard Shortcuts](#keyboard-shortcuts)
-    * [Curosr movement](#curosr-movement)
-    * [Remapped cursor movement](#remapped-cursor-movement)
-    * [Remapped commands in Normal Mode](#remapped-commands-in-normal-mode)
-    * [Window management](#window-management)
-    * [Tab management](#tab-management)
-    * [Other](#other)
-* [Plugin](#plugin)
-    * [Coc](#coc)
-    * [vim-visual-multi](#vim-visual-multi)
-    * [vim-easymotion](#vim-easymotion)
-    * [vim-after-object](#vim-after-object)
-    * [vim-easy-align](#vim-easy-align)
-    * [vim-startify](#vim-startify)
-    * [vim-markdown-toc](#vim-markdown-toc)
-    * [vim-table-mode](#vim-table-mode)
-    * [~~nerdcommenter~~](#nerdcommenter)
-    * [~~vim-keysound~~](#vim-keysound)
-
-<!-- vim-markdown-toc -->
 
 ## After Installation, You Need To
 
@@ -47,7 +49,7 @@ Install nerd-fonts (actually it's optional)
 
 ## After Installation, You Might Want To
 
-### First of all
+### First of all(neovim)
 
 Do `:checkhealth`
 
@@ -267,6 +269,11 @@ pip install pysdl2
 sudo pacman -S sdl sdl-mixer
 ```
 
+# Use for vim
+```
+ln -s xxx/nvim ~/.vim
+ln -s xxx/nvim/init.vim ./vimrc
+```
 
 <font size=50px; ><b>This is bottom</b></font>
 
