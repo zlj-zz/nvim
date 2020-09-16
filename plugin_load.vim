@@ -81,7 +81,6 @@ if g:isWin == 0
     "Plug 'https://github.com/vim-scripts/fcitx.vim.git'  " let you can use fcitx in vim
     Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags " Tagbar, easy read program, function bar
     "Plug 'ryanoasis/vim-devicons' " add icon to vim plug
-    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     Plug 'junegunn/fzf.vim',{'on': 'FZF'} " File navigation
 
     "Plug 'roxma/nvim-yarp' " a other vim plugin manager

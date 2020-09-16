@@ -371,21 +371,6 @@ if g:isWin == 0
     call s:setup_keymaps()
 
 
-  " \\\\\\
-  " >>>>>>> rnvimr 
-  " //////
-    let g:rnvimr_ex_enable = 1
-    let g:rnvimr_pick_enable = 1
-    nnoremap <silent> ra :RnvimrSync<CR>:RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-    let g:rnvimr_layout = { 'relative': 'editor',
-                \ 'width': &columns,
-                \ 'height': &lines,
-                \ 'col': 0,
-                \ 'row': 0,
-                \ 'style': 'minimal' }
-    let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}] 
-
-
     " \\\\\\             (sudo pacman -S fzf)
     " >>>>>>> fzf.vim 
     " //////
