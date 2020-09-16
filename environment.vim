@@ -20,10 +20,10 @@ execute 'source '.g:NHOME.'/_machine_specific.vim'
 " === create temp folder
 " === create undo folder if have plugin persistent_undo
 " === path = ~/.tmp
-if empty(glob(g:NHOME.'/tmp'))
-  silent !mkdir -p $HOME/.tmp/backup'
-  silent !mkdir -p $HOME/.tmp/undo'
-  silent !mkdir -p $HOME/.tmp/sessions'
+if empty(glob($HOME.'/.tmp'))
+  silent !mkdir -p $HOME/.tmp/backup
+  silent !mkdir -p $HOME/.tmp/undo
+  silent !mkdir -p $HOME/.tmp/sessions
 endif
 set backupdir=$HOME/.tmp/backup
 set directory=$HOME/.tmp/backup

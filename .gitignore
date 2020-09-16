@@ -9,3 +9,4 @@ _machine_specific.vim
 
 .*.*
 *.vim*
+vimrc

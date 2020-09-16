@@ -31,7 +31,11 @@ if has("gui_running")
     let g:NHOME = join(split($MYVIMRC, '\')[:-2], '\').'/nvim'
 else
     let g:isGUI = 0
-    let g:NHOME = join(split($MYVIMRC, '\')[:-2], '\')
+    if (isWin)
+        let g:NHOME = join(split($MYVIMRC, '\')[:-2], '\')
+    else
+        let g:NHOME = '/'.join(split($MYVIMRC, '/')[:-2], '/')
+    endif
 endif
 
 
