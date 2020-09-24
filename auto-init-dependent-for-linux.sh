@@ -8,6 +8,7 @@ dependent_softwares=("python2.7" \
     "npm" \
     "ranger "\
     "w3m"
+    "screen"
     "fzf" \
     "ctags"\
     "xclip" \
