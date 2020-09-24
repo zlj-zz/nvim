@@ -68,7 +68,7 @@ let g:startify_files_number = 15
 "" \\\\\\
 "" >>>>>>> undotree 
 "" //////
-noremap <F6> :UndotreeToggle<CR>
+noremap tu :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -86,17 +86,17 @@ endfunc
 "" \\\\\\
 "" >>>>>>> nerdtree 
 "" //////
-map <F7> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
-let NERDTreeShowBookmarks=1
-function! s:initVariable(var, value)
-    if !exists(a:var)
-        exec 'let ' . a:var . ' = ' . "'" . substitute(a:value, "'", "''", "g") . "'"
-        return 1
-    endif
-    return 0
-endfunction
-call s:initVariable("g:NERDTreeMapOpenSplit", "h")
+"map <F7> :NERDTreeToggle<CR>
+"let NERDTreeIgnore = ['\.pyc$']
+"let NERDTreeShowBookmarks=1
+"function! s:initVariable(var, value)
+    "if !exists(a:var)
+        "exec 'let ' . a:var . ' = ' . "'" . substitute(a:value, "'", "''", "g") . "'"
+        "return 1
+    "endif
+    "return 0
+"endfunction
+"call s:initVariable("g:NERDTreeMapOpenSplit", "h")
 
 
 " \\\\\\
@@ -345,30 +345,40 @@ if g:isWin == 0
     map cbg :call ChangeGuibg()<CR>
 
 
+    "" \\\\\\
+    "" >>>>>>> tagbar 
+    "" //////
+    "nmap <F8> :TagbarToggle<CR>
+    "let g:tagbar_sort=0  " close auto sort
+    "let g:tagbar_width=30  " set window width
+    ""let g:tagbar_autopreview = 1
+    "let g:tagbar_autofocus = 1
+    ""autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
+    "function! s:init_var(var, value) abort
+        "if !exists('g:tagbar_' . a:var)
+            "execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
+        "endif
+    "endfunction
+    "function! s:setup_keymaps() abort
+        "let keymaps = [
+                    "\ ['togglecaseinsensitive', ''],
+                    "\ ]
+        "for [map, key] in keymaps
+            "call s:init_var('map_' . map, key)
+            "unlet key
+        "endfor
+    "endfunction
+    "call s:setup_keymaps()
+
+
     " \\\\\\
-    " >>>>>>> tagbar 
+    " >>>>>>> Vista 
     " //////
-    nmap <F8> :TagbarToggle<CR>
-    let g:tagbar_sort=0  " close auto sort
-    let g:tagbar_width=30  " set window width
-    "let g:tagbar_autopreview = 1
-    let g:tagbar_autofocus = 1
-    "autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
-    function! s:init_var(var, value) abort
-        if !exists('g:tagbar_' . a:var)
-            execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
-        endif
-    endfunction
-    function! s:setup_keymaps() abort
-        let keymaps = [
-                    \ ['togglecaseinsensitive', ''],
-                    \ ]
-        for [map, key] in keymaps
-            call s:init_var('map_' . map, key)
-            unlet key
-        endfor
-    endfunction
-    call s:setup_keymaps()
+    " use `p` to preview
+    " use `q` to quit
+    nmap ti :Vista!!<CR>
+    let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+    let g:vista#renderer#enable_icon = 1
 
 
     " \\\\\\             (sudo pacman -S fzf)

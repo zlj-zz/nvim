@@ -18,6 +18,7 @@
         * [Other](#other)
     * [Plugin](#plugin)
         * [Coc](#coc)
+        * [Vista.vim](#vistavim)
         * [vim-visual-multi](#vim-visual-multi)
         * [vim-easymotion](#vim-easymotion)
         * [vim-after-object](#vim-after-object)
@@ -165,7 +166,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 ## Plugin
 
-### Coc
+### [Coc](https://github.com/neoclide/coc.nvim)
 
 **coc-complete** (a auto-complete plugin)
 
@@ -201,6 +202,18 @@ let `ctrl+a` to select all (same as `ggVG`).
 | `q`       | quit                 |  | `?`      | help          |  |          |                |
 
 ![explorer](https://img-blog.csdnimg.cn/20200520184210522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
+
+### [Vista.vim](https://github.com/liuchengxu/vista.vim)
+View and search LSP symbols, tags in Vim/NeoVim.
+
+Press `F8` to toggle Vista.
+
+| shortcut | action  |
+|----------|---------|
+| `q`      | quit    |
+| `p`      | preview |
+
+[Vista gif](https://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gif)
 
 ### vim-visual-multi
 

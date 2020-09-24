@@ -27,7 +27,7 @@ Plug 'voldikss/vim-floaterm'
 map <c-\> :FloatermToggle<cr>
 let g:floaterm_gitcommit = 'split'
 Plug 'mhinz/vim-startify' " enter navigation menu
-Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
+"Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
 Plug 'mbbill/undotree',{'on': 'UndotreeToggle'} " Undo Tree, to see history
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } " Find & Replace
 " Editor Enhancement
@@ -39,6 +39,7 @@ Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu t
 Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'Konfekt/FastFold'
+Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
 "Plug 'AndrewRadev/splitjoin.vim'
 "Plug 'mg979/vim-visual-multi'
 " Snippets
@@ -60,7 +61,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
 " Go
-"Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 " Dart && Flutter
 Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
 Plug 'dart-lang/dart-vim-plugin'
@@ -83,15 +84,14 @@ if g:isWin == 0
         Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     endif
 
-    Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags " Tagbar, easy read program, function bar
+    Plug 'liuchengxu/vista.vim' " like tagbar
+    "Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags,  Tagbar, easy read program, function bar
     Plug 'junegunn/fzf.vim',{'on': 'FZF'} " File navigation
-
     "Plug 'roxma/nvim-yarp' " a other vim plugin manager
 
     "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
     "Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
     "Plug 'junegunn/vim-after-object' " da= to delete what's after =
-    "Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
     "Plug 'wincent/terminus'
 
     "" Markdown

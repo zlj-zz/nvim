@@ -8,6 +8,8 @@ dependent_softwares=("python2.7" \
     "npm" \
     "ranger "\
     "w3m"
+    "fmt"\
+    "ffmpegthumbnailer"\
     "screen"
     "fzf" \
     "ctags"\
