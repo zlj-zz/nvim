@@ -7,6 +7,7 @@ dependent_softwares=("python2.7" \
     "nodejs" \
     "npm" \
     "fzf" \
+    "ctags"\
     "xclip" \
     "figlet" \
     "the_silver_searcher")
@@ -33,7 +34,6 @@ pacman_install(){
     else
         echo -e "\e[1;42;93m$i\e[0m\e[1m ==> \e[0m is installed."
     fi
-    #TODO: need to finish
 }
 
 #------------------------------------------------
