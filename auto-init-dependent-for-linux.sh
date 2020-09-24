@@ -6,13 +6,16 @@ dependent_softwares=("python2.7" \
     "python3" \
     "nodejs" \
     "npm" \
+    "ranger "\
+    "w3m"
     "fzf" \
     "ctags"\
     "xclip" \
     "figlet" \
     "the_silver_searcher")
 dependent_python_package=("pynvim" \
-    "debugpy")
+    "debugpy"\
+    "ueberzug")
 dependent_npm_package=("neovim")
 
 # different package manager install function
