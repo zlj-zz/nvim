@@ -27,7 +27,12 @@ apt_install(){
 }
 
 pacman_install(){
-    echo 1
+    if ! type $i >/dev/null 2>&1; then
+        echo -e "\e[1;41;93m$i\e[0m\e[1m ==> \e[0m not found, start to download:"
+        sudo  pacman -S $1
+    else
+        echo -e "\e[1;42;93m$i\e[0m\e[1m ==> \e[0m is installed."
+    fi
     #TODO: need to finish
 }
 
