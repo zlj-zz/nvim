@@ -19,6 +19,7 @@
     * [Plugin](#plugin)
         * [Coc](#coc)
         * [Vista.vim](#vistavim)
+        * [fzf.vim](#fzfvim)
         * [vim-visual-multi](#vim-visual-multi)
         * [vim-easymotion](#vim-easymotion)
         * [vim-after-object](#vim-after-object)
@@ -152,7 +153,7 @@ In normal mode make `Y` to copy till the end of the line (same as `y$`).
 
 In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
 
-In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`).
+~~In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`)~a.
 
 let `ctrl+a` to select all (same as `ggVG`).
 
@@ -160,7 +161,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 `dip` clear the black lien around the current cursor.
 
-`c-F` use **fzf**. `da=` to delete current line what's after `=`.
+`da=` to delete current line what's after `=`.
 
 `ra` use **ranger** in neovim.
 
@@ -189,7 +190,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 ![coc-snippet](https://img-blog.csdnimg.cn/20200512090039297.gif) 
 
-**coc-explorer** (a file browser plugin)
+**[coc-explorer](https://github.com/weirongxu/coc-explorer)** (a file browser plugin)
 
 | shortcut  | action               |  | shortcut | action        |  | shortcut | action         |
 |-----------|----------------------|--|----------|---------------|--|----------|----------------|
@@ -214,6 +215,22 @@ Press `F8` to toggle Vista.
 | `p`      | preview |
 
 [Vista gif](https://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gif)
+
+### [fzf.vim](https://github.com/junegunn/fzf.vim)
+
+Things you can do with fzf and Vim.
+
+| shortcut     | action              |
+|--------------|---------------------|
+| `ctrl` `j`   | cursor down         |
+| `ctrl` `k`   | cursor up           |
+| `ctrl` 'f'   | FZF file            |
+| `ctrl` `h`   | FZF history         |
+| `ctrl` `b`   | FZF Buffers         |
+| `ctrl` `d`   | Del buffer          |
+| `ctrl` `l`   | FZF Lines           |
+| `leader` `;` | FZF history command |
+
 
 ### vim-visual-multi
 
@@ -247,7 +264,7 @@ First start will generate 5 temporary file with suffixes of `.c`, `.java`, `.py`
 
 ![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
 
-### vim-markdown-toc
+### [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
 
 >(generate table of contents for markdown files)
 

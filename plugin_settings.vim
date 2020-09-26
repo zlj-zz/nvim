@@ -5,6 +5,95 @@
 "===============================================
 
 " \\\\\\
+" >>>>>>> coc 
+" //////
+" fix the most annoying bug that coc has
+"silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
+"set signcolumn=no  " no side bar
+let g:coc_global_extensions = [
+        \'coc-lists',
+        \'coc-snippets',
+        \'coc-explorer',
+        \'coc-git',
+        \'coc-gitignore',
+        \'coc-vimlsp',
+        \'coc-sh',
+        \'coc-python',
+        \'coc-pyright',
+        \'coc-flutter',
+        \'coc-flutter-tools',
+        \'coc-json',
+        \'coc-html',
+        \'coc-css',
+        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
+        \'coc-sourcekit',
+        \'coc-yank',  'coc-translator',
+    \]
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <Tab>
+            \ pumvisible() ? "\<c-n>" :
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
+" previous one
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" use <shift>+<space> mandatory completion
+inoremap <silent><expr> <s-space> coc#refresh()
+" use <enter> confirmation completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+" Open up coc-commands
+nnoremap <c-c> :CocCommand<CR>
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+" 选择函数内所有行
+xmap yf <Plug>(coc-funcobj-i)
+omap yf <Plug>(coc-funcobj-i)
+" 选择当前函数所在区间
+xmap tf <Plug>(coc-funcobj-a)
+omap tf <Plug>(coc-funcobj-a)
+" Useful commands
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+" GoTo code navigation. 代码导航
+" 跳转到定义处。如有多个定义，使用 |coc-list| 展示
+nmap <silent> gd <Plug>(coc-definition)
+" 跳转到类型定义位置
+nmap <silent> gt <Plug>(coc-type-definition)
+" 跳转到实现处
+nmap <silent> gi <Plug>(coc-implementation)
+" 跳转到引用位置
+nmap <silent> gr <Plug>(coc-references)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+nmap tt :CocCommand explorer<CR>
+" coc-translator 翻译
+nmap ts <Plug>(coc-translator-p)
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+"           获取并执行 language server 给出的当前选择区间
+"           内的可用操作。
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Use <C-l> for trigger snippet expand.
+imap <C-j> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+
+" \\\\\\
 " >>>>>>> vim-illuminate 
 " //////
 set laststatus=2
@@ -18,15 +107,15 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:Illuminate_delay = 750
 
 
-" \\\\\\
-" >>>>>>> xtabline 
-" //////
-let g:xtabline_settings = {}
-let g:xtabline_settings.enable_mappings = 0
-let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
-let g:xtabline_settings.enable_persistance = 0
-let g:xtabline_settings.last_open_first = 1
-noremap \p :XTabInfo<CR>
+"" \\\\\\
+"" >>>>>>> xtabline 
+"" //////
+"let g:xtabline_settings = {}
+"let g:xtabline_settings.enable_mappings = 0
+"let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+"let g:xtabline_settings.enable_persistance = 0
+"let g:xtabline_settings.last_open_first = 1
+"noremap \p :XTabInfo<CR>
 
 
 "" \\\\\\
@@ -138,95 +227,6 @@ map <LEADER>gy :Goyo<CR>
 
 
 " \\\\\\
-" >>>>>>> coc 
-" //////
-" fix the most annoying bug that coc has
-"silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-"set signcolumn=no  " no side bar
-let g:coc_global_extensions = [
-        \'coc-lists',
-        \'coc-snippets',
-        \'coc-explorer',
-        \'coc-git',
-        \'coc-gitignore',
-        \'coc-vimlsp',
-        \'coc-sh',
-        \'coc-python',
-        \'coc-pyright',
-        \'coc-flutter',
-        \'coc-flutter-tools',
-        \'coc-json',
-        \'coc-html',
-        \'coc-css',
-        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
-        \'coc-sourcekit',
-        \'coc-yank',  'coc-translator',
-    \]
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"nmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <Tab>
-            \ pumvisible() ? "\<c-n>" :
-            \ <SID>check_back_space() ? "\<Tab>" :
-            \ coc#refresh()
-" previous one
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" use <shift>+<space> mandatory completion
-inoremap <silent><expr> <s-space> coc#refresh()
-" use <enter> confirmation completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-" Open up coc-commands
-nnoremap <c-c> :CocCommand<CR>
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-" 选择函数内所有行
-xmap yf <Plug>(coc-funcobj-i)
-omap yf <Plug>(coc-funcobj-i)
-" 选择当前函数所在区间
-xmap tf <Plug>(coc-funcobj-a)
-omap tf <Plug>(coc-funcobj-a)
-" Useful commands
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-" GoTo code navigation. 代码导航
-" 跳转到定义处。如有多个定义，使用 |coc-list| 展示
-nmap <silent> gd <Plug>(coc-definition)
-" 跳转到类型定义位置
-nmap <silent> gt <Plug>(coc-type-definition)
-" 跳转到实现处
-nmap <silent> gi <Plug>(coc-implementation)
-" 跳转到引用位置
-nmap <silent> gr <Plug>(coc-references)
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-nmap tt :CocCommand explorer<CR>
-" coc-translator 翻译
-nmap ts <Plug>(coc-translator-p)
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-"           获取并执行 language server 给出的当前选择区间
-"           内的可用操作。
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Use <C-l> for trigger snippet expand.
-imap <C-j> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-
-" \\\\\\
 " >>>>>>> jsx 
 " //////
 "let g:vim_jsx_pretty_colorful_config = 1
@@ -322,11 +322,22 @@ noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
+
 " \\\\\\
 " >>>>>>> vim-easy-align 
 " //////
 "xmap ga <Plug>(EasyAlign)
 "nmap ga <Plug>(EasyAlign)
+
+
+
+" \\\\\\
+" >>>>>>> far.vim 
+" //////
+noremap <LEADER>f :F  **/*<left><left><left><left><left>
+let g:far#mapping = {
+		\ "replace_undo" : ["l"],
+		\ }
 
 
 
@@ -384,5 +395,29 @@ if g:isWin == 0
     " \\\\\\             (sudo pacman -S fzf)
     " >>>>>>> fzf.vim 
     " //////
-    noremap <c-f> :FZF<CR>
+    noremap <c-f> :Rg<CR>
+    noremap <c-h> :History<cr>
+    noremap <c-b> :Buffers<cr>
+    noremap <c-l> :Lines<cr>
+
+    noremap <leader>; :History:<cr>
+
+    function! s:list_buffers()
+      redir => list
+      silent ls
+      redir END
+      return split(list, "\n")
+    endfunction
+
+    function! s:delete_buffers(lines)
+      execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+    endfunction
+
+    command! BufferDel call fzf#run(fzf#wrap({
+      \ 'source': s:list_buffers(),
+      \ 'sink*': { lines -> s:delete_buffers(lines) },
+      \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+    \ }))
+
+    noremap <c-d> :BufferDel<cr>
 endif

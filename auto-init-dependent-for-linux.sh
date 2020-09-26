@@ -12,10 +12,11 @@ dependent_softwares=("python2.7" \
     "ffmpegthumbnailer"\
     "screen"
     "fzf" \
+    "the_silver_searcher"\
+    "ripgrep"\
     "ctags"\
     "xclip" \
-    "figlet" \
-    "the_silver_searcher")
+    "figlet")
 dependent_python_package=("pynvim" \
     "debugpy"\
     "ueberzug")
