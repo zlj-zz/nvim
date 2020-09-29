@@ -32,14 +32,14 @@
 * [Use for vim](#use-for-vim)
 
 <!-- vim-markdown-toc -->
+
 # This is my neovim
 
 **This is just my configuration of NEOVIM, for reference only.**
+
 > now can use the configuration in windows easyly.
 
-![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
-
-
+![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
 ## After Installation, You Need To
 
@@ -90,7 +90,7 @@ let `Q` to quit (same as command `:q`).
 ### Curosr movement
 
 | ←   | ↓   | ↑   | →   |
-|-----|-----|-----|-----|
+| --- | --- | --- | --- |
 | `h` | `j` | `k` | `l` |
 
 `gj` and `gk` move line by line if the text wraps.
@@ -98,7 +98,7 @@ let `Q` to quit (same as command `:q`).
 ### Remapped cursor movement
 
 | shortcut   | action                                                    | equavilent |
-|------------|-----------------------------------------------------------|------------|
+| ---------- | --------------------------------------------------------- | ---------- |
 | `K`        | cursor up 7 lines                                         | `7k`       |
 | `J`        | cursor down 7 lines                                       | `7j`       |
 | `H`        | cursor left 5 chars                                       | `5h`       |
@@ -117,7 +117,7 @@ let `Q` to quit (same as command `:q`).
 ### Remapped commands in Normal Mode
 
 | shortcut           | action                             |
-|--------------------|------------------------------------|
+| ------------------ | ---------------------------------- |
 | `<`                | un-indent                          |
 | `>`                | indent                             |
 | `<LEADER><LEADER>` | goto the next placeholder (`<++>`) |
@@ -129,18 +129,18 @@ let `Q` to quit (same as command `:q`).
 
 ### Window management
 
-| shortcut | action                            |  | shortcut | action                             |
-|----------|-----------------------------------|--|----------|------------------------------------|
-| `sh`     | split window to the left          |  | `th`     | move cursor to the left window     |
-| `sj`     | split window to the down          |  | `tj`     | move cursor to the down window     |
-| `sk`     | split window to the up            |  | `tk`     | move cursor to the up window       |
-| `sl`     | split window to the right         |  | `tl`     | move cursor to the right window    |
-| `ch`     | place the two screens up and down |  | `cv`     | place the two screens side by side |
+| shortcut | action                            |     | shortcut | action                             |
+| -------- | --------------------------------- | --- | -------- | ---------------------------------- |
+| `sh`     | split window to the left          |     | `th`     | move cursor to the left window     |
+| `sj`     | split window to the down          |     | `tj`     | move cursor to the down window     |
+| `sk`     | split window to the up            |     | `tk`     | move cursor to the up window       |
+| `sl`     | split window to the right         |     | `tl`     | move cursor to the right window    |
+| `ch`     | place the two screens up and down |     | `cv`     | place the two screens side by side |
 
 ### Tab management
 
 | shortcut   | action           |
-|------------|------------------|
+| ---------- | ---------------- |
 | `ctrl`+`t` | create a new tab |
 | `t-`       | previous tab     |
 | `t=`       | next previous    |
@@ -171,46 +171,47 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 **coc-complete** (a auto-complete plugin)
 
-| shortcut          | action          |  | shortcut | action                  |
-|-------------------|-----------------|--|----------|-------------------------|
-| `<tab>`           | next item       |  | `gd`     | jump to definition      |
-| `<shift>`+`<tab>` | previous item   |  | `gt`     | jump to type definition |
-| `<enter>`         | select item     |  | `gi`     | jump to implementation  |
-| `rn`              | symbol renaming |  | `gr`     | jump to references      |
+| shortcut          | action          |     | shortcut | action                  |
+| ----------------- | --------------- | --- | -------- | ----------------------- |
+| `<tab>`           | next item       |     | `gd`     | jump to definition      |
+| `<shift>`+`<tab>` | previous item   |     | `gt`     | jump to type definition |
+| `<enter>`         | select item     |     | `gi`     | jump to implementation  |
+| `rn`              | symbol renaming |     | `gr`     | jump to references      |
 
-![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif) 
+![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif)
 
 **coc-snippet** (a code snippet plugin)
 
 | shortcut | action                       |
-|----------|------------------------------|
+| -------- | ---------------------------- |
 | `<c-j>`  | trigger snippet expand       |
 | `<c-j>`  | jump to next placeholder     |
 | `<c-k>`  | jump to previous placeholder |
 
-![coc-snippet](https://img-blog.csdnimg.cn/20200512090039297.gif) 
+![coc-snippet](https://img-blog.csdnimg.cn/20200512090039297.gif)
 
 **[coc-explorer](https://github.com/weirongxu/coc-explorer)** (a file browser plugin)
 
-| shortcut  | action               |  | shortcut | action        |  | shortcut | action         |
-|-----------|----------------------|--|----------|---------------|--|----------|----------------|
-| `tt`      | coc-explorer toggle  |  | `p`      | paste file    |  | `y`      | copy file path |
-| `k`and`j` | up and down          |  | `d`      | delete        |  | `Y`      | copy file name |
-| `h`and`l` | collapse and expand  |  | `a`      | add file      |  | `c`      | copy file      |
-| `e`       | open file            |  | `A`      | add directory |  | `x`      | cut file       |
-| `s`and`E` | open split or vsplit |  | `r`      | rename        |  | `f`      | search         |
-| `t`       | open in new tab      |  | `.`      | toggleHidden  |  | `R`      | refresh        |
-| `q`       | quit                 |  | `?`      | help          |  |          |                |
+| shortcut  | action               |     | shortcut | action        |     | shortcut | action         |
+| --------- | -------------------- | --- | -------- | ------------- | --- | -------- | -------------- |
+| `tt`      | coc-explorer toggle  |     | `p`      | paste file    |     | `y`      | copy file path |
+| `k`and`j` | up and down          |     | `d`      | delete        |     | `Y`      | copy file name |
+| `h`and`l` | collapse and expand  |     | `a`      | add file      |     | `c`      | copy file      |
+| `e`       | open file            |     | `A`      | add directory |     | `x`      | cut file       |
+| `s`and`E` | open split or vsplit |     | `r`      | rename        |     | `f`      | search         |
+| `t`       | open in new tab      |     | `.`      | toggleHidden  |     | `R`      | refresh        |
+| `q`       | quit                 |     | `?`      | help          |     |          |                |
 
 ![explorer](https://img-blog.csdnimg.cn/20200520184210522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
 ### [Vista.vim](https://github.com/liuchengxu/vista.vim)
+
 View and search LSP symbols, tags in Vim/NeoVim.
 
 Press `F8` to toggle Vista.
 
 | shortcut | action  |
-|----------|---------|
+| -------- | ------- |
 | `q`      | quit    |
 | `p`      | preview |
 
@@ -221,7 +222,7 @@ Press `F8` to toggle Vista.
 Things you can do with fzf and Vim.
 
 | shortcut     | action              |
-|--------------|---------------------|
+| ------------ | ------------------- |
 | `ctrl` `j`   | cursor down         |
 | `ctrl` `k`   | cursor up           |
 | `ctrl` 'f'   | FZF file            |
@@ -230,7 +231,6 @@ Things you can do with fzf and Vim.
 | `ctrl` `d`   | Del buffer          |
 | `ctrl` `l`   | FZF Lines           |
 | `leader` `;` | FZF history command |
-
 
 ### vim-visual-multi
 
@@ -244,7 +244,7 @@ To remove a cursor, use `q`. `u` to undo, `ctrl` + `r` to redo, like vim native.
 
 Fast move you cursor, use `'` easymotion
 
-![vim-easymotion](https://img-blog.csdnimg.cn/20200512164720342.gif) 
+![vim-easymotion](https://img-blog.csdnimg.cn/20200512164720342.gif)
 
 ### vim-after-object
 
@@ -262,11 +262,11 @@ Enter `F5` to open a new tab and running Startify.
 
 First start will generate 5 temporary file with suffixes of `.c`, `.java`, `.py`, `.js`, `.html`, `.css`.
 
-![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70) 
+![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
 ### [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
 
->(generate table of contents for markdown files)
+> (generate table of contents for markdown files)
 
 In `markdown` files, type `:Gen` then tab, you'll see your options.
 
@@ -275,7 +275,7 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 ### vim-table-mode
 
 | shortcut        | action            |
-|-----------------|-------------------|
+| --------------- | ----------------- |
 | `space` `t` `m` | toggle table mode |
 | `space` `t` `r` | realign table     |
 
@@ -284,15 +284,16 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 > A code comment plugin.
 
 | shortcut     | action           |
-|--------------|------------------|
+| ------------ | ---------------- |
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
 
 ### ~~vim-keysound~~
 
-*make your vim a typewriter*
+_make your vim a typewriter_
 
 You should do:
+
 ```shell
 pip install pysdl2
 
@@ -300,11 +301,10 @@ sudo pacman -S sdl sdl-mixer
 ```
 
 # Use for vim
+
 ```
 ln -s xxx/nvim ~/.vim
 ln -s xxx/nvim/init.vim ./vimrc
 ```
 
 <font size=50px; ><b>This is bottom</b></font>
-
-

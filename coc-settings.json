@@ -1,213 +1,238 @@
 {
-	"coc.preferences.hoverTarget": "preview",
-	"coc.preferences.enableFloatHighlight": true,
-	"coc.preferences.snippetStatusText": "Ⓢ ",
-	"coc.preferences.extensionUpdateCheck": "weekly",
-	"suggest.detailMaxLength": 60,
-	"suggest.noselect": true,
-	"suggest.enablePreselect": false,
-	"suggest.triggerAfterInsertEnter": false,
-	"suggest.timeout": 5000,
-	"suggest.enablePreview": true,
-	"suggest.floatEnable": true,
-	"suggest.detailField": "preview",
-	"suggest.snippetIndicator": "",
-	"suggest.triggerCompletionWait": 100,
-	"suggest.echodocSupport": true,
-	"suggest.completionItemKindLabels": {
-		"class": "\uf0e8",
-		"color": "\ue22b",
-		"constant": "\uf8fe",
-		"default": "\uf29c",
-		"enum": "\uf435",
-		"enumMember": "\uf02b",
-		"event": "\ufacd",
-		"field": "\uf93d",
-		"file": "\uf723",
-		"folder": "\uf115",
-		"function": "\u0192",
-		"interface": "\uf417",
-		"keyword": "\uf1de",
-		"method": "\uf6a6",
-		"module": "\uf40d",
-		"operator": "\uf915",
-		"property": "\ue624",
-		"reference": "\ufa46",
-		"snippet": "\ue60b",
-		"struct": "\ufb44",
-		"text": "\ue612",
-		"typeParameter": "\uf728",
-		"unit": "\uf475",
-		"value": "\uf89f",
-		"variable": "\ue71b"
-	},
-	"diagnostic.signOffset": 1,
-	"diagnostic.errorSign": "×",
-	"diagnostic.warningSign": "»",
-	"diagnostic.infoSign": "ღ",
-	"diagnostic.hintSign": "ஐ",
-	"diagnostic.displayByAle": false,
-	"diagnostic.refreshOnInsertMode": false,
-	"diagnostic.refreshAfterSave": false,
-	"diagnostic.checkCurrentLine": true,
-	"diagnostic.virtualTextPrefix": " ❯❯",
-	"diagnostic.virtualText": true,
-	"codeLens.enable": true,
-	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<tab>",
-	"list.previousKeymap": "<s-tab>",
-	"coc.preferences.formatOnSaveFiletypes": [
-		"javascript",
-		"html",
-		"css",
-		"//python",
-		"dart"
-	],
-	"signature.target": "float",
-	"yank.enableCompletion" : false,
-	"explorer.width": 38,
-	"explorer.quitOnOpen": true,
-	"explorer.sources": [
-		{
-			"name": "buffer",
-			"expand": true
-		},
-		{
-			"name": "file",
-			"expand": true
-		}
-	],
-	"explorer.file.column.indent.indentLine": true,
-	"explorer.file.showHiddenFiles": true,
-	"explorer.icon.enableNerdfont": true,
-	"explorer.file.column.git.showIgnored": true,
-    "explorer.keyMappings":{
-        "i": false, // cancel default mapkey
-
-        "k": "nodePrev",
-        "j": "nodeNext",
-        "gk": "expandablePrev",
-        "gj": "expandableNext",
-
-        "*": "toggleSelection",
-        "<tab>": "actionMenu",
-
-        "h": "collapse",
-        "l": ["expandable?", "expand", "open"],
-        "gl": "expandRecursive",
-        "gh": "collapseRecursive",
-        "o": "expandOrCollapse",
-        "<cr>": ["expandable?", "cd", "open"],
-        "e": "open",
-        "s": "open:split",
-        "S": "open:split:plain",
-        "E": "open:vsplit",
-        "t": "open:tab",
-        "<bs>": "gotoParent",
-        "gp": "preview:labeling",
-
-        "y": "copyFilepath",
-        "Y": "copyFilename",
-        "c": "copyFile",
-        "x": "cutFile",
-        "p": "pasteFile",
-        "d": "delete",
-        "D": "deleteForever",
-
-        "a": "addFile",
-        "A": "addDirectory",
-        "r": "rename",
-
-        ".": "toggleHidden",
-        "R": "refresh",
-
-        "?": "help",
-        "q": "quit",
-        "<esc>": "esc",
-        "X": "systemExecute",
-        "gd": "listDrive",
-
-        "f": "search",
-        "F": "searchRecursive",
-
-        "gf": "gotoSource:file",
-        "gb": "gotoSource:buffer",
-
-        "[[": "sourcePrev",
-        "]]": "sourceNext",
-
-        "[d": "diagnosticPrev",
-        "]d": "diagnosticNext",
-
-        "[c": "gitPrev",
-        "]c": "gitNext",
-        "<<": "gitStage",
-        ">>": "gitUnstage"
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "suggest.detailMaxLength": 60,
+  "suggest.noselect": true,
+  "suggest.enablePreselect": false,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.autoTrigger": "always",
+  "suggest.timeout": 5000,
+  "suggest.enablePreview": true,
+  "suggest.floatEnable": true,
+  "suggest.detailField": "preview",
+  "suggest.snippetIndicator": "",
+  "suggest.triggerCompletionWait": 100,
+  "suggest.echodocSupport": true,
+  "suggest.completionItemKindLabels": {
+    "class": "\uf0e8",
+    "color": "\ue22b",
+    "constant": "\uf8fe",
+    "default": "\uf29c",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "event": "\ufacd",
+    "field": "\uf93d",
+    "file": "\uf723",
+    "folder": "\uf115",
+    "function": "\u0192",
+    "interface": "\uf417",
+    "keyword": "\uf1de",
+    "method": "\uf6a6",
+    "module": "\uf40d",
+    "operator": "\uf915",
+    "property": "\ue624",
+    "reference": "\ufa46",
+    "snippet": "\ue60b",
+    "struct": "\ufb44",
+    "text": "\ue612",
+    "typeParameter": "\uf728",
+    "unit": "\uf475",
+    "value": "\uf89f",
+    "variable": "\ue71b"
+  },
+  "diagnostic.signOffset": 1,
+  "diagnostic.errorSign": "×",
+  "diagnostic.warningSign": "»",
+  "diagnostic.infoSign": "\uf129",
+  "diagnostic.hintSign": "ஐ",
+  "diagnostic.displayByAle": false,
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.refreshAfterSave": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualTextPrefix": " >>>",
+  "diagnostic.virtualText": true,
+  "codeLens.enable": true,
+  "list.previewHighlightGroup": "Statement",
+  "list.nextKeymap": "<tab>",
+  "list.previousKeymap": "<s-tab>",
+  "signature.target": "float",
+  "yank.enableCompletion": false,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.format.enabled": true,
+  "explorer.width": 38,
+  "explorer.quitOnOpen": true,
+  "explorer.sources": [
+    {
+      "name": "buffer",
+      "expand": true
     },
-  "snippets.extends":{"text": ["wordbook"], "markdown": ["wordbook"]},
-  "snippets.ultisnips.directories": ["Ultisnips"],
-	"git.enableGutters": true,
-	"git.branchCharacter":"\uf408",
-	"git.addGBlameToBufferVar": false,
-	"git.addGBlameToVirtualText": false,
-	"git.virtualTextPrefix": " ❯❯❯ ",
-	"git.addedSign.hlGroup": "GitGutterAdd",
-	"git.changedSign.hlGroup": "GitGutterChange",
-	"git.removedSign.hlGroup": "GitGutterDelete",
-	"git.topRemovedSign.hlGroup": "GitGutterDelete",
-	"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-	"git.addedSign.text":"▎",
-	"git.changedSign.text":"░",
-	"git.removedSign.text":"▏",
-	"git.topRemovedSign.text": "▔",
-	"git.changeRemovedSign.text": "▒",
-	"git.enableGlobalStatus": false,
-	"git.signOffset": 2,
-	"tslint.autoFixOnSave": true,
-	"python.autoComplete.addBrackets": true,
-	"python.jediEnabled": false,
-	"python.formatting.provider": "yapf",
-	"python.formatting.yapfArgs": [
-        "--style",
-        "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
-    ],
-	"html.format.enable": true,
-	"javascript.referencesCodeLens.enable": true,
-	"javascript.showUnused": true,
-	"javascript.suggest.names": true,
-	"javascript.suggestionActions.enabled": true,
-	"json.format.enable": true,
-  "sh.enable":true,
-	"languageserver": {
-		"lua": {
-			"command": "lua-lsp",
-			"filetypes": ["lua"]
-		},
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": ["go.mod"],
-			"filetypes": ["go"],
-			"initializationOptions": {
-				"gocodeCompletionEnabled": true,
-				"diagnosticsEnabled": true,
-				"lintTool": "golint"
-			}
-		},
-//		"bash": {
-//			"command": "bash-language-server",
-//			"args": ["start"],
-//			"filetypes": ["sh"],
-//			"ignoredRootPaths": []
-//		},
-		"ccls": {
-			"command": "ccls",
-			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-			"rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/"],
-			"initializationOptions": {
-				 "cache": {
-					 "directory": "/tmp/ccls"
-				 }
-			 }
-		}
-	}
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.file.column.indent.indentLine": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.column.git.showIgnored": true,
+  "explorer.keyMappings": {
+    "i": false, // cancel default mapkey
+    "k": "nodePrev",
+    "j": "nodeNext",
+    "gk": "expandablePrev",
+    "gj": "expandableNext",
+    "*": "toggleSelection",
+    "<tab>": "actionMenu",
+    "h": "collapse",
+    "l": ["expandable?", "expand", "open"],
+    "gl": "expandRecursive",
+    "gh": "collapseRecursive",
+    "o": "expandOrCollapse",
+    "<cr>": ["expandable?", "cd", "open"],
+    "e": "open",
+    "s": "open:split",
+    "S": "open:split:plain",
+    "E": "open:vsplit",
+    "t": "open:tab",
+    "<bs>": "gotoParent",
+    "gp": "preview:labeling",
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "x": "cutFile",
+    "p": "pasteFile",
+    "d": "delete",
+    "D": "deleteForever",
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+    ".": "toggleHidden",
+    "R": "refresh",
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+    "gd": "listDrive",
+    "f": "search",
+    "F": "searchRecursive",
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+    "[[": "sourcePrev",
+    "]]": "sourceNext",
+    "[d": "diagnosticPrev",
+    "]d": "diagnosticNext",
+    "[c": "gitPrev",
+    "]c": "gitNext",
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  },
+  "snippets.extends": {
+    "text": ["wordbook"],
+    "markdown": ["wordbook"]
+  },
+  "snippets.ultisnips.directories": [
+    "$HOME/.config/nvim/Ultisnips/",
+    "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
+  ],
+  "git.enableGutters": true,
+  "git.enableGlobalStatus": true,
+  "git.signOffset": 2,
+  "git.branchCharacter": "\uf408",
+  "git.addGBlameToBufferVar": false,
+  "git.addGBlameToVirtualText": false,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.changedSign.text": "░",
+  //    "git.addedSign.text": "▎",
+  //    "git.removedSign.text": "▏",
+  //    "git.topRemovedSign.text": "▔",
+  //    "git.changeRemovedSign.text": "▒",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "python",
+    "dart",
+    "javascript",
+    "json",
+    "html",
+    "css",
+    "markdown"
+  ],
+  "flutter.UIPath": true,
+  "flutter.outlineWidth": 40,
+  "flutter.outlineIconPadding": 0,
+  "flutter.openDevLogSplitCommand": "botright 12split",
+  "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": false,
+  "flutter.runDevToolsAtStartup": true,
+  "tslint.autoFixOnSave": true,
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": false,
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": [
+    "--style",
+    "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+  ],
+  "sh.enable": true,
+  "html.format.enable": true,
+  "json.format.enable": true,
+  "yaml.format.enable": true,
+  "javascript.referencesCodeLens.enable": true,
+  "javascript.showUnused": true,
+  "javascript.suggest.names": true,
+  "javascript.suggestionActions.enabled": true,
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "email": "languagetool",
+    "markdown": ["write-good", "markdownlint"],
+    "sh": "shellcheck",
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "php": ["phpstan", "psalm"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
+  },
+  "languageserver": {
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": []
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        ".ccls-root",
+        "compile_commands.json",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  }
 }

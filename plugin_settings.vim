@@ -7,11 +7,10 @@
 " \\\\\\
 " >>>>>>> coc 
 " //////
-" fix the most annoying bug that coc has
-"silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
 "set signcolumn=no  " no side bar
 let g:coc_global_extensions = [
         \'coc-lists',
+        \'coc-diagnostic',
         \'coc-snippets',
         \'coc-explorer',
         \'coc-git',
@@ -20,19 +19,24 @@ let g:coc_global_extensions = [
         \'coc-sh',
         \'coc-python',
         \'coc-pyright',
-        \'coc-flutter',
         \'coc-flutter-tools',
         \'coc-json',
         \'coc-html',
         \'coc-css',
-        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
+        \'coc-prettier',
+        \'coc-yaml',
         \'coc-sourcekit',
-        \'coc-yank',  'coc-translator',
+        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
+        \'coc-yank',
+        \'coc-translator',
     \]
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)
 
+    "javascript.suggestionActions.enabled": true,
+    "json.format.enable": true,
+    "json.format.enable": true,
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -81,7 +85,7 @@ nmap ts <Plug>(coc-translator-p)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Use <C-l> for trigger snippet expand.
+" Use <C-j> for trigger snippet expand.
 imap <C-j> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
@@ -206,6 +210,12 @@ noremap \h :SemanticHighlightToggle<cr>
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 238
 let g:indentLine_char = '|'
+
+
+" \\\\\\
+" >>>>>>> coc 
+" //////
+let g:dart_format_on_save = 1
 
 
 " \\\\\\
