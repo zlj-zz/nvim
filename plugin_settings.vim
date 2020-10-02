@@ -95,31 +95,8 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-
-" \\\\\\
-" >>>>>>> vim-illuminate 
-" //////
-set laststatus=2
-let g:airline_theme='atomic'
-let g:airline#extensions#tabline#enabled = 1
-
-
-" \\\\\\
-" >>>>>>> vim-illuminate 
-" //////
-"let g:Illuminate_delay = 750
-
-
-"" \\\\\\
-"" >>>>>>> xtabline 
-"" //////
-"let g:xtabline_settings = {}
-"let g:xtabline_settings.enable_mappings = 0
-"let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
-"let g:xtabline_settings.enable_persistance = 0
-"let g:xtabline_settings.last_open_first = 1
-"noremap \p :XTabInfo<CR>
+" for dart format
+let g:dart_format_on_save = 1
 
 
 "" \\\\\\
@@ -193,6 +170,26 @@ endfunc
 
 
 " \\\\\\
+" >>>>>>> vim-illuminate 
+" //////
+set laststatus=2
+let g:airline_theme='atomic'
+let g:airline#extensions#tabline#enabled = 1
+"let g:Illuminate_delay = 750
+
+
+"" \\\\\\
+"" >>>>>>> xtabline 
+"" //////
+"let g:xtabline_settings = {}
+"let g:xtabline_settings.enable_mappings = 0
+"let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+"let g:xtabline_settings.enable_persistance = 0
+"let g:xtabline_settings.last_open_first = 1
+"noremap \p :XTabInfo<CR>
+
+
+" \\\\\\
 " >>>>>>> vim-autoformat 
 " //////
 nnoremap \f :Autoformat<CR>
@@ -213,15 +210,28 @@ let g:indentLine_char = '|'
 
 
 " \\\\\\
-" >>>>>>> coc 
-" //////
-let g:dart_format_on_save = 1
-
-
-" \\\\\\
 " >>>>>>> rainbow 
 " //////
 let g:rainbow_active = 1
+
+
+" \\\\\\
+" >>>>>>> jsx 
+" //////
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+" vim-javascript
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 
 " \\\\\\
@@ -234,12 +244,6 @@ let g:rainbow_active = 1
 " >>>>>>> goyo.vim 
 " //////
 map <LEADER>gy :Goyo<CR>
-
-
-" \\\\\\
-" >>>>>>> jsx 
-" //////
-"let g:vim_jsx_pretty_colorful_config = 1
 
 
 " \\\\\\

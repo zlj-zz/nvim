@@ -1,6 +1,8 @@
 
-# vim/nvim environment auto install
-# author: Zachary Zhang
+# Author: Zachary Zhang
+# Description: vim/nvim environment auto install
+# Created Time: 2020-08-28 02:23:05
+# Last Modified: 2020-10-02 10:48
 
 dependent_softwares=("python2.7" \
     "python3" \
@@ -22,8 +24,8 @@ dependent_python_package=("pynvim" \
     "ueberzug")
 dependent_npm_package=("neovim")
 
-# different package manager install function
 #------------------------------------------------
+# different package manager install function
 #------------------------------------------------
 apt_install(){
     if ! type $i >/dev/null 2>&1; then
@@ -66,8 +68,8 @@ npm_install(){
     fi
 }
 
-# start program ---------------------------------
 #------------------------------------------------
+# start program ---------------------------------
 #------------------------------------------------
 
 # get system's package manager

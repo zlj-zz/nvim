@@ -6,12 +6,12 @@
 "   ██║   ██║╚██████╗ ╚██████╔╝   ╚██╔╝  ██████║██║  ███║  ██║
 "   ╚═╝   ╚═╝ ╚═════╝  ╚═════╝     ╚═╝   ╚═════╝╚═╝  ╚══╝  ╚═╝
 "
-"  _________________________________________
-" / Here is my neovim configuration with    \
-" | comments, remember to check befor using |
-" | the configuration.                      |
-" \                            --Zachary    /
-"  -----------------------------------------
+"  __________________________________________
+" / Here is my neovim configuration with     \
+" | comments, remember to check before using |
+" | the configuration.                       |
+" \                            --Zachary     /
+"  ------------------------------------------
 "          \   ,__,
 "           \  (oo)____
 "              (__)    )\
@@ -44,10 +44,9 @@ exec 'source '.g:NHOME.'/keymap.vim'
 exec 'source '.g:NHOME.'/environment.vim'
 exec 'source '.g:NHOME.'/compile_run.vim'
 exec 'source '.g:NHOME.'/custom_tool.vim'
-autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
-
 exec 'source '.g:NHOME.'/plugin_load.vim'
 exec 'source '.g:NHOME.'/plugin_settings.vim'
+autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
 
 " experimental
