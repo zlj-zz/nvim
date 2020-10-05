@@ -122,30 +122,16 @@ endfunc
     "nmap upd :call SetLastModifiedTime(-1)<CR>
 "augroup END
 
-"func! OpenFloatingWin()
-    "let height = &lines - 3
-    "let width = float2nr(&colums - (&colums * 2 / 10))
-    "let col = float2nr((&colums - width) / 2)
 
-    "let opts = {
-                "\ 'relative': 'editor',
-                "\ 'row': height * 0.3,
-                "\ 'col': col + 30,
-                "\ 'width': width * 2 / 3,
-                "\ 'height': height / 2
-                "\}
-
-    "let buf = nvim_create_buf(v:false, v:true)
-    "let win = nvim_open_win(buf, v:true, opts)
-
-    "" 设置浮动窗口高亮
-    "call setwinvar(win, '&winhl', 'Normal:Pmenu')
-
-    "setlocal
-                "\ buftype=nofile
-                "\ nobuflisted
-                "\ bufhidden=hide
-                "\ nonumber
-                "\ norelativenumber
-                "\ signcolumn=no
-"endfunction
+func! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunc
+command! ZoomToggle call s:ZoomToggle()

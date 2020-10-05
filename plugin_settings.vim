@@ -344,6 +344,20 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 "nmap ga <Plug>(EasyAlign)
 
 
+" \\\\\\
+" >>>>>>> nerdcommenter 
+" //////
+"xmap <c-/> <Plug>NERDCommenterToggle
+"nmap <c-/> <Plug>NERDCommenterToggle
+
+
+" \\\\\\
+" >>>>>>>  
+" //////
+let g:floaterm_gitcommit = 'split'
+map <f3> :FloatermToggle<cr>
+tmap <f3> <C-\><C-N>:FloatermToggle<cr>
+
 
 " \\\\\\
 " >>>>>>> far.vim 

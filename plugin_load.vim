@@ -23,9 +23,6 @@ colorscheme deus
 
 " File manager
 Plug 'voldikss/vim-floaterm'
-"let g:floaterm_keymap_toggle = 'F4'
-map <c-\> :FloatermToggle<cr>
-let g:floaterm_gitcommit = 'split'
 Plug 'mhinz/vim-startify' " enter navigation menu
 "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
 Plug 'mbbill/undotree',{'on': 'UndotreeToggle'} " Undo Tree, to see history
