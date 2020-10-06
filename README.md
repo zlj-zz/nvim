@@ -87,6 +87,8 @@ let `S` to save file (same as command `:w`).
 
 let `Q` to quit (same as command `:q`).
 
+let `ctrl`+`q` to force quit (same as command `:q!`).
+
 ### Curosr movement
 
 | ←   | ↓   | ↑   | →   |
@@ -111,8 +113,6 @@ let `Q` to quit (same as command `:q`).
 | `alt`+`l`  | → in insert mode                                          | `<right>`  |
 | `alt`+`a`  | move cursor to head in insert mode                        | `<home>`   |
 | `alt`+`s`  | move cursor to tail in insert mode                        | `<end>`    |
-| `0`        | ~~move cursor to head in normal mode~~                    | `0`        |
-| `4`        | ~~move cursor to head in normal mode~~                    | `$`        |
 
 ### Remapped commands in Normal Mode
 
@@ -125,7 +125,7 @@ let `Q` to quit (same as command `:q`).
 | `<LEADER>sc`       | spelling check toggle              |
 | `<LEADER>fd`       | find two same word                 |
 | `<LEADER>rc`       | open the neovim config anytime     |
-| `rc`               | resource neovim config             |
+| `,rc`              | resource neovim config             |
 
 ### Window management
 
@@ -139,17 +139,18 @@ let `Q` to quit (same as command `:q`).
 
 ### Tab management
 
-| shortcut   | action           |
-| ---------- | ---------------- |
-| `ctrl`+`t` | create a new tab |
-| `t-`       | previous tab     |
-| `t=`       | next previous    |
+| shortcut      | action            |
+| ------------- | ----------------- |
+| `st`          | create a new tab  |
+| `t-`          | previous tab      |
+| `t=`          | next previous     |
+| `alt` + `1~9` | switch to 1~9 tab |
 
 ### Other
 
 You can use `ZZ` command, this command writes the file and exits.
 
-In normal mode make `Y` to copy till the end of the line (same as `y$`).
+~~In normal mode make `Y` to copy till the end of the line (same as `y$`).~~
 
 In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
 
@@ -158,6 +159,8 @@ In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
 let `ctrl+a` to select all (same as `ggVG`).
 
 `c-z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
+
+`space` + `j/k` to increase or decrease a number by one.
 
 `dip` clear the black lien around the current cursor.
 
@@ -208,7 +211,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 View and search LSP symbols, tags in Vim/NeoVim.
 
-Press `F8` to toggle Vista.
+Press `ti` to toggle Vista.
 
 | shortcut | action  |
 | -------- | ------- |
@@ -223,13 +226,13 @@ Things you can do with fzf and Vim.
 
 | shortcut     | action              |
 | ------------ | ------------------- |
-| `ctrl` `j`   | cursor down         |
-| `ctrl` `k`   | cursor up           |
-| `ctrl` 'f'   | FZF file            |
-| `ctrl` `h`   | FZF history         |
-| `ctrl` `b`   | FZF Buffers         |
-| `ctrl` `d`   | Del buffer          |
-| `ctrl` `l`   | FZF Lines           |
+| `,` `j`      | cursor down         |
+| `,` `k`      | cursor up           |
+| `,` `f`      | FZF file            |
+| `,` `h`      | FZF history         |
+| `,` `b`      | FZF Buffers         |
+| `,` `d`      | Del buffer          |
+| `,` `l`      | FZF Lines           |
 | `leader` `;` | FZF history command |
 
 ### vim-visual-multi

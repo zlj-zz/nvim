@@ -423,10 +423,10 @@ if g:isWin == 0
     " \\\\\\             (sudo pacman -S fzf)
     " >>>>>>> fzf.vim 
     " //////
-    noremap <c-f> :Rg<CR>
-    noremap <c-h> :History<cr>
-    noremap <c-b> :Buffers<cr>
-    noremap <c-l> :Lines<cr>
+    noremap ,f :Rg<CR>
+    noremap ,h :History<cr>
+    noremap ,b :Buffers<cr>
+    noremap ,l :Lines<cr>
 
     noremap <leader>; :History:<cr>
 
@@ -447,5 +447,5 @@ if g:isWin == 0
       \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
     \ }))
 
-    noremap <c-d> :BufferDel<cr>
+    noremap ,d :BufferDel<cr>
 endif
