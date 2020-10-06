@@ -8,8 +8,6 @@ Plug 'KabbAmine/vCoolor.vim'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'bling/vim-bufferline'
-"Plug 'mg979/vim-xtabline'     " top tabline
 "" === color theme ===
 Plug 'ajmwagar/vim-deus'
 " === Dress up my vim
@@ -19,12 +17,10 @@ colorscheme deus
 "let ayucolor="light"
 "set background=light
 "set background=dark
-" hi Normal ctermfg=252 ctermbg=none guibg=none  " let bg transparent
 
 " File manager
 Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify' " enter navigation menu
-"Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
 Plug 'mbbill/undotree',{'on': 'UndotreeToggle'} " Undo Tree, to see history
 Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } " Find & Replace
 " Editor Enhancement
@@ -64,9 +60,9 @@ Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml']  }
 
-let g:dart_style_guide = 2
+let g:dart_style_guide    = 2
 let g:dart_format_on_save = 1
-let g:dartfmt_options = ["-l 100"]
+let g:dartfmt_options     = ["-l 100"]
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
@@ -82,7 +78,6 @@ if g:isWin == 0
     endif
 
     Plug 'liuchengxu/vista.vim' " like tagbar
-    "Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags,  Tagbar, easy read program, function bar
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     "Plug 'roxma/nvim-yarp' " a other vim plugin manager
@@ -96,4 +91,8 @@ if g:isWin == 0
     "Plug 'theniceboy/bullets.vim'
 endif
 
+"Plug 'bling/vim-bufferline'
+"Plug 'mg979/vim-xtabline'     " top tabline
+"Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
+"Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags,  Tagbar, easy read program, function bar
 call plug#end()

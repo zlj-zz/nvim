@@ -48,6 +48,8 @@ exec 'source '.g:NHOME.'/plugin_load.vim'
 exec 'source '.g:NHOME.'/plugin_settings.vim'
 autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
+" hi Normal ctermfg=252 ctermbg=none guibg=none  " let bg transparent
+
 
 " experimental
 set lazyredraw
