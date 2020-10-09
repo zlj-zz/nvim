@@ -296,14 +296,15 @@ nmap ga <Plug>(EasyAlign)
 " >>>>>>> floaterm 
 " //////
 let g:floaterm_gitcommit = 'split'
-map <f3> :FloatermToggle<cr>
-tmap <f3> <C-\><C-N>:FloatermToggle<cr>
+nnoremap <f3> :FloatermToggle<cr>
+tnoremap <f3> <C-\><C-N>:FloatermToggle<cr>
 
 
 " \\\\\\
 " >>>>>>> far.vim 
 " //////
 noremap <LEADER>f :F  **/*<left><left><left><left><left>
+noremap ,r :Far  **/*<left><left><left><left><left>
 let g:far#mapping = {
 		\ "replace_undo" : ["l"],
 		\ }

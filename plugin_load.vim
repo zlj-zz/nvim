@@ -5,18 +5,16 @@
 "===========================
 call plug#begin(g:NHOME.'/plugged')
 Plug 'KabbAmine/vCoolor.vim'
+" === color theme ===
+Plug 'ajmwagar/vim-deus'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"" === color theme ===
-Plug 'ajmwagar/vim-deus'
 " === Dress up my vim
 set termguicolors   " enable true colors support
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme deus
-"let ayucolor="light"
-"set background=light
-"set background=dark
+let g:deus_termcolors=256
 
 " File manager
 Plug 'voldikss/vim-floaterm'
@@ -67,6 +65,14 @@ let g:dartfmt_options     = ["-l 100"]
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
+Plug 'theniceboy/bullets.vim'
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
 " Dependencies
 Plug 'kana/vim-textobj-user'
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
@@ -86,9 +92,6 @@ if g:isWin == 0
     "Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
     "Plug 'junegunn/vim-after-object' " da= to delete what's after =
     "Plug 'wincent/terminus'
-
-    "" Markdown
-    "Plug 'theniceboy/bullets.vim'
 endif
 
 "Plug 'bling/vim-bufferline'
