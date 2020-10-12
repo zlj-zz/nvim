@@ -10,12 +10,6 @@ Plug 'ajmwagar/vim-deus'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" === Dress up my vim
-set termguicolors   " enable true colors support
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme deus
-let g:deus_termcolors=256
-
 " File manager
 Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify' " enter navigation menu
@@ -86,16 +80,17 @@ if g:isWin == 0
     Plug 'liuchengxu/vista.vim' " like tagbar
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    "Plug 'roxma/nvim-yarp' " a other vim plugin manager
 
     "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
     "Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
     "Plug 'junegunn/vim-after-object' " da= to delete what's after =
     "Plug 'wincent/terminus'
 endif
+call plug#end()
+
 
 "Plug 'bling/vim-bufferline'
 "Plug 'mg979/vim-xtabline'     " top tabline
 "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
 "Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags,  Tagbar, easy read program, function bar
-call plug#end()
+"Plug 'roxma/nvim-yarp' " a other vim plugin manager

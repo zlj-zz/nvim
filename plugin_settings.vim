@@ -102,7 +102,7 @@ let g:dart_format_on_save = 1
 "" \\\\\\
 "" >>>>>>> vim-startity 
 "" //////
-nmap <F5> <c-t>:Startify<cr>
+nnoremap <F5> <c-t>:Startify<cr>
 let g:ascii = [
       \ '           __',
       \ '   .--.--.|__|.--------.',
@@ -138,7 +138,7 @@ let g:startify_files_number = 15
 "" \\\\\\
 "" >>>>>>> undotree 
 "" //////
-noremap tu :UndotreeToggle<CR>
+nnoremap tu :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -171,7 +171,7 @@ nnoremap \f :Autoformat<CR>
 " \\\\\\
 " >>>>>>> semantic-highlight.vim 
 " //////
-noremap \h :SemanticHighlightToggle<cr>
+nnoremap \h :SemanticHighlightToggle<cr>
 
 
 " \\\\\\
@@ -310,22 +310,26 @@ let g:far#mapping = {
 		\ }
 
 
+" \\\\\\
+" >>>>>>> vim-deus 
+" //////
+colorscheme deus
+let g:deus_termcolors=256
+let g:bg_transflag=0
+let g:bg_flag = 1
+func! ChangeGuibg() " transparent background toggle
+    if g:bg_flag == 1
+        exec "hi normal guibg=none"
+        let g:bg_flag = 0
+    else
+        exec "hi normal guibg=#242a32"
+        let g:bg_flag = 1
+    endif
+endfunc
+map <f4> :call ChangeGuibg()<CR>
+
 
 if g:isWin == 0
-    let g:bg_transflag=0
-    let g:bg_flag = 1
-    func! ChangeGuibg() " transparent background toggle
-        if g:bg_flag == 1
-            exec "hi normal guibg=none"
-            let g:bg_flag = 0
-        else
-            exec "hi normal guibg=#242a32"
-            let g:bg_flag = 1
-        endif
-    endfunc
-    map cbg :call ChangeGuibg()<CR>
-
-
     " \\\\\\
     " >>>>>>> Vista 
     " //////
@@ -420,29 +424,29 @@ endif
 "let g:VM_maps["Redo"]      = '<C-r>'
 
 
-    "" \\\\\\
-    "" >>>>>>> tagbar 
-    "" //////
-    "nmap <F8> :TagbarToggle<CR>
-    "let g:tagbar_sort=0  " close auto sort
-    "let g:tagbar_width=30  " set window width
-    ""let g:tagbar_autopreview = 1
-    "let g:tagbar_autofocus = 1
-    ""autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
-    "function! s:init_var(var, value) abort
-        "if !exists('g:tagbar_' . a:var)
-            "execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
-        "endif
-    "endfunction
-    "function! s:setup_keymaps() abort
-        "let keymaps = [
-                    "\ ['togglecaseinsensitive', ''],
-                    "\ ]
-        "for [map, key] in keymaps
-            "call s:init_var('map_' . map, key)
-            "unlet key
-        "endfor
-    "endfunction
-    "call s:setup_keymaps()
+"" \\\\\\
+"" >>>>>>> tagbar 
+"" //////
+"nmap <F8> :TagbarToggle<CR>
+"let g:tagbar_sort=0  " close auto sort
+"let g:tagbar_width=30  " set window width
+""let g:tagbar_autopreview = 1
+"let g:tagbar_autofocus = 1
+""autocmd BufReadPost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
+"function! s:init_var(var, value) abort
+    "if !exists('g:tagbar_' . a:var)
+        "execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
+    "endif
+"endfunction
+"function! s:setup_keymaps() abort
+    "let keymaps = [
+                "\ ['togglecaseinsensitive', ''],
+                "\ ]
+    "for [map, key] in keymaps
+        "call s:init_var('map_' . map, key)
+        "unlet key
+    "endfor
+"endfunction
+"call s:setup_keymaps()
 
 

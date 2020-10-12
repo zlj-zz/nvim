@@ -13,6 +13,7 @@ filetype plugin indent on " turn on auto-completion
 filetype indent on       " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on       " allow plugin
 
+set termguicolors        " enable true colors support
 set number               " show line number
 "set ruler                " show ruler
 set relativenumber       " line number format
