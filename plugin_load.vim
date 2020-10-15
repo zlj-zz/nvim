@@ -74,9 +74,9 @@ Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
 if g:isWin == 0
     if filereadable('/usr/bin/fcitx')
         Plug 'vim-scripts/fcitx.vim'  " let you can use fcitx in vim
-        Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     endif
 
+    Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     Plug 'liuchengxu/vista.vim' " like tagbar
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
