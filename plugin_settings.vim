@@ -102,7 +102,7 @@ let g:dart_format_on_save = 1
 "" \\\\\\
 "" >>>>>>> vim-startity 
 "" //////
-noremap <F5> :Startify<cr>
+noremap <F5> :tabe<cr>:Startify<cr>
 let g:ascii = [
       \ '           __',
       \ '   .--.--.|__|.--------.',
