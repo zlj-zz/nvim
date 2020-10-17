@@ -26,7 +26,9 @@ let g:coc_global_extensions = [
         \'coc-prettier',
         \'coc-yaml',
         \'coc-sourcekit',
-        \'coc-tsserver', 'coc-tslint', 'coc-tailwindcss',
+        \'coc-tsserver',
+        \'coc-tslint',
+        \'coc-tailwindcss',
         \'coc-yank',
         \'coc-translator',
     \]
@@ -34,9 +36,6 @@ let g:coc_global_extensions = [
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)
 
-    "javascript.suggestionActions.enabled": true,
-    "json.format.enable": true,
-    "json.format.enable": true,
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -102,7 +101,6 @@ let g:dart_format_on_save = 1
 "" \\\\\\
 "" >>>>>>> vim-startity 
 "" //////
-noremap <F5> :tabe<cr>:Startify<cr>
 let g:ascii = [
       \ '           __',
       \ '   .--.--.|__|.--------.',
@@ -112,33 +110,17 @@ let g:ascii = [
       \]
 let g:startify_custom_header = g:ascii
 let g:startify_files_number = 15
-"if empty(glob('~/.config/nvim/tmp/demo/'))
-"    silent! exec "!mkdir ~/.config/nvim/tmp/demo"
-"    silent! exec "!touch ~/.config/nvim/tmp/demo/tmp.{c,py,java,js,html,css,sh}"
-"endif
-"function s:temporaryMenu()
-"  return [
-"        \ { 'line': 'c', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.c' },
-"        \ { 'line': 'py', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.py' },
-"        \ { 'line': 'java', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.java' },
-"        \ { 'line': 'js', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.js' },
-"        \ { 'line': 'html', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.html' },
-"        \ { 'line': 'css', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.css' },
-"        \ { 'line': 'bash', 'cmd': 'e ~/.config/nvim/tmp/demo/tmp.sh' },
-"        \ ]
-"endfunction
-"let g:startify_lists = [
-"      \ { 'type': 'files',     'header': ['   MRU']            },
-"      \ { 'type': function('s:temporaryMenu'),  'header': ['   Temporary'] },
-"      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-"      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-"      \ ]
+let g:startify_lists = [
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ ]
+noremap <F5> :tabe<cr>:Startify<cr>
 
 
 "" \\\\\\
 "" >>>>>>> undotree 
 "" //////
-nnoremap tu :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -151,6 +133,7 @@ function g:Undotree_CustomMap()
     nmap <buffer> K 5<plug>UndotreeNextState
     nmap <buffer> J 5<plug>UndotreePreviousState
 endfunc
+nnoremap tu :UndotreeToggle<CR>
 
 
 " \\\\\\
@@ -273,9 +256,9 @@ let g:mkdp_browser       = 'firefox'
 "" \\\\\\
 "" >>>>>>> vim-table-mode 
 "" //////
-noremap <LEADER>tm :TableModeToggle<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
+noremap <LEADER>tm :TableModeToggle<CR>
 
 
 " \\\\\\
@@ -303,20 +286,20 @@ tnoremap <f3> <C-\><C-N>:FloatermToggle<cr>
 " \\\\\\
 " >>>>>>> far.vim 
 " //////
-noremap <LEADER>f :F  **/*<left><left><left><left><left>
-noremap ,r :Far  **/*<left><left><left><left><left>
 let g:far#mapping = {
 		\ "replace_undo" : ["l"],
 		\ }
+noremap <LEADER>f :F  **/*<left><left><left><left><left>
+noremap ,r :Far  **/*<left><left><left><left><left>
 
 
 " \\\\\\
 " >>>>>>> vim-deus 
 " //////
-colorscheme deus
 let g:deus_termcolors=256
 let g:bg_transflag=0
 let g:bg_flag = 1
+colorscheme deus
 func! ChangeGuibg() " transparent background toggle
     if g:bg_flag == 1
         exec "hi normal guibg=none"
@@ -335,21 +318,14 @@ if g:isWin == 0
     " //////
     " use `p` to preview
     " use `q` to quit
-    nmap ti :Vista!!<CR>
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista#renderer#enable_icon = 1
+    nmap ti :Vista!!<CR>
 
 
     " \\\\\\             (sudo pacman -S fzf)
     " >>>>>>> fzf.vim 
     " //////
-    noremap ,f :Rg<CR>
-    noremap ,h :History<cr>
-    noremap ,b :Buffers<cr>
-    noremap ,l :Lines<cr>
-
-    noremap <leader>; :History:<cr>
-
     function! s:list_buffers()
       redir => list
       silent ls
@@ -368,6 +344,13 @@ if g:isWin == 0
     \ }))
 
     noremap ,d :BufferDel<cr>
+
+    noremap ,f :Rg<CR>
+    noremap ,h :History<cr>
+    noremap ,b :Buffers<cr>
+    noremap ,l :Lines<cr>
+
+    noremap <leader>; :History:<cr>
 endif
 
 
