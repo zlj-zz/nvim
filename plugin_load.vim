@@ -25,8 +25,8 @@ Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'Konfekt/FastFold'
 Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
+Plug 'mg979/vim-visual-multi'
 "Plug 'AndrewRadev/splitjoin.vim'
-"Plug 'mg979/vim-visual-multi'
 " Snippets
 Plug 'SirVer/ultisnips' " Track the engine.
 Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:

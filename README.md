@@ -27,7 +27,7 @@
         * [vim-startify](#vim-startify)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-table-mode](#vim-table-mode)
-        * [~~nerdcommenter~~](#nerdcommenter)
+        * [nerdcommenter](#nerdcommenter)
         * [~~vim-keysound~~](#vim-keysound)
 * [Use for vim](#use-for-vim)
 
@@ -235,13 +235,19 @@ Things you can do with fzf and Vim.
 | `,` `l`      | FZF Lines           |
 | `leader` `;` | FZF history command |
 
-### vim-visual-multi
+### [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
 It can help you realize the function of multi-cursor.
 
-You can use `ctrl` + `← ↓ ↑ →` to select cursor position. Use `i` or `I` to insert character.
-
-To remove a cursor, use `q`. `u` to undo, `ctrl` + `r` to redo, like vim native.
+- select words with `Ctrl-N` (like `Ctrl-d` in Sublime Text/VS Code)
+- create cursors vertically with `Ctrl-Down/Ctrl-Up`
+- select one character at a time with `Shift-Arrows`
+- press `n/N` to get next/previous occurrence
+- press `[/]` to select next/previous cursor
+- press `q` to skip current and get next occurrence
+- press `Q` to remove current cursor/selection
+- start insert mode with `i,a,I,A`
+- `u` to undo, `ctrl` + `r` to redo, like vim native.
 
 ### vim-easymotion
 
@@ -253,13 +259,13 @@ Fast move you cursor, use `'` easymotion
 
 Use `da` + `=` to delete what's after `=`.
 
-### vim-easy-align
+### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
 
 Press `ga ` + **symbol** in normal or visual mode to align text based on **symbol**.
 
 ![easy-align](https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif)
 
-### vim-startify
+### [vim-startify](https://github.com/mhinz/vim-startify)
 
 Enter `F5` to open a new tab and running Startify.
 
@@ -275,14 +281,14 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 
 ![markdown-toc](https://raw.githubusercontent.com/mzlogin/vim-markdown-toc/master/screenshots/english.gif)
 
-### vim-table-mode
+### [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
 
 | shortcut        | action            |
 | --------------- | ----------------- |
 | `space` `t` `m` | toggle table mode |
 | `space` `t` `r` | realign table     |
 
-### ~~nerdcommenter~~
+### [nerdcommenter](https://github.com/preservim/nerdcommenter)
 
 > A code comment plugin.
 

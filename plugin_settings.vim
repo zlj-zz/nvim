@@ -109,7 +109,7 @@ let g:ascii = [
       \ ''
       \]
 let g:startify_custom_header = g:ascii
-let g:startify_files_number = 15
+let g:startify_files_number = 20
 let g:startify_lists = [
       \ { 'type': 'files',     'header': ['   MRU']            },
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -191,12 +191,6 @@ let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 
 " \\\\\\
-" >>>>>>> goyo.vim 
-" //////
-map <LEADER>gy :Goyo<CR>
-
-
-" \\\\\\
 " >>>>>>> vim-snippet 
 " //////
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -253,6 +247,27 @@ let g:mkdp_page_title    = '「${name}」'
 let g:mkdp_browser       = 'firefox'
 
 
+" \\\\\\
+" >>>>>>> vim-visual-multi 
+" //////
+"let g:VM_theme             = 'iceblue'
+"let g:VM_default_mappings = 0
+let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps = {}
+let g:VM_custom_motions  = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0'}
+let g:VM_maps['i']         = 'i'
+let g:VM_maps['I']         = 'I'
+let g:VM_maps['Find Under']         = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
+let g:VM_maps['Find Next']         = 'n'
+let g:VM_maps['Find Prev']         = 'N'
+let g:VM_maps['Remove Region'] = 'q'
+let g:VM_maps['Skip Region'] = ''
+let g:VM_maps["Undo"]      = 'u'
+let g:VM_maps["Redo"]      = '<C-r>'
+let g:VM_mouse_mappings = 1
+
+
 "" \\\\\\
 "" >>>>>>> vim-table-mode 
 "" //////
@@ -271,8 +286,11 @@ nmap ga <Plug>(EasyAlign)
 " \\\\\\
 " >>>>>>> nerdcommenter 
 " //////
-"xmap <c-/> <Plug>NERDCommenterToggle
-"nmap <c-/> <Plug>NERDCommenterToggle
+let g:NERDDefaultAlign = 'none'
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+nmap <leader>/ <Plug>NERDCommenterToggle
+xmap <leader>/ <Plug>NERDCommenterToggle
 
 
 " \\\\\\
@@ -310,6 +328,12 @@ func! ChangeGuibg() " transparent background toggle
     endif
 endfunc
 map <f4> :call ChangeGuibg()<CR>
+
+
+" \\\\\\
+" >>>>>>> goyo.vim 
+" //////
+map <LEADER>gy :Goyo<CR>
 
 
 if g:isWin == 0
@@ -385,26 +409,6 @@ endif
 "let g:xtabline_settings.enable_persistance = 0
 "let g:xtabline_settings.last_open_first = 1
 "noremap \p :XTabInfo<CR>
-
-
-" \\\\\\
-" >>>>>>> vim-visual-multi 
-" //////
-""let g:VM_theme             = 'iceblue'
-""let g:VM_default_mappings = 0
-"let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-"let g:VM_maps = {}
-"let g:VM_custom_motions  = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0', '4': '$'}
-"let g:VM_maps['i']         = 'i'
-"let g:VM_maps['I']         = 'I'
-"let g:VM_maps['Find Under']         = '<C-u>'
-"let g:VM_maps['Find Subword Under'] = '<C-u>'
-"let g:VM_maps['Find Next']         = ''
-"let g:VM_maps['Find Prev']         = ''
-"let g:VM_maps['Remove Region'] = 'q'
-"let g:VM_maps['Skip Region'] = ''
-"let g:VM_maps["Undo"]      = 'u'
-"let g:VM_maps["Redo"]      = '<C-r>'
 
 
 "" \\\\\\
