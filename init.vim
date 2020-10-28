@@ -39,13 +39,13 @@ else
 endif
 
 
-exec 'source '.g:NHOME."/config.vim"
-exec 'source '.g:NHOME.'/keymap.vim'
-exec 'source '.g:NHOME.'/environment.vim'
+exec 'source '.g:NHOME."/basic_config/config.vim"
+exec 'source '.g:NHOME.'/basic_config/keymap.vim'
+exec 'source '.g:NHOME.'/basic_config/environment.vim'
+exec 'source '.g:NHOME.'/plugins/plugin_load.vim'
+exec 'source '.g:NHOME.'/plugins/plugin_settings.vim'
 exec 'source '.g:NHOME.'/compile_run.vim'
 exec 'source '.g:NHOME.'/custom_tool.vim'
-exec 'source '.g:NHOME.'/plugin_load.vim'
-exec 'source '.g:NHOME.'/plugin_settings.vim'
 autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
 " hi Normal ctermfg=252 ctermbg=none guibg=none  " let bg transparent

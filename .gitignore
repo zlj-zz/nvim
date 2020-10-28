@@ -13,3 +13,6 @@ vimrc
 
 .netrwhist
 t.js
+
+!/basic_config/*
+!/plugins/*
