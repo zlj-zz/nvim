@@ -289,7 +289,7 @@ nmap ga <Plug>(EasyAlign)
 " //////
 let g:NERDDefaultAlign = 'none'
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = {'python': {'leftAlt': '""" ', 'rightAlt': ' """'}}
+let g:NERDCustomDelimiters = {'python': {'left': '# ', 'leftAlt': '""" ', 'rightAlt': ' """'}}
 nmap <leader>/ <Plug>NERDCommenterToggle
 xmap <leader>/ <Plug>NERDCommenterToggle
 

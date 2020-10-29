@@ -15,4 +15,7 @@ vimrc
 t.js
 
 !/basic_config/*
-!/plugins/*
+!/plugin_config/*
+!/custom_tools/*
+
+test.py

@@ -5,7 +5,12 @@
 "                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 "endif
-"
+if empty(glob(g:NHOME.'/plugged'))
+    "silent !curl -fLo ${NHOME}/autoload/plug.vim --create-dirs
+                "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " === Create a '_machine_specific.vim' file to adjust machine specific stuff
 " === like python interpreter location
 let has_machine_specific_file = 1

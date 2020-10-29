@@ -39,13 +39,18 @@ else
 endif
 
 
-exec 'source '.g:NHOME."/basic_config/config.vim"
-exec 'source '.g:NHOME.'/basic_config/keymap.vim'
-exec 'source '.g:NHOME.'/basic_config/environment.vim'
-exec 'source '.g:NHOME.'/plugins/plugin_load.vim'
-exec 'source '.g:NHOME.'/plugins/plugin_settings.vim'
-exec 'source '.g:NHOME.'/compile_run.vim'
-exec 'source '.g:NHOME.'/custom_tool.vim'
+" load basic config
+for _path in split(globpath(g:NHOME.'/basic_config', '*'), '\n')
+    exec 'source '._path
+endfor
+" load plugin config
+for _path in split(globpath(g:NHOME.'/plugin_config', '*'), '\n')
+    exec 'source '._path
+endfor
+" load my tool or plugin
+for _path in split(globpath(g:NHOME.'/custom_tools', '*'), '\n')
+    exec 'source '._path
+endfor
 autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
 " hi Normal ctermfg=252 ctermbg=none guibg=none  " let bg transparent
