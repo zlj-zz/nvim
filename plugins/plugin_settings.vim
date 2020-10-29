@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
         \'coc-sh',
         \'coc-python',
         \'coc-pyright',
+        \'coc-java',
         \'coc-flutter-tools',
         \'coc-json',
         \'coc-html',
@@ -288,7 +289,7 @@ nmap ga <Plug>(EasyAlign)
 " //////
 let g:NERDDefaultAlign = 'none'
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = {'python': {'leftAlt': '""" ', 'rightAlt': ' """'}}
 nmap <leader>/ <Plug>NERDCommenterToggle
 xmap <leader>/ <Plug>NERDCommenterToggle
 
