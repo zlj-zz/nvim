@@ -77,7 +77,7 @@
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.file.column.git.showIgnored": true,
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "i": false, // cancel default mapkey
     "k": "nodePrev",
     "j": "nodeNext",
