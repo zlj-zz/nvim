@@ -150,7 +150,7 @@ nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1
 nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
 if g:isWin == 0
     " lazygit
-    noremap gl :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
+    noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
 endif
 
 

@@ -17,17 +17,17 @@
         * [Tab management](#tab-management)
         * [Other](#other)
     * [Plugin](#plugin)
-        * [Coc](#coc)
+        * [vim-startify](#vim-startify)
+        * [COC](#coc)
         * [Vista.vim](#vistavim)
         * [fzf.vim](#fzfvim)
         * [vim-visual-multi](#vim-visual-multi)
-        * [vim-easymotion](#vim-easymotion)
-        * [vim-after-object](#vim-after-object)
+        * [~~vim-easymotion~~](#vim-easymotion)
+        * [~~vim-after-object~~](#vim-after-object)
         * [vim-easy-align](#vim-easy-align)
-        * [vim-startify](#vim-startify)
+        * [nerdcommenter](#nerdcommenter)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-table-mode](#vim-table-mode)
-        * [nerdcommenter](#nerdcommenter)
         * [~~vim-keysound~~](#vim-keysound)
 * [Use for vim](#use-for-vim)
 
@@ -154,23 +154,29 @@ You can use `ZZ` command, this command writes the file and exits.
 
 In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
 
-~~In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`)~a.
+~~In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`).~~
 
 let `ctrl+a` to select all (same as `ggVG`).
 
-`c-z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
+`ctrl+z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
 
 `space` + `j/k` to increase or decrease a number by one.
 
 `dip` clear the black lien around the current cursor.
 
-`da=` to delete current line what's after `=`.
-
-`ra` use **ranger** in neovim.
+~~`ra` use **ranger** in neovim.~~
 
 ## Plugin
 
-### [Coc](https://github.com/neoclide/coc.nvim)
+### [vim-startify](https://github.com/mhinz/vim-startify)
+
+Enter `F5` to open a new tab and running Startify.
+
+<!--First start will generate 5 temporary file with suffixes of `.c`, `.java`, `.py`, `.js`, `.html`, `.css`.-->
+
+![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
+
+### [COC](https://github.com/neoclide/coc.nvim)
 
 **coc-complete** (a auto-complete plugin)
 
@@ -179,7 +185,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 | `<tab>`           | next item       |     | `gd`     | jump to definition      |
 | `<shift>`+`<tab>` | previous item   |     | `gt`     | jump to type definition |
 | `<enter>`         | select item     |     | `gi`     | jump to implementation  |
-| `rn`              | symbol renaming |     | `gr`     | jump to references      |
+| `<leader>rn`      | symbol renaming |     | `gr`     | jump to/show references |
 
 ![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif)
 
@@ -226,14 +232,15 @@ Things you can do with fzf and Vim.
 
 | shortcut     | action              |
 | ------------ | ------------------- |
-| `,` `j`      | cursor down         |
-| `,` `k`      | cursor up           |
 | `,` `f`      | FZF file            |
 | `,` `h`      | FZF history         |
 | `,` `b`      | FZF Buffers         |
 | `,` `d`      | Del buffer          |
 | `,` `l`      | FZF Lines           |
 | `leader` `;` | FZF history command |
+
+<!--| `,` `j` | cursor down |-->
+<!--| `,` `k` | cursor up |-->
 
 ### [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
@@ -249,13 +256,13 @@ It can help you realize the function of multi-cursor.
 - start insert mode with `i,a,I,A`
 - `u` to undo, `ctrl` + `r` to redo, like vim native.
 
-### vim-easymotion
+### ~~vim-easymotion~~
 
 Fast move you cursor, use `'` easymotion
 
 ![vim-easymotion](https://img-blog.csdnimg.cn/20200512164720342.gif)
 
-### vim-after-object
+### ~~vim-after-object~~
 
 Use `da` + `=` to delete what's after `=`.
 
@@ -265,13 +272,14 @@ Press `ga ` + **symbol** in normal or visual mode to align text based on **symbo
 
 ![easy-align](https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif)
 
-### [vim-startify](https://github.com/mhinz/vim-startify)
+### [nerdcommenter](https://github.com/preservim/nerdcommenter)
 
-Enter `F5` to open a new tab and running Startify.
+> A code comment plugin.
 
-First start will generate 5 temporary file with suffixes of `.c`, `.java`, `.py`, `.js`, `.html`, `.css`.
-
-![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
+| shortcut     | action           |
+| ------------ | ---------------- |
+| `<LEADER>cn` | comment a line   |
+| `<LEADER>cu` | uncomment a line |
 
 ### [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
 
@@ -287,15 +295,6 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 | --------------- | ----------------- |
 | `space` `t` `m` | toggle table mode |
 | `space` `t` `r` | realign table     |
-
-### [nerdcommenter](https://github.com/preservim/nerdcommenter)
-
-> A code comment plugin.
-
-| shortcut     | action           |
-| ------------ | ---------------- |
-| `<LEADER>cn` | comment a line   |
-| `<LEADER>cu` | uncomment a line |
 
 ### ~~vim-keysound~~
 
