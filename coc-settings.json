@@ -76,7 +76,7 @@
   "explorer.file.column.indent.indentLine": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.column.git.showIgnored": true,
+  "explorer.git.showIgnored": true,
   "explorer.keyMappings.global": {
     "i": false, // cancel default mapkey
     "k": "nodePrev",
@@ -148,10 +148,6 @@
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
   "git.changedSign.text": "░",
-  //    "git.addedSign.text": "▎",
-  //    "git.removedSign.text": "▏",
-  //    "git.topRemovedSign.text": "▔",
-  //    "git.changeRemovedSign.text": "▒",
   "flutter.UIPath": true,
   "flutter.provider.enableSnippet": true,
   "flutter.lsp.debug": true,
@@ -240,3 +236,7 @@
   },
   "java.format.settings.url": "/home/zacharyz/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
 }
+//    "git.addedSign.text": "▎",
+//    "git.removedSign.text": "▏",
+//    "git.topRemovedSign.text": "▔",
+//    "git.changeRemovedSign.text": "▒",
