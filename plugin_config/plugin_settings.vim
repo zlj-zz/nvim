@@ -8,6 +8,12 @@
 " >>>>>>> coc 
 " //////
 "set signcolumn=no  " no side bar
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 let g:coc_global_extensions = [
         \'coc-lists',
         \'coc-diagnostic',
@@ -48,12 +54,20 @@ inoremap <silent><expr> <Tab>
             \ coc#refresh()
 " previous one
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" use <shift>+<space> mandatory completion
-inoremap <silent><expr> <s-space> coc#refresh()
-" use <enter> confirmation completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-" Open up coc-commands
-nnoremap <c-c> :CocCommand<CR>
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 " 选择函数内所有行
@@ -65,13 +79,9 @@ omap tf <Plug>(coc-funcobj-a)
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " GoTo code navigation. 代码导航
-" 跳转到定义处。如有多个定义，使用 |coc-list| 展示
 nmap <silent> gd <Plug>(coc-definition)
-" 跳转到类型定义位置
 nmap <silent> gt <Plug>(coc-type-definition)
-" 跳转到实现处
 nmap <silent> gi <Plug>(coc-implementation)
-" 跳转到引用位置
 nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -95,8 +105,27 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+" Formatting selected code.
+xmap \f  <Plug>(coc-format-selected)
+nmap \f  <Plug>(coc-format-selected)
 " for dart format
 let g:dart_format_on_save = 1
+" Open up coc-commands
+nnoremap <c-c> :CocCommand<CR>
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 
 "" \\\\\\
@@ -122,12 +151,12 @@ noremap <F5> :tabe<cr>:Startify<cr>
 "" \\\\\\
 "" >>>>>>> undotree 
 "" //////
-let g:undotree_DiffAutoOpen = 1
+let g:undotree_DiffAutoOpen       = 1
 let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_ShortIndicators = 1
-let g:undotree_WindowLayout = 2
-let g:undotree_DiffpanelHeight = 8
-let g:undotree_SplitWidth = 24
+let g:undotree_ShortIndicators    = 1
+let g:undotree_WindowLayout       = 2
+let g:undotree_DiffpanelHeight    = 8
+let g:undotree_SplitWidth         = 24
 function g:Undotree_CustomMap()
     nmap <buffer> k <plug>UndotreeNextState
     nmap <buffer> j <plug>UndotreePreviousState
@@ -141,15 +170,10 @@ nnoremap tu :UndotreeToggle<CR>
 " >>>>>>> vim-illuminate 
 " //////
 set laststatus=2
-let g:airline_theme='atomic'
+"let g:airline_theme='atomic'
+let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 "let g:Illuminate_delay = 750
-
-
-" \\\\\\
-" >>>>>>> vim-autoformat 
-" //////
-nnoremap \f :Autoformat<CR>
 
 
 " \\\\\\
@@ -162,8 +186,8 @@ nnoremap \h :SemanticHighlightToggle<cr>
 " >>>>>>> indentLine 
 " //////
 let g:indentLine_noConcealCursor = 1
-let g:indentLine_color_term = 238
-let g:indentLine_char = '|'
+let g:indentLine_color_term      = 238
+let g:indentLine_char            = '|'
 
 
 " \\\\\\
@@ -190,6 +214,12 @@ let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 
+" \\\\\\
+" >>>>>>> dart-lang/dart-vim-plugin 
+" //////
+let g:dart_style_guide    = 2
+let g:dart_format_on_save = 1
+let g:dartfmt_options     = ["-l 100"]
 
 " \\\\\\
 " >>>>>>> vim-snippet 
@@ -205,7 +235,7 @@ let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.
 " //////
 nmap zuz <Plug>(FastFoldUpdate)
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:vimsyn_folding = 'af'
 let g:fastfold_savehook  = 1
 let g:markdown_folding   = 1
@@ -248,33 +278,44 @@ let g:mkdp_page_title    = '「${name}」'
 let g:mkdp_browser       = 'firefox'
 
 
-" \\\\\\
-" >>>>>>> vim-visual-multi 
-" //////
-"let g:VM_theme             = 'iceblue'
-"let g:VM_default_mappings = 0
-let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-let g:VM_maps = {}
-let g:VM_custom_motions  = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0'}
-let g:VM_maps['i']         = 'i'
-let g:VM_maps['I']         = 'I'
-let g:VM_maps['Find Under']         = '<C-d>'
-let g:VM_maps['Find Subword Under'] = '<C-d>'
-let g:VM_maps['Find Next']         = 'n'
-let g:VM_maps['Find Prev']         = 'N'
-let g:VM_maps['Remove Region'] = 'q'
-let g:VM_maps['Skip Region'] = ''
-let g:VM_maps["Undo"]      = 'u'
-let g:VM_maps["Redo"]      = '<C-r>'
-let g:VM_mouse_mappings = 1
-
-
 "" \\\\\\
 "" >>>>>>> vim-table-mode 
 "" //////
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 noremap <LEADER>tm :TableModeToggle<CR>
+
+
+" \\\\\\
+" >>>>>>> Bullets.vim 
+" //////
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
+
+" \\\\\\
+" >>>>>>> vim-visual-multi 
+" //////
+"let g:VM_theme             = 'iceblue'
+"let g:VM_default_mappings = 0
+let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps                       = {}
+let g:VM_custom_motions             = {'h': 'h', 'l': 'l', 'k': 'k', 'j': 'j', '0': '0'}
+let g:VM_maps['i']                  = 'i'
+let g:VM_maps['I']                  = 'I'
+let g:VM_maps['Find Under']         = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
+let g:VM_maps['Find Next']          = 'n'
+let g:VM_maps['Find Prev']          = 'N'
+let g:VM_maps['Remove Region']      = 'q'
+let g:VM_maps['Skip Region']        = ''
+let g:VM_maps["Undo"]               = 'u'
+let g:VM_maps["Redo"]               = '<C-r>'
+let g:VM_mouse_mappings             = 1
 
 
 " \\\\\\
@@ -438,3 +479,7 @@ endif
 "call s:setup_keymaps()
 
 
+" \\\\\\
+" >>>>>>> vim-autoformat 
+" //////
+"nnoremap \f :Autoformat<CR>

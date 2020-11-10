@@ -21,7 +21,6 @@ Plug 'Yggdroot/indentLine' " show indentation line
 Plug 'RRethy/vim-illuminate'   " illuminating the other uses of the current word under the cursor
 Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
 Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu to uncomment
-Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'Konfekt/FastFold'
 Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
@@ -51,22 +50,11 @@ Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 Plug 'tiagofumo/dart-vim-flutter-layout' " code indent
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml']  }
-
-let g:dart_style_guide    = 2
-let g:dart_format_on_save = 1
-let g:dartfmt_options     = ["-l 100"]
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'theniceboy/bullets.vim'
-" Bullets.vim
-let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
 " Dependencies
 Plug 'kana/vim-textobj-user'
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'} " For general writing-工作无忧
@@ -94,3 +82,4 @@ call plug#end()
 "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
 "Plug 'majutsushi/tagbar',{'on': 'TagbarToggle'}  " sudo pacman -S ctags,  Tagbar, easy read program, function bar
 "Plug 'roxma/nvim-yarp' " a other vim plugin manager
+"Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
