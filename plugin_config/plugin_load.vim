@@ -66,7 +66,7 @@ if g:isWin == 0
 
     Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     Plug 'liuchengxu/vista.vim' " like tagbar
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
     "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`

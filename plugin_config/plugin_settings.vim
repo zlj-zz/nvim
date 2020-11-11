@@ -167,11 +167,31 @@ nnoremap tu :UndotreeToggle<CR>
 
 
 " \\\\\\
+" >>>>>>> vim-deus 
+" //////
+let g:deus_termcolors=256
+let g:bg_transflag=0
+let g:bg_flag = 1
+colorscheme deus
+func! ChangeGuibg() " transparent background toggle
+    if g:bg_flag == 1
+        exec "hi normal guibg=none"
+        let g:bg_flag = 0
+    else
+        exec "hi normal guibg=#242a32"
+        let g:bg_flag = 1
+    endif
+endfunc
+map <f4> :call ChangeGuibg()<CR>
+
+
+" \\\\\\
 " >>>>>>> vim-illuminate 
 " //////
 set laststatus=2
 "let g:airline_theme='atomic'
-let g:airline_theme='dark'
+"let g:airline_theme='dark'
+let g:airline_theme='deus'
 let g:airline#extensions#tabline#enabled = 1
 "let g:Illuminate_delay = 750
 
@@ -351,25 +371,6 @@ let g:far#mapping = {
 		\ }
 noremap <LEADER>f :F  **/*<left><left><left><left><left>
 noremap ,r :Far  **/*<left><left><left><left><left>
-
-
-" \\\\\\
-" >>>>>>> vim-deus 
-" //////
-let g:deus_termcolors=256
-let g:bg_transflag=0
-let g:bg_flag = 1
-colorscheme deus
-func! ChangeGuibg() " transparent background toggle
-    if g:bg_flag == 1
-        exec "hi normal guibg=none"
-        let g:bg_flag = 0
-    else
-        exec "hi normal guibg=#242a32"
-        let g:bg_flag = 1
-    endif
-endfunc
-map <f4> :call ChangeGuibg()<CR>
 
 
 " \\\\\\
