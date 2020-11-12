@@ -25,6 +25,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Konfekt/FastFold'
 Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
 Plug 'mg979/vim-visual-multi'
+Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 "Plug 'AndrewRadev/splitjoin.vim'
 " Snippets
 Plug 'SirVer/ultisnips' " Track the engine.
@@ -69,8 +71,6 @@ if g:isWin == 0
     "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
-    "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
-    "Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
     "Plug 'junegunn/vim-after-object' " da= to delete what's after =
     "Plug 'wincent/terminus'
 endif
