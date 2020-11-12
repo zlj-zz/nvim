@@ -188,7 +188,6 @@
   },
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
-    "python",
     "dart",
     "javascript",
     "json",
