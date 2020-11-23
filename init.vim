@@ -51,7 +51,7 @@ endfor
 for _path in split(globpath(g:NHOME.'/custom_tools', '*'), '\n')
     exec 'source '._path
 endfor
-autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
+"autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
 " hi Normal ctermfg=252 ctermbg=none guibg=none  " let bg transparent
 
