@@ -40,15 +40,15 @@ endif
 
 
 " load basic config
-for _path in split(globpath(g:NHOME.'/basic_config', '*'), '\n')
+for _path in split(globpath(g:NHOME.'/vim.config', '*'), '\n')
     exec 'source '._path
 endfor
 " load plugin config
-for _path in split(globpath(g:NHOME.'/plugin_config', '*'), '\n')
+for _path in split(globpath(g:NHOME.'/plugin.config', '*'), '\n')
     exec 'source '._path
 endfor
 " load my tool or plugin
-for _path in split(globpath(g:NHOME.'/custom_tools', '*'), '\n')
+for _path in split(globpath(g:NHOME.'/customtools', '*'), '\n')
     exec 'source '._path
 endfor
 "autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
