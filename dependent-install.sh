@@ -5,9 +5,9 @@
 # Last Modified: 2020-10-02 10:48
 
 #------------------------------------------------
-# dependent
+# dependent softwares
 #------------------------------------------------
-dependent_softwares=("python2.7" \
+DEPENDENT_SOFTWARES=("python2.7" \
     "python3" \
     "nodejs" \
     "npm" \
@@ -22,10 +22,10 @@ dependent_softwares=("python2.7" \
     "ctags"\
     "xclip" \
     "figlet")
-dependent_python_package=("pynvim" \
+DEPENDENT_PYTHON_PACKAGES=("pynvim" \
     "debugpy"\
     "ueberzug")
-dependent_npm_package=("neovim")
+DEPENDENT_NPM_PACKAGES=("neovim")
 
 #------------------------------------------------
 # different package manager install function
@@ -42,7 +42,7 @@ apt_install(){
 pacman_install(){
     if ! type $i >/dev/null 2>&1; then
         echo -e "\e[1;41;93m$i\e[0m\e[1m ==> \e[0m not found, start to download:"
-        sudo  pacman -S $1
+        sudo pacman -S $1
     else
         echo -e "\e[1;42;93m$i\e[0m\e[1m ==> \e[0m is installed."
     fi
@@ -73,13 +73,13 @@ npm_install(){
 #------------------------------------------------
 # get what package manager in this system
 #------------------------------------------------
-software_intall_func=1
+software_intaller=1
 get_package_manager(){
     if [[ $(ls /usr/bin/apt) ]]; then
-        software_intall_func=apt_install
+        software_intaller=apt_install
         echo "Found package manager: apt"
     elif [[ $(ls /usr/bin/pacman) ]]; then
-        software_intall_func=pacman_install
+        software_intaller=pacman_install
         echo "Found package manager: pacman"
     else
         echo "Found package manager error!"
@@ -92,22 +92,23 @@ get_package_manager(){
 #------------------------------------------------
 run(){
     # get system's package manager
-    echo -e "\e[1;96mStart Install Evironment.\e[0m"
+    echo -e "\e[1;96mStart install Evironment for Neovim.\e[0m"
     get_package_manager
 
-    for i in ${dependent_softwares[@]}; do
-        $software_intall_func $i
+    for i in ${DEPENDENT_SOFTWARES[@]}; do
+        $software_intaller $i
     done
 
-    for i in ${dependent_npm_package[@]}; do
+    for i in ${DEPENDENT_NPM_PACKAGES[@]}; do
         npm_install $i
     done
 
-    for i in ${dependent_python_package[@]}; do
+    for i in ${DEPENDENT_PYTHON_PACKAGES[@]}; do
         pip_install $i
     done
 
     echo -e "\e[1;96mInstall Evironment Over.\e[0m"
 }
 
+# start
 run
