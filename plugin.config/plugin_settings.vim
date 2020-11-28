@@ -89,6 +89,7 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap tt :CocCommand explorer<CR>
 " coc-translator 翻译
 nmap ts <Plug>(coc-translator-p)
+vmap ts <Plug>(coc-translator-pv)
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 "           获取并执行 language server 给出的当前选择区间
 "           内的可用操作。

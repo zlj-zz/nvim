@@ -213,6 +213,12 @@ Enter `F5` to open a new tab and running Startify.
 
 ![explorer](https://img-blog.csdnimg.cn/20200520184210522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
+**[coc-translator](https://github.com/voldikss/coc-translator)**
+
+Translation extension for coc.nvim. Inspired by [vim-translator](https://github.com/voldikss/vim-translator)
+
+![](https://user-images.githubusercontent.com/20282795/81474850-a3acf100-923a-11ea-9110-5e0fca6118b2.png)
+
 ### [Vista.vim](https://github.com/liuchengxu/vista.vim)
 
 View and search LSP symbols, tags in Vim/NeoVim.
