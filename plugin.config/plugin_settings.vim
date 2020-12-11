@@ -173,9 +173,10 @@ nnoremap tu :UndotreeToggle<CR>
 colorscheme deus
 let g:deus_termcolors=256
 let g:bg_flag = 1
-let g:bg_c="#000000"
+let g:bg_c="#242a32"
 
-"#242a32
+"#000000"
+
 exec "hi normal guibg=".bg_c
 func! ChangeGuibg() " transparent background toggle
     if g:bg_flag == 1
@@ -194,8 +195,8 @@ map <f4> :call ChangeGuibg()<CR>
 " //////
 set laststatus=2
 "let g:airline_theme='atomic'
-let g:airline_theme='dark'
-"let g:airline_theme='deus'
+"let g:airline_theme='dark'
+let g:airline_theme='deus'
 let g:airline#extensions#tabline#enabled = 1
 "let g:Illuminate_delay = 750
 

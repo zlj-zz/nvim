@@ -30,7 +30,7 @@ Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or 
 Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu to uncomment
 "Plug 'AndrewRadev/splitjoin.vim'
 " Snippets
-Plug 'SirVer/ultisnips' " Track the engine.
+"Plug 'SirVer/ultisnips' " Track the engine.
 Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 " Auto Complete Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
