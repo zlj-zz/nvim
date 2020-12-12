@@ -167,15 +167,19 @@ endfunc
 nnoremap tu :UndotreeToggle<CR>
 
 
+"colorscheme gruvbox
+"colorscheme zenburn
+"colorscheme pink-moon
+"set background=dark
 " \\\\\\
 " >>>>>>> vim-deus 
 " //////
 colorscheme deus
 let g:deus_termcolors=256
 let g:bg_flag = 1
-let g:bg_c="#242a32"
-
-"#000000"
+"let g:bg_c="#242a32"
+let g:bg_c="#2C323B"
+"let g:bg_c="#000000"
 
 exec "hi normal guibg=".bg_c
 func! ChangeGuibg() " transparent background toggle
@@ -415,7 +419,7 @@ if g:isWin == 0
 
     noremap ,d :BufferDel<cr>
 
-    noremap ,f :Rg<CR>
+    noremap ,f :Ag<CR>
     noremap ,h :History<cr>
     noremap ,b :Buffers<cr>
     noremap ,l :Lines<cr>

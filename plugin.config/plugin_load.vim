@@ -7,6 +7,9 @@ call plug#begin(g:NHOME.'/plugged')
 Plug 'KabbAmine/vCoolor.vim'
 " === color theme ===
 Plug 'ajmwagar/vim-deus'
+"Plug 'sts10/vim-pink-moon'
+"Plug 'morhetz/gruvbox'
+"Plug 'jnurmine/Zenburn'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -45,7 +48,7 @@ Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javas
 " Python
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
 " Go
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
@@ -68,9 +71,9 @@ if g:isWin == 0
         Plug 'vim-scripts/fcitx.vim'  " let you can use fcitx in vim
     endif
 
-    Plug 'ryanoasis/vim-devicons' " add icon to vim plug
+    "Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     Plug 'liuchengxu/vista.vim' " like tagbar
-    "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
     "Plug 'junegunn/vim-after-object' " da= to delete what's after =
