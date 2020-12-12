@@ -19,3 +19,5 @@ t.js
 !/customtools/*
 
 test.py
+
+.DS_Store
