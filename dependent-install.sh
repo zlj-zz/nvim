@@ -48,6 +48,15 @@ pacman_install(){
     fi
 }
 
+brew_install(){
+    if ! type $i >/dev/null 2>&1; then
+        echo -e "\e[1;41;93m$i\e[0m\e[1m ==> \e[0m not found, start to download:"
+        brew install -s $1
+    else
+        echo -e "\e[1;42;93m$i\e[0m\e[1m ==> \e[0m is installed."
+    fi
+}
+
 #------------------------------------------------
 # other installer
 #------------------------------------------------
@@ -81,6 +90,9 @@ get_package_manager(){
     elif [[ $(ls /usr/bin/pacman) ]]; then
         software_intaller=pacman_install
         echo "Found package manager: pacman"
+    elif [[ $(whereis brew) ]]; then
+        software_intaller=brew_install
+        echo "Found package manager: HomeBrew"
     else
         echo "Found package manager error!"
         exit(0)
