@@ -168,7 +168,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 ## Plugin
 
-### [vim-startify](https://github.com/mhinz/vim-startify)
+### [vim-startify][1]
 
 Enter `F5` to open a new tab and running Startify.
 
@@ -176,7 +176,7 @@ Enter `F5` to open a new tab and running Startify.
 
 ![vim-startup](https://img-blog.csdnimg.cn/20200512234641826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
-### [COC](https://github.com/neoclide/coc.nvim)
+### [COC][2]
 
 **coc-complete** (a auto-complete plugin)
 
@@ -199,7 +199,7 @@ Enter `F5` to open a new tab and running Startify.
 
 ![coc-snippet](https://img-blog.csdnimg.cn/20200512090039297.gif)
 
-**[coc-explorer](https://github.com/weirongxu/coc-explorer)** (a file browser plugin)
+**[coc-explorer][3]** (a file browser plugin)
 
 | shortcut  | action               |     | shortcut | action        |     | shortcut | action         |
 | --------- | -------------------- | --- | -------- | ------------- | --- | -------- | -------------- |
@@ -213,13 +213,13 @@ Enter `F5` to open a new tab and running Startify.
 
 ![explorer](https://img-blog.csdnimg.cn/20200520184210522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
 
-**[coc-translator](https://github.com/voldikss/coc-translator)**
+**[coc-translator][4]**
 
 Translation extension for coc.nvim. Inspired by [vim-translator](https://github.com/voldikss/vim-translator)
 
 ![](https://user-images.githubusercontent.com/20282795/81474850-a3acf100-923a-11ea-9110-5e0fca6118b2.png)
 
-### [Vista.vim](https://github.com/liuchengxu/vista.vim)
+### [Vista.vim][5]
 
 View and search LSP symbols, tags in Vim/NeoVim.
 
@@ -232,7 +232,7 @@ Press `ti` to toggle Vista.
 
 [Vista gif](https://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gifhttps://user-images.githubusercontent.com/8850248/56469894-14d40780-6472-11e9-802f-729ac53bd4d5.gif)
 
-### [fzf.vim](https://github.com/junegunn/fzf.vim)
+### [fzf.vim][6]
 
 Things you can do with fzf and Vim.
 
@@ -248,7 +248,7 @@ Things you can do with fzf and Vim.
 <!--| `,` `j` | cursor down |-->
 <!--| `,` `k` | cursor up |-->
 
-### [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
+### [vim-visual-multi][7]
 
 It can help you realize the function of multi-cursor.
 
@@ -272,13 +272,13 @@ Fast move you cursor, use `'` easymotion
 
 Use `da` + `=` to delete what's after `=`.
 
-### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+### [vim-easy-align][8]
 
 Press `ga ` + **symbol** in normal or visual mode to align text based on **symbol**.
 
 ![easy-align](https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif)
 
-### [nerdcommenter](https://github.com/preservim/nerdcommenter)
+### [nerdcommenter][9]
 
 > A code comment plugin.
 
@@ -287,7 +287,7 @@ Press `ga ` + **symbol** in normal or visual mode to align text based on **symbo
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
 
-### [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
+### [vim-markdown-toc][10]
 
 > (generate table of contents for markdown files)
 
@@ -295,7 +295,7 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 
 ![markdown-toc](https://raw.githubusercontent.com/mzlogin/vim-markdown-toc/master/screenshots/english.gif)
 
-### [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
+### [vim-table-mode][11]
 
 | shortcut        | action            |
 | --------------- | ----------------- |
@@ -322,3 +322,17 @@ ln -s xxx/nvim/init.vim ./vimrc
 ```
 
 <font size=50px; ><b>This is bottom</b></font>
+
+<!--link-->
+
+[1]: https://github.com/mhinz/vim-startify
+[2]: https://github.com/neoclide/coc.nvim
+[3]: https://github.com/weirongxu/coc-explorer
+[4]: https://github.com/voldikss/coc-translator
+[5]: https://github.com/liuchengxu/vista.vim
+[6]: https://github.com/junegunn/fzf.vim
+[7]: https://github.com/mg979/vim-visual-multi
+[8]: https://github.com/junegunn/vim-easy-align
+[9]: https://github.com/preservim/nerdcommenter
+[10]: https://github.com/mzlogin/vim-markdown-toc
+[11]: https://github.com/dhruvasagar/vim-table-mode
