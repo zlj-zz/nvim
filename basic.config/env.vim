@@ -5,7 +5,7 @@
 "                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 "endif
-if empty(glob(g:NHOME.'/plugged'))
+if empty(glob(g:home_path.'/plugged'))
     "silent !curl -fLo ${NHOME}/autoload/plug.vim --create-dirs
                 "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -14,12 +14,12 @@ endif
 " === Create a '_machine_specific.vim' file to adjust machine specific stuff
 " === like python interpreter location
 let has_machine_specific_file = 1
-if empty(glob(g:NHOME.'/_machine_specific.vim'))
+if empty(glob(g:home_path.'/_machine_specific.vim'))
     let has_machine_specific_file = 0
     "silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
-    silent! exec "touch ".g:NHOME."/_machine_specific.vim"
+    silent! exec "touch ".g:home_path."/_machine_specific.vim"
 endif
-execute 'source '.g:NHOME.'/_machine_specific.vim'
+execute 'source '.g:home_path.'/_machine_specific.vim'
 
 
 " === create temp folder

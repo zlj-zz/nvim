@@ -3,7 +3,7 @@
 "=      plugin             =
 "=                         =
 "===========================
-call plug#begin(g:NHOME.'/plugged')
+call plug#begin(g:home_path.'/plugged')
 Plug 'KabbAmine/vCoolor.vim'
 " === color theme ===
 Plug 'ajmwagar/vim-deus'
