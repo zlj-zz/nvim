@@ -58,6 +58,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'f-person/pubspec-assist-nvim', { 'for' : ['pubspec.yaml']  }
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
 Plug 'theniceboy/bullets.vim'
@@ -71,7 +72,7 @@ if g:isWin == 0
         Plug 'vim-scripts/fcitx.vim'  " let you can use fcitx in vim
     endif
 
-    "Plug 'ryanoasis/vim-devicons' " add icon to vim plug
+    Plug 'ryanoasis/vim-devicons' " add icon to vim plug
     Plug 'liuchengxu/vista.vim' " like tagbar
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
