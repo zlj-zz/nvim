@@ -26,6 +26,7 @@
         * [~~vim-after-object~~](#vim-after-object)
         * [vim-easy-align](#vim-easy-align)
         * [nerdcommenter](#nerdcommenter)
+        * [markdown-preview.nvim](#markdown-previewnvim)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-table-mode](#vim-table-mode)
         * [~~vim-keysound~~](#vim-keysound)
@@ -290,6 +291,12 @@ Press `ga ` + **symbol** in normal or visual mode to align text based on **symbo
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
 
+### [markdown-preview.nvim][13]
+
+Preview markdown on your modern browser with synchronised scrolling and flexible configuration.
+
+> you should make sure install hook success. `:call mkdp#util#install()`
+
 ### [vim-markdown-toc][10]
 
 > (generate table of contents for markdown files)
@@ -369,3 +376,4 @@ ln -s xxx/nvim/init.vim ./vimrc
 [10]: https://github.com/mzlogin/vim-markdown-toc
 [11]: https://github.com/dhruvasagar/vim-table-mode
 [12]: https://github.com/ryaoasis/vim-deviconsn
+[13]: https://github.com/iamcco/markdown-preview.nvim

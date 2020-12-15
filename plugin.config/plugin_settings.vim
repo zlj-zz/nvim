@@ -305,6 +305,8 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port          = ''
 let g:mkdp_page_title    = '「${name}」'
 let g:mkdp_browser       = 'firefox'
+"let g:mkdp_browser       = 'safari'
+"let g:mkdp_browser       = 'Google Chrome'
 
 
 "" \\\\\\
