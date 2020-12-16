@@ -44,7 +44,7 @@ set hlsearch             " highlight search result
 set showcmd              " show input message
 set mouse=a              " mouse set
 set scrolloff=5          " reserve at least 5 lines when you scrol
-set updatetime=100
+set updatetime=200
 
 " auto identation ===========
 set autoindent

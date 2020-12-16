@@ -4,6 +4,7 @@ let mapleader=" "
 
 nnoremap ; :
 
+
 " ==========================
 " =                        =
 " =     file option        =
@@ -188,6 +189,17 @@ if g:isWin == 0
     noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>a
 endif
 
+" find the conflict line of git
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+let s:browsers = {}
+let s:browsers['chrome'] = 'open -a Google\ Chrome '
+let s:browsers['firefox'] = 'open -a Firefox '
+function! UserFuncViewFile()
+    exec 'silent !' . s:browsers['firefox'] . expand('%:p')
+endfunction
+
+noremap <leader>go :call UserFuncViewFile()<CR>
 
 " Auto change directory to current dir
 "autocmd BufEnter * silent! lcd %:p:h
