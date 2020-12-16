@@ -17,7 +17,6 @@
 "              (__)    )\
 "                 ||--|| *
 "
-" === Auto load for first time uses
 "let g:python_host_prog="/usr/bin/python2.7"
 "let g:python3_host_prog="/usr/bin/python3.8"
 
@@ -43,20 +42,18 @@ let s:sourceList = [
 
 "" load basic config
 for s:item in s:sourceList
-  "exec 'source ' . s:script_path . '/viml/' . s:item . '.vim'
-  for s:sub_path in split(globpath(g:home_path . '/' . s:item . '.config', '*'), '\n')
+  for s:sub_path in split(globpath(g:home_path . '/vim.' . s:item , '*.vim'), '\n')
     exec 'source ' . s:sub_path
   endfor
 endfor
+
+unlet s:sourceList
 
 "autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
 
 " experimental
 set lazyredraw
-
-" === Necessary Commands to Execute
 exec "nohlsearch"
-
 
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
