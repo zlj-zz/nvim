@@ -191,6 +191,8 @@ Enter `F5` to open a new tab and running Startify.
 | `<enter>`         | select item     |     | `gi`     | jump to implementation  |
 | `<leader>rn`      | symbol renaming |     | `gr`     | jump to/show references |
 
+- `yarn global add bash-language-server`
+
 ![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif)
 
 **coc-snippet** (a code snippet plugin)
