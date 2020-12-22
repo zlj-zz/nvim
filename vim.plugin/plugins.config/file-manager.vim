@@ -15,14 +15,40 @@ endfunc
 nnoremap tu :UndotreeToggle<CR>
 
 
-if g:isWin == 0
-    " \\\\\\
-    " >>>>>>> Vista 
-    " //////
-    " use `p` to preview
-    " use `q` to quit
-    let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-    let g:vista#renderer#enable_icon = 1
-    nmap ti :Vista!!<CR>
+"if g:isWin == 0
+    "" \\\\\\
+    "" >>>>>>> Vista 
+    "" //////
+    "" use `p` to preview
+    "" use `q` to quit
+    "let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+    "let g:vista#renderer#enable_icon = 1
+    "nmap ti :Vista!!<CR>
 
-endif
+"endif
+
+
+" \\\\\\
+" >>>>>>> tagbar 
+" //////
+nmap ti :TagbarToggle<cr>
+let g:tagbar_sort=0  " close auto sort
+let g:tagbar_width=30  " set window width
+"let g:tagbar_autopreview = 1
+let g:tagbar_autofocus = 1
+"autocmd bufreadpost *.py,*.cpp,*.c,*.java,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  " where file auto open the window
+function! s:init_var(var, value) abort
+    if !exists('g:tagbar_' . a:var)
+        execute 'let g:tagbar_' . a:var . ' = ' . string(a:value)
+    endif
+endfunction
+function! s:setup_keymaps() abort
+    let keymaps = [
+                \ ['togglecaseinsensitive', ''],
+                \ ]
+    for [map, key] in keymaps
+        call s:init_var('map_' . map, key)
+        unlet key
+    endfor
+endfunction
+call s:setup_keymaps()
