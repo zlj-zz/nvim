@@ -14,9 +14,10 @@ vimrc
 .netrwhist
 t.js
 
-!/vim.config/*
-!/plugin.config/*
-!/customtools/*
+!/vim.basic/*
+!/vim.plugin/*
+!/vim.plugin/*/*
+!/vim.customtools/*
 
 test.py
 

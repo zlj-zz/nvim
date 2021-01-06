@@ -1,0 +1,149 @@
+    "vim.enableNeovim": true,
+    "vim.history": 150,
+    "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": true,
+        "<C-x>": false,
+        "<C-c>": false,
+        "<C-h>": false,
+    },
+    "vim.hlsearch": true, // hightlight search
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": false,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        // map the cursor faster move in normal mode
+        {
+            "before": ["J"],
+            "after": ["5", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["5", "k"]
+        },
+        {
+            "before": ["H"],
+            "after": ["5", "h"]
+        },
+        {
+            "before": ["L"],
+            "after": ["5", "l"]
+        },
+        {
+            "before": ["Y"],
+            "after": ["y", "$"]
+        },
+        { // cancel hightlight search
+            "before": ["<leader>", "<CR>"],
+            "commands": [":nohl"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [":"],
+            "commands": [
+                "workbench.action.showCommands",
+           ]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+
+        },
+        // split window
+        {
+            "before": ["<leader>", "j"],
+            "commands": [":split",]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "commands": [":vsplit"]
+        },
+        // save and quit
+        {
+            "before": ["S"],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": ["Q"],
+            "commands": [":q"]
+        },
+        // tabe manege
+        {
+            "before": ["<C-t>"],
+            "commands": [":tabe"]
+        },
+        {
+            "before": ["t", "="],
+            "commands": [":-tabnext"]
+        },
+        {
+            "before": ["t", "-"],
+            "commands": [":+tabpre"]
+        },
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<esc>"]
+        },
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // map the cursor faster move in normal mode
+        {
+            "before": ["J"],
+            "after": ["5", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["5", "k"]
+        },
+        {
+            "before": ["H"],
+            "after": ["5", "h"]
+        },
+        {
+            "before": ["L"],
+            "after": ["5", "l"]
+        }
+    ],
+    "vim.commandLineModeKeyBindings": [],
+    "vim.commandLineModeKeyBindingsNonRecursive": [], 

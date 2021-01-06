@@ -26,9 +26,13 @@
         * [~~vim-after-object~~](#vim-after-object)
         * [vim-easy-align](#vim-easy-align)
         * [nerdcommenter](#nerdcommenter)
+        * [markdown-preview.nvim](#markdown-previewnvim)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-table-mode](#vim-table-mode)
         * [~~vim-keysound~~](#vim-keysound)
+        * [vim-devicons](#vim-devicons)
+            * [For pacman](#for-pacman)
+            * [For MacOS](#for-macos)
 * [Use for vim](#use-for-vim)
 
 <!-- vim-markdown-toc -->
@@ -187,6 +191,8 @@ Enter `F5` to open a new tab and running Startify.
 | `<enter>`         | select item     |     | `gi`     | jump to implementation  |
 | `<leader>rn`      | symbol renaming |     | `gr`     | jump to/show references |
 
+- `yarn global add bash-language-server`
+
 ![coc-complete](https://img-blog.csdnimg.cn/202005112344456.gif)
 
 **coc-snippet** (a code snippet plugin)
@@ -287,6 +293,12 @@ Press `ga ` + **symbol** in normal or visual mode to align text based on **symbo
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
 
+### [markdown-preview.nvim][13]
+
+Preview markdown on your modern browser with synchronised scrolling and flexible configuration.
+
+> you should make sure install hook success. `:call mkdp#util#install()`
+
 ### [vim-markdown-toc][10]
 
 > (generate table of contents for markdown files)
@@ -314,6 +326,35 @@ pip install pysdl2
 sudo pacman -S sdl sdl-mixer
 ```
 
+### [vim-devicons][12]
+
+Adds file type icons to Vim plugins such as: NERDTree, vim-airline, CtrlP, unite, Denite, lightline, vim-startify and many more.
+
+![](https://github.com/ryanoasis/vim-devicons/wiki/screenshots/v0.10.x/overall-screenshot.png)
+
+> If you want to use it, you must sure the font you using support it.
+
+#### For pacman
+
+```shell
+sudo pacman -S nerd-fonts-complete
+sudo pacman -S adobe-source-code-pro-fonts
+```
+
+#### For MacOS
+
+> Best optio if on macOS and want to use Homebrew.
+
+All fonts are available via Homebrew Cask Fonts on macOS (OS X)
+
+```shell
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-fontn
+```
+
+> If you installed the font, don't forget to select it in you terminal.
+> If you are other system, you can try to use your package manager to install them. Or you maybe can find answer in [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts).
+
 # Use for vim
 
 ```
@@ -336,3 +377,5 @@ ln -s xxx/nvim/init.vim ./vimrc
 [9]: https://github.com/preservim/nerdcommenter
 [10]: https://github.com/mzlogin/vim-markdown-toc
 [11]: https://github.com/dhruvasagar/vim-table-mode
+[12]: https://github.com/ryaoasis/vim-deviconsn
+[13]: https://github.com/iamcco/markdown-preview.nvim
