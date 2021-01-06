@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
         \'coc-gitignore',
         \'coc-vimlsp',
         \'coc-sh',
+        \'coc-highlight',
         \'coc-python',
         \'coc-pyright',
         \'coc-java',
@@ -35,6 +36,7 @@ let g:coc_global_extensions = [
         \'coc-yank',
         \'coc-translator',
     \]
+        "\'coc-ccls',
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)

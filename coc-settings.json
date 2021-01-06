@@ -212,13 +212,14 @@
     },
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
+      "args": ["start", "--stdio"],
       "filetypes": ["sh"],
       "ignoredRootPaths": []
     },
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "ignoredRootPaths": ["~"],
       "rootPatterns": [
         ".ccls",
         ".ccls-root",
