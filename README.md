@@ -1,3 +1,5 @@
+<details>
+<summary>Catalog</summary>
 <!-- vim-markdown-toc GFM -->
 
 * [This is my neovim](#this-is-my-neovim)
@@ -36,6 +38,7 @@
 * [Use for vim](#use-for-vim)
 
 <!-- vim-markdown-toc -->
+</details>
 
 # This is my neovim
 
@@ -379,3 +382,5 @@ ln -s xxx/nvim/init.vim ./vimrc
 [11]: https://github.com/dhruvasagar/vim-table-mode
 [12]: https://github.com/ryaoasis/vim-deviconsn
 [13]: https://github.com/iamcco/markdown-preview.nvim
+
+-
