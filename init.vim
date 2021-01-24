@@ -49,8 +49,6 @@ endfor
 
 unlet s:sourceList
 
-"autocmd FileType markdown exec 'source '.g:NHOME.'/md-snippets.vim'
-
 " experimental
 set lazyredraw
 exec "nohlsearch"
