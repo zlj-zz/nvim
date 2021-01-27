@@ -3,24 +3,44 @@
 " =    [config]      =
 " =                  =
 " ====================
-set nocompatible          " close vi compatibility mode
+
+" close vi compatibility mode
+set nocompatible
 if &t_Co > 1
   syntax enable
 endif
-filetype on               " open file classic check
-filetype plugin indent on " turn on auto-completion
-"set completeopt=longest,menu
-filetype indent on       " 针对不同的文件类型采用不同的缩进格式
-filetype plugin on       " allow plugin
 
-set termguicolors        " enable true colors support
-set number               " show line number
+" open file classic check
+filetype on
+
+" turn on auto-completion
+filetype plugin indent on 
+
+" 针对不同的文件类型采用不同的缩进格式
+filetype indent on
+
+" allow plugin
+filetype plugin on
+
+" turn on syntax highlight
+set syntax=on
+
+" enable true colors support
+set termguicolors
+
+" show line number
+set number
+
 "set ruler                " show ruler
-set relativenumber       " line number format
-set cursorline           " highlight current line
-set syntax=on            " turn on syntax highlight
 
-set encoding=utf-8       " set coding is utf-8
+" line number format
+set relativenumber
+
+" highlight current line
+set cursorline
+
+" set coding is utf-8
+set encoding=utf-8
 if g:isWin == 0 
     set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 endif
@@ -28,20 +48,26 @@ set termencoding=utf-8
 set pyxversion=3
 set autoread
 
-set ts=4                 " Tab's width
-set softtabstop=4        " INSERT ident length
-set shiftwidth=4         " ident length
-set expandtab            " tab replace black space
-autocmd FileType html,css setlocal ts=2 softtabstop=2 shiftwidth=2
 
-set wrap                 " auto wrap
-set showmatch            " bracket highlight
-set matchtime=2          " bracket match highlight time(0.2s)
+set ts=4                 " Tab's width
+set shiftwidth=4         " ident length
+set softtabstop=4        " INSERT ident length
+set expandtab            " tab replace black space
+autocmd FileType sh,html,css,js,vue,dart setlocal ts=2 softtabstop=2 shiftwidth=2
+
+" auto wrap
+set wrap
+
+" bracket highlight
+set showmatch
+
+" bracket match highlight time(0.2s)
+set matchtime=2
 
 set wildmenu             " enable command-line completion in enhanced mode
+set showcmd              " show input message
 set ignorecase           " ignore case when you search
 set hlsearch             " highlight search result
-set showcmd              " show input message
 set mouse=a              " mouse set
 set scrolloff=5          " reserve at least 5 lines when you scrol
 set updatetime=200
