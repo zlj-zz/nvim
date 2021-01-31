@@ -114,10 +114,10 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 | `L`        | cursor right 5 chars                                      | `5l`       |
 | `ctrl`+`K` | move the view port up 5 lines without moving the cursor   | `5<c-y>`   |
 | `ctrl`+`J` | move the view port down 5 lines without moving the cursor | `5<c-e>`   |
-| `alt`+`h`  | ← in insert mode                                          | `<left>`   |
-| `alt`+`j`  | ↓ in insert mode                                          | `<down>`   |
-| `alt`+`k`  | ↑ in insert mode                                          | `<up>`     |
-| `alt`+`l`  | → in insert mode                                          | `<right>`  |
+| `alt`+`a`  | ← in insert mode                                          | `<left>`   |
+| `alt`+`s`  | ↓ in insert mode                                          | `<down>`   |
+| `alt`+`w`  | ↑ in insert mode                                          | `<up>`     |
+| `alt`+`d`  | → in insert mode                                          | `<right>`  |
 | `alt`+`a`  | move cursor to head in insert mode                        | `<home>`   |
 | `alt`+`s`  | move cursor to tail in insert mode                        | `<end>`    |
 
@@ -157,7 +157,7 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 
 You can use `ZZ` command, this command writes the file and exits.
 
-~~In normal mode make `Y` to copy till the end of the line (same as `y$`).~~
+In normal mode make `Y` to copy till the end of the line (same as `y$`).
 
 In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
 

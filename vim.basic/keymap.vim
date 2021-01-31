@@ -20,7 +20,7 @@ cmap w!! w !sudo tee >/dev/null %
 map Q :q<CR>
 
 " force exit without saving
-map <c-q> :q!<CR>
+nnoremap <c-q> :q!<CR>
 
 " make Y to copy till the end of the line
 "nnoremap Y y$
@@ -63,10 +63,10 @@ nnoremap <C-k> 5<C-y>
 nnoremap <C-j> 5<C-e>
 
 " Insert and Command Mode Cursor Movement
-noremap! <m-k> <Up>
-noremap! <m-j> <Down>
-noremap! <m-h> <Left>
-noremap! <m-l> <Right>
+noremap! <silent> <c-w> <Up>
+noremap! <silent> <c-s> <Down>
+noremap! <silent> <c-a> <Left>
+noremap! <silent> <c-d> <Right>
 "noremap! <m-a> <Home>
 "noremap! <m-s> <End>
 "noremap! <M-j> <S-Left>
@@ -93,7 +93,7 @@ map sh :set nosplitright<CR>:vsplit<CR>:e
 map sl :set splitright<CR>:vsplit<CR>:e
 
 " Disable the default t key
-noremap t <nop>
+"noremap t <nop>
 
 " Use t + arrow keys for moving the cursor around windows
 noremap tl <C-w>l
