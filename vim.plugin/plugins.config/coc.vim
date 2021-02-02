@@ -12,9 +12,9 @@ else
 endif
 let g:coc_global_extensions = [
         \'coc-lists',
+        \'coc-explorer',
         \'coc-diagnostic',
         \'coc-snippets',
-        \'coc-explorer',
         \'coc-git',
         \'coc-gitignore',
         \'coc-vimlsp',
@@ -22,11 +22,11 @@ let g:coc_global_extensions = [
         \'coc-highlight',
         \'coc-python',
         \'coc-pyright',
-        \'coc-java',
         \'coc-flutter-tools',
         \'coc-json',
         \'coc-html',
         \'coc-css',
+        \'coc-vetur',
         \'coc-prettier',
         \'coc-yaml',
         \'coc-sourcekit',
@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
         \'coc-yank',
         \'coc-translator',
     \]
+        "\'coc-java',
         "\'coc-ccls',
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nmap <silent> <TAB> <Plug>(coc-range-select)

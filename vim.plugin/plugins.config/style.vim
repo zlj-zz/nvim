@@ -1,27 +1,37 @@
 " vim:set et sw=2 ts=2 fdm=marker fdl=1:
 
-"colorscheme gruvbox
-"colorscheme zenburn
 "colorscheme pink-moon
 "set background=dark
-colorscheme deus
-let g:deus_termcolors=256
-let g:bg_flag = 1
-"let g:bg_c="#242a32"
-let g:bg_c="#2C323B"
-"let g:bg_c="#000000"
 
-exec "hi normal guibg=".bg_c
-func! ChangeGuibg() " transparent background toggle
-    if g:bg_flag == 1
+"let g:bg_c="#2C323B"
+"let g:deus_termcolors=256
+"colorscheme deus
+
+" theme: ['default', 'atlantis', 'andromeda', 'shusia', 'maia']
+let g:sonokai_style = 'andromeda' 
+let g:sonokai_enable_italic = 1
+"let g:sonokai_transparent_background = 1
+"let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_current_word = 'bold'
+let g:sonokai_better_performance = 1
+colorscheme sonokai
+
+
+let s:hi = execute('hi normal')
+let s:guibg_ = matchstr(s:hi, 'guibg=\zs\S*')
+unlet s:hi
+let g:bg_flag_ = 1
+
+func! ZToggleTransparent() " transparent background toggle
+    if g:bg_flag_ == 1
+        let g:bg_flag_ = 0
         exec "hi normal guibg=none"
-        let g:bg_flag = 0
     else
-        exec "hi normal guibg=".g:bg_c
-        let g:bg_flag = 1
+        let g:bg_flag_ = 1
+        exec "hi normal guibg=".s:guibg_
     endif
 endfunc
-map <f4> :call ChangeGuibg()<CR>
+map <f4> :call ZToggleTransparent()<CR>
 
 
 
@@ -31,7 +41,7 @@ map <f4> :call ChangeGuibg()<CR>
 set laststatus=2
 "let g:airline_theme='atomic'
 "let g:airline_theme='dark'
-let g:airline_theme='deus'
+let g:airline_theme='sonokai'
 let g:airline#extensions#tabline#enabled = 1
 "let g:Illuminate_delay = 750
 
