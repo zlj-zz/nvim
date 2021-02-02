@@ -1,3 +1,5 @@
+" vim:set et sw=2 ts=2 fdm=marker fdl=1:
+
 " set leader is <space>
 let mapleader=" "
 "map <LEADER>    :retab!<CR>

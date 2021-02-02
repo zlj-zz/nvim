@@ -1,3 +1,4 @@
+" vim:set et sw=2 ts=2 fdm=marker fdl=1:
 " ====================
 " =                  =
 " =    [config]      =
@@ -42,7 +43,7 @@ set cursorline
 " set coding is utf-8
 set encoding=utf-8
 if g:isWin == 0 
-    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+  set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 endif
 set termencoding=utf-8
 set pyxversion=3

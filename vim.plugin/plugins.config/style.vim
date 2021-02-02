@@ -23,13 +23,13 @@ unlet s:hi
 let g:bg_flag_ = 1
 
 func! ZToggleTransparent() " transparent background toggle
-    if g:bg_flag_ == 1
-        let g:bg_flag_ = 0
-        exec "hi normal guibg=none"
-    else
-        let g:bg_flag_ = 1
-        exec "hi normal guibg=".s:guibg_
-    endif
+  if g:bg_flag_ == 1
+    let g:bg_flag_ = 0
+    exec "hi normal guibg=none"
+  else
+    let g:bg_flag_ = 1
+    exec "hi normal guibg=".s:guibg_
+  endif
 endfunc
 map <f4> :call ZToggleTransparent()<CR>
 

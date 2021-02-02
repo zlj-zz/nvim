@@ -11,31 +11,31 @@ else
   set signcolumn=yes
 endif
 let g:coc_global_extensions = [
-        \'coc-lists',
-        \'coc-explorer',
-        \'coc-diagnostic',
-        \'coc-snippets',
-        \'coc-git',
-        \'coc-gitignore',
-        \'coc-vimlsp',
-        \'coc-sh',
-        \'coc-highlight',
-        \'coc-python',
-        \'coc-pyright',
-        \'coc-flutter-tools',
-        \'coc-json',
-        \'coc-html',
-        \'coc-css',
-        \'coc-vetur',
-        \'coc-prettier',
-        \'coc-yaml',
-        \'coc-sourcekit',
-        \'coc-tsserver',
-        \'coc-tslint',
-        \'coc-tailwindcss',
-        \'coc-yank',
-        \'coc-translator',
-    \]
+    \'coc-lists',
+    \'coc-explorer',
+    \'coc-diagnostic',
+    \'coc-snippets',
+    \'coc-git',
+    \'coc-gitignore',
+    \'coc-vimlsp',
+    \'coc-sh',
+    \'coc-highlight',
+    \'coc-python',
+    \'coc-pyright',
+    \'coc-flutter-tools',
+    \'coc-json',
+    \'coc-html',
+    \'coc-css',
+    \'coc-vetur',
+    \'coc-prettier',
+    \'coc-yaml',
+    \'coc-sourcekit',
+    \'coc-tsserver',
+    \'coc-tslint',
+    \'coc-tailwindcss',
+    \'coc-yank',
+    \'coc-translator',
+  \]
         "\'coc-java',
         "\'coc-ccls',
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -44,8 +44,8 @@ let g:coc_global_extensions = [
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <Tab>
             \ pumvisible() ? "\<c-n>" :
