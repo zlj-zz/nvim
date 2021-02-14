@@ -71,7 +71,7 @@ set ignorecase           " ignore case when you search
 set hlsearch             " highlight search result
 set mouse=a              " mouse set
 set scrolloff=5          " reserve at least 5 lines when you scrol
-set updatetime=200
+set updatetime=300
 
 " auto identation ===========
 set autoindent
@@ -84,9 +84,22 @@ set whichwrap+=<,>,h,l
 " code fold setting === za[one],zi[all]
 set foldenable          " allow flod (help fold)
 "set foldlevel=100       " does not automatically fold on startup
-set foldmethod=marker   " option: [manual indent marker]
+set foldmethod=manual   " option: [manual indent marker]
 autocmd FileType python setlocal foldmethod=indent
 
 " 设置空白字符的视觉提示
 set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:-
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+"set cmdheight=2
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 

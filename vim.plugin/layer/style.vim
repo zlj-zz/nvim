@@ -1,6 +1,6 @@
 Plug 'KabbAmine/vCoolor.vim'
 " === color theme ===
-"Plug 'ajmwagar/vim-deus'
+Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
 "Plug 'sts10/vim-pink-moon'
 "Plug 'morhetz/gruvbox'

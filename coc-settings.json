@@ -1,5 +1,6 @@
 {
   "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.colorSupport": true,
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.extensionUpdateCheck": "weekly",
@@ -42,14 +43,12 @@
     "value": "\uf89f",
     "variable": "\ue71b"
   },
-  "diagnostic.signOffset": 1,
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "»",
   "diagnostic.infoSign": "\uf129",
   "diagnostic.hintSign": "ஐ",
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.refreshAfterSave": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": ">>> ",
   "diagnostic.virtualText": true,
@@ -138,7 +137,6 @@
   ],
   "git.enableGutters": true,
   "git.enableGlobalStatus": true,
-  "git.signOffset": 2,
   "git.branchCharacter": "\uf408",
   "git.addGBlameToBufferVar": false,
   "git.addGBlameToVirtualText": false,
@@ -164,6 +162,7 @@
     "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 3, BLANK_LINE_BEFORE_NESTED_CLASS_OR_DEF: True, INDENT_DICTIONARY_VALUE: True, SPLIT_COMPLEX_COMPREHENSION: True}"
   ],
   "sh.enable": true,
+  "vetur.format.enable": true,
   "html.format.enable": true,
   "json.format.enable": true,
   "yaml.format.enable": true,
@@ -171,8 +170,6 @@
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
   "javascript.suggestionActions.enabled": true,
-  "java.format.enabled": true,
-  "java.maven.downloadSources": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
@@ -193,6 +190,7 @@
     "json",
     "html",
     "css",
+    "vue",
     "markdown"
   ],
   "languageserver": {
@@ -233,8 +231,7 @@
         }
       }
     }
-  },
-  "java.format.settings.url": "/home/zacharyz/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+  }
 }
 //    "git.addedSign.text": "▎",
 //    "git.removedSign.text": "▏",

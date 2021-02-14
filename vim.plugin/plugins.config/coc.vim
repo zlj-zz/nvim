@@ -38,9 +38,6 @@ let g:coc_global_extensions = [
   \]
         "\'coc-java',
         "\'coc-ccls',
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"nmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -85,10 +82,6 @@ nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-nmap tt :CocCommand explorer<CR>
-" coc-translator 翻译
-nmap ts <Plug>(coc-translator-p)
-vmap ts <Plug>(coc-translator-pv)
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 "           获取并执行 language server 给出的当前选择区间
 "           内的可用操作。
@@ -105,11 +98,15 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " Formatting selected code.
 xmap \f  <Plug>(coc-format-selected)
 nmap \f  <Plug>(coc-format-selected)
-" for dart format
-let g:dart_format_on_save = 1
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+xmap \F  :Format<cr>
+nmap \F  :Format<cr>
+
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
 " Use K to show documentation in preview window.
@@ -125,6 +122,11 @@ function! s:show_documentation()
 endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap tt :CocCommand explorer<CR>
+" coc-translator 翻译
+nmap ts <Plug>(coc-translator-p)
+vmap ts <Plug>(coc-translator-pv)
 
 
 
@@ -144,3 +146,5 @@ let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.
 let g:dart_style_guide    = 2
 let g:dart_format_on_save = 1
 let g:dartfmt_options     = ["-l 100"]
+" for dart format
+let g:dart_format_on_save = 1
