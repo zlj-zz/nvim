@@ -4,6 +4,7 @@
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.extensionUpdateCheck": "weekly",
+  "yank.enableCompletion": false,
   "suggest.detailMaxLength": 60,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
@@ -57,9 +58,6 @@
   "list.nextKeymap": "<tab>",
   "list.previousKeymap": "<s-tab>",
   "signature.target": "float",
-  "yank.enableCompletion": false,
-  "typescript.suggestionActions.enabled": true,
-  "typescript.format.enabled": true,
   "explorer.width": 38,
   "explorer.quitOnOpen": true,
   "explorer.sources": [
@@ -166,6 +164,8 @@
   "html.format.enable": true,
   "json.format.enable": true,
   "yaml.format.enable": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.format.enabled": true,
   "javascript.referencesCodeLens.enable": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
@@ -184,13 +184,13 @@
     "eelixir": "mix_format"
   },
   "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
     "dart",
+    "typescript",
     "javascript",
-    "json",
     "html",
     "css",
     "vue",
+    "json",
     "markdown"
   ],
   "languageserver": {

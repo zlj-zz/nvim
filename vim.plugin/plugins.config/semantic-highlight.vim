@@ -3,6 +3,6 @@
 " \\\\\\
 " >>>>>>> semantic-highlight.vim 
 " //////
-nnoremap \h :SemanticHighlightToggle<cr>
+"nnoremap \h :SemanticHighlightToggle<cr>
 
 

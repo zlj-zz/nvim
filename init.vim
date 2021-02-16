@@ -50,8 +50,10 @@ endfor
 unlet s:sourceList
 
 " experimental
-set lazyredraw
 set foldmethod=manual   " option: [manual indent marker]
+set re=1
+set ttyfast
+set lazyredraw
 exec "nohlsearch"
 
 " Open the _machine_specific.vim file if it has just been created

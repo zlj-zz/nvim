@@ -2,7 +2,7 @@
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine' " show indentation line
-Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
+"Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
 Plug 'RRethy/vim-illuminate'   " illuminating the other uses of the current word under the cursor
 " Editor Tools
 Plug 'Konfekt/FastFold'
