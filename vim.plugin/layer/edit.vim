@@ -5,7 +5,6 @@ Plug 'Yggdroot/indentLine' " show indentation line
 "Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
 Plug 'RRethy/vim-illuminate'   " illuminating the other uses of the current word under the cursor
 " Editor Tools
-Plug 'Konfekt/FastFold'
 Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
@@ -15,8 +14,6 @@ Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu t
 " Snippets
 "Plug 'SirVer/ultisnips' " Track the engine.
 Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
-" Auto Complete Coc
-Plug 'wellle/tmux-complete.vim'
 " Dependencies
 Plug 'kana/vim-textobj-user'
 " Other

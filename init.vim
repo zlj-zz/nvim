@@ -19,6 +19,23 @@
 "
 "let g:python_host_prog="/usr/bin/python2.7"
 "let g:python3_host_prog="/usr/bin/python3.8"
+let g:home_path = expand('<sfile>:p:h')
+
+" download plug manager file, if not have it
+if empty(glob(g:home_path.'/plugged'))
+  "silent !curl -fLo ${NHOME}/autoload/plug.vim --create-dirs
+              "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Create a '_machine_specific.vim' file to adjust machine specific stuff
+" === like python interpreter location
+let has_machine_specific_file = 1
+if empty(glob(g:home_path.'/_machine_specific.vim'))
+  let has_machine_specific_file = 0
+  silent! exec "touch ".g:home_path."/_machine_specific.vim"
+endif
+execute 'source '.g:home_path.'/_machine_specific.vim'
 
 if (has("win32") || has("win64") || has("win95") || has("win16"))
     let g:isWin = 1
@@ -31,8 +48,6 @@ if has("gui_running")
 else
     let g:isGUI = 0
 endif
-
-let g:home_path = expand('<sfile>:p:h')
 
 let s:sourceList = [
       \ 'basic',
@@ -60,4 +75,19 @@ exec "nohlsearch"
 if has_machine_specific_file == 0
     exec "e ".g:home_path."/_machine_specific.vim"
 endif
+unlet has_machine_specific_file
 
+
+" create temp folder, create undo folder if have plugin persistent_undo
+" path = ~/.tmp
+if empty(glob($HOME.'/.tmp'))
+  silent !mkdir -p $HOME/.tmp/backup
+  silent !mkdir -p $HOME/.tmp/undo
+  silent !mkdir -p $HOME/.tmp/sessions
+endif
+set backupdir=$HOME/.tmp/backup
+set directory=$HOME/.tmp/backup
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.tmp/undo
+endif

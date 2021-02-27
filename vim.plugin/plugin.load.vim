@@ -1,5 +1,4 @@
 " vim:set et sw=2 ts=2 fdm=marker fdl=1:
-
 scriptencoding utf-8
 
 let s:script_path = expand('<sfile>:p:h')
@@ -10,7 +9,10 @@ endfunction
 
 call plug#begin(g:home_path.'/plugged')
 
-call s:source('coc')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
+" Auto Complete Coc
+Plug 'wellle/tmux-complete.vim'
+
 call s:source('code-language')
 call s:source('edit')
 call s:source('file-manager')
