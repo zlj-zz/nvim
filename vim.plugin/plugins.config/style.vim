@@ -53,6 +53,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term      = 238
 let g:indentLine_char            = '|'
+let g:indentLine_fileTypeExclude = ['startify']
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_faster = 1
 
 
 " \\\\\\
