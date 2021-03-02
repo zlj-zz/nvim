@@ -12,8 +12,6 @@ Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'tweekmonster/braceless.vim'
-" Go
-Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 " Dart && Flutter
 Plug 'tiagofumo/dart-vim-flutter-layout', { 'for': ['dart'] } " code indent
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }

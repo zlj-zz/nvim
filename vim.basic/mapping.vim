@@ -1,8 +1,8 @@
 " vim:set et sw=2 ts=2 fdm=marker fdl=1:
 
 " Opening a terminal window
-nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +1<CR>:term<CR>
-tnoremap <C-N> <C-\><C-N>
+"nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +1<CR>:term<CR>
+"tnoremap <C-N> <C-\><C-N>
 
 " find two same word
 nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1

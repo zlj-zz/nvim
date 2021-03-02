@@ -118,8 +118,6 @@ noremap cj <C-w>t<C-w>K
 " Place the two screens side by side
 noremap ck <C-w>t<C-w>H
 
-" toggle to make a screen full when split screen
-nnoremap <silent> <leader>z :ZoomToggle<cr>
 
 
 "===========================
@@ -136,12 +134,6 @@ map t- :-tabnext<CR>
 
 " next tab
 map t= :+tabnext<CR>
-
-" before buffer
-map b- :bp<CR>
-
-" next buffer
-map b= :bn<CR>
 
 " jump to 1~9 tab
 noremap <silent><m-1> 1gt

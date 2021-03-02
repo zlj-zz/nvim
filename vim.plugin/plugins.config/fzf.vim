@@ -28,5 +28,6 @@ if g:isWin == 0
   noremap ,b :Buffers<cr>
   noremap ,l :Lines<cr>
   noremap ,c :History:<cr>
+  noremap \k :Maps<cr>
 endif
 

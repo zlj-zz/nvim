@@ -17,6 +17,7 @@
         * [Remapped commands in Normal Mode](#remapped-commands-in-normal-mode)
         * [Window management](#window-management)
         * [Tab management](#tab-management)
+        * [Buffer management](#buffer-management)
         * [Other](#other)
     * [Plugin](#plugin)
         * [vim-startify](#vim-startify)
@@ -24,14 +25,12 @@
         * [Vista.vim](#vistavim)
         * [fzf.vim](#fzfvim)
         * [vim-visual-multi](#vim-visual-multi)
-        * [~~vim-easymotion~~](#vim-easymotion)
-        * [~~vim-after-object~~](#vim-after-object)
         * [vim-easy-align](#vim-easy-align)
         * [nerdcommenter](#nerdcommenter)
         * [markdown-preview.nvim](#markdown-previewnvim)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-table-mode](#vim-table-mode)
-        * [~~vim-keysound~~](#vim-keysound)
+        * [vim-which-key](#vim-which-key)
         * [vim-devicons](#vim-devicons)
             * [For pacman](#for-pacman)
             * [For MacOS](#for-macos)
@@ -46,7 +45,7 @@
 
 > now can use the configuration in windows easyly.
 
-![demo](https://img-blog.csdnimg.cn/20200512091003564.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70)
+![demo](https://img-blog.csdnimg.cn/20210303002347402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDEwNDk0,size_16,color_FFFFFF,t_70#pic_center)
 
 ## After Installation, You Need To
 
@@ -150,8 +149,17 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 | ------------- | ----------------- |
 | `st`          | create a new tab  |
 | `t-`          | previous tab      |
-| `t=`          | next previous     |
+| `t=`          | next tab          |
 | `alt` + `1~9` | switch to 1~9 tab |
+
+### Buffer management
+
+| shortcut    | action               |
+| ----------- | -------------------- |
+| `b#`        | last buffer          |
+| `b-`        | previous buffer      |
+| `b=`        | next buffer          |
+| `b` + `1~9` | switch to 1~9 buffer |
 
 ### Other
 
@@ -167,11 +175,15 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 `ctrl+z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
 
-`space` + `j/k` to increase or decrease a number by one.
+<!--~~`space` + `j/k` to increase or decrease a number by one.~~-->
 
 `dip` clear the black lien around the current cursor.
 
-~~`ra` use **ranger** in neovim.~~
+`<leader>fc` find git conflict line.
+
+`ctrl + g` open lazygit in vim.
+
+<!--~~`ra` use **ranger** in neovim.~~-->
 
 ## Plugin
 
@@ -245,14 +257,14 @@ Press `ti` to toggle Vista.
 
 Things you can do with fzf and Vim.
 
-| shortcut     | action              |
-| ------------ | ------------------- |
-| `,` `f`      | FZF file            |
-| `,` `h`      | FZF history         |
-| `,` `b`      | FZF Buffers         |
-| `,` `d`      | Del buffer          |
-| `,` `l`      | FZF Lines           |
-| `leader` `;` | FZF history command |
+| shortcut | action              |
+| -------- | ------------------- |
+| `,` `f`  | FZF file            |
+| `,` `h`  | FZF history         |
+| `,` `b`  | FZF Buffers         |
+| `,` `d`  | Del buffer          |
+| `,` `l`  | FZF Lines           |
+| `,` `c`  | FZF history command |
 
 <!--| `,` `j` | cursor down |-->
 <!--| `,` `k` | cursor up |-->
@@ -271,15 +283,15 @@ It can help you realize the function of multi-cursor.
 - start insert mode with `i,a,I,A`
 - `u` to undo, `ctrl` + `r` to redo, like vim native.
 
-### ~~vim-easymotion~~
+<!--### ~~vim-easymotion~~-->
 
-Fast move you cursor, use `'` easymotion
+<!--Fast move you cursor, use `'` easymotion-->
 
-![vim-easymotion](https://img-blog.csdnimg.cn/20200512164720342.gif)
+<!--![vim-easymotion](https://img-blog.csdnimg.cn/20200512164720342.gif)-->
 
-### ~~vim-after-object~~
+<!--### ~~vim-after-object~~-->
 
-Use `da` + `=` to delete what's after `=`.
+<!--Use `da` + `=` to delete what's after `=`.-->
 
 ### [vim-easy-align][8]
 
@@ -295,6 +307,7 @@ Press `ga ` + **symbol** in normal or visual mode to align text based on **symbo
 | ------------ | ---------------- |
 | `<LEADER>cn` | comment a line   |
 | `<LEADER>cu` | uncomment a line |
+| `<LEADER>/`  | toggle comment   |
 
 ### [markdown-preview.nvim][13]
 
@@ -317,17 +330,21 @@ In `markdown` files, type `:Gen` then tab, you'll see your options.
 | `space` `t` `m` | toggle table mode |
 | `space` `t` `r` | realign table     |
 
-### ~~vim-keysound~~
+<!--### ~~vim-keysound~~-->
 
-_make your vim a typewriter_
+<!--_make your vim a typewriter_-->
 
-You should do:
+<!--You should do:-->
 
-```shell
-pip install pysdl2
+<!--```shell-->
+<!--pip install pysdl2-->
 
-sudo pacman -S sdl sdl-mixer
-```
+<!--sudo pacman -S sdl sdl-mixer-->
+<!--```-->
+
+### [vim-which-key]()
+
+`\k` view key mapping.
 
 ### [vim-devicons][12]
 

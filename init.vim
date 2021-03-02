@@ -1,10 +1,9 @@
+"                          _
+"    _ __   ___  _____   _(_)_ __ ___
+"   | '_ \ / _ \/ _ \ \ / / | '_ ` _ \
+"   | | | |  __/ (_) \ V /| | | | | | |
+"   |_| |_|\___|\___/ \_/ |_|_| |_| |_|
 "
-"    ██████╗  ██████╗  ██████╗ ██╗    ██╗██████╗ █████╗ ████╗
-"   ██╔═══██╗██╔═══██╗██╔═══██╗██║    ██║  ██╔═╝██╔══███╔══██╗
-"   ██║   ██║████████╝██║   ██║╚██╗  ██╔╝  ██║  ██║  ███║  ██║
-"   ██║   ██║██║      ██║   ██║ ╚██ ██╔╝   ██╚═╗██║  ███║  ██║
-"   ██║   ██║╚██████╗ ╚██████╔╝   ╚██╔╝  ██████║██║  ███║  ██║
-"   ╚═╝   ╚═╝ ╚═════╝  ╚═════╝     ╚═╝   ╚═════╝╚═╝  ╚══╝  ╚═╝
 "
 "  __________________________________________
 " / Here is my neovim configuration with     \
@@ -20,6 +19,7 @@
 "let g:python_host_prog="/usr/bin/python2.7"
 "let g:python3_host_prog="/usr/bin/python3.8"
 let g:home_path = expand('<sfile>:p:h')
+let g:if_use_coc = 1
 
 " download plug manager file, if not have it
 if empty(glob(g:home_path.'/plugged'))
@@ -38,22 +38,22 @@ endif
 execute 'source '.g:home_path.'/_machine_specific.vim'
 
 if (has("win32") || has("win64") || has("win95") || has("win16"))
-    let g:isWin = 1
+  let g:isWin = 1
 else
-    let g:isWin = 0
+  let g:isWin = 0
 endif
 
 if has("gui_running")
-    let g:isGUI = 1
+  let g:isGUI = 1
 else
-    let g:isGUI = 0
+  let g:isGUI = 0
 endif
 
 let s:sourceList = [
-      \ 'basic',
-      \ 'plugin',
-      \ 'customtools',
-      \]
+  \ 'basic',
+  \ 'plugin',
+  \ 'customtools',
+  \]
 
 "" load basic config
 for s:item in s:sourceList

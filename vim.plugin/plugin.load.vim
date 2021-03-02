@@ -9,7 +9,9 @@ endfunction
 
 call plug#begin(g:home_path.'/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
+if g:if_use_coc
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
+endif
 " Auto Complete Coc
 Plug 'wellle/tmux-complete.vim'
 
