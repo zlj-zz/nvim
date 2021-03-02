@@ -7,7 +7,7 @@ Plug 'RRethy/vim-illuminate'   " illuminating the other uses of the current word
 " Editor Tools
 Plug 'junegunn/vim-easy-align' " ga= to align the = in paragraph,
 Plug 'mg979/vim-visual-multi'
-Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+"Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'scrooloose/nerdcommenter'  " in <leader>cn to comment a line, <leader>cu to uncomment
 "Plug 'AndrewRadev/splitjoin.vim'
