@@ -5,7 +5,6 @@ Plug 'arcticicestudio/nord-vim'
 
 "Plug 'sts10/vim-pink-moon'
 "Plug 'morhetz/gruvbox'
-"Plug 'jnurmine/Zenburn'
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
