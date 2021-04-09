@@ -7,7 +7,7 @@
 " ====================
 " ===== [config] =====
 " ====================
-" === basic Set =============================={{{
+
 set nocompatible  " close vi compatibility mode
 syntax on
 filetype on  " open file classic check
@@ -55,110 +55,175 @@ set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:▫
 " set leader is <space>
 let mapleader=" "
 "map <LEADER>    :retab!<CR>
-" cancel the highlight search
-nnoremap <LEADER><CR> :nohlsearch<CR>
-" ===
-" === file option
-" Disable the default s key
-map s <nop>
+
+nnoremap ; :
+
 " save
 map S :w<CR>
+
+" sudo save
+cmap w!! w !sudo tee >/dev/null %
+
 " quit
 map Q :q<CR>
+
+" force exit without saving
+nnoremap <c-q> :q!<CR>
+
 " make Y to copy till the end of the line
-nnoremap Y y$
-" Copy to system clipboard
-vnoremap Y "+y
+"nnoremap Y y$
+
 " Indentation
 nnoremap < <<
 nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
+
+" Copy to system clipboard
+vnoremap Y "+y
+
+" Past from system clipboard
+"vnoremap <c-v> "+p
+
 " select all
-map <C-a> ggVG
-"===
-"=== cursor movement
-"===
+map <c-a> ggVG
+
+"===========================
+"=                         =
+"=     cursor movement     =
+"=                         =
+"===========================
 "     ^
 "     k
 " < h   l >
 "     j
 "     v
-"  faster navigation 
-noremap <silent> K 7k
-noremap <silent> J 7j
-" Ctrl + U or E will move up/down the view port without moving the cursor
-nnoremap <C-J> 5<C-y>
-nnoremap <C-K> 5<C-e>
+
+"  faster navigation
+noremap <silent> K 5k
+noremap <silent> J 5j
+noremap <silent> H 5h
+noremap <silent> L 5l
+
+" Ctrl + K or J will move up/down the view port without moving the cursor
+nnoremap <C-k> 5<C-y>
+nnoremap <C-j> 5<C-e>
+
 " Insert and Command Mode Cursor Movement
-noremap! <C-a> <Home>
-noremap! <C-s> <End>
-noremap! <m-k> <Up>
-noremap! <m-j> <Down>
-noremap! <m-h> <Left>
-noremap! <m-l> <Right>
-noremap! <M-j> <S-Left>
-"noremap! <M-l> <S-Right>
+noremap! <silent> <c-w> <Up>
+noremap! <silent> <c-s> <Down>
+noremap! <silent> <c-a> <Left>
+noremap! <silent> <c-d> <Right>
+
+"===========================
+"=                         =
+"=   window management     =
+"=                         =
+"===========================
+
+" Disable the default s key
+map s <nop>
+
+" split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
+map sk :set nosplitbelow<CR>:split<CR>:e
+map sj :set splitbelow<CR>:split<CR>:e
+map sh :set nosplitright<CR>:vsplit<CR>:e
+map sl :set splitright<CR>:vsplit<CR>:e
+
 " Disable the default t key
-noremap t <nop>
+"noremap t <nop>
+
 " Use t + arrow keys for moving the cursor around windows
 noremap tl <C-w>l
 noremap tk <C-w>k
 noremap tj <C-w>j
 noremap th <C-w>h
-" jump to sentence tail
-noremap # 0
-"===
-"=== windwo management
-" split the screens to up (horizontal), down (horizontal), left(vertical), right (vertical)
-map sk :set nosplitbelow<CR>:split<CR>:e 
-map sj :set splitbelow<CR>:split<CR>:e 
-map sh :set nosplitright<CR>:vsplit<CR>:e 
-map sl :set splitright<CR>:vsplit<CR>:e 
+
 " Resize splits with arrow keys
 map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
+
 " Disable the default c key
-"map c <nop>
+map c <nop>
+
 " Place the two screens up and down
-noremap ch <C-w>t<C-w>K
+noremap cj <C-w>t<C-w>K
+
 " Place the two screens side by side
-noremap cv <C-w>t<C-w>H
-"===
-"=== tabe management
-" 新建标签页, w filepath_and_name
-map <c-t> :tabe<CR>
-" 前一标签页
+noremap ck <C-w>t<C-w>H
+
+"===========================
+"=                         =
+"=    tabe management      =
+"=                         =
+"===========================
+
+" new tab, 'w' filepath_and_name
+map st :tabe<CR>
+
+" before tab
 map t- :-tabnext<CR>
-" 后一标签页
+
+" next tab
 map t= :+tabnext<CR>
+
+" jump to 1~9 tab
+noremap <silent><m-1> 1gt
+noremap <silent><m-2> 2gt
+noremap <silent><m-3> 3gt
+noremap <silent><m-4> 4gt
+noremap <silent><m-5> 5gt
+noremap <silent><m-6> 6gt
+noremap <silent><m-7> 7gt
+noremap <silent><m-8> 8gt
+noremap <silent><m-9> 9gt
+
 " 上一个buffer
 map b- :bp<CR>
 " 下一个buffer
 map b= :bn<CR>
-"===
-"=== other
-" Open the vimrc file anytime
-nnoremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
-" resource neovim config
-map rc :source $MYVIMRC<CR>
-" Opening a terminal window
-nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res+10<CR>:term<CR>
-tnoremap <C-N> <C-\><C-N>
-" Open up pudb, a python debug,(pip install --user pudb)
-noremap <c-d> :tab sp<CR>:term python3 -m pudb %<CR>
-" find two same word
-nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1
-" Press space twice to jump to the next ':' and edit it
-nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
+
+"===========================
+"=                         =
+"=      other              =
+"=                         =
+"===========================
+
 " Spelling Check with <space>sc
 nnoremap <LEADER>sc :set spell!<CR>
-" Auto change directory to current dir
-autocmd BufEnter * silent! lcd %:p:h
-" --------------------------------------------}}}
+
+"  paste mode
+nnoremap <leader>pm :set paste!<cr>
+
+" cancel the highlight search
+nnoremap <LEADER><CR> :nohlsearch<CR>
+
+" Open the vimrc file anytime
+nnoremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+
+" resource neovim config
+nnoremap ,rc :source $MYVIMRC<CR>
 
 " when you open file, back to last edit position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Auto change directory to current dir
+autocmd BufEnter * silent! lcd %:p:h
+
+
+
+" find two same word
+nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1
+
+" Press space twice to jump to the next ':' and edit it
+nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
+
+" find the conflict line of git
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+" --------------------------------------------}}}
+
 
 set laststatus=2            " 设置状态栏在倒数第2行
 
@@ -202,9 +267,6 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " }}}
 
-" =============== ipython run ================
-noremap ,i :sp<CR><C-w>j:term ipython<CR> i %run
-" --------------------------------------------
 
 " === Compile function ======================={{{
 map <F9> :call CompileRunGcc()<CR>
@@ -294,76 +356,6 @@ map o' 0df j
 "endfunc
 " --------------------------------------------}}}
 
-" === make file header ======================{{{
-"autocmd BufNewFile * call SetTitle()
-nmap tit :call SetTitle()<CR>
-func! SetTitle()
-    if &filetype == 'python'
-        call setline(1,"#!/usr/bin/env python3")
-        call append(line("."),"# -*- coding:UTF-8 -*-")
-        call append(line(".")+1, "__author__ = 'zachary'")
-        call append(line(".")+2, '"""')
-        call append(line(".")+3, "File Name: ".expand("%"))
-        call append(line(".")+4, "Created Time: ".strftime("%c"))
-        call append(line(".")+5, "Last Modified: ")
-        call append(line(".")+6, '"""')
-        call append(line(".")+7, "<++>")
-    elseif &filetype == 'c'
-        call setline(1, "#include <stdio.h>")
-        call append(line("."), "/************************************************************")
-        call append(line(".")+1, "Copyright(C) 1997-".strftime("%Y").", Tech. Co.,Ltd.")
-        call append(line(".")+2, "FileName: ".expand("%"))
-        call append(line(".")+3, "Author: zachary")
-        call append(line(".")+4, "Date: ".strftime("%c"))
-        call append(line(".")+5, "Last Modified: ")
-        call append(line(".")+6, "Version: <++>")
-        call append(line(".")+7, "Description: <++>")
-        call append(line(".")+8, "***********************************************************/")
-        call append(line(".")+9, "<++>")
-    elseif &filetype == 'java'
-        call setline(1, "/**")
-        call append(line("."), "* @description <++>")
-        call append(line(".")+1, "* @author zachary")
-        call append(line(".")+2, "* @version <++>")
-        call append(line(".")+3, "* @date ".strftime("%c"))
-        call append(line(".")+4, "*/")
-        call append(line(".")+5, "<++>")
-    elseif &filetype == "sh"
-        call setline(1, "\#!/bin/bash")
-        call append(line("."), "")
-        call append(line(".")+1, "\#########################################################################")
-        call append(line(".")+2, "\# File Name: ".expand("%"))
-        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
-        call append(line(".")+4, "\# Author: zachary")
-        call append(line(".")+5, "\# Last Modified: ")
-        call append(line(".")+6, "\# Description: <++>")
-        call append(line(".")+7, "\#########################################################################")
-        call append(line(".")+8, "<++>")
-    endif
-    "     normal G
-endfunc
-" --------------------------------------------}}}
-
-" === Modify datetime ======================={{{  
-function SetLastModifiedTime(lineno)  
-    let modif_time = strftime("%Y-%m-%d %H:%M:%S")
-    if a:lineno == "-1"  
-            let line = getline(7)  
-    else  
-            let line = getline(a:lineno)  
-    endif
-    if line =~ '\sLast Modified:'
-            let line = strpart(line, 0, stridx(line, ":")) . ": " . modif_time
-    endif  
-    if a:lineno == "-1"  
-            call setline(7, line)  
-    else  
-            call append(a:lineno, line)  
-    endif  
-endfunc
-" map the SetLastModifiedTime command automatically  
-noremap upd :call SetLastModifiedTime(-1)<CR>
-" -------------------------------------------}}}
 " ===
 " === Necessary Commands to Execute
 " ===
