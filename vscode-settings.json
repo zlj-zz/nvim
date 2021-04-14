@@ -1,0 +1,159 @@
+{
+  "workbench.colorTheme": "Nord",
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "/Users/zacharyzhang/.leetcode",
+  "leetcode.hint.commentDescription": false,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter-notebook",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "python.showStartPage": false,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "vim.history": 200,
+  "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": true,
+    "<C-x>": false,
+    "<C-c>": false,
+    "<C-h>": false
+  },
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": false,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["H"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["L"],
+      "after": ["5", "l"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["<leader>", "<CR>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [";"],
+      "after": [":"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": [":split"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": [":vsplit"]
+    },
+    {
+      "before": ["S"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["Q"],
+      "commands": [":q"]
+    },
+    {
+      "before": ["<C-t>"],
+      "commands": [":tabe"]
+    },
+    {
+      "before": ["t", "="],
+      "commands": [":-tabnext"]
+    },
+    {
+      "before": ["t", "-"],
+      "commands": [":+tabpre"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<esc>"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["H"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["L"],
+      "after": ["5", "l"]
+    }
+  ],
+  "vim.commandLineModeKeyBindings": [],
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  "editor.fontSize": 13,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.formatOnSave": true,
+  "editor.minimap.maxColumn": 80,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "explorer.confirmDragAndDrop": false,
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "files.insertFinalNewline": true,
+  "workbench.list.smoothScrolling": true,
+  "python.insidersChannel": "weekly",
+  "python.languageServer": "Pylance",
+  "python.formatting.provider": "black",
+  "http.proxySupport": "off",
+  "arduino.commandPath": "Contents/MacOS/Arduino",
+  "arduino.additionalUrls": [
+    "https://dl.espressif.com/dl/package_esp32_index.json",
+    "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/arduino/package_m5stack_index.json"
+  ]
+}
