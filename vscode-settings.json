@@ -1,1 +1,173 @@
-/Users/zacharyzhang/Library/Application Support/Code - Insiders/User/settings.json
+{
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "/Users/zacharyzhang/.leetcode",
+  "leetcode.hint.commentDescription": false,
+  "vim.history": 200,
+  "vim.vimrc.path": "$HOME/.config/nvim/init.vim",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": true,
+    "<C-x>": false,
+    "<C-c>": false,
+    "<C-h>": false
+  },
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": false,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["H"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["L"],
+      "after": ["5", "l"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["<leader>", "<CR>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [";"],
+      "after": [":"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": [":split"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": [":vsplit"]
+    },
+    {
+      "before": ["S"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["Q"],
+      "commands": [":q"]
+    },
+    {
+      "before": ["<C-t>"],
+      "commands": [":tabe"]
+    },
+    {
+      "before": ["t", "="],
+      "commands": [":-tabnext"]
+    },
+    {
+      "before": ["t", "-"],
+      "commands": [":+tabpre"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<esc>"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["H"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["L"],
+      "after": ["5", "l"]
+    }
+  ],
+  "vim.commandLineModeKeyBindings": [],
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "http.proxySupport": "off",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter-notebook",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "workbench.list.smoothScrolling": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Nord",
+  "editor.fontFamily": "'JetBrains Mono', Consolas,'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.minimap.maxColumn": 80,
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.acceptSuggestionOnEnter": "smart",
+  "explorer.confirmDragAndDrop": false,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "python.showStartPage": false,
+  "python.insidersChannel": "weekly",
+  "python.languageServer": "Pylance",
+  "python.formatting.provider": "black",
+  "[python]": {
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": false
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[dart]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "arduino.commandPath": "Contents/MacOS/Arduino",
+  "arduino.additionalUrls": [
+    "https://dl.espressif.com/dl/package_esp32_index.json",
+    "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/arduino/package_m5stack_index.json"
+  ],
+  "python.pythonPath": "/opt/homebrew/bin/python"
+}
