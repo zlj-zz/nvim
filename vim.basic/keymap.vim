@@ -24,14 +24,14 @@ map Q :q<CR>
 " force exit without saving
 nnoremap <c-q> :q!<CR>
 
-" make Y to copy till the end of the line
-"nnoremap Y y$
-
 " Indentation
 nnoremap < <<
 nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
+
+" make Y to copy till the end of the line
+"nnoremap Y y$
 
 " Copy to system clipboard
 vnoremap Y "+y

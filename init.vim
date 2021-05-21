@@ -79,7 +79,7 @@ unlet has_machine_specific_file
 
 
 " create temp folder, create undo folder if have plugin persistent_undo
-" path = ~/.tmp
+" path = `~/.tmp`
 if empty(glob($HOME.'/.tmp'))
   silent !mkdir -p $HOME/.tmp/backup
   silent !mkdir -p $HOME/.tmp/undo
