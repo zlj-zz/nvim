@@ -7,7 +7,7 @@
 Dependent_softwares = {
     "python2.7",
     "python3",
-    "nodejs",
+    "node",
     "npm",
     "ranger",
     "w3m",
@@ -63,7 +63,7 @@ function Main()
     local installer = get_installer()
     print('⛽ Try to install software dependency.')
     for _, value in ipairs(Dependent_softwares) do
-        check_and_install("software", installer, "whereis ", value)
+        check_and_install("software", installer, "where ", value)
     end
     print('⛽️ Try to install python package dependency.')
     for _, value in ipairs(Python_pkg) do

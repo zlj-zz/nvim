@@ -23,8 +23,6 @@ let g:if_use_coc = 1
 
 " download plug manager file, if not have it
 if empty(glob(g:home_path.'/plugged'))
-  "silent !curl -fLo ${NHOME}/autoload/plug.vim --create-dirs
-              "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
