@@ -31,8 +31,10 @@ endif
 let has_machine_specific_file = 1
 if empty(glob(g:home_path.'/_machine_specific.vim'))
   let has_machine_specific_file = 0
-  silent! exec "touch ".g:home_path."/_machine_specific.vim"
+  silent! exec "touch " . g:home_path . "/_machine_specific.vim"
 endif
+
+" Some special configurations for different computers.
 execute 'source '.g:home_path.'/_machine_specific.vim'
 
 if (has("win32") || has("win64") || has("win95") || has("win16"))
@@ -59,6 +61,8 @@ for s:item in s:sourceList
     exec 'source ' . s:sub_path
   endfor
 endfor
+
+exec 'source ' . g:home_path . '/augroups.vim'
 
 unlet s:sourceList
 

@@ -24,7 +24,7 @@ endfunc
 nmap upd :call SetLastModifiedTime(-1)<CR>
 
 func! CreateTmpFile()
-  silent! exec "!mkdir ~/.config/nvim/demo"
+  silent! exec "!mkdir -p ~/.config/nvim/demo"
   silent! exec "!touch ~/.config/nvim/demo/tmp.{c,py,java,js,html,css,sh}"
 endfunc
 

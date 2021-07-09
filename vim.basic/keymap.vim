@@ -173,5 +173,5 @@ nnoremap ,rc :source $MYVIMRC<CR>
 "autocmd BufEnter * silent! lcd %:p:h
 
 " when you open file, back to last edit position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 

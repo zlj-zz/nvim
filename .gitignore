@@ -1,20 +1,18 @@
-# ignore everything
-
+# === system ===
 .DS_Store
 
 # === nvim ===
 /plugged
 /tmp
+/sessions
+/autoload/plug.vim.old
 
 init.vim.html
 _machine_specific.vim
-
-.*.*
-*.vim*
 vimrc
 
-.netrwhist
 
+# === not ignore ===
 !/fptplugin/*
 !/vim.basic/*
 !/vim.plugin/*
@@ -22,5 +20,9 @@ vimrc
 !/vim.customtools/*
 !/vim.customtools/*
 
+
+# === other ===
+
+.netrwhist
 vs-settings.json
 .VsCodeCounter/
