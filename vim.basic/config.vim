@@ -53,8 +53,8 @@ set autoread
 set ts=4                 " Tab's width
 set shiftwidth=4         " ident length
 set softtabstop=4        " INSERT ident length
-set expandtab            " tab replace black space
-autocmd FileType vim,sh,html,css,js,vue,dart setlocal ts=2 softtabstop=2 shiftwidth=2
+"set expandtab            " tab replace black space
+"autocmd FileType vim,sh,html,css,js,vue,dart setlocal ts=2 softtabstop=2 shiftwidth=2
 
 " auto wrap
 set wrap

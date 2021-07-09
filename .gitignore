@@ -1,5 +1,7 @@
 # ignore everything
 
+.DS_Store
+
 # === nvim ===
 /plugged
 /tmp
@@ -12,16 +14,13 @@ _machine_specific.vim
 vimrc
 
 .netrwhist
-t.js
 
+!/fptplugin/*
 !/vim.basic/*
 !/vim.plugin/*
 !/vim.plugin/*/*
 !/vim.customtools/*
-
-test.py
-
-.DS_Store
+!/vim.customtools/*
 
 vs-settings.json
 .VsCodeCounter/
