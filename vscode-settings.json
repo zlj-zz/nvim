@@ -122,22 +122,21 @@
   "vim.commandLineModeKeyBindingsNonRecursive": [],
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "http.proxySupport": "off",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter-notebook",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "workbench.list.smoothScrolling": true,
-  "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Nord",
-  "editor.fontFamily": "'JetBrains Mono', Consolas,'Courier New', monospace",
-  "editor.fontSize": 13,
+  "editor.fontFamily": "'JetBrains Mono', Consolas,'Courier New', 'Hack Nerd Font',monospace",
   "editor.minimap.maxColumn": 80,
   "editor.fontLigatures": true,
-  "editor.formatOnSave": true,
   "editor.suggestSelection": "recentlyUsedByPrefix",
   "editor.acceptSuggestionOnEnter": "smart",
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "on",
   "explorer.confirmDragAndDrop": false,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -145,9 +144,12 @@
   "python.insidersChannel": "weekly",
   "python.languageServer": "Pylance",
   "python.formatting.provider": "black",
+  "python.condaPath": "/Users/zacharyzhang/prog/miniforge3/condabin/conda",
+  "python.pythonPath": "/opt/homebrew/bin/python",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python",
   "[python]": {
     "gitlens.codeLens.symbolScopes": ["!Module"],
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "editor.wordBasedSuggestions": false
   },
   "[javascript]": {
@@ -169,5 +171,19 @@
     "https://dl.espressif.com/dl/package_esp32_index.json",
     "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/arduino/package_m5stack_index.json"
   ],
-  "python.pythonPath": "/opt/homebrew/bin/python"
+  "jupyter.askForKernelRestart": false,
+  "notebook.lineNumbers": "on",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "Lua.telemetry.enable": true,
+  "terminal.integrated.inheritEnv": false,
+  "python.autoComplete.extraPaths": [],
+  "python.analysis.extraPaths": [],
+  "workbench.iconTheme": "material-icon-theme",
+  "settingsSync.ignoredExtensions": ["streetsidesoftware.code-spell-checker"],
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODUwLFwiaGVpZ2h0XCI6MTEwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+  "editor.fontSize": 12.5,
+  "cSpell.userWords": ["pyserial", "Shenzhen"]
 }
