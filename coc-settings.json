@@ -1,5 +1,5 @@
 {
-  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.semanticTokensHighlights": false,
   "coc.preferences.colorSupport": true,
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
@@ -75,7 +75,7 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.git.showIgnored": true,
   "explorer.keyMappings.global": {
-    "i": false, // cancel default mapkey
+    "i": false,
     "k": "nodePrev",
     "j": "nodeNext",
     "gk": "expandablePrev",
@@ -154,11 +154,7 @@
   "tslint.autoFixOnSave": true,
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": false,
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [
-    "--style",
-    "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 3, BLANK_LINE_BEFORE_NESTED_CLASS_OR_DEF: True, INDENT_DICTIONARY_VALUE: True, SPLIT_COMPLEX_COMPREHENSION: True}"
-  ],
+  "python.formatting.provider": "black",
   "sh.enable": true,
   "vetur.format.enable": true,
   "html.format.enable": true,

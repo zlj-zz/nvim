@@ -1,3 +1,4 @@
+#/usr/bin/env lua
 --[[ Install neovim dependent.
  Author: Zachary Zhang
  Created Time: 2021-06-29
