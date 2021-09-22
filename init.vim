@@ -18,8 +18,23 @@
 "
 "let g:python_host_prog="/usr/bin/python2.7"
 "let g:python3_host_prog="/usr/bin/python3.8"
+
+
+" Init glob attribute.
 let g:home_path = expand('<sfile>:p:h')
 let g:if_use_coc = 1
+
+" Adjust current wether is windows.
+let g:isWin = 0
+if (has("win32") || has("win64") || has("win95") || has("win16"))
+  let g:isWin = 1
+endif
+
+" Adjust current wether in GUI.
+let g:isGUI = 0
+if has("gui_running")
+  let g:isGUI = 1
+endif
 
 " download plug manager file, if not have it
 if empty(glob(g:home_path.'/plugged'))
@@ -27,27 +42,14 @@ if empty(glob(g:home_path.'/plugged'))
 endif
 
 " Create a '_machine_specific.vim' file to adjust machine specific stuff
-" === like python interpreter location
+" :: like python interpreter location
 let has_machine_specific_file = 1
 if empty(glob(g:home_path.'/_machine_specific.vim'))
   let has_machine_specific_file = 0
   silent! exec "touch " . g:home_path . "/_machine_specific.vim"
 endif
-
 " Some special configurations for different computers.
 execute 'source '.g:home_path.'/_machine_specific.vim'
-
-if (has("win32") || has("win64") || has("win95") || has("win16"))
-  let g:isWin = 1
-else
-  let g:isWin = 0
-endif
-
-if has("gui_running")
-  let g:isGUI = 1
-else
-  let g:isGUI = 0
-endif
 
 let s:sourceList = [
   \ 'basic',
@@ -55,16 +57,16 @@ let s:sourceList = [
   \ 'customtools',
   \]
 
-"" load basic config
+"" load all config module.
 for s:item in s:sourceList
   for s:sub_path in split(globpath(g:home_path . '/vim.' . s:item , '*.vim'), '\n')
     exec 'source ' . s:sub_path
   endfor
 endfor
 
-exec 'source ' . g:home_path . '/augroups.vim'
-
 unlet s:sourceList
+
+exec 'source ' . g:home_path . '/augroups.vim'
 
 " experimental
 set foldmethod=manual   " option: [manual indent marker]
