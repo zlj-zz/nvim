@@ -4,19 +4,6 @@
 "nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +1<CR>:term<CR>
 "tnoremap <C-N> <C-\><C-N>
 
-" find two same word
-nmap <LEADER>fd /\(\<\w\+\>\)\_s*\1
-
-" Press space twice to jump to the next ':' and edit it
-nnoremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
-
-" open fungit in vim.
-if g:isWin == 0
-  noremap <c-g> :tabe<CR>:-tabmove<CR>:term fungit<CR>a
-endif
-
-" find the conflict line of git
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 let s:browsers = {}
 let s:browsers['chrome'] = 'open -a Google\ Chrome '

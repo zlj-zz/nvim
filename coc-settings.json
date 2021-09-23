@@ -190,10 +190,6 @@
     "markdown"
   ],
   "languageserver": {
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
-    },
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],

@@ -51,8 +51,11 @@ endif
 " Some special configurations for different computers.
 execute 'source '.g:home_path.'/_machine_specific.vim'
 
+
+lua require('settings')()
+
+
 let s:sourceList = [
-  \ 'basic',
   \ 'plugin',
   \ 'customtools',
   \]
