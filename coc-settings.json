@@ -152,8 +152,6 @@
   "flutter.openDevLogSplitCommand": "botright 0split",
   "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": false,
   "tslint.autoFixOnSave": true,
-  "python.autoComplete.addBrackets": true,
-  "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "sh.enable": true,
   "vetur.format.enable": true,
