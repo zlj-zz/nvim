@@ -22,7 +22,7 @@
 
 " Init glob attribute.
 let g:home_path = expand('<sfile>:p:h')
-let g:if_use_coc = 1
+let g:used_coc = 1
 
 " Adjust current wether is windows.
 let g:isWin = 0
@@ -31,9 +31,9 @@ if (has("win32") || has("win64") || has("win95") || has("win16"))
 endif
 
 " Adjust current wether in GUI.
-let g:isGUI = 0
+let g:is_gui = 0
 if has("gui_running")
-  let g:isGUI = 1
+  let g:is_gui = 1
 endif
 
 " download plug manager file, if not have it
@@ -51,9 +51,8 @@ endif
 " Some special configurations for different computers.
 execute 'source '.g:home_path.'/_machine_specific.vim'
 
-
+" load nvim base setting.
 lua require('settings')()
-
 
 let s:sourceList = [
   \ 'plugin',
@@ -69,6 +68,7 @@ endfor
 
 unlet s:sourceList
 
+" load auto groups.
 exec 'source ' . g:home_path . '/augroups.vim'
 
 " experimental

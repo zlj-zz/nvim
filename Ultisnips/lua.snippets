@@ -1,0 +1,33 @@
+global !p
+linelen = 88
+def floor(i):
+	if int(i) == i:
+		return int(i)
+	elif i > 0:
+		return int(i)
+	elif i < 0:
+		return int(i) - 1
+def ceil(i):
+	if int(i) == i:
+		return int(i)
+	elif i > 0:
+		return int(i) + 1
+	elif i < 0:
+		return int(i)
+endglobal
+
+snippet "cmt (.*)" "Comment with description." rbw
+--[[ ${1:`!p snip.rv = match.group(1)`}
+${VISUAL}
+]]$0
+endsnippet
+
+snippet line "Comment Using Line" bw
+--`!p snip.rv = '-' * floor((linelen - 8 - len(t[1])) / 2)`\ ${1} /`!p snip.rv = '-' * ceil((linelen - 8 - len(t[1])) / 2)`--
+$0
+endsnippet
+
+snippet map "mapping" bw
+\{'${1:mod}', '${2:keys}', '${3:contents}'\},$0
+endsnippet
+

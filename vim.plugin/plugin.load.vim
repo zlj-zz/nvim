@@ -9,7 +9,7 @@ endfunction
 
 call plug#begin(g:home_path.'/plugged')
 
-if g:if_use_coc
+if g:used_coc
   Plug 'neoclide/coc.nvim', {'branch': 'release'}  " install [npm] [yarn]
 endif
 " Auto Complete Coc

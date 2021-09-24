@@ -40,6 +40,9 @@ scriptencoding utf-8
 
     " NOTE: Ensure directory structure exists when opening a new file
     "autocmd  BufNewFile  *  :lua require('general').EnsureDirExists()
+
+    " Auto change directory to the directory where the current file is located.
+    autocmd BufEnter * silent! lcd %:p:h
   augroup END " }}}
 
 " }}}
