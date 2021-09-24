@@ -16,6 +16,20 @@ def ceil(i):
 		return int(i)
 endglobal
 
+
+snippet fhead "Create function description." bw 
+------------------------------------
+-- [name]       : ${1:fname}
+-- [func]       : ${2:func simple desc}
+-- [param]      : ${3:all param desc}
+-- [return]     : ${4:return desc}
+------------------------------------$0
+endsnippet
+
+# ┏━━━━━━━━━┓
+# ┃ comment ┃
+# ┗━━━━━━━━━┛
+
 snippet "cmt (.*)" "Comment with description." rbw
 --[[ ${1:`!p snip.rv = match.group(1)`}
 ${VISUAL}
@@ -31,3 +45,20 @@ snippet map "mapping" bw
 \{'${1:mod}', '${2:keys}', '${3:contents}'\},$0
 endsnippet
 
+# ┏━━━━━━━━━━┓
+# ┃ function ┃
+# ┗━━━━━━━━━━┛
+
+snippet tfun "Create table function." bw 
+function ${1:table_name}.${2:func_name}(${3:...})
+	${4:--context}
+end
+$0
+endsnippet
+
+snippet sfun "Create table function with self." bw 
+function ${1:table_name}:${2:func_name}(${3:...})
+	${4:--context}
+end
+$0
+endsnippet
