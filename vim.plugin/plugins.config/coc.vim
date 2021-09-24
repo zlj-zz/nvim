@@ -22,6 +22,7 @@ if g:used_coc
       \'coc-sh',
       \'coc-highlight',
       \'coc-pyright',
+      \'coc-jedi',
       \'coc-flutter-tools',
       \'coc-json',
       \'coc-html',
