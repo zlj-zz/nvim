@@ -1,0 +1,30 @@
+snippet sec "Section" bw
+# ${1:Section Name} #
+$0
+endsnippet
+
+snippet ssec "Sub Section" bw
+## ${1:Section Name} ##
+$0
+endsnippet
+
+snippet sssec "SubSub Section" bw
+### ${1:Section Name} ###
+$0
+endsnippet
+
+snippet par "Paragraph" bw
+#### ${1:Paragraph Name} ####
+$0
+endsnippet
+
+snippet spar "Paragraph" bw
+##### ${1:Paragraph Name} #####
+$0
+endsnippet
+
+snippet detail "Disclosure"
+<details${3: open=""}>
+	${1:<summary>${2}</summary>}$0
+</details>
+endsnippet
