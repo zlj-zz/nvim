@@ -18,11 +18,4 @@
 " ==========================================
 "Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 "Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"
-"
-" ==========================================
-" When operating multiple files at the     |
-" same time, there is a bright card, even  |
-" sometimes it will be stuck.              |
-" ==========================================
-"Plug 'brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] } " Find & Replace
+

@@ -3,6 +3,7 @@
  Module: Install neovim dependent.
  Author: Zachary Zhang
  Created Time: 2021-06-29
+ Update Time:  2021-09-25
  Description: vim/nvim environment auto install, just support like unix system.
 ]]
 
