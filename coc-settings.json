@@ -198,12 +198,6 @@
         "lintTool": "golint"
       }
     },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start", "--stdio"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": []
-    },
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
