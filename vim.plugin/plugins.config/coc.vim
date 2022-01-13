@@ -22,7 +22,6 @@ if g:used_coc
       \'coc-sh',
       \'coc-highlight',
       \'coc-pyright',
-      \'coc-jedi',
       \'coc-flutter-tools',
       \'coc-json',
       \'coc-html',
@@ -38,8 +37,9 @@ if g:used_coc
       \'coc-yank',
       \'coc-translator',
     \]
-          "\'coc-java',
-          "\'coc-ccls',
+      "\'coc-java',
+      "\'coc-ccls',
+      "\'coc-jedi',
 
   " use <tab> for trigger completion and navigate to the next complete item
   inoremap <silent><expr> <Tab>
