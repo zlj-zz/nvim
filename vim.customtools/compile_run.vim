@@ -22,6 +22,10 @@ func! CompileRunGcc()
     set splitbelow
     :sp
     :term python3 %
+  elseif &filetype == 'lua'
+    set splitbelow
+    :sp
+    :term lua %
   elseif &filetype == 'html'
     silent! exec "!".g:mkdp_browser." % &"
   elseif &filetype == 'markdown'

@@ -19,4 +19,3 @@ Plug 'kana/vim-textobj-user'
 " Other
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " For general writing
-Plug 'zlj-zz/vim-ztools'
