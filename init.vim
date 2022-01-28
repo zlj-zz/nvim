@@ -47,9 +47,10 @@ let has_machine_specific_file = 1
 if empty(glob(g:home_path.'/_machine_specific.vim'))
   let has_machine_specific_file = 0
   silent! exec "touch " . g:home_path . "/_machine_specific.vim"
+else
+  " Some special configurations for different computers.
+  execute 'source '.g:home_path.'/_machine_specific.vim'
 endif
-" Some special configurations for different computers.
-execute 'source '.g:home_path.'/_machine_specific.vim'
 
 " load nvim base setting.
 lua require('settings')()
