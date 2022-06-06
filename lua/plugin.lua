@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
                                   install_path})
 end
 
-local useCoc = true
+local g = vim.g
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline-themes'
 
     -- COC
-    if useCoc then
+    if g.useCoc == 1 then
         use {'neoclide/coc.nvim', branch='release'}
         use 'wellle/tmux-complete.vim'
     end

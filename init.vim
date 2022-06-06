@@ -22,7 +22,7 @@
 
 " Init glob attribute.
 let g:home_path = expand('<sfile>:p:h')
-let g:used_coc = 1
+let g:useCoc = 1
 
 " Adjust current wether is windows.
 let g:isWin = 0

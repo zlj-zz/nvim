@@ -3,7 +3,7 @@
 " \\\\\\
 " >>>>>>> coc 
 " //////
-if g:used_coc
+if g:useCoc
   set signcolumn=no  " no side bar
   if has("nvim-0.5.0") || has("patch-8.1.1564")
     " Recently vim can merge signcolumn and number column into one

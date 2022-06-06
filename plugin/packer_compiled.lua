@@ -257,23 +257,23 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Goyo lua require("packer.load")({'goyo.vim'}, { cmd = "Goyo", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "less" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-javascript-syntax'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-javascript-syntax'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-javascript-syntax'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-javascript-syntax'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-javascript-syntax'}, { ft = "less" }, _G.packer_plugins)]]
 vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-python-pep8-indent', 'SimpylFold'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-plugin', 'dart-vim-flutter-layout'}, { ft = "dart" }, _G.packer_plugins)]]
+vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-flutter-layout', 'dart-vim-plugin'}, { ft = "dart" }, _G.packer_plugins)]]
 vim.cmd [[au FileType pubspec.yaml ++once lua require("packer.load")({'pubspec-assist-nvim'}, { ft = "pubspec.yaml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-python-pep8-indent', 'vim-javascript-syntax', 'vim-css3-syntax', 'SimpylFold'}, { ft = "vim-plug" }, _G.packer_plugins)]]
-vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'vim-css3-syntax', 'vim-jsx-pretty', 'vim-python-pep8-indent', 'SimpylFold', 'vim-javascript-syntax'}, { ft = "vim-plug" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
