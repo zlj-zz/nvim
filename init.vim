@@ -36,11 +36,6 @@ if has("gui_running")
   let g:is_gui = 1
 endif
 
-" download plug manager file, if not have it
-if empty(glob(g:home_path.'/plugged'))
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Create a '_machine_specific.vim' file to adjust machine specific stuff
 " :: like python interpreter location
 let has_machine_specific_file = 1
@@ -54,6 +49,10 @@ endif
 
 " load nvim base setting.
 lua require('settings')()
+lua require('plugin').install()
+lua require('plugin').sync()
+lua require('plugin').clean()
+lua require('plugin').compile()
 
 let s:sourceList = [
   \ 'plugin',

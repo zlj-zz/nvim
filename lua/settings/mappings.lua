@@ -1,6 +1,6 @@
 --[[
  String value 	Help page	  Affected modes
- ''             mapmode-nvo       Normal, Visual, Select, Operator-pending
+ ''             mapmode-nvo   Normal, Visual, Select, Operator-pending
  'n'            mapmode-n 	  Normal
  'v'            mapmode-v 	  Visual and Select
  's'            mapmode-s 	  Select
