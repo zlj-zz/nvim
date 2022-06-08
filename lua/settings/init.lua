@@ -1,6 +1,8 @@
 return function()
     local is_ok, mappings = pcall(require, 'settings.mappings')
-    if not is_ok then mappings = {} end
+    if not is_ok then
+        mappings = {}
+    end
 
     local map = {
         leader = ' ',
@@ -26,7 +28,9 @@ return function()
     end
 
     local is_ok, options = pcall(require, 'settings.options')
-    if not is_ok then options = {} end
+    if not is_ok then
+        options = {}
+    end
 
     local opt = vim.opt or vim.o
     -- set up options

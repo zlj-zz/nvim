@@ -16,7 +16,6 @@
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
   "suggest.triggerCompletionWait": 100,
-  "suggest.echodocSupport": true,
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
