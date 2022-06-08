@@ -20,21 +20,9 @@
 "let g:python3_host_prog="/usr/bin/python3.8"
 
 
-" Init glob attribute.
-let g:home_path = expand('<sfile>:p:h')
-let g:useCoc = 1
 
-" Adjust current wether is windows.
-let g:isWin = 0
-if (has("win32") || has("win64") || has("win95") || has("win16"))
-  let g:isWin = 1
-endif
-
-" Adjust current wether in GUI.
-let g:is_gui = 0
-if has("gui_running")
-  let g:is_gui = 1
-endif
+" Load enviroment.
+lua require('env')
 
 " Create a '_machine_specific.vim' file to adjust machine specific stuff
 " :: like python interpreter location
@@ -49,6 +37,8 @@ endif
 
 " load nvim base setting.
 lua require('settings')()
+
+" load plugins.
 lua require('plugin').install()
 lua require('plugin').sync()
 lua require('plugin').clean()
