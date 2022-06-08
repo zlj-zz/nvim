@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
         'Vimjas/vim-python-pep8-indent',
         ft = {'python', 'vim-plug'}
     }
+    -- use {'numirias/semshi', run=':UpdateRemotePlugins', ft={'python', 'vim-plug'} }
     use 'tweekmonster/braceless.vim'
     use {
         'tiagofumo/dart-vim-flutter-layout',
@@ -78,17 +79,64 @@ return require('packer').startup(function(use)
         'mbbill/undotree',
         cmd = {'UndotreeToggle'}
     }
+    if g.isWin == 0 then
+        use {
+            'junegunn/fzf',
+            run = function()
+                vim.fn['fzf#install'](0)
+            end
+        }
+        use 'junegunn/fzf.vim'
+        use {
+            'majutsushi/tagbar',
+            cmd = {'TagbarToggle'}
+        }
+        -- use 'liuchengxu/vista.vim'
+    end
 
     -- Style
+    -- use 'ajmwagar/vim-deus'
+    -- use 'sainnhe/sonokai'
+    -- use 'sts10/vim-pink-moon'
     use 'arcticicestudio/nord-vim'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
+    if g.isWin == 0 then
+        use 'ryanoasis/vim-devicons'
+        if vim.fn.filereadable('/usr/bin/fcitx') == 1 then
+            use 'vim-scripts/fcitx.vim'
+        end
+    end
 
     -- COC
     if g.useCoc == 1 then
-        use {'neoclide/coc.nvim', branch='release'}
+        use {
+            'neoclide/coc.nvim',
+            branch = 'release'
+        }
         use 'wellle/tmux-complete.vim'
     end
+
+    -- Markdown
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = function()
+            vim.fn['mkdp#util#install_sync']()
+        end,
+        ft = {'markdown', 'vim-plug'}
+    }
+    use {
+        'dhruvasagar/vim-table-mode',
+        cmd = {'TableModeToggle'}
+    }
+    use {
+        'mzlogin/vim-markdown-toc',
+        ft = {'gitignore', 'markdown'}
+    }
+    use {
+        'theniceboy/bullets.vim',
+        ft = {'markdown'}
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -96,3 +144,22 @@ return require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
+
+-- "Plug 'bling/vim-bufferline'
+-- "Plug 'mg979/vim-xtabline'     " top tabline
+-- "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
+-- "Plug 'roxma/nvim-yarp' " a other vim plugin manager
+-- "Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
+-- "Plug 'wincent/terminus'
+-- "Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
+-- "Plug 'SirVer/ultisnips' " Track the engine.
+-- "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+-- "Plug 'junegunn/vim-after-object' " da= to delete what's after =
+
+-- " ==========================================
+-- " When I open a large JS file,             |
+-- " it will be very slow, and there          |
+-- " will be stuck and delay when scrolling.  |
+-- " ==========================================
+-- "Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+-- "Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }

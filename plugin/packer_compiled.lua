@@ -86,6 +86,13 @@ _G.packer_plugins = {
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/braceless.vim",
     url = "https://github.com/tweekmonster/braceless.vim"
   },
+  ["bullets.vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/bullets.vim",
+    url = "https://github.com/theniceboy/bullets.vim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -105,6 +112,16 @@ _G.packer_plugins = {
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/dart-vim-plugin",
     url = "https://github.com/dart-lang/dart-vim-plugin"
   },
+  fzf = {
+    loaded = true,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["goyo.vim"] = {
     commands = { "Goyo" },
     loaded = false,
@@ -117,6 +134,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/indentLine",
     url = "https://github.com/Yggdroot/indentLine"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   nerdcommenter = {
     loaded = true,
@@ -149,6 +173,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
     url = "https://github.com/AndrewRadev/splitjoin.vim"
+  },
+  tagbar = {
+    commands = { "TagbarToggle" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/tagbar",
+    url = "https://github.com/majutsushi/tagbar"
   },
   ["tmux-complete.vim"] = {
     loaded = true,
@@ -185,6 +217,11 @@ _G.packer_plugins = {
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-css3-syntax",
     url = "https://github.com/hail2u/vim-css3-syntax"
   },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
+  },
   ["vim-easy-align"] = {
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/vim-easy-align",
@@ -219,6 +256,13 @@ _G.packer_plugins = {
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-jsx-pretty",
     url = "https://github.com/MaxMEllon/vim-jsx-pretty"
   },
+  ["vim-markdown-toc"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc",
+    url = "https://github.com/mzlogin/vim-markdown-toc"
+  },
   ["vim-python-pep8-indent"] = {
     loaded = false,
     needs_bufread = false,
@@ -235,6 +279,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/vim-startify",
     url = "https://github.com/mhinz/vim-startify"
+  },
+  ["vim-table-mode"] = {
+    commands = { "TableModeToggle" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
   },
   ["vim-textobj-user"] = {
     loaded = true,
@@ -258,6 +310,8 @@ time([[Defining packer_plugins]], false)
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TableModeToggle lua require("packer.load")({'vim-table-mode'}, { cmd = "TableModeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TagbarToggle lua require("packer.load")({'tagbar'}, { cmd = "TagbarToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Goyo lua require("packer.load")({'goyo.vim'}, { cmd = "Goyo", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
@@ -265,18 +319,23 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "less" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'SimpylFold', 'vim-python-pep8-indent'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-flutter-layout', 'dart-vim-plugin'}, { ft = "dart" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'SimpylFold', 'vim-css3-syntax', 'vim-python-pep8-indent', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "vim-plug" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-python-pep8-indent', 'SimpylFold'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType pubspec.yaml ++once lua require("packer.load")({'pubspec-assist-nvim'}, { ft = "pubspec.yaml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "php" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-flutter-layout', 'dart-vim-plugin'}, { ft = "dart" }, _G.packer_plugins)]]
+vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "less" }, _G.packer_plugins)]]
+vim.cmd [[au FileType gitignore ++once lua require("packer.load")({'vim-markdown-toc'}, { ft = "gitignore" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'vim-python-pep8-indent', 'markdown-preview.nvim', 'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax', 'SimpylFold'}, { ft = "vim-plug" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-javascript-syntax', 'vim-css3-syntax'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim', 'vim-markdown-toc', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], true)
+vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]]
+time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], false)
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], true)
 vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]]
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], false)
