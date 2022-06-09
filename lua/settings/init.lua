@@ -1,3 +1,6 @@
+local utils = require('settings.utils')
+local g = vim.g
+
 return function()
     local is_ok, mappings = pcall(require, 'settings.mappings')
     if not is_ok then
@@ -7,11 +10,16 @@ return function()
     local map = {
         leader = ' ',
         list = mappings or {},
-        default_args = setmetatable({silent = true, noremap = true}, {
+        default_args = setmetatable({
+            silent = true,
+            noremap = true
+        }, {
             __add = function(tbl_old, tbl_new)
                 local new_table = vim.deepcopy(tbl_old)
                 if tbl_new ~= nil then
-                    vim.validate {tbl_new = {tbl_new, 't'}}
+                    vim.validate {
+                        tbl_new = {tbl_new, 't'}
+                    }
                     for k, v in pairs(tbl_new) do
                         new_table[k] = v
                     end
@@ -22,9 +30,9 @@ return function()
     }
 
     -- set up mappings
-    vim.g.mapleader = map.leader
+    g.mapleader = map.leader
     for _, one_map in pairs(map.list) do
-        vim.api.nvim_set_keymap(one_map[1], one_map[2], one_map[3], map.default_args + one_map[4])
+        utils.map(one_map[1], one_map[2], one_map[3], map.default_args + one_map[4])
     end
 
     local is_ok, options = pcall(require, 'settings.options')
@@ -32,15 +40,10 @@ return function()
         options = {}
     end
 
-    local opt = vim.opt or vim.o
     -- set up options
     for o, v in pairs(options) do
-        opt[o] = v
+        utils.opt(o, v)
     end
-
-    -- orignal
-    local nvim_home = vim.fn.expand('<sfile>:p:h')
-    vim.cmd('source '..nvim_home..'/lua/settings/mappings.vim')
 
 end
 

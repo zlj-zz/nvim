@@ -1,17 +1,3 @@
---[[
- String value 	Help page	  Affected modes
- ''             mapmode-nvo   Normal, Visual, Select, Operator-pending
- 'n'            mapmode-n 	  Normal
- 'v'            mapmode-v 	  Visual and Select
- 's'            mapmode-s 	  Select
- 'x'            mapmode-x 	  Visual
- 'o'            mapmode-o 	  Operator-pending
- '!'            mapmode-ic 	  Insert and Command-line
- 'i'            mapmode-i 	  Insert
- 'l'            mapmode-l 	  Insert, Command-line, Lang-Arg
- 'c'            mapmode-c 	  Command-line
- 't'            mapmode-t 	  Terminal
---]]
 
 local map = {
     {'n', ';', ':', {silent = false, nowait = true}},
@@ -92,8 +78,14 @@ local map = {
     {'n', '<leader><leader>', '<ESC>/<++><CR>:nohlsearch<CR>c4l'},
     -- find the conflict line of git
     {'', '<leader>fc', '/\\v^[<\\|=>]{7}( .*\\|$)<CR>'},
+    {'n', '<leader>go', '<cmd>lua require"utils".open_curr_on_browser()<cr>'},
+
 
 }
 
 return map
+
+-- [Opening a terminal window]
+-- nnoremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +1<CR>:term<CR>
+-- tnoremap <C-N> <C-\><C-N>
 

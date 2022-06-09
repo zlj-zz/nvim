@@ -24,25 +24,16 @@
 " Load enviroment.
 lua require('env')
 
-" Create a '_machine_specific.vim' file to adjust machine specific stuff
-" :: like python interpreter location
-let has_machine_specific_file = 1
-if empty(glob(g:home_path.'/_machine_specific.vim'))
-  let has_machine_specific_file = 0
-  silent! exec "touch " . g:home_path . "/_machine_specific.vim"
-else
-  " Some special configurations for different computers.
-  execute 'source '.g:home_path.'/_machine_specific.vim'
-endif
-
 " load nvim base setting.
 lua require('settings')()
 
 " load plugins.
-lua require('plugin').install()
-lua require('plugin').sync()
-lua require('plugin').clean()
-lua require('plugin').compile()
+lua require('plugin')
+command! PackerInstall packadd packer.nvim | lua require('plugin').install()
+command! PackerUpdate packadd packer.nvim | lua require('plugin').update()
+command! PackerSync packadd packer.nvim | lua require('plugin').sync()
+command! PackerClean packadd packer.nvim | lua require('plugin').clean()
+command! PackerCompile packadd packer.nvim | lua require('plugin').compile()
 
 let s:sourceList = [
   \ 'plugin',
@@ -67,12 +58,6 @@ set re=1
 set ttyfast
 set lazyredraw
 exec "nohlsearch"
-
-" Open the _machine_specific.vim file if it has just been created
-if has_machine_specific_file == 0
-    exec "e ".g:home_path."/_machine_specific.vim"
-endif
-unlet has_machine_specific_file
 
 
 " create temp folder, create undo folder if have plugin persistent_undo

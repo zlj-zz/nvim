@@ -1,6 +1,4 @@
-"" \\\\\\
-"" >>>>>>> vim-startity 
-"" //////
+vim.cmd([[
 let g:ascii = [
     \'',
     \' ██████   █████ ██████████    ███████    █████   █████ █████ ██████   ██████',
@@ -21,3 +19,4 @@ let g:startify_lists = [
     \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
     \ ]
 noremap <F5> :tabe<cr>:Startify<cr>
+]])
