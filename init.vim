@@ -39,7 +39,7 @@ endif
 lua require('settings')()
 
 " load plugins.
-"lua require('plugin')
+lua require('plugin')
 command! PackerInstall packadd packer.nvim | lua require('plugin').install()
 command! PackerUpdate packadd packer.nvim | lua require('plugin').update()
 command! PackerSync packadd packer.nvim | lua require('plugin').sync()

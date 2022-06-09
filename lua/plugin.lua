@@ -1,5 +1,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local packer_bootstrap = nil
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
                                   install_path})
@@ -7,7 +8,17 @@ end
 
 local g = vim.g
 
-return require('packer').startup(function(use)
+local packer = nil
+
+local function init()
+    if packer == nil then
+        packer = require('packer')
+        packer.init { disable_commands = true }
+    end
+
+    local use = packer.use
+    packer.reset()
+
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
@@ -74,7 +85,8 @@ return require('packer').startup(function(use)
 
     -- File Manager
     use 'voldikss/vim-floaterm'
-    use 'mhinz/vim-startify'
+    use {'mhinz/vim-startify', config = [[require('config.startify')]] }
+    --use {'mhinz/vim-startify', setup = function() require('config.startify') end, config = function() require('config.startify') end }
     use {
         'mbbill/undotree',
         cmd = {'UndotreeToggle'}
@@ -143,7 +155,19 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
-end)
+end
+
+-- Frist time
+init()
+
+local plugins = setmetatable({}, {
+  __index = function(_, key)
+    init()
+    return packer[key]
+  end,
+})
+
+return plugins
 
 -- "Plug 'bling/vim-bufferline'
 -- "Plug 'mg979/vim-xtabline'     " top tabline
