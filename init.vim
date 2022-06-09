@@ -24,17 +24,6 @@
 " Load enviroment.
 lua require('env')
 
-" Create a '_machine_specific.vim' file to adjust machine specific stuff
-" :: like python interpreter location
-let has_machine_specific_file = 1
-if empty(glob(g:home_path.'/_machine_specific.vim'))
-  let has_machine_specific_file = 0
-  silent! exec "touch " . g:home_path . "/_machine_specific.vim"
-else
-  " Some special configurations for different computers.
-  execute 'source '.g:home_path.'/_machine_specific.vim'
-endif
-
 " load nvim base setting.
 lua require('settings')()
 
@@ -69,12 +58,6 @@ set re=1
 set ttyfast
 set lazyredraw
 exec "nohlsearch"
-
-" Open the _machine_specific.vim file if it has just been created
-if has_machine_specific_file == 0
-    exec "e ".g:home_path."/_machine_specific.vim"
-endif
-unlet has_machine_specific_file
 
 
 " create temp folder, create undo folder if have plugin persistent_undo

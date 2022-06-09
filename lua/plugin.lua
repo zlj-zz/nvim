@@ -1,4 +1,6 @@
 local fn = vim.fn
+local g = vim.g
+
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap = nil
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -6,14 +8,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
                                   install_path})
 end
 
-local g = vim.g
-
 local packer = nil
-
 local function init()
     if packer == nil then
         packer = require('packer')
-        packer.init { disable_commands = true }
+        packer.init {
+            disable_commands = true
+        }
     end
 
     local use = packer.use
@@ -85,8 +86,10 @@ local function init()
 
     -- File Manager
     use 'voldikss/vim-floaterm'
-    use {'mhinz/vim-startify', config = [[require('config.startify')]] }
-    --use {'mhinz/vim-startify', setup = function() require('config.startify') end, config = function() require('config.startify') end }
+    use {
+        'mhinz/vim-startify',
+        config = [[require('config.startify')]]
+    }
     use {
         'mbbill/undotree',
         cmd = {'UndotreeToggle'}
@@ -95,7 +98,7 @@ local function init()
         use {
             'junegunn/fzf',
             run = function()
-                vim.fn['fzf#install'](0)
+                fn['fzf#install'](0)
             end
         }
         use 'junegunn/fzf.vim'
@@ -115,7 +118,7 @@ local function init()
     use 'vim-airline/vim-airline-themes'
     if g.isWin == 0 then
         use 'ryanoasis/vim-devicons'
-        if vim.fn.filereadable('/usr/bin/fcitx') == 1 then
+        if fn.filereadable('/usr/bin/fcitx') == 1 then
             use 'vim-scripts/fcitx.vim'
         end
     end
@@ -133,7 +136,7 @@ local function init()
     use {
         'iamcco/markdown-preview.nvim',
         run = function()
-            vim.fn['mkdp#util#install_sync']()
+            fn['mkdp#util#install_sync']()
         end,
         ft = {'markdown', 'vim-plug'}
     }
@@ -161,10 +164,10 @@ end
 init()
 
 local plugins = setmetatable({}, {
-  __index = function(_, key)
-    init()
-    return packer[key]
-  end,
+    __index = function(_, key)
+        init()
+        return packer[key]
+    end
 })
 
 return plugins
