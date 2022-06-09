@@ -15,7 +15,6 @@
   "suggest.floatEnable": true,
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
-  "suggest.triggerCompletionWait": 100,
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -152,6 +151,12 @@
   "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": false,
   "tslint.autoFixOnSave": true,
   "python.formatting.provider": "black",
+  "Lua.workspace.library": {
+    "/usr/share/nvim/runtime/lua": true,
+    "/usr/share/nvim/runtime/lua/vim": true,
+    "/usr/share/nvim/runtime/lua/vim/lsp": true
+  },
+  "Lua.diagnostics.globals": ["vim"],
   "sh.enable": true,
   "vetur.format.enable": true,
   "html.format.enable": true,
