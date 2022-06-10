@@ -163,7 +163,8 @@ return require('packer').startup({
             run = function()
                 fn['mkdp#util#install_sync']()
             end,
-            ft = {'markdown', 'vim-plug'}
+            ft = {'markdown', 'vim-plug'},
+            config = [[require('config.markdownpreview')]]
         }
         use {
             'dhruvasagar/vim-table-mode',

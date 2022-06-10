@@ -101,3 +101,42 @@ map('', '<leader>gy', ':Goyo<cr>')
 --   "let g:vista#renderer#enable_icon = 1
 --   "nmap ti :Vista!!<CR>
 -- "endif
+
+------------------
+---vim-table-mode
+------------------
+-- g.table_mode_disable_mappings = 1
+g.table_mode_cell_text_object_i_map = 'k<Bar>'
+map('', '<leader>tm', ':TableModeToggle<cr>')
+
+---------------
+---Bullets.vim
+---------------
+g.bullets_enabled_file_types = {'markdown', 'text', 'gitcommit', 'scratch'}
+
+-- " >>>>>>> vim-after-object
+-- "autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
+-- "" >>>>>>> nerdtree
+-- "map <F7> :NERDTreeToggle<CR>
+-- "let NERDTreeIgnore = ['\.pyc$']
+-- "let NERDTreeShowBookmarks=1
+-- "function! s:initVariable(var, value)
+--     "if !exists(a:var)
+--         "exec 'let ' . a:var . ' = ' . "'" . substitute(a:value, "'", "''", "g") . "'"
+--         "return 1
+--     "endif
+--     "return 0
+-- "endfunction
+-- "call s:initVariable("g:NERDTreeMapOpenSplit", "h")
+
+-- "" >>>>>>> xtabline
+-- "let g:xtabline_settings = {}
+-- "let g:xtabline_settings.enable_mappings = 0
+-- "let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+-- "let g:xtabline_settings.enable_persistance = 0
+-- "let g:xtabline_settings.last_open_first = 1
+-- "noremap \p :XTabInfo<CR>
+
+-- " >>>>>>> vim-autoformat
+-- "nnoremap \f :Autoformat<CR>
