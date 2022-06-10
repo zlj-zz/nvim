@@ -37,12 +37,11 @@ command! PackerCompile packadd packer.nvim | lua require('plugin').compile()
 
 let s:sourceList = [
   \ 'plugin',
-  \ 'customtools',
   \]
 
 "" load all config module.
 for s:item in s:sourceList
-  for s:sub_path in split(globpath(g:home_path . '/vim.' . s:item , '*.vim'), '\n')
+  for s:sub_path in split(globpath(g:nvim_path . '/vim.' . s:item , '*.vim'), '\n')
     exec 'source ' . s:sub_path
   endfor
 endfor
@@ -50,7 +49,7 @@ endfor
 unlet s:sourceList
 
 " load auto groups.
-exec 'source ' . g:home_path . '/augroups.vim'
+exec 'source ' . g:nvim_path . '/augroups.vim'
 
 " experimental
 set foldmethod=manual   " option: [manual indent marker]
@@ -60,13 +59,6 @@ set lazyredraw
 exec "nohlsearch"
 
 
-" create temp folder, create undo folder if have plugin persistent_undo
-" path = `~/.tmp`
-if empty(glob($HOME.'/.tmp'))
-  silent !mkdir -p $HOME/.tmp/backup
-  silent !mkdir -p $HOME/.tmp/undo
-  silent !mkdir -p $HOME/.tmp/sessions
-endif
 set backupdir=$HOME/.tmp/backup
 set directory=$HOME/.tmp/backup
 if has('persistent_undo')
