@@ -144,6 +144,7 @@ _G.packer_plugins = {
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   nerdcommenter = {
+    config = { "require('config.nerdcommenter')" },
     loaded = true,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/scrooloose/nerdcommenter"
@@ -189,8 +190,10 @@ _G.packer_plugins = {
     url = "https://github.com/wellle/tmux-complete.vim"
   },
   undotree = {
-    loaded = true,
+    commands = { "UndotreeToggle" },
+    loaded = false,
     needs_bufread = false,
+    only_cond = false,
     path = "/Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/undotree",
     url = "https://github.com/mbbill/undotree"
   },
@@ -307,25 +310,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: tagbar
-time([[Setup for tagbar]], true)
-require('config.tagbar')
-time([[Setup for tagbar]], false)
 -- Setup for: undotree
 time([[Setup for undotree]], true)
 require('config.undotree')
 time([[Setup for undotree]], false)
-time([[packadd for undotree]], true)
-vim.cmd [[packadd undotree]]
-time([[packadd for undotree]], false)
--- Config for: vim-floaterm
-time([[Config for vim-floaterm]], true)
-require('config.floaterm')
-time([[Config for vim-floaterm]], false)
+-- Setup for: tagbar
+time([[Setup for tagbar]], true)
+require('config.tagbar')
+time([[Setup for tagbar]], false)
+-- Config for: nerdcommenter
+time([[Config for nerdcommenter]], true)
+require('config.nerdcommenter')
+time([[Config for nerdcommenter]], false)
 -- Config for: vim-startify
 time([[Config for vim-startify]], true)
 require('config.startify')
 time([[Config for vim-startify]], false)
+-- Config for: vim-floaterm
+time([[Config for vim-floaterm]], true)
+require('config.floaterm')
+time([[Config for vim-floaterm]], false)
 -- Config for: fzf.vim
 time([[Config for fzf.vim]], true)
 require('config.fzf')
@@ -333,38 +337,39 @@ time([[Config for fzf.vim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Goyo lua require("packer.load")({'goyo.vim'}, { cmd = "Goyo", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TagbarToggle lua require("packer.load")({'tagbar'}, { cmd = "TagbarToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TableModeToggle lua require("packer.load")({'vim-table-mode'}, { cmd = "TableModeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TagbarToggle lua require("packer.load")({'tagbar'}, { cmd = "TagbarToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType python ++once lua require("packer.load")({'SimpylFold', 'vim-python-pep8-indent'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'markdown-preview.nvim', 'vim-markdown-toc'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-flutter-layout', 'dart-vim-plugin'}, { ft = "dart" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-python-pep8-indent', 'markdown-preview.nvim', 'vim-css3-syntax', 'SimpylFold', 'vim-javascript-syntax'}, { ft = "vim-plug" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-css3-syntax', 'vim-javascript-syntax'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-css3-syntax', 'vim-javascript-syntax'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-css3-syntax', 'vim-javascript-syntax'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-css3-syntax', 'vim-javascript-syntax'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-jsx-pretty', 'vim-css3-syntax', 'vim-javascript-syntax'}, { ft = "less" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown-toc', 'markdown-preview.nvim', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-python-pep8-indent', 'SimpylFold'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType gitignore ++once lua require("packer.load")({'vim-markdown-toc'}, { ft = "gitignore" }, _G.packer_plugins)]]
 vim.cmd [[au FileType pubspec.yaml ++once lua require("packer.load")({'pubspec-assist-nvim'}, { ft = "pubspec.yaml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty', 'markdown-preview.nvim', 'SimpylFold', 'vim-python-pep8-indent'}, { ft = "vim-plug" }, _G.packer_plugins)]]
-vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "php" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType less ++once lua require("packer.load")({'vim-css3-syntax', 'vim-javascript-syntax', 'vim-jsx-pretty'}, { ft = "less" }, _G.packer_plugins)]]
+vim.cmd [[au FileType dart ++once lua require("packer.load")({'dart-vim-flutter-layout', 'dart-vim-plugin'}, { ft = "dart" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/dart-vim-plugin/ftdetect/dart.vim]], true)
 vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/dart-vim-plugin/ftdetect/dart.vim]]
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/dart-vim-plugin/ftdetect/dart.vim]], false)
-time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], true)
-vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]]
-time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], false)
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], true)
 vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]]
 time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], false)
+time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], true)
+vim.cmd [[source /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]]
+time([[Sourcing ftdetect script at: /Users/lijunzhang/.local/share/nvim/site/pack/packer/opt/vim-javascript-syntax/ftdetect/javascript.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

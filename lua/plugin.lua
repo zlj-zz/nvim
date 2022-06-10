@@ -12,7 +12,7 @@ return require('packer').startup({
     function(use)
         local local_use = function(op)
 
-            local home = op.home or g.home_path .. '/customplugins'
+            local home = op.home or g.nvim_path .. '/customplugins'
             local use_source = op.use_source or false
 
             op[1] = string.format('%s/%s', home, op[1])
@@ -88,7 +88,10 @@ return require('packer').startup({
         use 'junegunn/vim-easy-align'
         use 'mg979/vim-visual-multi'
         use 'gcmt/wildfire.vim'
-        use 'scrooloose/nerdcommenter'
+        use {
+            'scrooloose/nerdcommenter',
+            config = [[require('config.nerdcommenter')]]
+        }
         use 'AndrewRadev/splitjoin.vim'
 
         -- Snippets
@@ -178,6 +181,9 @@ return require('packer').startup({
             'theniceboy/bullets.vim',
             ft = {'markdown'}
         }
+
+        -- Load some common plugins config
+        require('config.allcommon')
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
