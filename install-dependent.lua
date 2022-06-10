@@ -1,33 +1,28 @@
-#/usr/bin/env lua
- -- Module: Install neovim dependent.
- -- Author: Zachary Zhang
- -- Created Time: 2021-06-29
- -- Update Time:  2021-09-25
- -- Description: vim/nvim environment auto install, just support like unix system.
-
+-- #/usr/bin/env lua
+-- Module: Install neovim dependent.
+-- Author: Zachary Zhang
+-- Created Time: 2021-06-29
+-- Update Time:  2021-09-25
+-- Description: vim/nvim environment auto install, just support like unix system.
 local M = {
-    dependent_softwares = {
-        "python2.7", "python3", "node", "npm",
-        "ranger", "w3m", "fmt", "ffmpegthumbnailer",
-        "screen", "fzf", "the_silver_searcher",
-        "ripgrep", "ctags", "xclip", "figlet"
-    },
+    dependent_softwares = {"python2.7", "python3", "node", "npm", "ranger", "w3m", "fmt", "ffmpegthumbnailer", "screen",
+                           "fzf", "the_silver_searcher", "ripgrep", "ctags", "xclip", "figlet"},
 
     python_pkg = {"pynvim", 'jedi', 'black', "debugpy", "ueberzug"},
 
     npm_pkg = {"neovim"}
 }
 
-
 -- Get system OS type.
-function M:get_system()
+function M.get_system()
     return io.popen("uname -s"):read("*l")
 end
 
 -- Get the installation command of system.
 function M:get_installer()
     local system = self.get_system()
-    print("Detect system os: "..system.."\n")
+    print("Detect system os: " .. system .. "\n")
+
     local installer
     if system == "Darwin" then
         installer = "brew install "
@@ -36,6 +31,7 @@ function M:get_installer()
     elseif system == "Manjaro" or system == "Arch" then
         installer = "sudo pacman -S "
     end
+
     return installer
 end
 
@@ -45,10 +41,10 @@ end
 -- @param checker: checking command.
 -- @param dep: dependent name.
 function M:check_and_install(dep_type, installer, checker, dep)
-    if not io.popen(checker..dep):read("*l") then
-        os.execute(installer..dep)
+    if not io.popen(checker .. dep):read("*l") then
+        os.execute(installer .. dep)
     else
-        print("== "..dep_type..": \27[1;42m"..dep.."\27[0m already existed.")
+        print("== " .. dep_type .. ": \27[1;42m" .. dep .. "\27[0m already existed.")
     end
 end
 

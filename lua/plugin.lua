@@ -103,13 +103,17 @@ return require('packer').startup({
         }
 
         -- File Manager
-        use 'voldikss/vim-floaterm'
+        use {
+            'voldikss/vim-floaterm',
+            config = [[require('config.floaterm')]]
+        }
         use {
             'mhinz/vim-startify',
             config = [[require('config.startify')]]
         }
         use {
             'mbbill/undotree',
+            setup = [[require('config.undotree')]],
             cmd = {'UndotreeToggle'}
         }
         if g.isWin == 0 then
@@ -119,9 +123,13 @@ return require('packer').startup({
                     fn['fzf#install'](0)
                 end
             }
-            use 'junegunn/fzf.vim'
+            use {
+                'junegunn/fzf.vim',
+                config = [[require('config.fzf')]]
+            }
             use {
                 'majutsushi/tagbar',
+                setup = [[require('config.tagbar')]],
                 cmd = {'TagbarToggle'}
             }
             -- use 'liuchengxu/vista.vim'
