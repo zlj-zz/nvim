@@ -78,10 +78,24 @@ local map = {
     {'n', '<leader><leader>', '<ESC>/<++><CR>:nohlsearch<CR>c4l'},
     -- find the conflict line of git
     {'', '<leader>fc', '/\\v^[<\\|=>]{7}( .*\\|$)<CR>'},
-    {'n', '<leader>go', '<cmd>lua require"utils".open_curr_on_browser()<cr>'},
 
+    -- functions
+    {'n', '<leader>go', '<cmd>lua require"funcs".open_curr_on_browser()<cr>'},
+    {'', '<f4>', '<cmd>lua require"funcs".switch_transparent_bg()<cr>'},
+    {'', '<leader>z', '<cmd>lua require"funcs".switch_full_screen()<cr>'},
+
+    -- buffer
+    {'n', 'b-', ':bp<cr>'},
+    {'n', 'b=', ':bn<cr>'},
+    {'n', 'b#', ':b#<cr>'},
 
 }
+
+
+for i = 1, 9 do
+    table.insert(map, {'n', 'b' .. i, '<cmd>lua require"funcs".buf_index(' .. i .. ')<cr>'})
+end
+-- print(vim.inspect(map))
 
 return map
 

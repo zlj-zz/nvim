@@ -30,10 +30,6 @@ return require('packer').startup({
             use_source = true
         }
         local_use {
-            'manage.vim',
-            use_source = true
-        }
-        local_use {
             'compile_run.vim',
             use_source = true
         }
