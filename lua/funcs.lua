@@ -75,4 +75,15 @@ M.buf_index = function(num)
 
 end
 
+M.get_time = function()
+
+    return fn.strftime('%Y-%m-%d %H:%M:%S')
+
+end
+
 return M
+
+-- func! GetTimeInfo()
+-- return strftime('%Y-%m-%d %H:%M:%S')
+-- endfunc
+
