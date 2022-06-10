@@ -37,7 +37,6 @@ command! PackerCompile packadd packer.nvim | lua require('plugin').compile()
 
 let s:sourceList = [
   \ 'plugin',
-  \ 'customtools',
   \]
 
 "" load all config module.
