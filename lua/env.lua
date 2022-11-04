@@ -1,3 +1,4 @@
+local utils = require('settings.utils')
 local g = vim.g
 local fn = vim.fn
 
@@ -40,3 +41,5 @@ if fn.empty(fn.glob(temp_dir)) == 1 then
         vim.cmd('silent !mkdir -p ' .. temp_dir .. '/' .. item)
     end
 end
+utils.opt('backupdir', g.home_path .. '/.tmp/backup')
+utils.opt('directory', g.home_path .. '/.tmp/backup')

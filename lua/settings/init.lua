@@ -35,8 +35,8 @@ return function()
         utils.map(one_map[1], one_map[2], one_map[3], map.default_args + one_map[4])
     end
 
-    local is_ok, options = pcall(require, 'settings.options')
-    if not is_ok then
+    local load_optiosn, options = pcall(require, 'settings.options')
+    if not load_optiosn then
         options = {}
     end
 
