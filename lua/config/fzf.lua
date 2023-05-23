@@ -1,6 +1,6 @@
 local g = vim.g
 
-local utils = require('settings.utils')
+local utils = require('utils')
 local map = utils.map
 
 if g.isWin == 0 then

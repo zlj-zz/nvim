@@ -2,24 +2,37 @@
 -- Module: Install neovim dependent.
 -- Author: Zachary Zhang
 -- Created Time: 2021-06-29
--- Update Time:  2021-09-25
+-- Update Time:  2022-11-08
 -- Description: vim/nvim environment auto install, just support like unix system.
-local M = {
-    dependent_softwares = {"python2.7", "python3", "node", "npm", "ranger", "w3m", "fmt", "ffmpegthumbnailer", "screen",
+
+local Installer = {
+    Info_Icons = {"👌:", "✋Warn:", "👊Error:", "✌ :", "⛽:"},
+
+    Dependent_Softwares = {"python2.7", "python3", "node", "npm", "ranger", "w3m", "fmt", "ffmpegthumbnailer", "screen",
                            "fzf", "the_silver_searcher", "ripgrep", "ctags", "xclip", "figlet"},
 
-    python_pkg = {"pynvim", 'jedi', 'black', "debugpy", "ueberzug"},
+    Python_pkgs = {"pynvim", 'jedi', 'black', "debugpy", "ueberzug"},
 
-    npm_pkg = {"neovim"}
+    Npm_pkgs = {"neovim"}
 }
 
+-- Output info msg to terminal.
+-- @param msg string info msg
+-- @param level? number level of msg
+function Installer:info(msg, level)
+    -- 1-info 2-warning 3-error 4-greate
+    level = level == nil and 1 or level
+
+    print(self.Info_Icons[level] .. msg)
+end
+
 -- Get system OS type.
-function M.get_system()
+function Installer.get_system()
     return io.popen("uname -s"):read("*l")
 end
 
 -- Get the installation command of system.
-function M:get_installer()
+function Installer:get_package_manager()
     local system = self.get_system()
     print("Detect system os: " .. system .. "\n")
 
@@ -40,30 +53,30 @@ end
 -- @param installer: installation command.
 -- @param checker: checking command.
 -- @param dep: dependent name.
-function M:check_and_install(dep_type, installer, checker, dep)
-    if not io.popen(checker .. dep):read("*l") then
-        os.execute(installer .. dep)
+function Installer:check_and_install(dep_type, install_cmd, check_cmd, dep)
+    if not io.popen(check_cmd .. dep):read("*l") then
+        os.execute(install_cmd .. dep)
     else
         print("== " .. dep_type .. ": \27[1;42m" .. dep .. "\27[0m already existed.")
     end
 end
 
-function M:launch()
+function Installer:launch()
     -- Get software installer.
-    local installer = self.get_installer()
+    local installer = self.get_package_manager()
 
-    print('⛽ Try to install software dependency.')
-    for _, value in ipairs(self.dependent_softwares) do
+    self.info('Try to install software dependency.')
+    for _, value in ipairs(self.Dependent_Softwares) do
         self.check_and_install("software", installer, "where ", value)
     end
 
-    print('⛽️ Try to install python package dependency.')
-    for _, value in ipairs(self.python_pkg) do
+    self.info('Try to install python package dependency.')
+    for _, value in ipairs(self.Python_pkgs) do
         self.check_and_install("python package", "pip3 install -U ", "pip3 freeze | grep ", value)
     end
 
-    print('⛽ Try to install npm package dependency.')
-    for _, value in ipairs(self.npm_pkg) do
+    self.info('Try to install npm package dependency.')
+    for _, value in ipairs(self.Npm_pkgs) do
         self.check_and_install("npm package", "sudo npm i -g ", "npm list -g | grep ", value)
     end
 end
@@ -71,5 +84,5 @@ end
 ------------------------
 --  enter  --
 ------------------------
-M:launch()
+Installer:launch()
 

@@ -59,8 +59,6 @@ set lazyredraw
 exec "nohlsearch"
 
 
-set backupdir=$HOME/.tmp/backup
-set directory=$HOME/.tmp/backup
 if has('persistent_undo')
   set undofile
   set undodir=$HOME/.tmp/undo
