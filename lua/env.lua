@@ -1,6 +1,10 @@
-local utils = require('settings.utils')
+local utils = require('utils')
 local g = vim.g
 local fn = vim.fn
+
+-----------------------------------------------------------------------------------------
+-- Global parameters.
+-----------------------------------------------------------------------------------------
 
 -- neovim home path
 g.home_path = vim.api.nvim_exec('echo $HOME', true)
@@ -16,6 +20,8 @@ g.is_gui = fn.has('gui_running')
 
 -- whether use coc plugin
 g.useCoc = 1
+
+-----------------------------------------------------------------------------------------
 
 -- Create a '_machine_specific.vim' file to adjust machine specific stuff
 local specific_file = g.nvim_path .. '/_machine_specific.vim'

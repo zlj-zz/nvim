@@ -1,4 +1,4 @@
-local utils = require('settings.utils')
+local utils = require('utils')
 local g = vim.g
 
 return function()
@@ -35,12 +35,12 @@ return function()
         utils.map(one_map[1], one_map[2], one_map[3], map.default_args + one_map[4])
     end
 
+    -- set up options
     local load_optiosn, options = pcall(require, 'settings.options')
     if not load_optiosn then
         options = {}
     end
 
-    -- set up options
     for o, v in pairs(options) do
         utils.opt(o, v)
     end

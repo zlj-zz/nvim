@@ -1,6 +1,6 @@
 local g = vim.g
 
-local utils = require('settings.utils')
+local utils = require('utils')
 local opt = utils.opt
 local map = utils.map
 
