@@ -1,6 +1,7 @@
 local fn = vim.fn
 local g = vim.g
 
+-- Check `Packer` wether installed, or installing.
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap = nil
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -10,6 +11,9 @@ end
 
 return require('packer').startup({
     function(use)
+
+        ---Help to load local plugin file.
+        ---@param op table
         local local_use = function(op)
 
             local home = op.home or g.nvim_path .. '/customplugins'
@@ -211,10 +215,3 @@ return require('packer').startup({
 -- "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 -- "Plug 'junegunn/vim-after-object' " da= to delete what's after =
 
--- " ==========================================
--- " When I open a large JS file,             |
--- " it will be very slow, and there          |
--- " will be stuck and delay when scrolling.  |
--- " ==========================================
--- "Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
--- "Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }

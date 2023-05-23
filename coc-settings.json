@@ -1,18 +1,12 @@
 {
-  "coc.preferences.semanticTokensHighlights": false,
-  "coc.preferences.colorSupport": true,
-  "coc.preferences.enableFloatHighlight": true,
-  "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.extensionUpdateCheck": "weekly",
   "yank.enableCompletion": false,
-  "suggest.detailMaxLength": 60,
+  "suggest.labelMaxLength": 60,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.autoTrigger": "always",
   "suggest.timeout": 5000,
-  "suggest.enablePreview": true,
-  "suggest.floatEnable": true,
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
   "suggest.completionItemKindLabels": {
@@ -151,20 +145,22 @@
   "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": false,
   "tslint.autoFixOnSave": true,
   "python.formatting.provider": "black",
-  "Lua.workspace.library": {
-    "/usr/share/nvim/runtime/lua": true,
-    "/usr/share/nvim/runtime/lua/vim": true,
-    "/usr/share/nvim/runtime/lua/vim/lsp": true
-  },
+  "Lua.workspace.library": [
+    "/usr/share/nvim/runtime/lua",
+    "/usr/share/nvim/runtime/lua/vim",
+    "/usr/share/nvim/runtime/lua/vim/lsp"
+  ],
   "Lua.diagnostics.globals": ["vim"],
+  "git.addedSign.text": "▎",
+  "git.removedSign.text": "▏",
+  "git.topRemovedSign.text": "▔",
+  "git.changeRemovedSign.text": "▒",
   "sh.enable": true,
   "vetur.format.enable": true,
   "html.format.enable": true,
   "json.format.enable": true,
   "yaml.format.enable": true,
   "typescript.suggestionActions.enabled": true,
-  "typescript.format.enabled": true,
-  "javascript.referencesCodeLens.enable": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
   "javascript.suggestionActions.enabled": true,
@@ -181,16 +177,7 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "dart",
-    "typescript",
-    "javascript",
-    "html",
-    "css",
-    "vue",
-    "json",
-    "markdown"
-  ],
+  "coc.preferences.formatOnSave": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
@@ -221,7 +208,3 @@
     }
   }
 }
-//    "git.addedSign.text": "▎",
-//    "git.removedSign.text": "▏",
-//    "git.topRemovedSign.text": "▔",
-//    "git.changeRemovedSign.text": "▒",
