@@ -37,6 +37,10 @@ return require('packer').startup({
             'compile_run.vim',
             use_source = true
         }
+        local_use {
+            'tools.vim',
+            use_source = true
+        }
 
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'

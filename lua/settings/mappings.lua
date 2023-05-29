@@ -9,8 +9,8 @@ local map = {
 
     { 'n', '<',                '<<' },
     { 'n', '>',                '>>' },
-    { 'v', '<',                '<<' },
-    { 'v', '>',                '>>' },
+    { 'v', '<',                '<gv' },
+    { 'v', '>',                '>gv' },
 
     { 'n', 'Y',                'y$' },
     { 'v', 'Y',                '"+y' },
@@ -75,6 +75,7 @@ local map = {
 
     -- press space twice to jump to the next ':' and edit it
     { 'n', '<leader><leader>', '<ESC>/<++><CR>:nohlsearch<CR>c4l' },
+
     -- find the conflict line of git
     { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },
 
@@ -90,7 +91,7 @@ local map = {
 
 }
 
-
+-- switch buf with index
 for i = 1, 9 do
     table.insert(map, { 'n', 'b' .. i, '<cmd>lua require"funcs".buf_index(' .. i .. ')<cr>' })
 end

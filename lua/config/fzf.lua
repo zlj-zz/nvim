@@ -29,7 +29,7 @@ if g.isWin == 0 then
     map('n', ',b', ':Buffers<cr>')
     map('n', ',l', ':Lines<cr>')
     map('n', ',c', ':History:<cr>')
-    map('n', '\\k', ':Maps<cr>')
+    map('n', ',k', ':Maps<cr>')
 
 end
 
