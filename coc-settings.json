@@ -155,11 +155,13 @@
   "git.removedSign.text": "▏",
   "git.topRemovedSign.text": "▔",
   "git.changeRemovedSign.text": "▒",
+  "coc.preferences.formatOnSave": true,
   "sh.enable": true,
   "vetur.format.enable": true,
   "html.format.enable": true,
   "json.format.enable": true,
   "yaml.format.enable": true,
+  "Lua.format.enable": false,
   "typescript.suggestionActions.enabled": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
@@ -177,7 +179,6 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "coc.preferences.formatOnSave": true,
   "languageserver": {
     "golang": {
       "command": "gopls",

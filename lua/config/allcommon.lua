@@ -43,8 +43,8 @@ g['airline#extensions#tabline#enabled'] = 1
 g.indentLine_noConcealCursor = 1
 g.indentLine_color_term = 238
 g.indentLine_char = '┆'
-g.indentLine_fileTypeExclude = {'startify'}
-g.indentLine_bufTypeExclude = {'help', 'terminal'}
+g.indentLine_fileTypeExclude = { 'startify' }
+g.indentLine_bufTypeExclude = { 'help', 'terminal' }
 g.indentLine_faster = 1
 
 -----------
@@ -112,12 +112,21 @@ map('', '<leader>tm', ':TableModeToggle<cr>')
 ---------------
 ---Bullets.vim
 ---------------
-g.bullets_enabled_file_types = {'markdown', 'text', 'gitcommit', 'scratch'}
+g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'scratch' }
 
--- " >>>>>>> vim-after-object
+---------------
+---vim-autoformat
+---------------
+--map('n', '\\f', ':Autoformat<CR>')
+
+---------------
+---vim-after-object
+---------------
 -- "autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
--- "" >>>>>>> nerdtree
+---------------
+---nerdtree
+---------------
 -- "map <F7> :NERDTreeToggle<CR>
 -- "let NERDTreeIgnore = ['\.pyc$']
 -- "let NERDTreeShowBookmarks=1
@@ -130,13 +139,12 @@ g.bullets_enabled_file_types = {'markdown', 'text', 'gitcommit', 'scratch'}
 -- "endfunction
 -- "call s:initVariable("g:NERDTreeMapOpenSplit", "h")
 
--- "" >>>>>>> xtabline
+---------------
+---xtabline
+---------------
 -- "let g:xtabline_settings = {}
 -- "let g:xtabline_settings.enable_mappings = 0
 -- "let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 -- "let g:xtabline_settings.enable_persistance = 0
 -- "let g:xtabline_settings.last_open_first = 1
 -- "noremap \p :XTabInfo<CR>
-
--- " >>>>>>> vim-autoformat
--- "nnoremap \f :Autoformat<CR>
