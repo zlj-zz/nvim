@@ -27,19 +27,12 @@ scriptencoding utf-8
     " Automatically remove fugitive buffers
     "autocmd BufReadPost fugitive://* set bufhidden=delete
 
-
-    " Automatically remove trailing whitespaces unless file is blacklisted
-    "autocmd BufWritePre *.* :call general#Preserve("%s/\\s\\+$//e")
-
     " Update filetype on save if empty
     autocmd BufWritePost * nested
       \ if &l:filetype ==# '' || exists('b:ftdetect')
       \ |   unlet! b:ftdetect
       \ |   filetype detect
       \ | endif
-
-    " NOTE: Ensure directory structure exists when opening a new file
-    "autocmd  BufNewFile  *  :lua require('general').EnsureDirExists()
 
     " Auto change directory to the directory where the current file is located.
     "autocmd BufEnter * silent! lcd %:p:h
