@@ -44,7 +44,7 @@ if g:useCoc
 
   function! s:check_back_space() abort
     let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
+    return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
   " Insert <tab> when previous text is space, refresh completion if not.
@@ -55,9 +55,9 @@ if g:useCoc
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 
-  " Use <c-space> to trigger completion.
+  " Use <ctrl-tab> to trigger completion.
   if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
+    inoremap <silent><expr> <c-tab> coc#refresh()
   else
     inoremap <silent><expr> <c-@> coc#refresh()
   endif
@@ -66,6 +66,7 @@ if g:useCoc
   " format on enter, <cr> could be remapped by other vim plugin
   inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
                                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
   " Use `[g` and `]g` to navigate diagnostics
   " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -78,7 +79,7 @@ if g:useCoc
   nmap <silent> gr <Plug>(coc-references)
 
   " Use K to show documentation in preview window.
-  nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
+  "nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
@@ -98,10 +99,11 @@ if g:useCoc
   " Formatting selected code.
   xmap \f  <Plug>(coc-format-selected)
   nmap \f  <Plug>(coc-format-selected)
+
   " Add `:Format` command to format current buffer.
-  command! -nargs=0 Format :call CocAction('format')
   xmap \F  :Format<CR>
   nmap \F  :Format<CR>
+  command! -nargs=0 Format :call CocActionAsync('format')
 
   augroup mygroup
     autocmd!
@@ -112,8 +114,7 @@ if g:useCoc
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  "           获取并执行 language server 给出的当前选择区间
-  "           内的可用操作。
+  "           获取并执行 language server 给出的当前选择区间内的可用操作。
   xmap <leader>a  <Plug>(coc-codeaction-selected)
   nmap <leader>a  <Plug>(coc-codeaction-selected)
   
@@ -160,10 +161,9 @@ if g:useCoc
   vmap ts <Plug>(coc-translator-pv)
 
 
-
-  " \\\\\\
-  " >>>>>>> vim-snippet 
-  " //////
+  " ------------------------
+  " vim-snippet 
+  " ------------------------
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
   let g:UltiSnipsExpandTrigger="<c-j>"
   let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -171,9 +171,9 @@ if g:useCoc
   let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
 
 
-  " \\\\\\
-  " >>>>>>> dart-lang/dart-vim-plugin 
-  " //////
+  " ------------------------
+  " dart-lang/dart-vim-plugin 
+  " ------------------------
   let g:dart_style_guide    = 2
   let g:dart_format_on_save = 1
   let g:dartfmt_options     = ["-l 100"]
