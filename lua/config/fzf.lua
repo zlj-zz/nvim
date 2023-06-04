@@ -23,10 +23,10 @@ if g.isWin == 0 then
       \ }))
     ]])
 
-    map('n', ',d', ':BufferDel<cr>')
     map('n', ',f', ':Ag<cr>')
     map('n', ',h', ':History<cr>')
     map('n', ',b', ':Buffers<cr>')
+    map('n', ',db', ':BufferDel<cr>')
     map('n', ',l', ':Lines<cr>')
     map('n', ',c', ':History:<cr>')
     map('n', ',k', ':Maps<cr>')

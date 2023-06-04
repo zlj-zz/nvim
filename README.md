@@ -12,7 +12,7 @@
         * [For FZF](#for-fzf)
         * [And may also...](#and-may-also)
     * [Keyboard Shortcuts](#keyboard-shortcuts)
-        * [Curosr movement](#curosr-movement)
+        * [Cursor movement](#cursor-movement)
         * [Remapped cursor movement](#remapped-cursor-movement)
         * [Remapped commands in Normal Mode](#remapped-commands-in-normal-mode)
         * [Window management](#window-management)
@@ -87,15 +87,19 @@ Install `xclip` for system clipboard access (Linux and `xorg` only)
 
 ## Keyboard Shortcuts
 
-let `<LEADER>` to be `<space>`.
+Let `<LEADER>` to be `<space>`.
 
-let `S` to save file (same as command `:w`).
+Let `S` to save file (same as command `:w`).
 
-let `Q` to quit (same as command `:q`).
+Let `Q` to quit (same as command `:q`).
 
-let `ctrl`+`q` to force quit (same as command `:q!`).
+Let `ctrl`+`q` to force quit (same as command `:q!`).
 
-### Curosr movement
+Let `Y` to copy till the end of the line in normal mode(same as `y$`).
+
+Let `Y` copy to system clipboard in visual mode(same as `"+y`).
+
+### Cursor movement
 
 | ←   | ↓   | ↑   | →   |
 | --- | --- | --- | --- |
@@ -117,21 +121,24 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 | `alt`+`s`  | ↓ in insert mode                                          | `<down>`   |
 | `alt`+`w`  | ↑ in insert mode                                          | `<up>`     |
 | `alt`+`d`  | → in insert mode                                          | `<right>`  |
-| `alt`+`a`  | move cursor to head in insert mode                        | `<home>`   |
-| `alt`+`s`  | move cursor to tail in insert mode                        | `<end>`    |
+
+ <!--       | `alt`+`a`                                                 | move cursor to head in insert mode | `<home>` | -->
+ <!--       | `alt`+`s`                                                 | move cursor to tail in insert mode | `<end>`  | -->
 
 ### Remapped commands in Normal Mode
 
-| shortcut           | action                             |
-| ------------------ | ---------------------------------- |
-| `<`                | un-indent                          |
-| `>`                | indent                             |
-| `<LEADER><LEADER>` | goto the next placeholder (`<++>`) |
-| `<LEADER><Enter>`  | cancel the highligh search         |
-| `<LEADER>sc`       | spelling check toggle              |
-| `<LEADER>fd`       | find two same word                 |
-| `<LEADER>rc`       | open the neovim config anytime     |
-| `,rc`              | resource neovim config             |
+| shortcut           | action                               |
+| ------------------ | ------------------------------------ |
+| `<`                | un-indent                            |
+| `>`                | indent                               |
+| `<LEADER><LEADER>` | go to the next placeholder (`<++>`)  |
+| `<LEADER><Enter>`  | cancel the highlight search          |
+| `<LEADER>z`        | switch full screen                   |
+| `<LEADER>go`       | open current file in default browser |
+| `<LEADER>sc`       | spelling check toggle                |
+| `<LEADER>fd`       | find two same word                   |
+| `<LEADER>rc`       | open the neovim config anytime       |
+| `,rc`              | resource neovim config               |
 
 ### Window management
 
@@ -141,7 +148,7 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 | `sj`     | split window to the down          |     | `tj`     | move cursor to the down window     |
 | `sk`     | split window to the up            |     | `tk`     | move cursor to the up window       |
 | `sl`     | split window to the right         |     | `tl`     | move cursor to the right window    |
-| `ch`     | place the two screens up and down |     | `cv`     | place the two screens side by side |
+| `ck`     | place the two screens up and down |     | `ch`     | place the two screens side by side |
 
 ### Tab management
 
@@ -163,15 +170,9 @@ let `ctrl`+`q` to force quit (same as command `:q!`).
 
 ### Other
 
+Let `ctrl+a` to select all (same as `ggVG`).
+
 You can use `ZZ` command, this command writes the file and exits.
-
-In normal mode make `Y` to copy till the end of the line (same as `y$`).
-
-In visual mode make `ctrl + c` copy to system clipboard (same as `"+y`).
-
-~~In visual mode make `ctrl + v` copy to system clipboard (same as `"+p`).~~
-
-let `ctrl+a` to select all (same as `ggVG`).
 
 `ctrl+z` makes **vim** hang and enter **shell**, `fg` returns **vim** form **shell**.
 
@@ -181,7 +182,7 @@ let `ctrl+a` to select all (same as `ggVG`).
 
 `<leader>fc` find git conflict line.
 
-`ctrl + g` open lazygit in vim.
+<!--`ctrl + g` open lazygit in vim.-->
 
 <!--~~`ra` use **ranger** in neovim.~~-->
 
