@@ -37,6 +37,9 @@ scriptencoding utf-8
     " Auto change directory to the directory where the current file is located.
     "autocmd BufEnter * silent! lcd %:p:h
 
+    " Auto disenble highlight cursorline in insert mode.
+    autocmd InsertLeave,WinEnter * set cursorline
+    autocmd InsertEnter,WinLeave * set nocursorline
   augroup END " }}}
 
 " }}}
