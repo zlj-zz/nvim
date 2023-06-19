@@ -28,7 +28,7 @@ function M.opt(o, v, scopes)
 end
 
 ---Set custom vim key mapping.
----@param modes any ; key map mode,`string` or `table`
+---@param modes string | table @key map mode,`string` or `table`
 --[[
          String value 	Help page	  Affected modes
          ''             mapmode-nvo   Normal, Visual, Select, Operator-pending
@@ -55,7 +55,11 @@ function M.map(modes, lhs, rhs, opts)
     end
 
     for _, mode in ipairs(modes) do
-        map_key(mode, lhs, rhs, opts)
+        if type(mode) ~= 'string' then
+            M.warn('Cannot key set with error mode type: ' .. type(mode))
+        else
+            map_key(mode, lhs, rhs, opts)
+        end
     end
 end
 
