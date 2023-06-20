@@ -48,7 +48,6 @@ return require('packer').startup({
         use 'wbthomason/packer.nvim'
 
         -- Code language
-        use 'elzr/vim-json'
         use {
             'hail2u/vim-css3-syntax',
             ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
@@ -146,9 +145,9 @@ return require('packer').startup({
         end
 
         -- Style
-        -- use 'ajmwagar/vim-deus'
         -- use 'sainnhe/sonokai'
         -- use 'sts10/vim-pink-moon'
+        use 'ajmwagar/vim-deus'
         use 'arcticicestudio/nord-vim'
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
@@ -202,13 +201,13 @@ return require('packer').startup({
     end,
 
     config = {
-        --     display = {
-        --         open_fn = function()
-        --             return require('packer.util').float({
-        --                 border = 'single'
-        --             })
-        --         end
-        --     }
+        display = {
+            open_fn = function()
+                return require('packer.util').float({
+                    border = 'single'
+                })
+            end
+        }
     }
 })
 

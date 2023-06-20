@@ -29,11 +29,11 @@ lua require('settings')()
 
 " load plugins.
 lua require('plugin')
-command! PackerInstall packadd packer.nvim | lua require('plugin').install()
-command! PackerUpdate packadd packer.nvim | lua require('plugin').update()
-command! PackerSync packadd packer.nvim | lua require('plugin').sync()
-command! PackerClean packadd packer.nvim | lua require('plugin').clean()
-command! PackerCompile packadd packer.nvim | lua require('plugin').compile()
+"command! PackerInstall packadd packer.nvim | lua require('plugin').install()
+"command! PackerUpdate packadd packer.nvim | lua require('plugin').update()
+"command! PackerSync packadd packer.nvim | lua require('plugin').sync()
+"command! PackerClean packadd packer.nvim | lua require('plugin').clean()
+"command! PackerCompile packadd packer.nvim | lua require('plugin').compile()
 
 " load auto groups.
 exec 'source ' . g:nvim_path . '/augroups.vim'

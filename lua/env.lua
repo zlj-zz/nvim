@@ -24,6 +24,7 @@ g.useCoc = 1
 -----------------------------------------------------------------------------------------
 
 -- Create a '_machine_specific.vim' file to adjust machine specific stuff
+-- Some special configurations for different computers.
 local specific_file = g.nvim_path .. '/_machine_specific.vim'
 local specific_content = {'let g:python3_host_prog=""', 'let g:python_host_prog=""'}
 
@@ -33,7 +34,6 @@ if fn.empty(fn.glob(specific_file)) == 1 then
     end
     vim.cmd('e ' .. specific_file)
 else
-    -- Some special configurations for different computers.
     vim.cmd('source ' .. specific_file)
 end
 

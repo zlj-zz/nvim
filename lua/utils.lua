@@ -17,9 +17,9 @@ function M.error(s, ...)
 end
 
 ---Change vim option
----@param o string ;option name
----@param v any ;setting value
----@param scopes any ;the scopes of option
+---@param o string @option name
+---@param v any @setting value
+---@param scopes any @the scopes of option
 function M.opt(o, v, scopes)
     scopes = scopes or { o_s }
     for _, s in pairs(scopes) do
@@ -43,9 +43,9 @@ end
          'c'            mapmode-c 	  Command-line
          't'            mapmode-t 	  Terminal
 ]]
----@param lhs string ;wanted key map
----@param rhs string ;source key map
----@param opts table
+---@param lhs string @wanted key map
+---@param rhs string @source key map
+---@param opts? table @key map options
 function M.map(modes, lhs, rhs, opts)
     opts = opts or {}
     opts.noremap = opts.noremap == nil and true or opts.noremap
@@ -79,3 +79,4 @@ function M.autocmd(group, cmds, clear)
 end
 
 return M
+
