@@ -1,7 +1,7 @@
-local g = vim.g
-
 local utils = require('utils')
 local map = utils.map
+
+local g = vim.g
 
 g.floaterm_gitcommit = 'split'
 

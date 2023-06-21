@@ -68,8 +68,7 @@ return require('packer').startup({
             'Vimjas/vim-python-pep8-indent',
             ft = {'python', 'vim-plug'}
         }
-        -- use {'numirias/semshi', run=':UpdateRemotePlugins', ft={'python', 'vim-plug'} }
-        use 'tweekmonster/braceless.vim'
+        --use 'tweekmonster/braceless.vim'
         use {
             'tiagofumo/dart-vim-flutter-layout',
             ft = {'dart'}
@@ -191,6 +190,7 @@ return require('packer').startup({
         }
 
         -- Load some common plugins config
+        require('plugincfg.style')
         require('plugincfg.allcommon')
 
         -- Automatically set up your configuration after cloning packer.nvim
