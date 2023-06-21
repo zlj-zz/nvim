@@ -52,14 +52,14 @@ return require('packer').startup({
             'hail2u/vim-css3-syntax',
             ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
         }
-        use {
-            'MaxMEllon/vim-jsx-pretty',
-            ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        }
-        use {
-            'jelera/vim-javascript-syntax',
-            ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        }
+        --use {
+            --'MaxMEllon/vim-jsx-pretty',
+            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
+        --}
+        --use {
+            --'jelera/vim-javascript-syntax',
+            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
+        --}
         use {
             'tmhedberg/SimpylFold',
             ft = {'python', 'vim-plug'}
@@ -146,7 +146,7 @@ return require('packer').startup({
         -- Style
         -- use 'sainnhe/sonokai'
         -- use 'sts10/vim-pink-moon'
-        use 'ajmwagar/vim-deus'
+        --use 'ajmwagar/vim-deus'
         use 'arcticicestudio/nord-vim'
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
@@ -214,9 +214,7 @@ return require('packer').startup({
 -- "Plug 'bling/vim-bufferline'
 -- "Plug 'mg979/vim-xtabline'     " top tabline
 -- "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
--- "Plug 'roxma/nvim-yarp' " a other vim plugin manager
 -- "Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
--- "Plug 'wincent/terminus'
 -- "Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
 -- "Plug 'SirVer/ultisnips' " Track the engine.
 -- "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`

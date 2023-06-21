@@ -24,6 +24,7 @@ vimrc
 # === other ===
 nvim.log
 plugin/packer_compiled.lua
+_machine_specific.*
 
 .netrwhist
 .VsCodeCounter/
