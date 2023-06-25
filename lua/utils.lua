@@ -17,9 +17,9 @@ function M.error(s, ...)
 end
 
 ---Change vim option
----@param o string ;option name
----@param v any ;setting value
----@param scopes any ;the scopes of option
+---@param o string @option name
+---@param v any @setting value
+---@param scopes any @the scopes of option
 function M.opt(o, v, scopes)
     scopes = scopes or { o_s }
     for _, s in pairs(scopes) do
@@ -28,7 +28,7 @@ function M.opt(o, v, scopes)
 end
 
 ---Set custom vim key mapping.
----@param modes any ; key map mode,`string` or `table`
+---@param modes string | table @key map mode,`string` or `table`
 --[[
          String value 	Help page	  Affected modes
          ''             mapmode-nvo   Normal, Visual, Select, Operator-pending
@@ -43,9 +43,9 @@ end
          'c'            mapmode-c 	  Command-line
          't'            mapmode-t 	  Terminal
 ]]
----@param lhs string ;wanted key map
----@param rhs string ;source key map
----@param opts table
+---@param lhs string @wanted key map
+---@param rhs string @source key map
+---@param opts? table @key map options
 function M.map(modes, lhs, rhs, opts)
     opts = opts or {}
     opts.noremap = opts.noremap == nil and true or opts.noremap
@@ -55,7 +55,11 @@ function M.map(modes, lhs, rhs, opts)
     end
 
     for _, mode in ipairs(modes) do
-        map_key(mode, lhs, rhs, opts)
+        if type(mode) ~= 'string' then
+            M.warn('Cannot key set with error mode type: ' .. type(mode))
+        else
+            map_key(mode, lhs, rhs, opts)
+        end
     end
 end
 
@@ -75,3 +79,4 @@ function M.autocmd(group, cmds, clear)
 end
 
 return M
+

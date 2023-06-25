@@ -1,9 +1,9 @@
+local utils = require('utils')
+local map = utils.map
+
+local g = vim.g
+
 vim.cmd [[
-
-let g:NERDDefaultAlign = 'none'
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = {'python': {'left': '# ', 'leftAlt': '""" ', 'rightAlt': ' """'}}
 
 " For vue
 let g:ft = ''
@@ -27,7 +27,18 @@ function! NERDCommenter_after()
   endif
 endfunction
 
-nmap <leader>/ <Plug>NERDCommenterToggle
-xmap <leader>/ <Plug>NERDCommenterToggle
-
 ]]
+
+g.NERDDefaultAlign = 'none'
+
+-- Add your own custom formats or override the defaults
+g.NERDCustomDelimiters = {
+    python= {
+        left= '# ',
+        leftAlt= '""" ',
+        rightAlt= ' """'
+    }
+}
+
+
+map({"n", "x"}, "c/", "<Plug>NERDCommenterToggle")

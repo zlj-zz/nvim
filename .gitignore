@@ -22,8 +22,13 @@ vimrc
 
 
 # === other ===
+nvim.log
+plugin/packer_compiled.lua
+_machine_specific.*
 
 .netrwhist
-vs-settings.json
 .VsCodeCounter/
-nvim.log
+vs-settings.json
+
+test*
+

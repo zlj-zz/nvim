@@ -58,6 +58,7 @@ end
 -----------------------------------
 --- change current buffer by index
 -----------------------------------
+---@param num integer
 M.buf_index = function(num)
 
     if num == nil then
@@ -82,8 +83,4 @@ M.get_time = function()
 end
 
 return M
-
--- func! GetTimeInfo()
--- return strftime('%Y-%m-%d %H:%M:%S')
--- endfunc
 

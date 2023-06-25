@@ -9,6 +9,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
                                   install_path})
 end
 
+local cfg_partten = [[require('%s')]]
+
 return require('packer').startup({
     function(use)
 
@@ -46,19 +48,18 @@ return require('packer').startup({
         use 'wbthomason/packer.nvim'
 
         -- Code language
-        use 'elzr/vim-json'
         use {
             'hail2u/vim-css3-syntax',
             ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
         }
-        use {
-            'MaxMEllon/vim-jsx-pretty',
-            ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        }
-        use {
-            'jelera/vim-javascript-syntax',
-            ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        }
+        --use {
+            --'MaxMEllon/vim-jsx-pretty',
+            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
+        --}
+        --use {
+            --'jelera/vim-javascript-syntax',
+            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
+        --}
         use {
             'tmhedberg/SimpylFold',
             ft = {'python', 'vim-plug'}
@@ -67,14 +68,14 @@ return require('packer').startup({
             'Vimjas/vim-python-pep8-indent',
             ft = {'python', 'vim-plug'}
         }
-        -- use {'numirias/semshi', run=':UpdateRemotePlugins', ft={'python', 'vim-plug'} }
-        use 'tweekmonster/braceless.vim'
+        --use 'tweekmonster/braceless.vim'
         use {
             'tiagofumo/dart-vim-flutter-layout',
             ft = {'dart'}
         }
         use {
             'dart-lang/dart-vim-plugin',
+            config = cfg_partten:format('plugincfg.dart-vim'),
             ft = {'dart'}
         }
         use {
@@ -94,7 +95,7 @@ return require('packer').startup({
         use 'gcmt/wildfire.vim'
         use {
             'scrooloose/nerdcommenter',
-            config = [[require('config.nerdcommenter')]]
+            config = cfg_partten:format('plugincfg.nerdcommenter')
         }
         use 'AndrewRadev/splitjoin.vim'
 
@@ -112,15 +113,15 @@ return require('packer').startup({
         -- File Manager
         use {
             'voldikss/vim-floaterm',
-            config = [[require('config.floaterm')]]
+            config = cfg_partten:format('plugincfg.floaterm')
         }
         use {
             'mhinz/vim-startify',
-            config = [[require('config.startify')]]
+            config = cfg_partten:format('plugincfg.startify')
         }
         use {
             'mbbill/undotree',
-            setup = [[require('config.undotree')]],
+            setup = cfg_partten:format('plugincfg.undotree'),
             cmd = {'UndotreeToggle'}
         }
         if g.isWin == 0 then
@@ -132,20 +133,20 @@ return require('packer').startup({
             }
             use {
                 'junegunn/fzf.vim',
-                config = [[require('config.fzf')]]
+                config = cfg_partten:format('plugincfg.fzf')
             }
             use {
                 'majutsushi/tagbar',
-                setup = [[require('config.tagbar')]],
+                setup = cfg_partten:format('plugincfg.tagbar'),
                 cmd = {'TagbarToggle'}
             }
             -- use 'liuchengxu/vista.vim'
         end
 
         -- Style
-        -- use 'ajmwagar/vim-deus'
         -- use 'sainnhe/sonokai'
         -- use 'sts10/vim-pink-moon'
+        --use 'ajmwagar/vim-deus'
         use 'arcticicestudio/nord-vim'
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
@@ -160,7 +161,8 @@ return require('packer').startup({
         if g.useCoc == 1 then
             use {
                 'neoclide/coc.nvim',
-                branch = 'release'
+                branch = 'release',
+                config = cfg_partten:format('plugincfg.coc')
             }
             use 'wellle/tmux-complete.vim'
         end
@@ -172,7 +174,7 @@ return require('packer').startup({
                 fn['mkdp#util#install_sync']()
             end,
             ft = {'markdown', 'vim-plug'},
-            config = [[require('config.markdownpreview')]]
+            config = cfg_partten:format('plugincfg.markdownpreview')
         }
         use {
             'dhruvasagar/vim-table-mode',
@@ -188,7 +190,8 @@ return require('packer').startup({
         }
 
         -- Load some common plugins config
-        require('config.allcommon')
+        require('plugincfg.style')
+        require('plugincfg.allcommon')
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
@@ -198,22 +201,20 @@ return require('packer').startup({
     end,
 
     config = {
-        --     display = {
-        --         open_fn = function()
-        --             return require('packer.util').float({
-        --                 border = 'single'
-        --             })
-        --         end
-        --     }
+        display = {
+            open_fn = function()
+                return require('packer.util').float({
+                    border = 'single'
+                })
+            end
+        }
     }
 })
 
 -- "Plug 'bling/vim-bufferline'
 -- "Plug 'mg979/vim-xtabline'     " top tabline
 -- "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
--- "Plug 'roxma/nvim-yarp' " a other vim plugin manager
 -- "Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
--- "Plug 'wincent/terminus'
 -- "Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
 -- "Plug 'SirVer/ultisnips' " Track the engine.
 -- "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
