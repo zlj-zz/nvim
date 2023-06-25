@@ -115,9 +115,16 @@ return require('packer').startup({
             'voldikss/vim-floaterm',
             config = cfg_partten:format('plugincfg.floaterm')
         }
+        --use {
+            --'mhinz/vim-startify',
+            --config = cfg_partten:format('plugincfg.startify')
+        --}
         use {
-            'mhinz/vim-startify',
-            config = cfg_partten:format('plugincfg.startify')
+            'goolord/alpha-nvim',
+            requires = { 'nvim-tree/nvim-web-devicons' },
+            config = function ()
+                require'alpha'.setup(require'plugincfg.alphatheme'.config)
+            end
         }
         use {
             'mbbill/undotree',
