@@ -147,9 +147,9 @@ map("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 -- Map function and class text objects
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
 -- select all line include the func.
-map({"x", "n"}, "if", "<Plug>(coc-funcobj-i)", opts)
+--map({"x", "n"}, "if", "<Plug>(coc-funcobj-i)", opts)
 -- select all line in the func
-keyset({"x", "n"}, "af", "<Plug>(coc-funcobj-a)", opts)
+--map({"x", "n"}, "af", "<Plug>(coc-funcobj-a)", opts)
 
 
 -- Run the Code Lens actions on the current line

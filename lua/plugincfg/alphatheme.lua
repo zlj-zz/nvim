@@ -14,7 +14,7 @@ local default_terminal = {
     },
 }
 
-local header_assic = require("headers").thin
+local header_assic = require("headers").showdow
 local default_header = {
     type = "text",
     val = header_assic,
@@ -25,6 +25,8 @@ local default_header = {
     },
 }
 
+---@param name string
+---@return string
 local function getGreeting(name)
     local tableTime = os.date("*t")
     local hour = tableTime.hour
@@ -52,6 +54,7 @@ end
 
 local function generate_footer()
     local loaded_plugins = #vim.fn.globpath(vim.fn.stdpath("data") .. "/site/pack/packer/start", "*", 0, 1)
+    ---@diagnostic disable-next-line: undefined-global
     local total_plugins = #vim.tbl_keys(packer_plugins)
     local plugins_state_str = loaded_plugins .. "/" .. total_plugins .. " plugins loaded"
 
