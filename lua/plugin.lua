@@ -198,7 +198,7 @@ return require('packer').startup({
 
         -- Load some common plugins config
         require('plugincfg.style')
-        require('plugincfg.allcommon')
+        require('plugincfg.other-more')
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
