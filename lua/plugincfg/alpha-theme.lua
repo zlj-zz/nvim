@@ -14,16 +14,44 @@ local default_terminal = {
     },
 }
 
+local function apply_gradient_hl(text)
+    local gradient = require("utils").create_gradient("#DCA561", "#658594", #text)
+
+    local lines = {}
+    for i, line in ipairs(text) do
+        local tbl = {
+            type = "text",
+            val = line,
+            opts = {
+                hl = "HeaderGradient" .. i,
+                shrink_margin = false,
+                position = "center",
+            },
+        }
+        table.insert(lines, tbl)
+
+        -- create hl group
+        vim.api.nvim_set_hl(0, "HeaderGradient" .. i, { fg = gradient[i] })
+    end
+
+    return {
+        type = "group",
+        val = lines,
+        opts = { position = "center" },
+    }
+end
+
 local header_assic = require("headers").showdow
-local default_header = {
-    type = "text",
-    val = header_assic,
-    opts = {
-        position = "center",
-        hl = "Type",
-        -- wrap = "overflow";
-    },
-}
+local default_header = apply_gradient_hl(header_assic)
+--local default_header = {
+    --type = "text",
+    --val = header_assic,
+    --opts = {
+        --position = "center",
+        --hl = "Type",
+        ---- wrap = "overflow";
+    --},
+--}
 
 ---@param name string
 ---@return string
@@ -61,9 +89,9 @@ local function generate_footer()
     local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
 
     local version = vim.version()
-    local nvim_version_info = "  V" .. version.major .. "." .. version.minor .. "." .. version.patch
+    local nvim_version_info = "  v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
-    return getGreeting("zachary") .. "   " .. plugins_state_str .. nvim_version_info
+    return getGreeting("zachary") .. "   " .. plugins_state_str .. nvim_version_info
 end
 
 local footer = {
