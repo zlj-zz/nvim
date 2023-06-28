@@ -1,83 +1,125 @@
 -- #/usr/bin/env lua
--- Module: Install neovim dependent.
+-- Module: Neovim dependent utils.
 -- Author: Zachary Zhang
 -- Created Time: 2021-06-29
--- Update Time:  2022-11-08
+-- Update Time:  2023-06-28
 -- Description: vim/nvim environment auto install, just support like unix system.
+local Installer = {}
 
-local Installer = {
-    Info_Icons = {"👌:", "✋Warn:", "👊Error:", "✌ :", "⛽:"},
+NOTIFY = "notify"
+WARN = "warning"
+ERROR = "error"
+GREAT = "great"
 
-    Dependent_Softwares = {"python2.7", "python3", "node", "npm", "ranger", "w3m", "fmt", "ffmpegthumbnailer", "screen",
-                           "fzf", "the_silver_searcher", "ripgrep", "ctags", "xclip", "figlet"},
-
-    Python_pkgs = {"pynvim", 'jedi', 'black', "debugpy", "ueberzug"},
-
-    Npm_pkgs = {"neovim"}
+Installer.info_prefixs = {
+    notify = "[\x1b[38;5;74mnotify\x1b[0m] ",
+    warning = "[\x1b[38;5;184mwarn\x1b[0m] ",
+    error = "[\x1b[38;5;167merror\x1b[0m] ",
+    great = "[\x1b[38;5;77mok\x1b[0m] ",
 }
 
--- Output info msg to terminal.
--- @param msg string info msg
--- @param level? number level of msg
-function Installer:info(msg, level)
-    -- 1-info 2-warning 3-error 4-greate
-    level = level == nil and 1 or level
+Installer.softwares = {
+    "python2.7",
+    "python3.9",
+    "node",
+    "npm",
+    "w3m",
+    "fmt",
+    "ffmpegthumbnailer",
+    "screen",
+    "fzf",
+    "the_silver_searcher",
+    "ripgrep",
+    "ctags",
+    "xclip",
+    "figlet",
+}
 
-    print(self.Info_Icons[level] .. msg)
+Installer.py_deps = {
+    "pynvim",
+    "jedi",
+    "black",
+    "debugpy",
+}
+
+Installer.npm_deps = {
+    "neovim",
+}
+
+--- Output info msg to terminal.
+---@param msg string info msg
+---@param level? string level of msg
+function Installer:info(msg, level)
+    if level == nil then
+        level = NOTIFY
+    end
+
+    print(self.info_prefixs[level] .. msg)
 end
 
--- Get system OS type.
-function Installer.get_system()
+--- Get system OS type.
+---@return string
+function Installer:get_system()
     return io.popen("uname -s"):read("*l")
 end
 
--- Get the installation command of system.
-function Installer:get_package_manager()
-    local system = self.get_system()
-    print("Detect system os: " .. system .. "\n")
-
+--- Get the installation command of system.
+---@param os string
+---@return string
+function Installer:fetch_pkg_manager(os)
     local installer
-    if system == "Darwin" then
+    if os == "Darwin" then
         installer = "brew install "
-    elseif system == "Ubuntu" then
+    elseif os == "Ubuntu" then
         installer = "sudo apt install "
-    elseif system == "Manjaro" or system == "Arch" then
+    elseif os == "Manjaro" or os == "Arch" then
         installer = "sudo pacman -S "
     end
 
     return installer
 end
 
--- Checking and install a dependent.
--- @param type: dependent type.
--- @param installer: installation command.
--- @param checker: checking command.
--- @param dep: dependent name.
-function Installer:check_and_install(dep_type, install_cmd, check_cmd, dep)
+--- Checking and install a dependent.
+---@param dep_type string @dependent type.
+---@param install_cmd string installation command.
+---@param check_cmd string checking command.
+---@param dep string  dependent name.
+function Installer:do_install(dep_type, install_cmd, check_cmd, dep)
+    local exist_str = "== %s: \27[1;42m%s\27[0m already existed."
+
     if not io.popen(check_cmd .. dep):read("*l") then
-        os.execute(install_cmd .. dep)
+        local ok_exit, signal = os.execute(install_cmd .. dep)
+
+        if ok_exit then
+            self:info("Install " .. dep .. " over.", GREAT)
+        else
+            self:info("Install " .. dep .. " exit with othe.", WARN)
+        end
+
+        return 1
     else
-        print("== " .. dep_type .. ": \27[1;42m" .. dep .. "\27[0m already existed.")
+        self:info(exist_str:format(dep_type, dep), WARN)
+        return 2
     end
 end
 
 function Installer:launch()
-    -- Get software installer.
-    local installer = self.get_package_manager()
+    local os = self:get_system()
+    local pkg_install_cmd = self:fetch_pkg_manager(os)
 
-    self.info('Try to install software dependency.')
-    for _, value in ipairs(self.Dependent_Softwares) do
-        self.check_and_install("software", installer, "where ", value)
+    self:info("Try to install software dependency.")
+    for _, value in pairs(self.softwares) do
+        self:check_and_install("software", pkg_install_cmd, "where ", value)
     end
 
-    self.info('Try to install python package dependency.')
-    for _, value in ipairs(self.Python_pkgs) do
-        self.check_and_install("python package", "pip3 install -U ", "pip3 freeze | grep ", value)
+    self:info("Try to install python package dependency.")
+    for _, value in pairs(self.py_deps) do
+        self:do_install("python package", "pip3 install -U ", "pip3 freeze | grep ", value)
     end
 
-    self.info('Try to install npm package dependency.')
-    for _, value in ipairs(self.Npm_pkgs) do
-        self.check_and_install("npm package", "sudo npm i -g ", "npm list -g | grep ", value)
+    self:info("Try to install npm package dependency.")
+    for _, value in pairs(self.npm_deps) do
+        self:do_install("npm package", "sudo npm i -g ", "npm list -g | grep ", value)
     end
 end
 
