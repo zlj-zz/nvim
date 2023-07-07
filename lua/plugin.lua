@@ -31,18 +31,15 @@ return require('packer').startup({
         end
 
         -- Local plugin
-        local_use {
+        for _, name in pairs({
             'md_quickmap.vim',
-            use_source = true
-        }
-        local_use {
             'compile_run.vim',
-            use_source = true
-        }
-        local_use {
-            'tools.vim',
-            use_source = true
-        }
+            'replace.vim',
+        }) do
+            local_use {
+                name, use_source = true
+            }
+        end
 
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
