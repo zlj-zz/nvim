@@ -31,18 +31,15 @@ return require('packer').startup({
         end
 
         -- Local plugin
-        local_use {
+        for _, name in pairs({
             'md_quickmap.vim',
-            use_source = true
-        }
-        local_use {
             'compile_run.vim',
-            use_source = true
-        }
-        local_use {
-            'tools.vim',
-            use_source = true
-        }
+            'replace.vim',
+        }) do
+            local_use {
+                name, use_source = true
+            }
+        end
 
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
@@ -115,9 +112,16 @@ return require('packer').startup({
             'voldikss/vim-floaterm',
             config = cfg_partten:format('plugincfg.floaterm')
         }
+        --use {
+            --'mhinz/vim-startify',
+            --config = cfg_partten:format('plugincfg.startify')
+        --}
         use {
-            'mhinz/vim-startify',
-            config = cfg_partten:format('plugincfg.startify')
+            'goolord/alpha-nvim',
+            requires = { 'nvim-tree/nvim-web-devicons' },
+            config = function ()
+                require'alpha'.setup(require'plugincfg.alpha-theme'.config)
+            end
         }
         use {
             'mbbill/undotree',
@@ -191,7 +195,7 @@ return require('packer').startup({
 
         -- Load some common plugins config
         require('plugincfg.style')
-        require('plugincfg.allcommon')
+        require('plugincfg.other-more')
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins

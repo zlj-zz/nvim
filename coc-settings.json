@@ -145,6 +145,9 @@
   "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": false,
   "tslint.autoFixOnSave": true,
   "python.formatting.provider": "black",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUnusedExpression": "none"
+  },
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
     "/usr/share/nvim/runtime/lua/vim",
