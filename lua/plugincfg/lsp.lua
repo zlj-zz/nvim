@@ -41,10 +41,39 @@ local gopls_config = {
     },
 }
 
+local servers = {
+    gopls = gopls_config,
+    vimls = { on_attach = on_attach, capabilities = capabilities },
+    bashls = { on_attach = on_attach, capabilities = capabilities },
+    jsonls = { on_attach = on_attach, capabilities = capabilities },
+    html = { on_attach = on_attach, capabilities = capabilities },
+    cssls = { on_attach = on_attach, capabilities = capabilities },
+    pyright = { on_attach = on_attach, capabilities = capabilities },
+    lua_ls = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            Lua = {
+                diagnostics = { globals = { 'vim' } },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file('', true),
+                    checkThirdParty = false,
+                },
+                telemetry = { enable = false },
+            },
+        },
+    },
+}
+
 -- Neovim 0.11+ uses vim.lsp.config, older versions use lspconfig
 if vim.lsp.config then
-    vim.lsp.config('gopls', gopls_config)
-    vim.lsp.enable('gopls')
+    for name, cfg in pairs(servers) do
+        vim.lsp.config(name, cfg)
+        vim.lsp.enable(name)
+    end
 else
-    require('lspconfig').gopls.setup(gopls_config)
+    local lspconfig = require('lspconfig')
+    for name, cfg in pairs(servers) do
+        lspconfig[name].setup(cfg)
+    end
 end

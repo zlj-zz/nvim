@@ -56,7 +56,7 @@ After installation, run `:checkhealth` in Neovim.
 │       ├── alpha-theme.lua
 │       ├── coc.lua
 │       ├── floaterm.lua
-│       ├── lsp.lua           # Built-in LSP (Go)
+│       ├── lsp.lua           # Built-in LSP configs
 │       ├── cmp.lua           # nvim-cmp completion
 │       ├── telescope.lua
 │       └── ...
@@ -106,8 +106,8 @@ After installation, run `:checkhealth` in Neovim.
 
 | Plugin | Purpose |
 |--------|---------|
-| [coc.nvim](https://github.com/neoclide/coc.nvim) | LSP client (non-Go languages) |
-| [gopls](https://github.com/golang/tools/tree/master/gopls) | Built-in LSP for Go |
+| [coc.nvim](https://github.com/neoclide/coc.nvim) | LSP client (fallback for non-migrated languages) |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Built-in LSP (Go, Vim, Bash, ...) |
 | [dart-lang/dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin) | Dart / Flutter |
 | [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) | CSS3 syntax |
 | [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Markdown preview in browser |
@@ -238,14 +238,27 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<c-d>` | Select next occurrence (multi-cursor) |
 | `ga` + `<symbol>` | Easy align around symbol |
 
-## Go Language Setup
+## Built-in LSP Setup
 
-Built-in LSP (`gopls`) is used for Go files. coc.nvim is automatically disabled in Go buffers.
+coc.nvim is automatically disabled in buffers handled by the built-in LSP.
 
-Install `gopls`:
+Install language servers:
 
 ```bash
+# Go
 brew install gopls
+
+# Lua
+brew install lua-language-server
+
+# Python
+npm install -g pyright
+
+# Vimscript, Bash
+npm install -g vim-language-server bash-language-server
+
+# HTML, CSS, JSON (single package)
+npm install -g vscode-langservers-extracted
 ```
 
 ## Configuration for vim

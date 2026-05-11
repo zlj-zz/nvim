@@ -24,22 +24,14 @@ vim.opt.signcolumn = "yes"
 
 -- coc plugins
 vim.g.coc_global_extensions = {
-      'coc-lists',
       'coc-explorer',
       'coc-diagnostic',
       'coc-snippets',
       'coc-git',
       'coc-gitignore',
-      'coc-vimlsp',
-      'coc-sh',
       'coc-highlight',
-      'coc-pyright',
       'coc-flutter-tools',
-      'coc-json',
-      'coc-html',
-      'coc-css',
       'coc-vetur',
-      'coc-lua',
       'coc-prettier',
       'coc-yaml',
       'coc-sourcekit',
