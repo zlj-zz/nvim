@@ -119,6 +119,8 @@ After installation, run `:checkhealth` in Neovim.
 | [vim-floaterm](https://github.com/voldikss/vim-floaterm) | Floating terminal |
 | [undotree](https://github.com/mbbill/undotree) | Undo history tree |
 | [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline (LSP / Treesitter) |
+| [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics / symbols list |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git decorations, blame, hunk actions |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Distraction-free mode |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Markdown table editing |
 
@@ -218,6 +220,24 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<Tab>` / `<S-Tab>` | Next / prev completion item |
 | `<CR>` | Confirm completion |
 | `<C-Space>` | Trigger completion |
+
+### Trouble (Diagnostics / Symbols)
+
+| Key | Action |
+|-----|--------|
+| `<leader>xx` | Toggle diagnostics panel |
+| `<leader>xs` | Toggle symbols panel |
+
+### Gitsigns
+
+| Key | Action |
+|-----|--------|
+| `[h` / `]h` | Prev / next hunk |
+| `<leader>hp` | Preview hunk |
+| `<leader>hb` | Blame line |
+| `<leader>hs` | Stage hunk |
+| `<leader>hr` | Reset hunk |
+| `<leader>hd` | Diff this file |
 
 ### Other
 

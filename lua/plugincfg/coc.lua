@@ -25,11 +25,7 @@ vim.opt.signcolumn = "yes"
 -- coc plugins
 vim.g.coc_global_extensions = {
       'coc-explorer',
-      'coc-diagnostic',
       'coc-snippets',
-      'coc-git',
-      'coc-gitignore',
-      'coc-highlight',
       'coc-flutter-tools',
       'coc-vetur',
       'coc-prettier',
@@ -88,12 +84,9 @@ map("i", "<cr>", function()
     return vim.api.nvim_replace_termcodes('<C-g>u<CR><c-r>=coc#on_enter()<CR>', true, false, true)
 end, opts)
 
---[[
-Use `[g` and `]g` to navigate diagnostics
-Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
---]]
-map("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
-map("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
+--[[Navigate diagnostics (built-in LSP, works for all filetypes)--]]
+map("n", "[g", function() vim.diagnostic.goto_prev() end, {silent = true})
+map("n", "]g", function() vim.diagnostic.goto_next() end, {silent = true})
 
 --[[GoTo code navigation]]
 map("n", "gd", "<Plug>(coc-definition)", {silent = true})

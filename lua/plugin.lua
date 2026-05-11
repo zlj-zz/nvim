@@ -194,6 +194,18 @@ require('lazy').setup({
             })
         end,
     },
+    {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('trouble').setup({})
+        end,
+        cmd = { 'Trouble' },
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        config = cfg('plugincfg.gitsigns'),
+    },
 
     {
         'vim-scripts/fcitx.vim',

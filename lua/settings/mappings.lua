@@ -71,6 +71,10 @@ local map = {
     -- [outline]
     { 'n', 'ti',               '<cmd>AerialToggle<CR>' },
 
+    -- [diagnostics]
+    { 'n', '<leader>xx',       '<cmd>Trouble diagnostics toggle<CR>' },
+    { 'n', '<leader>xs',       '<cmd>Trouble symbols toggle<CR>' },
+
     -- [other]
     { 'n', '<leader>sc',       ':set spell!<CR>' },
     { 'n', '<leader>pm',       ':set paste!<CR>' },
