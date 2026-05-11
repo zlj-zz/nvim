@@ -1,226 +1,130 @@
-local fn = vim.fn
 local g = vim.g
 
--- Check `Packer` wether installed, or installing.
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local packer_bootstrap = nil
-if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-                                  install_path})
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Source local vimscript plugins
+for _, name in ipairs({
+    'md_quickmap.vim',
+    'compile_run.vim',
+    'replace.vim',
+}) do
+    vim.cmd('source ' .. g.nvim_path .. '/customplugins/' .. name)
 end
 
-local cfg_partten = [[require('%s')]]
+-- Helper: wrap a require call in a zero-arg function
+local function cfg(mod)
+    return function() require(mod) end
+end
 
-return require('packer').startup({
-    function(use)
+-- Load common configs that set globals/mappings before lazy.nvim resolves specs
+require('plugincfg.style')
+require('plugincfg.other-more')
 
-        ---Help to load local plugin file.
-        ---@param op table
-        local local_use = function(op)
+require('lazy').setup({
+    -- Code language
+    { 'hail2u/vim-css3-syntax', ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'} },
+    { 'tmhedberg/SimpylFold', ft = {'python', 'vim-plug'} },
+    { 'Vimjas/vim-python-pep8-indent', ft = {'python', 'vim-plug'} },
+    { 'tiagofumo/dart-vim-flutter-layout', ft = {'dart'} },
+    { 'dart-lang/dart-vim-plugin', ft = {'dart'}, config = cfg('plugincfg.dart-vim') },
+    { 'f-person/pubspec-assist-nvim', ft = {'pubspec.yaml'} },
 
-            local home = op.home or g.nvim_path .. '/customplugins'
-            local use_source = op.use_source or false
+    -- Editor Enhancement
+    'luochen1990/rainbow',
+    { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
+    'Yggdroot/indentLine',
+    'RRethy/vim-illuminate',
 
-            op[1] = string.format('%s/%s', home, op[1])
+    -- Editor Tools
+    'junegunn/vim-easy-align',
+    'mg979/vim-visual-multi',
+    'gcmt/wildfire.vim',
+    { 'scrooloose/nerdcommenter', config = cfg('plugincfg.nerdcommenter') },
+    'AndrewRadev/splitjoin.vim',
 
-            if use_source then
-                vim.cmd('source ' .. op[1])
-            else
-                use({op[1], op.opts or {}})
-            end
-        end
+    -- Snippets
+    'honza/vim-snippets',
+    'kana/vim-textobj-user',
 
-        -- Local plugin
-        for _, name in pairs({
-            'md_quickmap.vim',
-            'compile_run.vim',
-            'replace.vim',
-        }) do
-            local_use {
-                name, use_source = true
-            }
-        end
+    -- Other
+    'KabbAmine/vCoolor.vim',
+    { 'junegunn/goyo.vim', cmd = {'Goyo'} },
 
-        -- Packer can manage itself
-        use 'wbthomason/packer.nvim'
+    -- File Manager / Terminal
+    { 'voldikss/vim-floaterm', config = cfg('plugincfg.floaterm') },
+    {
+        'goolord/alpha-nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('alpha').setup(require('plugincfg.alpha-theme').config)
+        end,
+    },
+    { 'mbbill/undotree', init = cfg('plugincfg.undotree'), cmd = {'UndotreeToggle'} },
 
-        -- Code language
-        use {
-            'hail2u/vim-css3-syntax',
-            ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        }
-        --use {
-            --'MaxMEllon/vim-jsx-pretty',
-            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        --}
-        --use {
-            --'jelera/vim-javascript-syntax',
-            --ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'}
-        --}
-        use {
-            'tmhedberg/SimpylFold',
-            ft = {'python', 'vim-plug'}
-        }
-        use {
-            'Vimjas/vim-python-pep8-indent',
-            ft = {'python', 'vim-plug'}
-        }
-        --use 'tweekmonster/braceless.vim'
-        use {
-            'tiagofumo/dart-vim-flutter-layout',
-            ft = {'dart'}
-        }
-        use {
-            'dart-lang/dart-vim-plugin',
-            config = cfg_partten:format('plugincfg.dart-vim'),
-            ft = {'dart'}
-        }
-        use {
-            'f-person/pubspec-assist-nvim',
-            ft = {'pubspec.yaml'}
-        }
+    -- FZF & Tagbar (non-Windows only)
+    {
+        'junegunn/fzf',
+        cond = function() return g.isWin == 0 end,
+        build = function() vim.fn['fzf#install'](0) end,
+    },
+    {
+        'junegunn/fzf.vim',
+        cond = function() return g.isWin == 0 end,
+        config = cfg('plugincfg.fzf'),
+    },
+    {
+        'majutsushi/tagbar',
+        cond = function() return g.isWin == 0 end,
+        init = cfg('plugincfg.tagbar'),
+        cmd = {'TagbarToggle'},
+    },
 
-        -- Editor Enhancement
-        use 'luochen1990/rainbow'
-        use 'jiangmiao/auto-pairs'
-        use 'Yggdroot/indentLine'
-        use 'RRethy/vim-illuminate'
+    -- Style
+    'arcticicestudio/nord-vim',
+    'vim-airline/vim-airline',
+    'vim-airline/vim-airline-themes',
+    { 'ryanoasis/vim-devicons', cond = function() return g.isWin == 0 end },
+    {
+        'vim-scripts/fcitx.vim',
+        cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
+    },
 
-        -- Editor Tools
-        use 'junegunn/vim-easy-align'
-        use 'mg979/vim-visual-multi'
-        use 'gcmt/wildfire.vim'
-        use {
-            'scrooloose/nerdcommenter',
-            config = cfg_partten:format('plugincfg.nerdcommenter')
-        }
-        use 'AndrewRadev/splitjoin.vim'
+    -- COC
+    {
+        'neoclide/coc.nvim',
+        cond = function() return g.useCoc == 1 end,
+        branch = 'release',
+        config = cfg('plugincfg.coc'),
+    },
+    { 'wellle/tmux-complete.vim', cond = function() return g.useCoc == 1 end },
 
-        -- Snippets
-        use 'honza/vim-snippets'
-        use 'kana/vim-textobj-user'
-
-        -- Other
-        use 'KabbAmine/vCoolor.vim'
-        use {
-            'junegunn/goyo.vim',
-            cmd = {'Goyo'}
-        }
-
-        -- File Manager
-        use {
-            'voldikss/vim-floaterm',
-            config = cfg_partten:format('plugincfg.floaterm')
-        }
-        --use {
-            --'mhinz/vim-startify',
-            --config = cfg_partten:format('plugincfg.startify')
-        --}
-        use {
-            'goolord/alpha-nvim',
-            requires = { 'nvim-tree/nvim-web-devicons' },
-            config = function ()
-                require'alpha'.setup(require'plugincfg.alpha-theme'.config)
-            end
-        }
-        use {
-            'mbbill/undotree',
-            setup = cfg_partten:format('plugincfg.undotree'),
-            cmd = {'UndotreeToggle'}
-        }
-        if g.isWin == 0 then
-            use {
-                'junegunn/fzf',
-                run = function()
-                    fn['fzf#install'](0)
-                end
-            }
-            use {
-                'junegunn/fzf.vim',
-                config = cfg_partten:format('plugincfg.fzf')
-            }
-            use {
-                'majutsushi/tagbar',
-                setup = cfg_partten:format('plugincfg.tagbar'),
-                cmd = {'TagbarToggle'}
-            }
-            -- use 'liuchengxu/vista.vim'
-        end
-
-        -- Style
-        -- use 'sainnhe/sonokai'
-        -- use 'sts10/vim-pink-moon'
-        --use 'ajmwagar/vim-deus'
-        use 'arcticicestudio/nord-vim'
-        use 'vim-airline/vim-airline'
-        use 'vim-airline/vim-airline-themes'
-        if g.isWin == 0 then
-            use 'ryanoasis/vim-devicons'
-            if fn.filereadable('/usr/bin/fcitx') == 1 then
-                use 'vim-scripts/fcitx.vim'
-            end
-        end
-
-        -- COC
-        if g.useCoc == 1 then
-            use {
-                'neoclide/coc.nvim',
-                branch = 'release',
-                config = cfg_partten:format('plugincfg.coc')
-            }
-            use 'wellle/tmux-complete.vim'
-        end
-
-        -- Markdown
-        use {
-            'iamcco/markdown-preview.nvim',
-            run = function()
-                fn['mkdp#util#install_sync']()
-            end,
-            ft = {'markdown', 'vim-plug'},
-            config = cfg_partten:format('plugincfg.markdownpreview')
-        }
-        use {
-            'dhruvasagar/vim-table-mode',
-            cmd = {'TableModeToggle'}
-        }
-        use {
-            'mzlogin/vim-markdown-toc',
-            ft = {'gitignore', 'markdown'}
-        }
-        use {
-            'theniceboy/bullets.vim',
-            ft = {'markdown'}
-        }
-
-        -- Load some common plugins config
-        require('plugincfg.style')
-        require('plugincfg.other-more')
-
-        -- Automatically set up your configuration after cloning packer.nvim
-        -- Put this at the end after all plugins
-        if packer_bootstrap then
-            require('packer').sync()
-        end
-    end,
-
-    config = {
-        display = {
-            open_fn = function()
-                return require('packer.util').float({
-                    border = 'single'
-                })
-            end
-        }
-    }
+    -- Markdown
+    {
+        'iamcco/markdown-preview.nvim',
+        build = function() vim.fn['mkdp#util#install_sync']() end,
+        ft = {'markdown', 'vim-plug'},
+        config = cfg('plugincfg.markdownpreview'),
+    },
+    { 'dhruvasagar/vim-table-mode', cmd = {'TableModeToggle'} },
+    { 'mzlogin/vim-markdown-toc', ft = {'gitignore', 'markdown'} },
+    { 'theniceboy/bullets.vim', ft = {'markdown'} },
+}, {
+    ui = {
+        border = 'single',
+    },
+    install = {
+        colorscheme = { 'nord' },
+    },
 })
-
--- "Plug 'bling/vim-bufferline'
--- "Plug 'mg979/vim-xtabline'     " top tabline
--- "Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'} " NerdTree, files tree to manage file
--- "Plug 'Chiel92/vim-autoformat',{'on': 'Autoformat'}
--- "Plug 'jaxbot/semantic-highlight.vim' " where every variable is a different color
--- "Plug 'SirVer/ultisnips' " Track the engine.
--- "Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
--- "Plug 'junegunn/vim-after-object' " da= to delete what's after =
-

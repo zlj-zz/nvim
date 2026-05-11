@@ -81,10 +81,8 @@ local function getGreeting(name)
 end
 
 local function generate_footer()
-    local loaded_plugins = #vim.fn.globpath(vim.fn.stdpath("data") .. "/site/pack/packer/start", "*", 0, 1)
-    ---@diagnostic disable-next-line: undefined-global
-    local total_plugins = #vim.tbl_keys(packer_plugins)
-    local plugins_state_str = loaded_plugins .. "/" .. total_plugins .. " plugins loaded"
+    local stats = require('lazy').stats()
+    local plugins_state_str = stats.loaded .. "/" .. stats.count .. " plugins loaded"
 
     local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
 
@@ -341,7 +339,7 @@ local bottom_buttons = {
             },
         },
         {type = "padding", val = 1}, 
-        button("e", "  New file", "<cmd>ene<CR>"), button("s", "  Sync plugins", "<cmd>PackerSync<CR>"),
+        button("e", "  New file", "<cmd>ene<CR>"), button("s", "  Sync plugins", "<cmd>Lazy sync<CR>"),
         button("c", "  Configuration", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
         button("q", "󰅚  Quit", "<cmd>qa<CR>")
     },
