@@ -7,15 +7,16 @@ g.undotree_WindowLayout = 2
 g.undotree_DiffpanelHeight = 8
 g.undotree_SplitWidth = 24
 
-vim.cmd([[
+-- Buffer-local keymaps for undotree windows
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'undotree',
+    callback = function()
+        local opts = { buffer = true, remap = true, silent = true }
+        vim.keymap.set('n', 'k', '<plug>UndotreeNextState', opts)
+        vim.keymap.set('n', 'j', '<plug>UndotreePreviousState', opts)
+        vim.keymap.set('n', 'K', '5<plug>UndotreeNextState', opts)
+        vim.keymap.set('n', 'J', '5<plug>UndotreePreviousState', opts)
+    end,
+})
 
-function g:Undotree_CustomMap()
-  nmap <buffer> k <plug>UndotreeNextState
-  nmap <buffer> j <plug>UndotreePreviousState
-  nmap <buffer> K 5<plug>UndotreeNextState
-  nmap <buffer> J 5<plug>UndotreePreviousState
-endfunc
-
-nnoremap tu :UndotreeToggle<CR>
-
-]])
+vim.keymap.set('n', 'tu', ':UndotreeToggle<CR>', { silent = true })
