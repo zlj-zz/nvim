@@ -47,7 +47,7 @@ vim.g.coc_global_extensions = {
 
 local keyset = vim.keymap.set
 --[[Autocomplete]]
-function _G.check_back_space()
+local function check_back_space()
     local col = vim.fn.col('.') - 1
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
@@ -59,16 +59,35 @@ no select by setting `"suggest.noselect": true` in your configuration file
 NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
 other plugins before putting this into your config
 --]]
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-map("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-map("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+local opts = {silent = true, expr = true, replace_keycodes = false}
+keyset("i", "<TAB>", function()
+    if vim.fn['coc#pum#visible']() == 1 then
+        return vim.fn['coc#pum#next'](1)
+    elseif check_back_space() then
+        return vim.api.nvim_replace_termcodes('<TAB>', true, false, true)
+    else
+        return vim.fn['coc#refresh']()
+    end
+end, opts)
+
+keyset("i", "<S-TAB>", function()
+    if vim.fn['coc#pum#visible']() == 1 then
+        return vim.fn['coc#pum#prev'](1)
+    end
+    return vim.api.nvim_replace_termcodes('<C-h>', true, false, true)
+end, opts)
 
 -- Use <c-space> to trigger completion
 keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
-map("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+keyset("i", "<cr>", function()
+    if vim.fn['coc#pum#visible']() == 1 then
+        return vim.fn['coc#pum#confirm']()
+    end
+    return vim.api.nvim_replace_termcodes('<C-g>u<CR><c-r>=coc#on_enter()<CR>', true, false, true)
+end, opts)
 
 --[[
 Use `[g` and `]g` to navigate diagnostics
@@ -84,7 +103,7 @@ map("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 map("n", "gr", "<Plug>(coc-references)", {silent = true})
 
 --[[Use K to show documentation in preview window]]
-function _G.show_docs()
+local function show_docs()
     local cw = vim.fn.expand('<cword>')
     if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
         vim.api.nvim_command('h ' .. cw)
@@ -94,7 +113,7 @@ function _G.show_docs()
         vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
 end
---keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+--keyset("n", "K", function() show_docs() end, {silent = true})
 
 --[[Highlight the symbol and its references on a CursorHold event(cursor is idle)]]
 vim.api.nvim_create_augroup("CocGroup", {})

@@ -63,19 +63,29 @@ function M.map(modes, lhs, rhs, opts)
     end
 end
 
+---Create autocommands in a group using the modern Neovim API.
+---@param group string
+---@param cmds table @list of {event, opts} tables; opts may include pattern, command, callback, desc, etc.
+---@param clear? boolean @default false; whether to clear existing autocmds in the group
 function M.autocmd(group, cmds, clear)
     clear = clear == nil and false or clear
-    if type(cmds) == 'string' then
-        cmds = { cmds }
+    if type(cmds) ~= 'table' then
+        M.warn('autocmd cmds must be a table')
+        return
     end
-    cmd('augroup ' .. group)
-    if clear then
-        cmd [[au!]]
-    end
+    local gid = api.nvim_create_augroup(group, { clear = clear })
     for _, c in ipairs(cmds) do
-        cmd('autocmd ' .. c)
+        if type(c) == 'table' then
+            local event = c[1] or c.event
+            local opts = vim.deepcopy(c)
+            opts[1] = nil
+            opts.event = nil
+            opts.group = gid
+            api.nvim_create_autocmd(event, opts)
+        else
+            M.warn('Each autocmd entry must be a table, got: ' .. type(c))
+        end
     end
-    cmd [[augroup END]]
 end
 
 ---create colour gradient from hex values
