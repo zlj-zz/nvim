@@ -1,6 +1,5 @@
 return {
 	foldenable = true,
-	foldmethod = 'manual',
 
 	termguicolors = true,
 	number = true,

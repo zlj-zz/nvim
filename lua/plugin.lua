@@ -31,13 +31,36 @@ end
 require('lazy').setup({
     -- Code language
     { 'hail2u/vim-css3-syntax', ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'} },
-    { 'tmhedberg/SimpylFold', ft = {'python', 'vim-plug'} },
-    { 'Vimjas/vim-python-pep8-indent', ft = {'python', 'vim-plug'} },
     { 'tiagofumo/dart-vim-flutter-layout', ft = {'dart'} },
     { 'dart-lang/dart-vim-plugin', ft = {'dart'}, config = cfg('plugincfg.dart-vim') },
     { 'f-person/pubspec-assist-nvim', ft = {'pubspec.yaml'} },
 
     -- Editor Enhancement
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function()
+            local ok, configs = pcall(require, 'nvim-treesitter.configs')
+            if not ok then
+                return
+            end
+            configs.setup({
+                ensure_installed = {
+                    'python', 'lua', 'vim', 'vimdoc',
+                    'javascript', 'typescript',
+                    'vue', 'css', 'html', 'scss',
+                    'json', 'yaml',
+                    'dart', 'markdown', 'markdown_inline',
+                    'c', 'cpp', 'java', 'go',
+                    'bash',
+                },
+                highlight = { enable = true },
+                indent = { enable = true },
+            })
+            vim.opt.foldmethod = 'expr'
+            vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        end,
+    },
     {
         'luochen1990/rainbow',
         init = function()
@@ -143,14 +166,29 @@ require('lazy').setup({
         end,
     },
     {
-        'vim-airline/vim-airline',
-        dependencies = { 'vim-airline/vim-airline-themes' },
-        init = function()
-            vim.g['airline#extensions#tabline#enabled'] = 1
-        end,
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
-            vim.g.airline_theme = 'nord'
             vim.opt.laststatus = 2
+            require('lualine').setup({
+                options = {
+                    theme = 'nord',
+                    component_separators = '',
+                    section_separators = '',
+                },
+                sections = {
+                    lualine_a = { 'mode' },
+                    lualine_b = { 'branch', 'diff', 'diagnostics' },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'encoding', 'filetype' },
+                    lualine_y = { 'progress' },
+                    lualine_z = { 'location' },
+                },
+                tabline = {
+                    lualine_a = { { 'buffers', mode = 2 } },
+                    lualine_z = { 'tabs' },
+                },
+            })
         end,
     },
     { 'ryanoasis/vim-devicons', cond = function() return g.isWin == 0 end },
