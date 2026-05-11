@@ -21,6 +21,6 @@ g.mkdp_markdown_css = ''
 g.mkdp_highlight_css = ''
 g.mkdp_port = ''
 g.mkdp_page_title = '「${name}」'
-g.mkdp_browser = 'firefox'
+-- Auto-detect system default browser. Override if needed:
 -- g.mkdp_browser = 'safari'
 -- g.mkdp_browser = 'Google Chrome'

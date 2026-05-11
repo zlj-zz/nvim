@@ -1,5 +1,5 @@
 return {
-	foldenable = true,
+	foldlevel = 99,
 
 	termguicolors = true,
 	number = true,
