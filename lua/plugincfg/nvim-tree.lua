@@ -26,7 +26,8 @@ require('nvim-tree').setup({
     },
     filters = {
         dotfiles = false,
-        custom = { '__pycache__', '.git', 'node_modules', '.DS_Store' },
+        git_ignored = false,
+        custom = { '__pycache__', '\\.git', 'node_modules', '\\.DS_Store' },
     },
     git = {
         enable = true,
