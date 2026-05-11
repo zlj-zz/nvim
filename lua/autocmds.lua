@@ -29,7 +29,6 @@ api.nvim_create_autocmd('BufReadPre', {
         if fsize > 10000000 then
             vim.cmd('syntax off')
             vim.g.ale_enabled = 0
-            vim.g.coc_enabled = 0
         end
     end,
     desc = 'Disable syntax/linting for large files (>10MB)',

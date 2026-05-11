@@ -252,15 +252,6 @@ require('lazy').setup({
         config = cfg('plugincfg.cmp'),
     },
 
-    -- COC
-    {
-        'neoclide/coc.nvim',
-        cond = function() return g.useCoc == 1 end,
-        branch = 'release',
-        config = cfg('plugincfg.coc'),
-    },
-    { 'wellle/tmux-complete.vim', cond = function() return g.useCoc == 1 end },
-
     -- Markdown
     {
         'iamcco/markdown-preview.nvim',

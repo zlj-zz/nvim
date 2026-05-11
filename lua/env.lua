@@ -21,9 +21,6 @@ end
 -- whether running in gui
 g.is_gui = fn.has('gui_running')
 
--- whether use coc plugin
-g.useCoc = 1
-
 -----------------------------------------------------------------------------------------
 
 -- Create a '_machine_specific.vim' file to adjust machine specific stuff

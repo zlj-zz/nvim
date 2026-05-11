@@ -1,9 +1,6 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function on_attach(client, bufnr)
-    -- Disable coc for this buffer to avoid conflicts
-    vim.b.coc_enabled = 0
-
     local opts = { buffer = bufnr, silent = true }
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)

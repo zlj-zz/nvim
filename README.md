@@ -54,7 +54,6 @@ After installation, run `:checkhealth` in Neovim.
 │   │   └── mappings.lua      # Key mappings
 │   └── plugincfg/            # Per-plugin configurations
 │       ├── alpha-theme.lua
-│       ├── coc.lua
 │       ├── floaterm.lua
 │       ├── lsp.lua           # Built-in LSP configs
 │       ├── cmp.lua           # nvim-cmp completion
@@ -106,7 +105,6 @@ After installation, run `:checkhealth` in Neovim.
 
 | Plugin | Purpose |
 |--------|---------|
-| [coc.nvim](https://github.com/neoclide/coc.nvim) | LSP client (fallback for non-migrated languages) |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Built-in LSP (Go, Vim, Bash, ...) |
 | [flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim) | Flutter / Dart (LSP, hot reload, outline) |
 | [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) | CSS3 syntax |
@@ -208,22 +206,6 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<CR>` | Confirm completion |
 | `<C-Space>` | Trigger completion |
 
-### LSP (Other languages, via coc.nvim)
-
-| Key | Action |
-|-----|--------|
-| `gd` | Go to definition |
-| `gr` | Find references |
-| `gi` | Go to implementation |
-| `gy` | Go to type definition |
-| `K` | Show documentation |
-| `<leader>rn` | Rename symbol |
-| `<leader>a` | Code action |
-| `<leader>qf` | Quick fix |
-| `<Tab>` / `<S-Tab>` | Next / prev completion item |
-| `<CR>` | Confirm completion |
-| `<C-Space>` | Trigger completion |
-
 ### Trouble (Diagnostics / Symbols)
 
 | Key | Action |
@@ -287,7 +269,7 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 
 ## Built-in LSP Setup
 
-coc.nvim is automatically disabled in buffers handled by the built-in LSP.
+All language servers are managed via built-in LSP.
 
 Install language servers:
 
