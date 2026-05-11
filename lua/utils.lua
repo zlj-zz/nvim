@@ -2,6 +2,7 @@ local M = {}
 
 local o_s = vim.opt or vim.o
 local cmd = vim.cmd
+local api = vim.api
 
 function M.info(s, ...)
     vim.notify(string.format(s, ...), vim.log.levels.INFO)
