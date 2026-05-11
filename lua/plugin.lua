@@ -194,7 +194,7 @@ require('lazy').setup({
             })
         end,
     },
-    { 'ryanoasis/vim-devicons', cond = function() return g.isWin == 0 end },
+
     {
         'vim-scripts/fcitx.vim',
         cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
