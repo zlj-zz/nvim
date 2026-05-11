@@ -118,6 +118,7 @@ After installation, run `:checkhealth` in Neovim.
 |--------|---------|
 | [vim-floaterm](https://github.com/voldikss/vim-floaterm) | Floating terminal |
 | [undotree](https://github.com/mbbill/undotree) | Undo history tree |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | File explorer |
 | [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline (LSP / Treesitter) |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics / symbols list |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git decorations, blame, hunk actions |
@@ -243,7 +244,7 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 
 | Key | Action |
 |-----|--------|
-| `tt` | Open file explorer (coc-explorer) |
+| `tt` | Toggle file tree (nvim-tree) |
 | `<c-t>` | Toggle floating terminal |
 | `<f4>` | Toggle transparent background |
 | `<leader>z` | Toggle full screen (zoom window) |

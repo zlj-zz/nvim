@@ -68,6 +68,9 @@ local map = {
     { 'n', '<m-8>',            '8gt' },
     { 'n', '<m-9>',            '9gt' },
 
+    -- [file tree]
+    { 'n', 'tt',               '<cmd>NvimTreeToggle<CR>' },
+
     -- [outline]
     { 'n', 'ti',               '<cmd>AerialToggle<CR>' },
 

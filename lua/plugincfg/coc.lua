@@ -24,8 +24,6 @@ vim.opt.signcolumn = "yes"
 
 -- coc plugins
 vim.g.coc_global_extensions = {
-      'coc-explorer',
-      'coc-snippets',
       'coc-flutter-tools',
       'coc-vetur',
       'coc-prettier',
@@ -166,11 +164,6 @@ map("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 -- Run the Code Lens actions on the current line
 map("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 
--- Use <c-j> to trigger snippets
-map("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
-vim.g.coc_snippet_next = "<c-j>"
-vim.g.coc_snippet_prev = "<c-k>"
-
 ---- Remap keys for apply refactor code actions.
 --map("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
 --map("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
@@ -194,24 +187,8 @@ vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'edito
 vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 
 
--- Open explorer
-map("n", "tt", ":CocCommand explorer<CR>")
-
 -- coc-translator 翻译
 map("n", "ts", "<Plug>(coc-translator-p)")
 map("v", "ts", "<Plug>(coc-translator-pv)")
-
-
- -- ------------------------
- -- vim-snippet 
- -- ------------------------
- -- Trigger configuration.
- vim.g.UltiSnipsExpandTrigger="<c-j>"
- vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
- vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
- vim.g.UltiSnipsSnippetDirectories = {
-    vim.g.home_path .. '/.config/nvim/Ultisnips/',
-    vim.g.home_path .. '/.config/nvim/plugged/vim-snippets/UltiSnips/'
- }
 
 

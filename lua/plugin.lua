@@ -206,6 +206,11 @@ require('lazy').setup({
         'lewis6991/gitsigns.nvim',
         config = cfg('plugincfg.gitsigns'),
     },
+    {
+        'nvim-tree/nvim-tree.lua',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = cfg('plugincfg.nvim-tree'),
+    },
 
     {
         'vim-scripts/fcitx.vim',
@@ -225,6 +230,7 @@ require('lazy').setup({
             'hrsh7th/cmp-path',
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets',
         },
         config = cfg('plugincfg.cmp'),
     },
