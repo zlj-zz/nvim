@@ -1,7 +1,6 @@
 local M = {}
 
 local o_s = vim.opt or vim.o
-local map_key = vim.api.nvim_set_keymap
 local cmd = vim.cmd
 
 function M.info(s, ...)
@@ -28,7 +27,7 @@ function M.opt(o, v, scopes)
 end
 
 ---Set custom vim key mapping.
----@param modes string | table @key map mode,`string` or `table`
+---@param modes string | table @key map mode, `string` or `table`
 --[[
          String value 	Help page	  Affected modes
          ''             mapmode-nvo   Normal, Visual, Select, Operator-pending
@@ -44,23 +43,20 @@ end
          't'            mapmode-t 	  Terminal
 ]]
 ---@param lhs string @wanted key map
----@param rhs string @source key map
+---@param rhs string | function @source key map or Lua callback
 ---@param opts? table @key map options
 function M.map(modes, lhs, rhs, opts)
     opts = opts or {}
-    opts.noremap = opts.noremap == nil and true or opts.noremap
-
-    if type(modes) == 'string' then
-        modes = { modes }
+    if opts.noremap == nil then
+        opts.noremap = true
     end
-
-    for _, mode in ipairs(modes) do
-        if type(mode) ~= 'string' then
-            M.warn('Cannot key set with error mode type: ' .. type(mode))
-        else
-            map_key(mode, lhs, rhs, opts)
-        end
+    -- vim.keymap.set uses `remap` (inverse of `noremap`)
+    local vk_opts = vim.deepcopy(opts)
+    if vk_opts.noremap ~= nil then
+        vk_opts.remap = not vk_opts.noremap
+        vk_opts.noremap = nil
     end
+    vim.keymap.set(modes, lhs, rhs, vk_opts)
 end
 
 ---Create autocommands in a group using the modern Neovim API.

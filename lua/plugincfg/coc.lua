@@ -45,7 +45,6 @@ vim.g.coc_global_extensions = {
       --'coc-jedi',
     }
 
-local keyset = vim.keymap.set
 --[[Autocomplete]]
 local function check_back_space()
     local col = vim.fn.col('.') - 1
@@ -60,7 +59,7 @@ NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
 other plugins before putting this into your config
 --]]
 local opts = {silent = true, expr = true, replace_keycodes = false}
-keyset("i", "<TAB>", function()
+map("i", "<TAB>", function()
     if vim.fn['coc#pum#visible']() == 1 then
         return vim.fn['coc#pum#next'](1)
     elseif check_back_space() then
@@ -70,7 +69,7 @@ keyset("i", "<TAB>", function()
     end
 end, opts)
 
-keyset("i", "<S-TAB>", function()
+map("i", "<S-TAB>", function()
     if vim.fn['coc#pum#visible']() == 1 then
         return vim.fn['coc#pum#prev'](1)
     end
@@ -78,11 +77,11 @@ keyset("i", "<S-TAB>", function()
 end, opts)
 
 -- Use <c-space> to trigger completion
-keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+map("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<cr>", function()
+map("i", "<cr>", function()
     if vim.fn['coc#pum#visible']() == 1 then
         return vim.fn['coc#pum#confirm']()
     end
@@ -113,7 +112,7 @@ local function show_docs()
         vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
 end
---keyset("n", "K", function() show_docs() end, {silent = true})
+--map("n", "K", function() show_docs() end, {silent = true})
 
 --[[Highlight the symbol and its references on a CursorHold event(cursor is idle)]]
 vim.api.nvim_create_augroup("CocGroup", {})
@@ -172,17 +171,17 @@ map("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 
 
 -- Run the Code Lens actions on the current line
-keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+map("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 
 -- Use <c-j> to trigger snippets
-keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+map("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 vim.g.coc_snippet_next = "<c-j>"
 vim.g.coc_snippet_prev = "<c-k>"
 
 ---- Remap keys for apply refactor code actions.
---keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
---keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
---keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+--map("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
+--map("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+--map("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
 -- Show useful command
 map("n", "<space>y", ":<C-u>CocList -A --normal yank<cr>", {silent = true})
