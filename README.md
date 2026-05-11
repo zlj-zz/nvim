@@ -85,7 +85,7 @@ After installation, run `:checkhealth` in Neovim.
 
 | Plugin | Purpose |
 |--------|---------|
-| [nord-vim](https://github.com/arcticicestudio/nord-vim) | Color scheme (Nord) |
+| [catppuccin](https://github.com/catppuccin/nvim) | Color scheme (Catppuccin mocha) |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line + tabline |
 | [alpha-nvim](https://github.com/goolord/alpha-nvim) | Startup dashboard |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Indent guides with scope highlighting |

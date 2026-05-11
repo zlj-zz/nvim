@@ -163,15 +163,14 @@ require('lazy').setup({
 
     -- Style
     {
-        'arcticicestudio/nord-vim',
+        'catppuccin/nvim',
+        name = 'catppuccin',
         priority = 1000,
-        init = function()
-            vim.g.nord_italic = 1
-            vim.g.nord_italic_comments = 1
-            vim.g.nord_cursor_line_number_background = 1
-        end,
         config = function()
-            vim.cmd [[colorscheme nord]]
+            require('catppuccin').setup({
+                flavour = 'mocha',
+            })
+            vim.cmd.colorscheme('catppuccin')
         end,
     },
     {
@@ -181,7 +180,7 @@ require('lazy').setup({
             vim.opt.laststatus = 2
             require('lualine').setup({
                 options = {
-                    theme = 'nord',
+                    theme = 'catppuccin',
                     component_separators = '',
                     section_separators = '',
                 },
@@ -262,6 +261,6 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'nord' },
+        colorscheme = { 'catppuccin' },
     },
 })
