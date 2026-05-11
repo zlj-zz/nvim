@@ -1,6 +1,14 @@
 local utils = require('utils')
 local map = utils.map
 
+-- Disable coc for Go files (built-in LSP takes over)
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'go',
+    callback = function()
+        vim.b.coc_enabled = 0
+    end,
+})
+
 -- NOTE: only works in Neovim 0.7.0dev+.
 -- Some servers have issues with backup files, see #649
 vim.opt.backup = false

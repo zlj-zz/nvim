@@ -204,6 +204,23 @@ require('lazy').setup({
         cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
     },
 
+    -- LSP (built-in)
+    {
+        'neovim/nvim-lspconfig',
+        config = cfg('plugincfg.lsp'),
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+        },
+        config = cfg('plugincfg.cmp'),
+    },
+
     -- COC
     {
         'neoclide/coc.nvim',
