@@ -11,32 +11,13 @@ return function()
         utils.warn(('load "%s" faild!'):format(mapping_module))
     end
 
-    local map = {
-        leader = ' ',
-        list = mappings or {},
-        default_args = setmetatable({
-            silent = true,
-            noremap = true
-        }, {
-            __add = function(tbl_old, tbl_new)
-                local new_table = vim.deepcopy(tbl_old)
-                if tbl_new ~= nil then
-                    vim.validate {
-                        tbl_new = {tbl_new, 't'}
-                    }
-                    for k, v in pairs(tbl_new) do
-                        new_table[k] = v
-                    end
-                end
-                return new_table
-            end
-        })
-    }
+    local default_args = { silent = true, noremap = true }
 
     -- set up mappings
-    g.mapleader = map.leader
-    for _, one_map in pairs(map.list) do
-        utils.map(one_map[1], one_map[2], one_map[3], map.default_args + one_map[4])
+    g.mapleader = ' '
+    for _, one_map in pairs(mappings or {}) do
+        local opts = vim.tbl_deep_extend('force', default_args, one_map[4] or {})
+        utils.map(one_map[1], one_map[2], one_map[3], opts)
     end
 
     -- set up options

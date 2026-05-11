@@ -28,10 +28,6 @@ local function cfg(mod)
     return function() require(mod) end
 end
 
--- Load common configs that set globals/mappings before lazy.nvim resolves specs
-require('plugincfg.style')
-require('plugincfg.other-more')
-
 require('lazy').setup({
     -- Code language
     { 'hail2u/vim-css3-syntax', ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'} },
@@ -42,14 +38,50 @@ require('lazy').setup({
     { 'f-person/pubspec-assist-nvim', ft = {'pubspec.yaml'} },
 
     -- Editor Enhancement
-    'luochen1990/rainbow',
+    {
+        'luochen1990/rainbow',
+        init = function()
+            vim.g.rainbow_active = 1
+        end,
+    },
     { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
-    'Yggdroot/indentLine',
+    {
+        'Yggdroot/indentLine',
+        init = function()
+            vim.g.indentLine_noConcealCursor = 1
+            vim.g.indentLine_color_term = 238
+            vim.g.indentLine_char = '┆'
+            vim.g.indentLine_fileTypeExclude = { 'startify' }
+            vim.g.indentLine_bufTypeExclude = { 'help', 'terminal' }
+            vim.g.indentLine_faster = 1
+        end,
+    },
     'RRethy/vim-illuminate',
 
     -- Editor Tools
-    'junegunn/vim-easy-align',
-    'mg979/vim-visual-multi',
+    {
+        'junegunn/vim-easy-align',
+        keys = {
+            { 'ga', '<Plug>(EasyAlign)', mode = { 'x', 'n' } },
+        },
+    },
+    {
+        'mg979/vim-visual-multi',
+        init = function()
+            vim.g.VM_leader = { default = ',', visual = ',', buffer = ',' }
+            vim.g.VM_maps = {
+                ['Find Under'] = '<C-d>',
+                ['Find Subword Under'] = '<C-d>',
+                ['Find Prev'] = '-',
+                ['Find Next'] = '=',
+                ['Remove Region'] = 'Q',
+                ['Skip Region'] = 'q',
+                ["Undo"] = 'u',
+                ["Redo"] = '<C-r>',
+            }
+            vim.g.VM_mouse_mappings = 1
+        end,
+    },
     'gcmt/wildfire.vim',
     { 'scrooloose/nerdcommenter', config = cfg('plugincfg.nerdcommenter') },
     'AndrewRadev/splitjoin.vim',
@@ -60,7 +92,13 @@ require('lazy').setup({
 
     -- Other
     'KabbAmine/vCoolor.vim',
-    { 'junegunn/goyo.vim', cmd = {'Goyo'} },
+    {
+        'junegunn/goyo.vim',
+        cmd = {'Goyo'},
+        keys = {
+            { '<leader>gy', ':Goyo<cr>', mode = '' },
+        },
+    },
 
     -- File Manager / Terminal
     { 'voldikss/vim-floaterm', config = cfg('plugincfg.floaterm') },
@@ -92,9 +130,29 @@ require('lazy').setup({
     },
 
     -- Style
-    'arcticicestudio/nord-vim',
-    'vim-airline/vim-airline',
-    'vim-airline/vim-airline-themes',
+    {
+        'arcticicestudio/nord-vim',
+        priority = 1000,
+        init = function()
+            vim.g.nord_italic = 1
+            vim.g.nord_italic_comments = 1
+            vim.g.nord_cursor_line_number_background = 1
+        end,
+        config = function()
+            vim.cmd [[colorscheme nord]]
+        end,
+    },
+    {
+        'vim-airline/vim-airline',
+        dependencies = { 'vim-airline/vim-airline-themes' },
+        init = function()
+            vim.g['airline#extensions#tabline#enabled'] = 1
+        end,
+        config = function()
+            vim.g.airline_theme = 'nord'
+            vim.opt.laststatus = 2
+        end,
+    },
     { 'ryanoasis/vim-devicons', cond = function() return g.isWin == 0 end },
     {
         'vim-scripts/fcitx.vim',
@@ -117,9 +175,24 @@ require('lazy').setup({
         ft = {'markdown', 'vim-plug'},
         config = cfg('plugincfg.markdownpreview'),
     },
-    { 'dhruvasagar/vim-table-mode', cmd = {'TableModeToggle'} },
+    {
+        'dhruvasagar/vim-table-mode',
+        cmd = {'TableModeToggle'},
+        init = function()
+            vim.g.table_mode_cell_text_object_i_map = 'k<Bar>'
+        end,
+        keys = {
+            { '<leader>tm', ':TableModeToggle<cr>', mode = '' },
+        },
+    },
     { 'mzlogin/vim-markdown-toc', ft = {'gitignore', 'markdown'} },
-    { 'theniceboy/bullets.vim', ft = {'markdown'} },
+    {
+        'theniceboy/bullets.vim',
+        ft = {'markdown'},
+        init = function()
+            vim.g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'scratch' }
+        end,
+    },
 }, {
     ui = {
         border = 'single',

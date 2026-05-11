@@ -1,7 +1,4 @@
 return {
-	syntax = 'on',
-	filetype = 'on',
-
 	foldenable = true,
 	foldmethod = 'manual',
 

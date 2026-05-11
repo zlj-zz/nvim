@@ -1,8 +1,6 @@
 local if_nil = vim.F.if_nil
 local fnamemodify = vim.fn.fnamemodify
 local filereadable = vim.fn.filereadable
-local screen_high = vim.api.nvim_eval("&lines")
-
 local default_terminal = {
     type = "terminal",
     command = nil,
@@ -319,7 +317,7 @@ local mru_cwd = {
         type = "group",
         val = function()
             -- Dynamically get the number of items.
-            return {mru(0, vim.fn.getcwd(), math.floor((screen_high - #header_assic - 10) * 0.5))}
+            return {mru(0, vim.fn.getcwd(), math.floor((vim.o.lines - #header_assic - 10) * 0.5))}
         end,
         opts = {
             shrink_margin = false,
