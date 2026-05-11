@@ -69,14 +69,16 @@ require('lazy').setup({
     },
     { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
     {
-        'Yggdroot/indentLine',
-        init = function()
-            vim.g.indentLine_noConcealCursor = 1
-            vim.g.indentLine_color_term = 238
-            vim.g.indentLine_char = '┆'
-            vim.g.indentLine_fileTypeExclude = { 'startify' }
-            vim.g.indentLine_bufTypeExclude = { 'help', 'terminal' }
-            vim.g.indentLine_faster = 1
+        'lukas-reineke/indent-blankline.nvim',
+        main = 'ibl',
+        config = function()
+            require('ibl').setup({
+                indent = { char = '┆' },
+                scope = { enabled = true },
+                exclude = {
+                    filetypes = { 'help', 'terminal', 'alpha', 'lazy' },
+                },
+            })
         end,
     },
     'RRethy/vim-illuminate',
@@ -106,7 +108,13 @@ require('lazy').setup({
         end,
     },
     'gcmt/wildfire.vim',
-    { 'scrooloose/nerdcommenter', config = cfg('plugincfg.nerdcommenter') },
+    {
+        'tpope/vim-commentary',
+        config = function()
+            vim.keymap.set('n', '<leader>cc', '<Plug>CommentaryLine')
+            vim.keymap.set({'n', 'x'}, '<leader>c', '<Plug>Commentary')
+        end,
+    },
     'AndrewRadev/splitjoin.vim',
 
     -- Snippets
