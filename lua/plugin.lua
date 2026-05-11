@@ -61,12 +61,7 @@ require('lazy').setup({
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end,
     },
-    {
-        'luochen1990/rainbow',
-        init = function()
-            vim.g.rainbow_active = 1
-        end,
-    },
+    { 'hiphish/rainbow-delimiters.nvim' },
     { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -180,7 +175,7 @@ require('lazy').setup({
             vim.opt.laststatus = 2
             require('lualine').setup({
                 options = {
-                    theme = 'catppuccin',
+                    theme = 'auto',
                     component_separators = '',
                     section_separators = '',
                 },

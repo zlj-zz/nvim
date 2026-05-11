@@ -89,7 +89,7 @@ After installation, run `:checkhealth` in Neovim.
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line + tabline |
 | [alpha-nvim](https://github.com/goolord/alpha-nvim) | Startup dashboard |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Indent guides with scope highlighting |
-| [rainbow](https://github.com/luochen1990/rainbow) | Rainbow parentheses |
+| [rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim) | Rainbow parentheses (Treesitter) |
 
 ### Editor
 
