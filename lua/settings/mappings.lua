@@ -68,6 +68,9 @@ local map = {
     { 'n', '<m-8>',            '8gt' },
     { 'n', '<m-9>',            '9gt' },
 
+    -- [outline]
+    { 'n', 'ti',               '<cmd>AerialToggle<CR>' },
+
     -- [other]
     { 'n', '<leader>sc',       ':set spell!<CR>' },
     { 'n', '<leader>pm',       ':set paste!<CR>' },

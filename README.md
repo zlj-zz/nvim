@@ -118,7 +118,7 @@ After installation, run `:checkhealth` in Neovim.
 |--------|---------|
 | [vim-floaterm](https://github.com/voldikss/vim-floaterm) | Floating terminal |
 | [undotree](https://github.com/mbbill/undotree) | Undo history tree |
-| [tagbar](https://github.com/majutsushi/tagbar) | Code outline (non-Windows) |
+| [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline (LSP / Treesitter) |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Distraction-free mode |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Markdown table editing |
 

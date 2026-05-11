@@ -153,10 +153,12 @@ require('lazy').setup({
         config = cfg('plugincfg.telescope'),
     },
     {
-        'majutsushi/tagbar',
-        cond = function() return g.isWin == 0 end,
-        init = cfg('plugincfg.tagbar'),
-        cmd = {'TagbarToggle'},
+        'stevearc/aerial.nvim',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+        },
+        config = cfg('plugincfg.aerial'),
+        cmd = { 'AerialToggle', 'AerialOpen', 'AerialNavToggle' },
     },
 
     -- Style
