@@ -37,15 +37,10 @@ require('flutter-tools').setup({
         auto_open = false,
     },
     lsp = {
-        color = {
-            enabled = false,
-            background = false,
-            background_color = nil,
-            foreground = false,
-            virtual_text = true,
-            virtual_text_str = '■',
-        },
         on_attach = function(client, bufnr)
+            -- Enable document color via built-in LSP (Neovim 0.12+)
+            vim.lsp.document_color.enable(true, bufnr, { style = 'virtual' })
+
             -- Reuse existing LSP keymaps
             local opts = { buffer = bufnr, silent = true }
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
