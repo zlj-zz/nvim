@@ -76,6 +76,9 @@ local map = {
     -- press space twice to jump to the next ':' and edit it
     { 'n', '<leader><leader>', '<ESC>/<++><CR>:nohlsearch<CR>c4l' },
 
+    -- trim trailing whitespace
+    { 'n', '<leader>tr',       ':%s/\\s\\+$//e<CR>' },
+
     -- find the conflict line of git
     { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },
 
