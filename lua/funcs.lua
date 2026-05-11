@@ -22,11 +22,14 @@ end
 --------------------
 ---Switch bg color.
 --------------------
-local hi = fn.execute('hi normal')
-g.record_guibg__ = fn.matchstr(hi, 'guibg=\\zs\\S*')
 g.bg_flag__ = 1
 
 M.switch_transparent_bg = function()
+    -- Capture original guibg on first call (after colorscheme is loaded)
+    if g.record_guibg__ == nil then
+        local hi = fn.execute('hi normal')
+        g.record_guibg__ = fn.matchstr(hi, 'guibg=\\zs\\S*')
+    end
 
     if g.bg_flag__ == 1 then
         g.bg_flag__ = 0

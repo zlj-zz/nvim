@@ -8,15 +8,13 @@ func! CompileRunGcc()
     exec "!time ./%<"
 
   elseif &filetype == 'cpp'
-    set splitbelow
     exec "!g++ -std=c++11 % -Wall -o %<"
-    :sp
+    belowright sp
     :res -15
     :term ./%<
 
   elseif &filetype == 'java'
-    set splitbelow
-    :sp
+    belowright sp
     :res -5
     term javac % && time java %<
 
@@ -24,13 +22,11 @@ func! CompileRunGcc()
     :!time bash %
 
   elseif &filetype == 'python'
-    set splitbelow
-    :sp
+    belowright sp
     :term python3 %
 
   elseif &filetype == 'lua'
-    set splitbelow
-    :sp
+    belowright sp
     :term lua %
 
   elseif &filetype == 'html'
@@ -44,16 +40,14 @@ func! CompileRunGcc()
     silent! exec "VimtexCompile"
 
   elseif &filetype == 'javascript'
-    set splitbelow
-    :sp
+    belowright sp
     :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 
   elseif &filetype == 'dart'
     CocCommand flutter.run
 
   elseif &filetype == 'go'
-    set splitbelow
-    :sp
+    belowright sp
     :term go run .
 
   endif

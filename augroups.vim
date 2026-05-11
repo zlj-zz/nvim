@@ -15,7 +15,8 @@ scriptencoding utf-8
 
     " Disable linting and syntax highlighting for large files
     autocmd BufReadPre *
-                \   if getfsize(expand("%")) > 10000000 |
+                \   let s:fsize = getfsize(expand("%")) |
+                \   if s:fsize > 10000000 |
                 \   syntax off |
                 \   let g:ale_enabled=0 |
                 \   let g:coc_enabled=0 |

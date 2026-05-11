@@ -39,9 +39,6 @@ lua require('plugin')
 exec 'source ' . g:nvim_path . '/augroups.vim'
 
 " experimental
-set foldmethod=manual   " option: [manual indent marker]
-set re=1
-set ttyfast
 set lazyredraw
 exec "nohlsearch"
 
