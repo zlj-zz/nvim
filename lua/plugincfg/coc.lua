@@ -24,13 +24,6 @@ vim.opt.signcolumn = "yes"
 
 -- coc plugins
 vim.g.coc_global_extensions = {
-      'coc-flutter-tools',
-      'coc-vetur',
-      'coc-yaml',
-      'coc-sourcekit',
-      'coc-tsserver',
-      'coc-tslint',
-      'coc-tailwindcss',
       'coc-translator',
       --'coc-java',
       --'coc-ccls',

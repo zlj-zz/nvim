@@ -220,6 +220,14 @@ require('lazy').setup({
         'stevearc/conform.nvim',
         config = cfg('plugincfg.conform'),
     },
+    {
+        'akinsho/flutter-tools.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim',
+        },
+        config = cfg('plugincfg.flutter-tools'),
+    },
 
     {
         'vim-scripts/fcitx.vim',

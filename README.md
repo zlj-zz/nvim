@@ -108,7 +108,7 @@ After installation, run `:checkhealth` in Neovim.
 |--------|---------|
 | [coc.nvim](https://github.com/neoclide/coc.nvim) | LSP client (fallback for non-migrated languages) |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Built-in LSP (Go, Vim, Bash, ...) |
-| [dart-lang/dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin) | Dart / Flutter |
+| [flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim) | Flutter / Dart (LSP, hot reload, outline) |
 | [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) | CSS3 syntax |
 | [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Markdown preview in browser |
 
@@ -255,6 +255,17 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<space>y` | Yank history (Telescope) |
 | `<c-p>` / `<c-n>` | Cycle yank history after paste |
 
+### Flutter
+
+| Key | Action |
+|-----|--------|
+| `<leader>fr` | Flutter run |
+| `<leader>fR` | Flutter restart |
+| `<leader>fq` | Flutter quit |
+| `<leader>fo` | Toggle Flutter outline |
+| `<leader>fd` | Flutter DevTools |
+| `<leader>fe` | Flutter emulators |
+
 ### Other
 
 | Key | Action |
@@ -295,6 +306,16 @@ npm install -g vim-language-server bash-language-server
 
 # HTML, CSS, JSON (single package)
 npm install -g vscode-langservers-extracted
+
+# TypeScript
+npm install -g typescript-language-server
+
+# YAML
+npm install -g yaml-language-server
+
+# Swift (macOS, comes with Xcode CLI)
+xcode-select --install
+# or: brew install sourcekit-lsp
 ```
 
 Install formatters (used by conform.nvim):
