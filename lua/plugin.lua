@@ -195,6 +195,11 @@ require('lazy').setup({
         end,
     },
     {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        config = cfg('plugincfg.which-key'),
+    },
+    {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
