@@ -142,16 +142,15 @@ require('lazy').setup({
     },
     { 'mbbill/undotree', init = cfg('plugincfg.undotree'), cmd = {'UndotreeToggle'} },
 
-    -- FZF & Tagbar (non-Windows only)
+    -- Telescope (non-Windows only)
     {
-        'junegunn/fzf',
+        'nvim-telescope/telescope.nvim',
         cond = function() return g.isWin == 0 end,
-        build = function() vim.fn['fzf#install'](0) end,
-    },
-    {
-        'junegunn/fzf.vim',
-        cond = function() return g.isWin == 0 end,
-        config = cfg('plugincfg.fzf'),
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        },
+        config = cfg('plugincfg.telescope'),
     },
     {
         'majutsushi/tagbar',
