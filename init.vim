@@ -37,7 +37,7 @@ lua require('plugin')
 "command! LazyProfile lua require('lazy').profile()
 
 " load auto groups.
-exec 'source ' . g:nvim_path . '/augroups.vim'
+lua require('autocmds')
 
 " experimental
 set lazyredraw
