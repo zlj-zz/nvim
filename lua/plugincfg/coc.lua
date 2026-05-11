@@ -26,7 +26,6 @@ vim.opt.signcolumn = "yes"
 vim.g.coc_global_extensions = {
       'coc-flutter-tools',
       'coc-vetur',
-      'coc-prettier',
       'coc-yaml',
       'coc-sourcekit',
       'coc-tsserver',
@@ -115,17 +114,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- Symbol renaming
 map("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 
--- Formatting selected code
-map({"x", "n"}, "\\f", "<Plug>(coc-format-selected)", {silent = true})
-
--- Setup formatexpr specified filetype(s)
-vim.api.nvim_create_autocmd("FileType", {
-    group = "CocGroup",
-    pattern = "typescript,json",
-    command = "setl formatexpr=CocAction('formatSelected')",
-    desc = "Setup formatexpr specified filetype(s)."
-})
-
 -- Update signature help on jump placeholder
 vim.api.nvim_create_autocmd("User", {
     group = "CocGroup",
@@ -133,10 +121,6 @@ vim.api.nvim_create_autocmd("User", {
     command = "call CocActionAsync('showSignatureHelp')",
     desc = "Update signature help on jump placeholder"
 })
-
--- Add `:Format` command to format current buffer
-vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
-map({"x", "n"}, "\\F", ":Format<CR>")
 
 
 -- Apply codeAction to the selected region

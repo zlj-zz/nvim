@@ -123,6 +123,7 @@ After installation, run `:checkhealth` in Neovim.
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics / symbols list |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git decorations, blame, hunk actions |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Yank history, telescope integration |
+| [conform.nvim](https://github.com/stevearc/conform.nvim) | Formatting (prettier, black, stylua, etc.) |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Distraction-free mode |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Markdown table editing |
 
@@ -241,6 +242,12 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<leader>hr` | Reset hunk |
 | `<leader>hd` | Diff this file |
 
+### Format (conform.nvim)
+
+| Key | Action |
+|-----|--------|
+| `<leader>cf` | Format document / selection |
+
 ### Yanky
 
 | Key | Action |
@@ -288,6 +295,16 @@ npm install -g vim-language-server bash-language-server
 
 # HTML, CSS, JSON (single package)
 npm install -g vscode-langservers-extracted
+```
+
+Install formatters (used by conform.nvim):
+
+```bash
+brew install stylua shfmt
+npm install -g prettier
+pip3 install black
+go install mvdan.cc/gofumpt@latest
+go install golang.org/x/tools/cmd/goimports@latest
 ```
 
 ## Configuration for vim

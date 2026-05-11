@@ -216,6 +216,10 @@ require('lazy').setup({
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = cfg('plugincfg.yanky'),
     },
+    {
+        'stevearc/conform.nvim',
+        config = cfg('plugincfg.conform'),
+    },
 
     {
         'vim-scripts/fcitx.vim',

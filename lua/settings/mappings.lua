@@ -89,6 +89,10 @@ local map = {
     -- trim trailing whitespace
     { 'n', '<leader>tr',       ':%s/\\s\\+$//e<CR>' },
 
+    -- format (VS Code style: Shift+Alt+F)
+    { 'n', '<leader>cf',       ':Format<CR>' },
+    { 'v', '<leader>cf',       ':Format<CR>' },
+
     -- find the conflict line of git
     { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },
 
