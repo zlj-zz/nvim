@@ -32,7 +32,6 @@ vim.g.coc_global_extensions = {
       'coc-tsserver',
       'coc-tslint',
       'coc-tailwindcss',
-      'coc-yank',
       'coc-translator',
       --'coc-java',
       --'coc-ccls',
@@ -168,9 +167,6 @@ map("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 --map("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
 --map("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 --map("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-
--- Show useful command
-map("n", "<space>y", ":<C-u>CocList -A --normal yank<cr>", {silent = true})
 
 -- Open up coc-commands
 map("n", "<c-c>", ":CocCommand<CR>")

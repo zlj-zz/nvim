@@ -211,6 +211,11 @@ require('lazy').setup({
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = cfg('plugincfg.nvim-tree'),
     },
+    {
+        'gbprod/yanky.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
+        config = cfg('plugincfg.yanky'),
+    },
 
     {
         'vim-scripts/fcitx.vim',
