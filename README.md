@@ -54,7 +54,7 @@ After installation, run `:checkhealth` in Neovim.
 │   │   └── mappings.lua      # Key mappings
 │   └── plugincfg/            # Per-plugin configurations
 │       ├── alpha-theme.lua
-│       ├── floaterm.lua
+│       ├── toggleterm.lua
 │       ├── lsp.lua           # Built-in LSP configs
 │       ├── cmp.lua           # nvim-cmp completion
 │       ├── telescope.lua
@@ -84,7 +84,7 @@ After installation, run `:checkhealth` in Neovim.
 
 | Plugin | Purpose |
 |--------|---------|
-| [catppuccin](https://github.com/catppuccin/nvim) | Color scheme (Catppuccin mocha) |
+| [nordic.nvim](https://github.com/AlexvZyl/nordic.nvim) | Color scheme (Nord enhanced) |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line + tabline |
 | [alpha-nvim](https://github.com/goolord/alpha-nvim) | Startup dashboard |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Indent guides with scope highlighting |
@@ -110,11 +110,18 @@ After installation, run `:checkhealth` in Neovim.
 | [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) | CSS3 syntax |
 | [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Markdown preview in browser |
 
+### Terminal & AI
+
+| Plugin | Purpose |
+|--------|---------|
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal (bottom / right / float) |
+| [agent-bridge](lua/agent-bridge) | Send code context to AI agents (Claude / tmux / clipboard) |
+| [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI inline code completion |
+
 ### Other
 
 | Plugin | Purpose |
 |--------|---------|
-| [vim-floaterm](https://github.com/voldikss/vim-floaterm) | Floating terminal |
 | [undotree](https://github.com/mbbill/undotree) | Undo history tree |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | File explorer |
 | [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline (LSP / Treesitter) |
@@ -122,6 +129,7 @@ After installation, run `:checkhealth` in Neovim.
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git decorations, blame, hunk actions |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Yank history, telescope integration |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Formatting (prettier, black, stylua, etc.) |
+| [which-key.nvim](https://github.com/folke/which-key.nvim) | Keymap discovery popup |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Distraction-free mode |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Markdown table editing |
 
@@ -146,7 +154,7 @@ After installation, run `:checkhealth` in Neovim.
 |-----|--------|
 | `K` / `J` | Up / down 5 lines |
 | `H` / `L` | Left / right 5 chars |
-| `<C-k>` / `<C-j>` | Scroll view up / down 5 lines (cursor stays) |
+| `<C-k>` | Scroll view up 5 lines (cursor stays) |
 
 ### Window Management
 
@@ -224,11 +232,23 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<leader>hr` | Reset hunk |
 | `<leader>hd` | Diff this file |
 
+### AI (agent-bridge + Supermaven)
+
+| Key | Action |
+|-----|--------|
+| `<leader>ai` | Open agent-bridge float (visual / normal) |
+| `<C-s>` | Send prompt from float |
+| `<Tab>` (in float) | Cycle sender mode (auto → tmux → claude → clipboard) |
+| `<C-l>` | Accept Supermaven suggestion |
+| `<C-j>` | Accept Supermaven next word |
+| `<C-\>` | Clear Supermaven suggestion |
+
 ### Format (conform.nvim)
 
 | Key | Action |
 |-----|--------|
 | `<leader>cf` | Format document / selection |
+| `:FormatToggle` | Toggle format-on-save |
 
 ### Yanky
 
@@ -253,7 +273,10 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | Key | Action |
 |-----|--------|
 | `tt` | Toggle file tree (nvim-tree) |
-| `<c-t>` | Toggle floating terminal |
+| `<c-t>` | Toggle bottom terminal (toggleterm) |
+| `<C-l>` | Toggle right-side terminal |
+| `<A-1>` ~ `<A-3>` | Toggle terminal 1~3 |
+| `<Esc><Esc>` (in terminal) | Exit terminal mode |
 | `<f4>` | Toggle transparent background |
 | `<leader>z` | Toggle full screen (zoom window) |
 | `<leader>go` | Open current file in browser |
@@ -309,6 +332,25 @@ pip3 install black
 go install mvdan.cc/gofumpt@latest
 go install golang.org/x/tools/cmd/goimports@latest
 ```
+
+### macOS Input Method (optional)
+
+For automatic input method switching (English in Normal mode, restore in Insert mode):
+
+```bash
+brew tap daipeihust/tap && brew install im-select
+```
+
+If `im-select` is missing, Neovim will show a warning on startup. Run `:IMSelectInstall` to install it automatically.
+
+## macOS / Platform Notes
+
+- **Input method auto-switch**: `im-select` is used to switch to ABC layout when leaving Insert mode. Only active on macOS.
+- **AI integration**: `agent-bridge` supports three sender modes:
+  - `tmux` — sends prompt to a tmux pane running `claude`
+  - `claude` — runs `claude -p --continue` and captures stdout into a result float
+  - `clipboard` — copies prompt to system clipboard
+- **Supermaven**: Free AI inline completion. Run `:SupermavenUseFree` on first use.
 
 ## Configuration for vim
 
