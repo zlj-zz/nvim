@@ -257,6 +257,27 @@ require('lazy').setup({
         end,
     },
 
+    -- AI completion
+    {
+        'supermaven-inc/supermaven-nvim',
+        event = 'VeryLazy',
+        config = function()
+            require('supermaven-nvim').setup({
+                keymaps = {
+                    accept_suggestion = '<C-l>',
+                    -- clear_suggestion = '<C-\\>',
+                    accept_word = '<C-j>',
+                },
+                ignore_filetypes = { 'bigfile', 'snacks_input', 'snacks_notif' },
+                color = {
+                    suggestion_color = '#7c7c7c',
+                    cterm = 244,
+                },
+                disable_inline_completion = false,
+            })
+        end,
+    },
+
     -- LSP (built-in)
     {
         'neovim/nvim-lspconfig',
