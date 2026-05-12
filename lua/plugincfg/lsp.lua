@@ -12,15 +12,6 @@ local function on_attach(client, bufnr)
     vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, opts)
 
-    -- Format on save
-    if client:supports_method('textDocument/formatting') then
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr })
-            end,
-        })
-    end
 end
 
 local gopls_config = {

@@ -5,15 +5,24 @@ local cmd = vim.cmd
 local api = vim.api
 
 function M.info(s, ...)
-    vim.notify(string.format(s, ...), vim.log.levels.INFO)
+    local msg = string.format(s, ...)
+    vim.defer_fn(function()
+        vim.notify(msg, vim.log.levels.INFO)
+    end, 50)
 end
 
 function M.warn(s, ...)
-    vim.notify(string.format(s, ...), vim.log.levels.WARN)
+    local msg = string.format(s, ...)
+    vim.defer_fn(function()
+        vim.notify(msg, vim.log.levels.WARN)
+    end, 50)
 end
 
 function M.error(s, ...)
-    vim.notify(string.format(s, ...), vim.log.levels.ERROR)
+    local msg = string.format(s, ...)
+    vim.defer_fn(function()
+        vim.notify(msg, vim.log.levels.ERROR)
+    end, 50)
 end
 
 ---Change vim option

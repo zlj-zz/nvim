@@ -61,7 +61,7 @@ require('lazy').setup({
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end,
     },
-    { 'hiphish/rainbow-delimiters.nvim' },
+    { 'hiphish/rainbow-delimiters.nvim', event = 'VeryLazy' },
     { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -76,7 +76,7 @@ require('lazy').setup({
             })
         end,
     },
-    'RRethy/vim-illuminate',
+    { 'RRethy/vim-illuminate', event = 'VeryLazy' },
 
     -- Editor Tools
     {
@@ -113,11 +113,11 @@ require('lazy').setup({
     'AndrewRadev/splitjoin.vim',
 
     -- Snippets
-    'honza/vim-snippets',
+    { 'honza/vim-snippets', lazy = true },
     'kana/vim-textobj-user',
 
     -- Other
-    'KabbAmine/vCoolor.vim',
+    { 'KabbAmine/vCoolor.vim', cmd = { 'VCoolor' } },
     {
         'junegunn/goyo.vim',
         cmd = {'Goyo'},
@@ -127,7 +127,11 @@ require('lazy').setup({
     },
 
     -- File Manager / Terminal
-    { 'voldikss/vim-floaterm', config = cfg('plugincfg.floaterm') },
+    {
+        'akinsho/toggleterm.nvim',
+        version = '*',
+        config = cfg('plugincfg.toggleterm'),
+    },
     {
         'goolord/alpha-nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -135,7 +139,14 @@ require('lazy').setup({
             require('alpha').setup(require('plugincfg.alpha-theme').config)
         end,
     },
-    { 'mbbill/undotree', init = cfg('plugincfg.undotree'), cmd = {'UndotreeToggle'} },
+    { 'mbbill/undotree', config = cfg('plugincfg.undotree'), cmd = {'UndotreeToggle'} },
+
+    -- Loom (local)
+    {
+        dir = '/Users/haha/projects/loom.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = cfg('plugincfg.loom'),
+    },
 
     -- Telescope (non-Windows only)
     {
@@ -158,14 +169,12 @@ require('lazy').setup({
 
     -- Style
     {
-        'catppuccin/nvim',
-        name = 'catppuccin',
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
         priority = 1000,
         config = function()
-            require('catppuccin').setup({
-                flavour = 'mocha',
-            })
-            vim.cmd.colorscheme('catppuccin')
+            require('nordic').setup({})
+            vim.cmd.colorscheme('nordic')
         end,
     },
     {
@@ -227,6 +236,7 @@ require('lazy').setup({
     },
     {
         'akinsho/flutter-tools.nvim',
+        ft = { 'dart' },
         dependencies = {
             'nvim-lua/plenary.nvim',
             'stevearc/dressing.nvim',
@@ -237,6 +247,14 @@ require('lazy').setup({
     {
         'vim-scripts/fcitx.vim',
         cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
+    },
+
+    -- Local plugin: agent-bridge
+    {
+        dir = vim.fn.stdpath('config') .. '/lua/agent-bridge',
+        config = function()
+            require('agent-bridge').setup()
+        end,
     },
 
     -- LSP (built-in)
@@ -261,7 +279,7 @@ require('lazy').setup({
     {
         'iamcco/markdown-preview.nvim',
         build = function() vim.fn['mkdp#util#install_sync']() end,
-        ft = {'markdown', 'vim-plug'},
+        ft = {'markdown'},
         config = cfg('plugincfg.markdownpreview'),
     },
     {
@@ -287,6 +305,9 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'catppuccin' },
+        colorscheme = { 'nordic' },
     },
 })
+
+-- macOS input method auto-switch (no plugin download, uses system im-select)
+require('plugincfg.im-select')

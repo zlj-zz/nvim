@@ -1,3 +1,7 @@
+local M = {}
+
+M.enabled = false
+
 require('conform').setup({
     formatters_by_ft = {
         lua = { 'stylua' },
@@ -22,10 +26,15 @@ require('conform').setup({
         zsh = { 'shfmt' },
         go = { 'gofumpt', 'goimports' },
     },
-    format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-    },
+    format_on_save = function(bufnr)
+        if not M.enabled then
+            return
+        end
+        return {
+            timeout_ms = 500,
+            lsp_fallback = true,
+        }
+    end,
 })
 
 vim.api.nvim_create_user_command('Format', function(args)
@@ -39,3 +48,10 @@ vim.api.nvim_create_user_command('Format', function(args)
     end
     require('conform').format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
+
+vim.api.nvim_create_user_command('FormatToggle', function()
+    M.enabled = not M.enabled
+    vim.notify('Format on save: ' .. (M.enabled and 'ON' or 'OFF'))
+end, {})
+
+return M
