@@ -19,12 +19,11 @@ Installer.info_prefixs = {
 }
 
 Installer.softwares = {
-    "python2.7",
-    "python3.9",
+    "python3",
     "node",
     "npm",
     "w3m",
-    "fmt",
+    "shfmt",
     "ffmpegthumbnailer",
     "screen",
     "ripgrep",
@@ -32,6 +31,7 @@ Installer.softwares = {
     "ctags",
     "xclip",
     "figlet",
+    "im-select",
 }
 
 Installer.py_deps = {
@@ -43,6 +43,7 @@ Installer.py_deps = {
 
 Installer.npm_deps = {
     "neovim",
+    "tree-sitter-cli",
 }
 
 --- Output info msg to terminal.

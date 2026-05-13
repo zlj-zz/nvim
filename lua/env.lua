@@ -21,6 +21,11 @@ end
 -- whether running in gui
 g.is_gui = fn.has('gui_running')
 
+-- Ensure Homebrew binaries are in PATH (for GUI-launched nvim on macOS)
+if uv.fs_stat('/opt/homebrew/bin') then
+    vim.env.PATH = '/opt/homebrew/bin:' .. (vim.env.PATH or '')
+end
+
 -----------------------------------------------------------------------------------------
 
 -- Create a '_machine_specific.vim' file to adjust machine specific stuff
