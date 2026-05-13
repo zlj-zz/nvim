@@ -118,5 +118,16 @@ function M.create_gradient (start, finish, steps)
 	return gradient
 end
 
+---Check if a path is a directory
+---@param p string
+---@return string | nil
+function M.lazy_safe_dif(p)
+    local local_path = vim.fn.expand(p)
+    if vim.fn.isdirectory(local_path) then
+        return local_path
+    end
+    return nil
+end
+
 return M
 

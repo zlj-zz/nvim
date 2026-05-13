@@ -1,4 +1,5 @@
 local g = vim.g
+local utils = require('utils')
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -143,7 +144,8 @@ require('lazy').setup({
 
     -- Loom (local)
     {
-        dir = '/Users/haha/projects/loom.nvim',
+        'zlj-zz/loom.nvim',
+        dir=utils.lazy_safe_dif('~/projects/loom.nvim'),
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = cfg('plugincfg.loom'),
     },
@@ -201,6 +203,24 @@ require('lazy').setup({
                     lualine_z = { 'tabs' },
                 },
             })
+        end,
+    },
+    {
+        'zlj-zz/codewindow.nvim',
+        dir=utils.lazy_safe_dif('~/projects/codewindow.nvim'),
+        event = 'VeryLazy',
+        config = function()
+            local cw = require('codewindow')
+            cw.setup({
+                auto_enable = true,
+                minimap_width = 15,
+                width_multiplier = 1,
+                exclude_filetypes = { 'help', 'alpha', 'lazy', 'mason' },
+                z_index = 10,
+                window_border = 'none',
+                screen_bounds = 'background',
+            })
+            cw.apply_default_keybinds()
         end,
     },
     {
