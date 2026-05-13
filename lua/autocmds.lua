@@ -70,3 +70,8 @@ api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
     command = 'set nocursorline',
     desc = 'Disable cursorline in insert mode',
 })
+
+-- Close NvimTree if it's the last window.
+api.nvim_create_autocmd({"QuitPre"}, {
+    callback = function() vim.cmd("NvimTreeClose") end,
+})

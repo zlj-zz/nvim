@@ -12,26 +12,10 @@ require('nvim-tree').setup({
         number = false,
         relativenumber = false,
     },
-    renderer = {
-        group_empty = true,
-        indent_markers = { enable = true },
-        icons = {
-            show = {
-                git = true,
-                file = true,
-                folder = true,
-                folder_arrow = true,
-            },
-        },
-    },
-    filters = {
-        dotfiles = false,
-        git_ignored = false,
-        custom = { '__pycache__', '\\.git', 'node_modules', '\\.DS_Store' },
-    },
+    filters = {},
     git = {
         enable = true,
-        ignore = false,
+        ignore = true,
     },
     actions = {
         open_file = {

@@ -85,18 +85,38 @@ M.get_time = function()
 
 end
 
+local function confirm_close(msg)
+    local choice = fn.confirm(msg, '&Yes\n&No', 2)
+    return choice == 1
+end
+
 ---Close current buffer and switch to the previous one.
 ---If only one listed buffer remains, quit the window instead.
+---Prompts for confirmation if the buffer has unsaved changes.
 M.buf_close = function()
-    local buf_list = fn.filter(fn.range(1, fn.bufnr('$')), 'buflisted(v:val)')
+    local buf_list = fn.getbufinfo({ buflisted = 1 })
+    local cur = api.nvim_get_current_buf()
+    local modified = fn.getbufvar(cur, '&modified') == 1
 
     -- Only one buffer left: close the window (quit nvim if last window)
     if #buf_list <= 1 then
-        vim.cmd('q')
+        if modified then
+            if not confirm_close('Buffer has unsaved changes. Quit anyway?') then
+                return
+            end
+            vim.cmd('q!')
+        else
+            vim.cmd('q')
+        end
         return
     end
 
-    local cur = api.nvim_get_current_buf()
+    if modified then
+        if not confirm_close('Buffer has unsaved changes. Close anyway?') then
+            return
+        end
+    end
+
     local alt = fn.bufnr('#')
 
     -- If alternate buffer is valid and listed, switch to it first
@@ -108,7 +128,11 @@ M.buf_close = function()
     end
 
     -- Delete the buffer we just left
-    vim.cmd('bd ' .. cur)
+    if modified then
+        vim.cmd('bd! ' .. cur)
+    else
+        vim.cmd('bd ' .. cur)
+    end
 end
 
 return M
