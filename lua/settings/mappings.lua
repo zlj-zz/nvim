@@ -3,8 +3,8 @@ local map = {
 
     -- [file option]
     { '',  'S',                ':w<CR>',                                             { noremap = false } },
-    { '',  'Q',                ':q<CR>',                                             { noremap = false } },
-    { 'n', '<C-q>',            ':q!<CR>' },
+    { '',  'Q',                '<cmd>lua require"funcs".buf_close()<CR>',           { noremap = false } },
+    { 'n', '<C-q>',            ':qa!<CR>' },
     { 'c', 'w!!',              'w !sudo tee >/dev/null %' },
 
     { 'n', '<',                '<<' },

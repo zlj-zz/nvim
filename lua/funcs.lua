@@ -85,5 +85,31 @@ M.get_time = function()
 
 end
 
+---Close current buffer and switch to the previous one.
+---If only one listed buffer remains, quit the window instead.
+M.buf_close = function()
+    local buf_list = fn.filter(fn.range(1, fn.bufnr('$')), 'buflisted(v:val)')
+
+    -- Only one buffer left: close the window (quit nvim if last window)
+    if #buf_list <= 1 then
+        vim.cmd('q')
+        return
+    end
+
+    local cur = api.nvim_get_current_buf()
+    local alt = fn.bufnr('#')
+
+    -- If alternate buffer is valid and listed, switch to it first
+    if alt > 0 and fn.buflisted(alt) == 1 and alt ~= cur then
+        vim.cmd('b#')
+    else
+        -- Fall back to previous buffer in the list
+        vim.cmd('bp')
+    end
+
+    -- Delete the buffer we just left
+    vim.cmd('bd ' .. cur)
+end
+
 return M
 

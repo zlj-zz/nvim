@@ -29,12 +29,6 @@ local bottom_term = Terminal:new({ direction = 'horizontal', hidden = true })
 -- Right-side terminal
 local right_term = Terminal:new({ direction = 'vertical', hidden = true })
 
--- Multiple numbered terminals
-local terms = {}
-for i = 1, 3 do
-    terms[i] = Terminal:new({ direction = 'horizontal', hidden = true })
-end
-
 -- Toggle bottom terminal
 map({ 'n', 't' }, '<C-t>', function()
     bottom_term:toggle()
@@ -44,13 +38,6 @@ end)
 map({ 'n', 't' }, '<C-l>', function()
     right_term:toggle()
 end)
-
--- Toggle numbered terminals (Alt+1/2/3)
-for i = 1, 3 do
-    map({ 'n', 't' }, '<A-' .. i .. '>', function()
-        terms[i]:toggle()
-    end)
-end
 
 -- Escape terminal mode to normal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>')
