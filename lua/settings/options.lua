@@ -5,6 +5,7 @@ return {
 	number = true,
 	relativenumber = true,
 	cursorline = true,
+	cursorlineopt = 'number',
 	encoding = 'utf-8',
 	pyxversion = 3,
 	autoread = true,
