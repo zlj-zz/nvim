@@ -150,11 +150,9 @@ require('lazy').setup({
     'AndrewRadev/splitjoin.vim',
 
     -- Snippets
-    { 'honza/vim-snippets',    lazy = true },
     'kana/vim-textobj-user',
 
     -- Other
-    { 'KabbAmine/vCoolor.vim', cmd = { 'VCoolor' } },
     {
         'junegunn/goyo.vim',
         cmd = { 'Goyo' },
