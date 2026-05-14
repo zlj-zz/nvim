@@ -27,10 +27,10 @@ local map = {
     { 'n', '<C-j>',            '5<C-e>' },
 
     -- Insert and Command Mode Cursor Movement.
-    { '!', '<C-w>',            '<Up>' },
-    { '!', '<C-s>',            '<Down>' },
-    { '!', '<C-a>',            '<Left>' },
-    { '!', '<C-d>',            '<Right>' },
+    { 'i', '<C-w>',            '<Up>' },
+    { 'i', '<C-s>',            '<Down>' },
+    { 'i', '<C-a>',            '<Left>' },
+    { 'i', '<C-d>',            '<Right>' },
 
     -- [window management]
     { '',  's',                '<nop>' },
