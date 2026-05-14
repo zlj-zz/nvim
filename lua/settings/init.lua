@@ -30,6 +30,4 @@ return function()
     for o, v in pairs(options) do
         utils.opt(o, v)
     end
-
 end
-

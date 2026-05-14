@@ -1,9 +1,9 @@
 local map = {
-    { 'n', ';',                ':',                                                  { silent = false, nowait = true } },
+    { 'n', ';',                ':',                                                                         { silent = false, nowait = true } },
 
     -- [file option]
-    { '',  'S',                ':w<CR>',                                             { noremap = false } },
-    { '',  'Q',                '<cmd>lua require"funcs".smart_close()<CR>',           { noremap = false } },
+    { '',  'S',                ':w<CR>',                                                                    { noremap = false } },
+    { '',  'Q',                '<cmd>lua require"funcs".smart_close()<CR>',                                 { noremap = false } },
     { 'n', '<C-q>',            ':qa!<CR>' },
     { 'c', 'w!!',              'w !sudo tee >/dev/null %' },
 
@@ -14,7 +14,7 @@ local map = {
 
     { 'n', 'Y',                'y$' },
     { 'v', 'Y',                '"+y' },
-    { '',  '<C-a>',            'ggVG',                                               { noremap = false } },
+    { '',  '<C-a>',            'ggVG',                                                                      { noremap = false } },
 
     -- [cursor movement]
     { '',  'K',                '5k' },

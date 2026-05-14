@@ -14,9 +14,7 @@ local browsers = {
 }
 
 M.open_curr_on_browser = function()
-
     vim.cmd('silent !' .. browsers.firefox .. fn.expand('%:p'))
-
 end
 
 --------------------
@@ -38,14 +36,12 @@ M.switch_transparent_bg = function()
         g.bg_flag__ = 1
         vim.cmd('hi normal guibg=' .. g.record_guibg__)
     end
-
 end
 
 --------------------------------------------------
 ---toggle to make a screen full when split screen
 --------------------------------------------------
 M.switch_full_screen = function()
-
     if t.zoomed ~= nil and t.zoomed == 1 then
         vim.cmd(t.zoom_winrestcmd)
         t.zoomed = 0
@@ -55,7 +51,6 @@ M.switch_full_screen = function()
         vim.cmd [[vertical resize]]
         t.zoomed = 1
     end
-
 end
 
 -----------------------------------
@@ -63,7 +58,6 @@ end
 -----------------------------------
 ---@param num integer
 M.buf_index = function(num)
-
     if num == nil then
         return
     end
@@ -76,13 +70,10 @@ M.buf_index = function(num)
 
     local buf_id = buf_list[num]
     vim.cmd(':' .. buf_id .. 'b')
-
 end
 
 M.get_time = function()
-
     return fn.strftime('%Y-%m-%d %H:%M:%S')
-
 end
 
 ---Split window then open telescope file picker (fallback to :e if no telescope).
@@ -238,4 +229,3 @@ M.open_file_from_terminal_line = function(line_str)
 end
 
 return M
-

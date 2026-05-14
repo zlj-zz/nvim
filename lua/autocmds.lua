@@ -73,7 +73,7 @@ api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
 })
 
 -- Close NvimTree if it's the last window.
-api.nvim_create_autocmd({"QuitPre"}, {
+api.nvim_create_autocmd({ "QuitPre" }, {
     callback = function() vim.cmd("NvimTreeClose") end,
 })
 

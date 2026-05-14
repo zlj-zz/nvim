@@ -31,10 +31,10 @@ end
 
 require('lazy').setup({
     -- Code language
-    { 'hail2u/vim-css3-syntax', ft = {'vim-plug', 'php', 'html', 'javascript', 'css', 'less'} },
-    { 'tiagofumo/dart-vim-flutter-layout', ft = {'dart'} },
-    { 'dart-lang/dart-vim-plugin', ft = {'dart'}, config = cfg('plugincfg.dart-vim') },
-    { 'f-person/pubspec-assist-nvim', ft = {'pubspec.yaml'} },
+    { 'hail2u/vim-css3-syntax',            ft = { 'vim-plug', 'php', 'html', 'javascript', 'css', 'less' } },
+    { 'tiagofumo/dart-vim-flutter-layout', ft = { 'dart' } },
+    { 'dart-lang/dart-vim-plugin',         ft = { 'dart' },                                              config = cfg('plugincfg.dart-vim') },
+    { 'f-person/pubspec-assist-nvim',      ft = { 'pubspec.yaml' } },
 
     -- Editor Enhancement
     {
@@ -64,7 +64,7 @@ require('lazy').setup({
         end,
     },
     { 'hiphish/rainbow-delimiters.nvim', event = 'VeryLazy' },
-    { 'jiangmiao/auto-pairs', event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
+    { 'jiangmiao/auto-pairs',            event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
     {
         'lukas-reineke/indent-blankline.nvim',
         main = 'ibl',
@@ -109,20 +109,20 @@ require('lazy').setup({
         'tpope/vim-commentary',
         config = function()
             vim.keymap.set('n', '<leader>cc', '<Plug>CommentaryLine')
-            vim.keymap.set({'n', 'x'}, '<leader>c', '<Plug>Commentary')
+            vim.keymap.set({ 'n', 'x' }, '<leader>c', '<Plug>Commentary')
         end,
     },
     'AndrewRadev/splitjoin.vim',
 
     -- Snippets
-    { 'honza/vim-snippets', lazy = true },
+    { 'honza/vim-snippets',    lazy = true },
     'kana/vim-textobj-user',
 
     -- Other
     { 'KabbAmine/vCoolor.vim', cmd = { 'VCoolor' } },
     {
         'junegunn/goyo.vim',
-        cmd = {'Goyo'},
+        cmd = { 'Goyo' },
         keys = {
             { '<leader>gy', ':Goyo<cr>', mode = '' },
         },
@@ -141,12 +141,12 @@ require('lazy').setup({
             require('alpha').setup(require('plugincfg.alpha-theme').config)
         end,
     },
-    { 'mbbill/undotree', config = cfg('plugincfg.undotree'), cmd = {'UndotreeToggle'} },
+    { 'mbbill/undotree',       config = cfg('plugincfg.undotree'), cmd = { 'UndotreeToggle' } },
 
     -- Loom (local)
     {
         'zlj-zz/loom.nvim',
-        dir=utils.lazy_safe_dif('~/projects/loom.nvim'),
+        dir = utils.lazy_safe_dif('~/projects/loom.nvim'),
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = cfg('plugincfg.loom'),
     },
@@ -208,7 +208,7 @@ require('lazy').setup({
     },
     {
         'zlj-zz/codewindow.nvim',
-        dir=utils.lazy_safe_dif('~/projects/codewindow.nvim'),
+        dir = utils.lazy_safe_dif('~/projects/codewindow.nvim'),
         event = 'VeryLazy',
         config = function()
             local cw = require('codewindow')
@@ -321,12 +321,12 @@ require('lazy').setup({
     {
         'iamcco/markdown-preview.nvim',
         build = function() vim.fn['mkdp#util#install_sync']() end,
-        ft = {'markdown'},
+        ft = { 'markdown' },
         config = cfg('plugincfg.markdownpreview'),
     },
     {
         'dhruvasagar/vim-table-mode',
-        cmd = {'TableModeToggle'},
+        cmd = { 'TableModeToggle' },
         init = function()
             vim.g.table_mode_cell_text_object_i_map = 'k<Bar>'
         end,
@@ -334,10 +334,10 @@ require('lazy').setup({
             { '<leader>tm', ':TableModeToggle<cr>', mode = '' },
         },
     },
-    { 'mzlogin/vim-markdown-toc', ft = {'gitignore', 'markdown'} },
+    { 'mzlogin/vim-markdown-toc', ft = { 'gitignore', 'markdown' } },
     {
         'theniceboy/bullets.vim',
-        ft = {'markdown'},
+        ft = { 'markdown' },
         init = function()
             vim.g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'scratch' }
         end,

@@ -13,9 +13,11 @@ g.nvim_path = fn.stdpath('config')
 
 -- whether running in windows
 g.isWin = 0
-local win_lis = {'win32', 'win64', 'win95', 'win16'}
+local win_lis = { 'win32', 'win64', 'win95', 'win16' }
 for _, v in pairs(win_lis) do
-    if fn.has(v) == 1 then g.isWin = 1; break end
+    if fn.has(v) == 1 then
+        g.isWin = 1; break
+    end
 end
 
 -- whether running in gui
@@ -48,14 +50,13 @@ if uv.fs_stat(specific_file) == nil then
 
         vim.cmd('e ' .. specific_file)
     end
-
 else
     require('_machine_specific')
 end
 
 -- create temp folder, create undo folder if have plugin persistent_undo
 -- path = `~/.tmp`
-local temps = {'backup', 'undo', 'sessions'}
+local temps = { 'backup', 'undo', 'sessions' }
 local temp_dir = g.home_path .. '/.tmp'
 
 if uv.fs_stat(temp_dir) == nil then
