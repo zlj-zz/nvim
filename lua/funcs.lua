@@ -105,12 +105,32 @@ end
 ---Close current buffer and switch to the previous one.
 ---If only one listed buffer remains, quit the window instead.
 ---Prompts for confirmation if the buffer has unsaved changes.
-M.buf_close = function()
+M.smart_close = function()
+    local wins = vim.tbl_filter(function(w)
+        local buf = api.nvim_win_get_buf(w)
+        return vim.bo[buf].buflisted
+    end, api.nvim_list_wins())
+
+    -- In a split: just close the current window, keep the buffer
+    if #wins > 1 then
+        local cur = api.nvim_get_current_buf()
+        local modified = fn.getbufvar(cur, '&modified') == 1
+        if modified then
+            if not confirm_close('Buffer has unsaved changes. Close window anyway?') then
+                return
+            end
+            vim.cmd('q!')
+        else
+            vim.cmd('q')
+        end
+        return
+    end
+
     local buf_list = fn.getbufinfo({ buflisted = 1 })
     local cur = api.nvim_get_current_buf()
     local modified = fn.getbufvar(cur, '&modified') == 1
 
-    -- Only one buffer left: close the window (quit nvim if last window)
+    -- Only one buffer left: quit nvim
     if #buf_list <= 1 then
         if modified then
             if not confirm_close('Buffer has unsaved changes. Quit anyway?') then
