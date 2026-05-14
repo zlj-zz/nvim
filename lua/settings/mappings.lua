@@ -1,5 +1,4 @@
 local map = {
-    { 'n', ';',                ':',                                                                         { silent = false, nowait = true } },
 
     -- [file option]
     { '',  'S',                ':w<CR>',                                                                    { noremap = false } },
@@ -14,7 +13,7 @@ local map = {
 
     { 'n', 'Y',                'y$' },
     { 'v', 'Y',                '"+y' },
-    { '',  '<C-a>',            'ggVG',                                                                      { noremap = false } },
+    { 'n', '<leader>va',       'ggVG',                                                                      { noremap = false } },
 
     -- [cursor movement]
     { '',  'K',                '5k' },
@@ -91,6 +90,9 @@ local map = {
     -- format (VS Code style: Shift+Alt+F)
     { 'n', '<leader>cf',       ':Format<CR>' },
     { 'v', '<leader>cf',       ':Format<CR>' },
+
+    -- quickfix
+    { 'n', '<leader>qf',       ':copen<CR>' },
 
     -- find the conflict line of git
     { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },

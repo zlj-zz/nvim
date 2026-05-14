@@ -141,10 +141,17 @@ require('lazy').setup({
         end,
     },
     {
-        'tpope/vim-commentary',
+        'numToStr/Comment.nvim',
         config = function()
-            vim.keymap.set('n', '<leader>cc', '<Plug>CommentaryLine')
-            vim.keymap.set({ 'n', 'x' }, '<leader>c', '<Plug>Commentary')
+            require('Comment').setup({
+                toggler = {
+                    line = '<leader>cc',
+                },
+                opleader = {
+                    line = '<leader>c',
+                    block = '<leader>b',
+                },
+            })
         end,
     },
     'AndrewRadev/splitjoin.vim',
