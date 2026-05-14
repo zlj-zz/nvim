@@ -1,4 +1,5 @@
 local api = vim.api
+local funcs = require('funcs')
 
 local group = api.nvim_create_augroup('ZACHARY_GROUP', { clear = true })
 
@@ -74,4 +75,27 @@ api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
 -- Close NvimTree if it's the last window.
 api.nvim_create_autocmd({"QuitPre"}, {
     callback = function() vim.cmd("NvimTreeClose") end,
+})
+
+-- Terminal: open file path on current line in editing area.
+api.nvim_create_autocmd('TermOpen', {
+    group = group,
+    callback = function(args)
+        local opts = { buffer = args.buf, silent = true }
+        vim.keymap.set({ 't', 'n' }, '<C-o>', funcs.open_file_from_terminal, opts)
+
+        -- macOS: Cmd+Click may be intercepted by the terminal; use Ctrl+Click as fallback.
+        local mouse_fn = function()
+            local pos = vim.fn.getmousepos()
+            if pos.winid == 0 then
+                return
+            end
+            local win_buf = api.nvim_win_get_buf(pos.winid)
+            local lines = api.nvim_buf_get_lines(win_buf, pos.line - 1, pos.line, false)
+            funcs.open_file_from_terminal_line(lines[1])
+        end
+        vim.keymap.set({ 't', 'n' }, '<C-LeftMouse>', mouse_fn, opts)
+        vim.keymap.set({ 't', 'n' }, '<D-LeftMouse>', mouse_fn, opts)
+    end,
+    desc = 'Open file from terminal line in editing area',
 })

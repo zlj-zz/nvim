@@ -167,5 +167,75 @@ M.smart_close = function()
     end
 end
 
+local function extract_path(line)
+    line = line:match('^%s*(.-)%s*$')
+    local path = line:match('^%S+%s+(.-)%s*$')
+    if path then
+        local renamed = path:match('^.-%s+->%s+(.-)%s*$')
+        return renamed or path
+    end
+    if line:match('^[%w_%-%./]+$') then
+        return line
+    end
+    return nil
+end
+
+local function find_editable_win(exclude_win)
+    for _, win in ipairs(api.nvim_list_wins()) do
+        if win ~= exclude_win then
+            local buf = api.nvim_win_get_buf(win)
+            if vim.bo[buf].buftype ~= 'terminal' and vim.bo[buf].filetype ~= 'NvimTree' then
+                return win
+            end
+        end
+    end
+    return nil
+end
+
+local function notify_and_restore(msg)
+    vim.notify(msg, vim.log.levels.WARN)
+    vim.cmd('startinsert')
+end
+
+local function open_path_in_editor(path)
+    local abs_path = fn.filereadable(path) == 1 and path or (fn.getcwd() .. '/' .. path)
+    if fn.filereadable(abs_path) ~= 1 then
+        return nil, 'File not found: ' .. abs_path
+    end
+
+    local term_win = api.nvim_get_current_win()
+    vim.cmd('wincmd p')
+    local cur_buf = api.nvim_win_get_buf(0)
+    if vim.bo[cur_buf].buftype == 'terminal' or vim.bo[cur_buf].filetype == 'NvimTree' then
+        local win = find_editable_win(term_win)
+        api.nvim_set_current_win(win or term_win)
+    end
+
+    vim.cmd('e ' .. fn.fnameescape(abs_path))
+    return true
+end
+
+M.open_file_from_terminal = function()
+    vim.cmd('stopinsert')
+    local path = extract_path(fn.getline('.'))
+    if not path then
+        notify_and_restore('No file path found on current line')
+        return
+    end
+
+    local ok, err = open_path_in_editor(path)
+    if not ok then
+        notify_and_restore(err)
+    end
+end
+
+M.open_file_from_terminal_line = function(line_str)
+    local path = extract_path(line_str)
+    if not path then
+        return
+    end
+    open_path_in_editor(path)
+end
+
 return M
 
