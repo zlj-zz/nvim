@@ -34,10 +34,10 @@ local map = {
 
     -- [window management]
     { '',  's',                '<nop>' },
-    { '',  'sk',               ':set nosplitbelow<CR>:split<CR>:e' },
-    { '',  'sj',               ':set splitbelow<CR>:split<CR>:e' },
-    { '',  'sh',               ':set nosplitright<CR>:vsplit<CR>:e' },
-    { '',  'sl',               ':set splitright<CR>:vsplit<CR>:e' },
+    { '',  'sk',               function() require('funcs').telescope_split('set nosplitbelow | split') end },
+    { '',  'sj',               function() require('funcs').telescope_split('set splitbelow | split') end },
+    { '',  'sh',               function() require('funcs').telescope_split('set nosplitright | vsplit') end },
+    { '',  'sl',               function() require('funcs').telescope_split('set splitright | vsplit') end },
 
     { 'n', 'tl',               '<C-w>l' },
     { 'n', 'tk',               '<C-w>k' },

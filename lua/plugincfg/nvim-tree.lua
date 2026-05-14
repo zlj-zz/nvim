@@ -15,7 +15,7 @@ require('nvim-tree').setup({
     filters = {},
     git = {
         enable = true,
-        ignore = true,
+        ignore = false,
     },
     actions = {
         open_file = {

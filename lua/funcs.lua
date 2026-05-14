@@ -85,6 +85,18 @@ M.get_time = function()
 
 end
 
+---Split window then open telescope file picker (fallback to :e if no telescope).
+---@param split_cmd string
+M.telescope_split = function(split_cmd)
+    local ok, builtin = pcall(require, 'telescope.builtin')
+    if ok then
+        vim.cmd(split_cmd)
+        builtin.find_files()
+    else
+        vim.cmd(split_cmd .. ' | e')
+    end
+end
+
 local function confirm_close(msg)
     local choice = fn.confirm(msg, '&Yes\n&No', 2)
     return choice == 1
