@@ -240,22 +240,24 @@ require('lazy').setup({
         end,
     },
     {
-        'zlj-zz/codewindow.nvim',
-        dir = utils.lazy_safe_dif('~/projects/codewindow.nvim'),
-        event = 'VeryLazy',
-        config = function()
-            local cw = require('codewindow')
-            cw.setup({
+        'Isrothy/neominimap.nvim',
+        version = "v3.x.x",
+        lazy = false,
+        init = function()
+            -- The following options are recommended when layout == "float"
+            vim.opt.wrap = false
+            vim.opt.sidescrolloff = 36 -- Set a large value
+
+            vim.g.neominimap = {
                 auto_enable = true,
-                minimap_width = 15,
-                width_multiplier = 1,
+                width = 15,
                 exclude_filetypes = { 'help', 'alpha', 'lazy', 'mason' },
-                z_index = 10,
-                window_border = 'none',
-                screen_bounds = 'background',
-            })
-            cw.apply_default_keybinds()
+            }
         end,
+        keys = {
+            { '<leader>nm', '<cmd>Neominimap Toggle<cr>',  desc = 'Toggle minimap' },
+            { '<leader>nr', '<cmd>Neominimap Refresh<cr>', desc = 'Refresh minimap' },
+        },
     },
     -- Disabled: which-key popups interrupt fast typing flow.
     -- {

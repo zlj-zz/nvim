@@ -41,16 +41,15 @@ require('flutter-tools').setup({
             -- Enable document color via built-in LSP (Neovim 0.12+)
             vim.lsp.document_color.enable(true, bufnr, { style = 'virtual' })
 
-            -- Reuse existing LSP keymaps
+            -- LSP keymaps (buffer-local)
             local opts = { buffer = bufnr, silent = true }
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
             vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
             vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+            vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
             vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
-            vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, opts)
 
             if client:supports_method('textDocument/formatting') then
                 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -69,15 +68,3 @@ require('flutter-tools').setup({
         },
     },
 })
-
--- Flutter-specific keymaps
-local map = require('utils').map
-map('n', '<leader>fr', ':FlutterRun<CR>')
-map('n', '<leader>fR', ':FlutterRestart<CR>')
-map('n', '<leader>fq', ':FlutterQuit<CR>')
-map('n', '<leader>fR', ':FlutterReload<CR>')
-map('n', '<leader>fo', ':FlutterOutlineToggle<CR>')
-map('n', '<leader>fd', ':FlutterDevTools<CR>')
-map('n', '<leader>fD', ':FlutterDevToolsActivate<CR>')
-map('n', '<leader>fe', ':FlutterEmulators<CR>')
-map('n', '<leader>fc', ':FlutterLogClear<CR>')
