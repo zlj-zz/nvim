@@ -31,21 +31,19 @@ end
 
 require('lazy').setup({
     -- Code language
-    { 'hail2u/vim-css3-syntax',            ft = { 'vim-plug', 'php', 'html', 'javascript', 'css', 'less' } },
     { 'tiagofumo/dart-vim-flutter-layout', ft = { 'dart' } },
-    { 'dart-lang/dart-vim-plugin',         ft = { 'dart' },                                              config = cfg('plugincfg.dart-vim') },
+    { 'dart-lang/dart-vim-plugin',         ft = { 'dart' },        config = cfg('plugincfg.dart-vim') },
     { 'f-person/pubspec-assist-nvim',      ft = { 'pubspec.yaml' } },
 
     -- Editor Enhancement
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
         config = function()
-            local ok, configs = pcall(require, 'nvim-treesitter.configs')
-            if not ok then
-                return
-            end
-            configs.setup({
+            require('nvim-treesitter').setup({
                 ensure_installed = {
                     'python', 'lua', 'vim', 'vimdoc',
                     'javascript', 'typescript',
@@ -59,12 +57,50 @@ require('lazy').setup({
                 indent = { enable = true },
                 auto_install = true,
             })
+
+            -- nvim-treesitter-textobjects v1.0+ requires manual keymap binding
+            require('nvim-treesitter-textobjects').setup({
+                select = { lookahead = true },
+                move = { set_jumps = true },
+            })
+
+            local ts_select = require('nvim-treesitter-textobjects.select')
+            vim.keymap.set({ 'x', 'o' }, 'af', function() ts_select.select_textobject('@function.outer') end)
+            vim.keymap.set({ 'x', 'o' }, 'if', function() ts_select.select_textobject('@function.inner') end)
+            vim.keymap.set({ 'x', 'o' }, 'ac', function() ts_select.select_textobject('@class.outer') end)
+            vim.keymap.set({ 'x', 'o' }, 'ic', function() ts_select.select_textobject('@class.inner') end)
+            vim.keymap.set({ 'x', 'o' }, 'aa', function() ts_select.select_textobject('@parameter.outer') end)
+            vim.keymap.set({ 'x', 'o' }, 'ia', function() ts_select.select_textobject('@parameter.inner') end)
+            vim.keymap.set({ 'x', 'o' }, 'al', function() ts_select.select_textobject('@loop.outer') end)
+            vim.keymap.set({ 'x', 'o' }, 'il', function() ts_select.select_textobject('@loop.inner') end)
+            vim.keymap.set({ 'x', 'o' }, 'ab', function() ts_select.select_textobject('@block.outer') end)
+            vim.keymap.set({ 'x', 'o' }, 'ib', function() ts_select.select_textobject('@block.inner') end)
+
+            local ts_move = require('nvim-treesitter-textobjects.move')
+            vim.keymap.set({ 'n', 'x' }, ']f', function() ts_move.goto_next_start('@function.outer') end)
+            vim.keymap.set({ 'n', 'x' }, ']c', function() ts_move.goto_next_start('@class.outer') end)
+            vim.keymap.set({ 'n', 'x' }, '[f', function() ts_move.goto_previous_start('@function.outer') end)
+            vim.keymap.set({ 'n', 'x' }, '[c', function() ts_move.goto_previous_start('@class.outer') end)
+
             vim.opt.foldmethod = 'expr'
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end,
     },
     { 'hiphish/rainbow-delimiters.nvim', event = 'VeryLazy' },
-    { 'jiangmiao/auto-pairs',            event = 'VeryLazy', init = function() vim.g.AutoPairsMapCR = 0 end },
+    {
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
+        config = function()
+            require('nvim-autopairs').setup({
+                check_ts = true,
+                ts_config = {
+                    lua = { 'string' },
+                    javascript = { 'template_string' },
+                },
+                disable_filetype = { 'TelescopePrompt', 'spectre_panel' },
+            })
+        end,
+    },
     {
         'lukas-reineke/indent-blankline.nvim',
         main = 'ibl',
@@ -78,7 +114,7 @@ require('lazy').setup({
             })
         end,
     },
-    { 'RRethy/vim-illuminate', event = 'VeryLazy' },
+    { 'RRethy/vim-illuminate',           event = 'VeryLazy' },
 
     -- Editor Tools
     {
@@ -104,7 +140,6 @@ require('lazy').setup({
             vim.g.VM_mouse_mappings = 1
         end,
     },
-    'gcmt/wildfire.vim',
     {
         'tpope/vim-commentary',
         config = function()
@@ -141,7 +176,7 @@ require('lazy').setup({
             require('alpha').setup(require('plugincfg.alpha-theme').config)
         end,
     },
-    { 'mbbill/undotree',       config = cfg('plugincfg.undotree'), cmd = { 'UndotreeToggle' } },
+    { 'mbbill/undotree',          config = cfg('plugincfg.undotree'), cmd = { 'UndotreeToggle' } },
 
     -- Loom (local)
     {
@@ -224,11 +259,12 @@ require('lazy').setup({
             cw.apply_default_keybinds()
         end,
     },
-    {
-        'folke/which-key.nvim',
-        event = 'VeryLazy',
-        config = cfg('plugincfg.which-key'),
-    },
+    -- Disabled: which-key popups interrupt fast typing flow.
+    -- {
+    --     'folke/which-key.nvim',
+    --     event = 'VeryLazy',
+    --     config = cfg('plugincfg.which-key'),
+    -- },
     {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },

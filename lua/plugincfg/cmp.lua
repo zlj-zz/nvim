@@ -5,6 +5,12 @@ local luasnip = require('luasnip')
 require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_lua').lazy_load({ paths = vim.fn.stdpath('config') .. '/luasnippets' })
 
+-- Integrate nvim-autopairs with cmp (handles pairing on confirm)
+local ok_autopairs, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+if ok_autopairs then
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+end
+
 cmp.setup({
     snippet = {
         expand = function(args)
