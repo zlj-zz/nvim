@@ -49,9 +49,8 @@ local map = {
     { '',  '<Left>',           ':vertical resize-5<CR>' },
     { '',  '<Right>',          ':vertical resize+5<CR>' },
 
-    { '',  'c',                '<nop>' },
-    { 'n', 'ck',               '<C-w>t<C-w>K' },
-    { 'n', 'ch',               '<C-w>t<C-w>H' },
+    { 'n', 'rk',               '<C-w>t<C-w>K' },
+    { 'n', 'rh',               '<C-w>t<C-w>H' },
 
     -- [table management]
     { '',  'tn',               ':table<CR>' },
