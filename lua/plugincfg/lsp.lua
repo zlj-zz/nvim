@@ -30,7 +30,6 @@ local gopls_config = {
 
 local servers = {
     gopls = gopls_config,
-    vimls = { on_attach = on_attach, capabilities = capabilities },
     bashls = { on_attach = on_attach, capabilities = capabilities },
     jsonls = { on_attach = on_attach, capabilities = capabilities },
     html = { on_attach = on_attach, capabilities = capabilities },
@@ -38,7 +37,17 @@ local servers = {
     basedpyright = { on_attach = on_attach, capabilities = capabilities },
     -- pyright = { on_attach = on_attach, capabilities = capabilities },
     yamlls = { on_attach = on_attach, capabilities = capabilities },
-    ts_ls = { on_attach = on_attach, capabilities = capabilities },
+    vtsls = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            typescript = {
+                preferences = {
+                    importModuleSpecifier = 'relative',
+                },
+            },
+        },
+    },
     sourcekit = { on_attach = on_attach, capabilities = capabilities }, -- Swift / Objective-C
     lua_ls = {
         on_attach = on_attach,

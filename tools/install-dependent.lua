@@ -45,6 +45,7 @@ Installer.py_deps = {
 Installer.npm_deps = {
     "neovim",
     "tree-sitter-cli",
+    "@vtsls/language-server",
 }
 
 --- Output info msg to terminal.

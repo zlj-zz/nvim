@@ -248,6 +248,7 @@ require('lazy').setup({
     },
     {
         'Isrothy/neominimap.nvim',
+        dir = utils.lazy_safe_dif('~/projects/neominimap.nvim'),
         version = "v3.x.x",
         lazy = false,
         init = function()
@@ -259,6 +260,9 @@ require('lazy').setup({
                 auto_enable = true,
                 width = 15,
                 exclude_filetypes = { 'help', 'alpha', 'lazy', 'mason' },
+                viewport = {
+                    enabled = true,
+                },
             }
         end,
         keys = {
