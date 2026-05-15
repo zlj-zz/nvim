@@ -35,7 +35,8 @@ local servers = {
     jsonls = { on_attach = on_attach, capabilities = capabilities },
     html = { on_attach = on_attach, capabilities = capabilities },
     cssls = { on_attach = on_attach, capabilities = capabilities },
-    pyright = { on_attach = on_attach, capabilities = capabilities },
+    basedpyright = { on_attach = on_attach, capabilities = capabilities },
+    -- pyright = { on_attach = on_attach, capabilities = capabilities },
     yamlls = { on_attach = on_attach, capabilities = capabilities },
     ts_ls = { on_attach = on_attach, capabilities = capabilities },
     sourcekit = { on_attach = on_attach, capabilities = capabilities }, -- Swift / Objective-C

@@ -39,6 +39,7 @@ Installer.py_deps = {
     "jedi",
     "black",
     "debugpy",
+    "basedpyright",
 }
 
 Installer.npm_deps = {
