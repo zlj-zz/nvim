@@ -34,7 +34,22 @@ local servers = {
     jsonls = { on_attach = on_attach, capabilities = capabilities },
     html = { on_attach = on_attach, capabilities = capabilities },
     cssls = { on_attach = on_attach, capabilities = capabilities },
-    basedpyright = { on_attach = on_attach, capabilities = capabilities },
+    basedpyright = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            basedpyright = {
+                analysis = {
+                    typeCheckingMode = 'standard',
+                    diagnosticMode = 'openFilesOnly',
+                    useLibraryCodeForTypes = true,
+                    diagnosticSeverityOverrides = {
+                        reportUnusedParameter = 'none',
+                    },
+                },
+            },
+        },
+    },
     -- pyright = { on_attach = on_attach, capabilities = capabilities },
     yamlls = { on_attach = on_attach, capabilities = capabilities },
     vtsls = {

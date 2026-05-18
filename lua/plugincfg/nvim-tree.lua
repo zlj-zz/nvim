@@ -27,6 +27,9 @@ require('nvim-tree').setup({
         relativenumber = false,
     },
     filters = {},
+    renderer = {
+        highlight_git = 'name',
+    },
     git = {
         enable = true,
         ignore = false,
