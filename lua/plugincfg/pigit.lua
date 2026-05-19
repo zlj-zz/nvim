@@ -5,4 +5,5 @@ require('pigit').setup({
     open_on_enter = 'none',
 })
 
-map('n', ',p', '<cmd>PigitRepos<CR>')
+map('n', ',pp', '<cmd>PigitRepos<CR>')
+map('n', ',ps', '<cmd>PigitStatus<CR>')
