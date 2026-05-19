@@ -202,6 +202,12 @@ require('lazy').setup({
         config = cfg('plugincfg.telescope'),
     },
     {
+        'zlj-zz/pigit.nvim',
+        dir = utils.lazy_safe_dif('~/projects/pigit.nvim'),
+        dependencies = { 'nvim-telescope/telescope.nvim' },
+        config = cfg('plugincfg.pigit'),
+    },
+    {
         'stevearc/aerial.nvim',
         dependencies = {
             'nvim-treesitter/nvim-treesitter',

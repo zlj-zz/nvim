@@ -20,7 +20,8 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzf')
 
-map('n', ',f', '<cmd>Telescope live_grep<cr>')
+map('n', ',g', '<cmd>Telescope live_grep<cr>')
+map('n', ',f', '<cmd>Telescope find_files<cr>')
 map('n', ',h', '<cmd>Telescope oldfiles<cr>')
 map('n', ',b', '<cmd>Telescope buffers<cr>')
 map('n', ',l', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
