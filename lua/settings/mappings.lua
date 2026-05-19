@@ -97,6 +97,10 @@ local map = {
     -- quickfix
     { 'n', '<leader>qf',       ':copen<CR>' },
 
+    -- [search/replace in current buffer]
+    { 'n', '<leader>sr',       function() require('funcs').replace_float() end },
+    { 'v', '<leader>sr',       function() require('funcs').replace_float_visual() end },
+
     -- find the conflict line of git
     { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },
 
