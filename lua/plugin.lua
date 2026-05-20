@@ -109,7 +109,7 @@ require('lazy').setup({
                 indent = { char = '┆' },
                 scope = { enabled = true },
                 exclude = {
-                    filetypes = { 'help', 'terminal', 'alpha', 'lazy' },
+                    filetypes = { 'help', 'terminal', 'dashboard', 'lazy' },
                 },
             })
         end,
@@ -175,11 +175,10 @@ require('lazy').setup({
         config = cfg('plugincfg.toggleterm'),
     },
     {
-        'goolord/alpha-nvim',
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('alpha').setup(require('plugincfg.alpha-theme').config)
-        end,
+        config = cfg('plugincfg.dashboard'),
     },
     { 'mbbill/undotree',          config = cfg('plugincfg.undotree'), cmd = { 'UndotreeToggle' } },
 
@@ -265,7 +264,7 @@ require('lazy').setup({
             vim.g.neominimap = {
                 auto_enable = true,
                 width = 15,
-                exclude_filetypes = { 'help', 'alpha', 'lazy', 'mason' },
+                exclude_filetypes = { 'help', 'dashboard', 'lazy', 'mason' },
                 viewport = {
                     enabled = true,
                 },
