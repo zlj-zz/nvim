@@ -440,6 +440,7 @@ M.replace_float = function(prefill_search)
 		clear_highlight()
 		api.nvim_clear_autocmds({ group = augroup })
 		api.nvim_win_close(win, true)
+		vim.cmd("stopinsert")
 		if search ~= "" then
 			local ok, err = pcall(function()
 				if is_regex then
@@ -473,6 +474,7 @@ M.replace_float = function(prefill_search)
 		clear_highlight()
 		api.nvim_clear_autocmds({ group = augroup })
 		api.nvim_win_close(win, true)
+		vim.cmd("stopinsert")
 	end
 
 	vim.keymap.set("n", "<CR>", confirm, { buffer = buf })
