@@ -11,6 +11,16 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
 
+    -- Inlay hints
+    if client:supports_method('textDocument/inlayHint') then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
+
+    -- Code Lens
+    if client:supports_method('textDocument/codeLens') then
+        vim.lsp.codelens.enable(true, { bufnr = bufnr })
+        vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, opts)
+    end
 end
 
 local gopls_config = {
@@ -24,6 +34,15 @@ local gopls_config = {
             },
             staticcheck = true,
             gofumpt = true,
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            },
         },
     },
 }
