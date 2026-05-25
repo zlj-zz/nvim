@@ -86,6 +86,27 @@ require('lazy').setup({
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end,
     },
+    {
+        'Bekaboo/dropbar.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
+        config = function()
+            require('dropbar').setup({
+                menu = {
+                    preview = true,
+                    keymaps = {
+                        ['h'] = '<C-w>q',
+                        ['l'] = function()
+                            local menu = require('dropbar.utils').menu.get_current()
+                            if not menu then return end
+                            local cursor = vim.api.nvim_win_get_cursor(menu.win)
+                            local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+                            if component then menu:click_on(component, nil, 1, 'l') end
+                        end,
+                    },
+                },
+            })
+        end,
+    },
     { 'hiphish/rainbow-delimiters.nvim', event = 'VeryLazy' },
     {
         'windwp/nvim-autopairs',
