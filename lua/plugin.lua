@@ -216,13 +216,36 @@ require('lazy').setup({
     },
 
     -- Style
+    -- {
+    --     'AlexvZyl/nordic.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require('nordic').setup({})
+    --         vim.cmd.colorscheme('nordic')
+    --     end,
+    -- },
+    -- {
+    --     'folke/tokyonight.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require('tokyonight').setup({
+    --             style = 'storm',
+    --         })
+    --         vim.cmd.colorscheme('tokyonight')
+    --     end,
+    -- },
     {
-        'AlexvZyl/nordic.nvim',
+        'catppuccin/nvim',
+        name = 'catppuccin',
         lazy = false,
         priority = 1000,
         config = function()
-            require('nordic').setup({})
-            vim.cmd.colorscheme('nordic')
+            require('catppuccin').setup({
+                flavour = 'macchiato',
+            })
+            vim.cmd.colorscheme('catppuccin')
         end,
     },
     {
@@ -399,7 +422,7 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'nordic' },
+        colorscheme = { 'catppuccin' },
     },
 })
 
