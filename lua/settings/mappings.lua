@@ -101,8 +101,8 @@ local map = {
     { 'n', '<leader>sr',       function() require('funcs').replace_float() end },
     { 'v', '<leader>sr',       function() require('funcs').replace_float_visual() end },
 
-    -- find the conflict line of git
-    { '',  '<leader>fc',       '/\\v^[<\\|=>]{7}( .*\\|$)<CR>' },
+    -- git conflict picker
+    { 'n', '<leader>fc',       function() require('git-conflicts').picker() end },
 
     -- functions
     { 'n', '<leader>go',       '<cmd>lua require"funcs".open_curr_on_browser()<cr>' },
