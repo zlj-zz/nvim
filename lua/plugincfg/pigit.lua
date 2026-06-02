@@ -7,3 +7,4 @@ require('pigit').setup({
 
 map('n', ',pp', '<cmd>PigitRepos<CR>')
 map('n', ',ps', '<cmd>PigitStatus<CR>')
+map('n', ',pg', '<cmd>PigitTerm<CR>')
