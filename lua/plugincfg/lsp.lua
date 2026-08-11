@@ -21,6 +21,16 @@ local function on_attach(client, bufnr)
         vim.lsp.codelens.enable(true, { bufnr = bufnr })
         vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, opts)
     end
+
+    -- highlight word under cursor (replaces vim-illuminate)
+    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        buffer = bufnr,
+        callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd('CursorMoved', {
+        buffer = bufnr,
+        callback = vim.lsp.buf.clear_references,
+    })
 end
 
 local gopls_config = {

@@ -84,6 +84,9 @@ require('lazy').setup({
 
             vim.opt.foldmethod = 'expr'
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+            -- built-in rainbow brackets (replaces rainbow-delimiters.nvim)
+            require('nvim-treesitter').rainbow_setup({})
         end,
     },
     {
@@ -107,7 +110,7 @@ require('lazy').setup({
             })
         end,
     },
-    { 'hiphish/rainbow-delimiters.nvim', event = 'VeryLazy' },
+
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
@@ -135,7 +138,6 @@ require('lazy').setup({
             })
         end,
     },
-    { 'RRethy/vim-illuminate',           event = 'VeryLazy' },
 
     -- Editor Tools
     {
@@ -430,7 +432,6 @@ require('lazy').setup({
             { '<leader>tm', ':TableModeToggle<cr>', mode = '' },
         },
     },
-    { 'mzlogin/vim-markdown-toc', ft = { 'gitignore', 'markdown' } },
     {
         'theniceboy/bullets.vim',
         ft = { 'markdown' },
