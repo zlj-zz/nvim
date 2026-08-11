@@ -31,7 +31,6 @@ end
 
 require('lazy').setup({
     -- Code language
-    { 'tiagofumo/dart-vim-flutter-layout', ft = { 'dart' } },
     { 'dart-lang/dart-vim-plugin',         ft = { 'dart' },        config = cfg('plugincfg.dart-vim') },
     { 'f-person/pubspec-assist-nvim',      ft = { 'pubspec.yaml' } },
 
@@ -179,8 +178,6 @@ require('lazy').setup({
     },
     'AndrewRadev/splitjoin.vim',
 
-    -- Snippets
-    'kana/vim-textobj-user',
 
     -- Other
     {
