@@ -54,6 +54,7 @@ require('lazy').setup({
                 },
                 highlight = { enable = true },
                 indent = { enable = true },
+                rainbow = { enable = true, extended_mode = true },
                 auto_install = true,
             })
 
@@ -83,9 +84,6 @@ require('lazy').setup({
 
             vim.opt.foldmethod = 'expr'
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-
-            -- built-in rainbow brackets (replaces rainbow-delimiters.nvim)
-            require('nvim-treesitter').rainbow_setup({})
         end,
     },
     {
