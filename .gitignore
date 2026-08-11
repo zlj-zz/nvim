@@ -32,3 +32,5 @@ vs-settings.json
 
 test*
 
+.pi/
+.pikb/
