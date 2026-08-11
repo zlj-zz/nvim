@@ -69,20 +69,20 @@ hl(0, 'NvimTreeGitMerge',    { fg = '#c678dd' }) -- conflict: purple
 vim.keymap.set('n', 'tt', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle nvim-tree' })
 
 -- auto open on directory, skip when opening a file (including new files)
-vim.api.nvim_create_autocmd('VimEnter', {
-    callback = function()
-        if vim.fn.argc() == 0 then
-            -- no args: nvim (opens cwd)
-            require('nvim-tree.api').tree.open()
-        else
-            local arg = vim.fn.argv(1)
-            if type(arg) == 'string' then
-                local stat = vim.loop.fs_stat(arg)
-                if stat and stat.type == 'directory' then
-                    -- first arg is a directory: nvim .
-                    require('nvim-tree.api').tree.open()
-                end
-            end
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd('VimEnter', {
+--     callback = function()
+--         if vim.fn.argc() == 0 then
+--             -- no args: nvim (opens cwd)
+--             require('nvim-tree.api').tree.open()
+--         else
+--             local arg = vim.fn.argv(1)
+--             if type(arg) == 'string' then
+--                 local stat = vim.loop.fs_stat(arg)
+--                 if stat and stat.type == 'directory' then
+--                     -- first arg is a directory: nvim .
+--                     require('nvim-tree.api').tree.open()
+--                 end
+--             end
+--         end
+--     end,
+-- })

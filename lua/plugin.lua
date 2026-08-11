@@ -255,15 +255,20 @@ require('lazy').setup({
     --     end,
     -- },
     {
-        'catppuccin/nvim',
-        name = 'catppuccin',
+        'silentium-theme/silentium.nvim',
+        name = 'silentium',
         lazy = false,
         priority = 1000,
         config = function()
-            require('catppuccin').setup({
-                flavour = 'macchiato',
+            local silentium = require('silentium')
+            silentium.setup({
+                accent = '#f89a8a',
+                dark = '#232323',
+                light_gray = '#c2c2c2',
             })
-            vim.cmd.colorscheme('catppuccin')
+            vim.cmd.colorscheme('silentium')
+            -- brighter inlay hints
+            vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = '#737373', italic = true })
         end,
     },
     {
@@ -439,7 +444,7 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'catppuccin' },
+        colorscheme = { 'silentium' },
     },
 })
 
