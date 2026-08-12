@@ -23,14 +23,16 @@ local function on_attach(client, bufnr)
     end
 
     -- highlight word under cursor (replaces vim-illuminate)
-    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-        buffer = bufnr,
-        callback = vim.lsp.buf.document_highlight,
-    })
-    vim.api.nvim_create_autocmd('CursorMoved', {
-        buffer = bufnr,
-        callback = vim.lsp.buf.clear_references,
-    })
+    if client:supports_method('textDocument/documentHighlight') then
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
 end
 
 local gopls_config = {
