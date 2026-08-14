@@ -266,9 +266,16 @@ require('lazy').setup({
                 dark = '#232323',
                 light_gray = '#c2c2c2',
             })
-            vim.cmd.colorscheme('silentium')
-            -- brighter inlay hints
-            vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = '#737373', italic = true })
+        end,
+    },
+    {
+        'evergardentheme/nvim',
+        name = 'evergarden',
+        lazy = false,
+        priority = 1001,
+        config = function()
+            require('evergarden').setup({ theme = { variant = 'winter' } })
+            vim.cmd.colorscheme('evergarden')
         end,
     },
     {
@@ -417,10 +424,10 @@ require('lazy').setup({
 
     -- Markdown
     {
-        'iamcco/markdown-preview.nvim',
-        build = function() vim.fn['mkdp#util#install_sync']() end,
+        'MeanderingProgrammer/render-markdown.nvim',
         ft = { 'markdown' },
-        config = cfg('plugincfg.markdownpreview'),
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        opts = {},
     },
     {
         'dhruvasagar/vim-table-mode',
@@ -444,9 +451,12 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'silentium' },
+        colorscheme = { 'evergarden' },
     },
 })
 
 -- macOS input method auto-switch (no plugin download, uses system im-select)
 require('plugincfg.im-select')
+
+-- theme switcher
+require('theme')
