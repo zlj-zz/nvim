@@ -427,7 +427,26 @@ require('lazy').setup({
         'MeanderingProgrammer/render-markdown.nvim',
         ft = { 'markdown' },
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        opts = {},
+        opts = {
+            preset = 'none',
+            max_file_size = 10.0,
+            debounce = 100,
+            heading = {
+                sign = true,
+                icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+            },
+            code = {
+                sign = false,
+                width = 'block',
+                disable_background = { 'markdown' },
+            },
+            checkbox = {
+                enabled = true,
+                unchecked = { icon = '󰄱 ' },
+                checked = { icon = '󰱒 ' },
+            },
+            table = { enabled = true },
+        },
     },
     {
         'dhruvasagar/vim-table-mode',
