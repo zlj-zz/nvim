@@ -437,7 +437,7 @@ require('lazy').setup({
             },
             code = {
                 sign = false,
-                width = 'block',
+                width = 'full',
                 disable_background = { 'markdown' },
             },
             checkbox = {
@@ -446,6 +446,21 @@ require('lazy').setup({
                 checked = { icon = '󰱒 ' },
             },
             table = { enabled = true },
+            pipe_table = {
+                preset = 'none',
+                cell = 'trimmed',
+                style = 'normal',
+                padding = 1,
+                border = {
+                    '', '', '',
+                    '', ' ', '',
+                    '', '', '',
+                    ' ', '─',
+                },
+            },
+        },
+        keys = {
+            { '<leader>mr', '<cmd>RenderMarkdown toggle<cr>', desc = 'Toggle markdown render' },
         },
     },
     {
