@@ -95,6 +95,7 @@ local servers = {
         },
     },
     sourcekit = { on_attach = on_attach, capabilities = capabilities }, -- Swift / Objective-C
+    rust_analyzer = { on_attach = on_attach, capabilities = capabilities },
     lua_ls = {
         on_attach = on_attach,
         capabilities = capabilities,

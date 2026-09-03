@@ -107,7 +107,7 @@ Después de la instalación, ejecuta `checkhealth` en Neovim.
 
 | Plugin | Propósito |
 |--------|---------|
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP integrado (Go, Vim, Bash, ...) |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP integrado (Go, Rust, Vim, Bash, ...) |
 | [flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim) | Flutter / Dart (LSP, recarga en caliente, árbol de símbolos) |
 | [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax) | Sintaxis CSS3 |
 | [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Vista previa de Markdown en el navegador |
@@ -319,6 +319,10 @@ npm install -g typescript-language-server
 
 # YAML
 npm install -g yaml-language-server
+
+# Rust (rustup también provee rustc / cargo)
+brew install rustup
+rustup component add rust-analyzer
 
 # Swift (macOS, comes with Xcode CLI)
 xcode-select --install
