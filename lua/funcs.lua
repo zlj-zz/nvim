@@ -260,7 +260,7 @@ M.replace_float = function(prefill_search)
 		border = "single",
 		title = get_title(),
 		title_pos = "center",
-		footer = { { " 0 matches ", "Comment" } },
+		footer = { { " C-s confirm · C-x regex · Esc exit ", "Comment" }, { " 0 matches ", "Comment" } },
 		footer_pos = "right",
 	})
 
@@ -377,7 +377,10 @@ M.replace_float = function(prefill_search)
 			last_display.mode = is_regex
 			pcall(api.nvim_win_set_config, win, {
 				title = get_title(),
-				footer = { { " " .. count .. " matches ", "Comment" } },
+				footer = {
+					{ " C-s confirm · C-x regex · Esc exit ", "Comment" },
+					{ " " .. count .. " matches ", "Comment" },
+				},
 				footer_pos = "right",
 			})
 		end
@@ -478,6 +481,12 @@ M.replace_float = function(prefill_search)
 	end
 
 	vim.keymap.set("n", "<CR>", confirm, { buffer = buf })
+	vim.keymap.set("i", "<CR>", function()
+		-- Enter does NOT confirm (use C-s); on the Search row it only jumps to the Replace row, avoiding stray blank lines
+		if api.nvim_win_get_cursor(win)[1] == 1 then
+			cycle_input()
+		end
+	end, { buffer = buf })
 	vim.keymap.set("i", "<C-s>", confirm, { buffer = buf })
 	vim.keymap.set("i", "<Tab>", cycle_input, { buffer = buf })
 	vim.keymap.set("i", "<C-x>", toggle_regex, { buffer = buf })
