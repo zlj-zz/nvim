@@ -316,6 +316,17 @@ return {
 					mappings = {
 						["<C-t>"] = "navigate_up",
 						["?"] = "show_help",
+						-- Free `t` for global t* maps (tt / th / ti / …).
+						-- Default `t`=open_tabnew → unused `O` (T stays trash).
+						["t"] = "none",
+						["O"] = "open_tabnew",
+						-- Preview mode: j/k updates the editor pane without pinning buffers.
+						-- Leave the tree (or press P again) to revert; <CR> still opens for real.
+						["P"] = {
+							"toggle_preview",
+							config = { use_float = false },
+						},
+						["l"] = "focus_preview",
 					},
 				},
 				filesystem = {
@@ -326,6 +337,15 @@ return {
 						visible = false,
 						hide_dotfiles = false,
 						hide_gitignored = false,
+					},
+					window = {
+						mappings = {
+							-- Soft open: same as preview toggle for mouse/keyboard browse.
+							["<Tab>"] = {
+								"toggle_preview",
+								config = { use_float = false },
+							},
+						},
 					},
 				},
 			})
