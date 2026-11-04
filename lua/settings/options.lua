@@ -31,6 +31,10 @@ return {
 	mouse = 'a',
 	scrolloff = 5,
 	updatetime = 200,
+	lazyredraw = true,
+
+	undofile = true,
+	undodir = vim.g.home_path .. '/.tmp/undo',
 
 	-- cursor can swap line.
 	backspace = 'eol,start,indent',

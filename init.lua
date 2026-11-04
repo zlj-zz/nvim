@@ -1,0 +1,5 @@
+require('env')
+require('settings')()
+require('plugin')
+require('autocmds')
+vim.cmd('nohlsearch')

@@ -15,14 +15,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Source local vimscript plugins
-for _, name in ipairs({
-    'compile_run.vim',
-    'replace.vim',
-}) do
-    vim.cmd('source ' .. g.nvim_path .. '/customplugins/' .. name)
-end
-
 -- Helper: wrap a require call in a zero-arg function
 local function cfg(mod)
     return function() require(mod) end
@@ -53,7 +45,6 @@ require('lazy').setup({
                 },
                 highlight = { enable = true },
                 indent = { enable = true },
-                rainbow = { enable = true, extended_mode = true },
                 auto_install = true,
             })
 
@@ -342,11 +333,6 @@ require('lazy').setup({
             'stevearc/dressing.nvim',
         },
         config = cfg('plugincfg.flutter-tools'),
-    },
-
-    {
-        'vim-scripts/fcitx.vim',
-        cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
     },
 
     -- AI completion

@@ -72,10 +72,6 @@ M.buf_index = function(num)
 	vim.cmd(":" .. buf_id .. "b")
 end
 
-M.get_time = function()
-	return fn.strftime("%Y-%m-%d %H:%M:%S")
-end
-
 ---Split window then open telescope file picker (fallback to :e if no telescope).
 ---@param split_cmd string
 M.telescope_split = function(split_cmd)

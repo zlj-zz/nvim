@@ -94,7 +94,7 @@ local map = {
     -- quickfix
     { 'n', '<leader>qf',       ':copen<CR>' },
 
-    -- [search/replace in current buffer] (visual: also `rp` → RepSelc)
+    -- [search/replace in current buffer]
     { 'n', '<leader>sr',       ':%s/<C-r><C-w>//gc<Left><Left><Left>' },
     { 'v', '<leader>sr',       ':s///gc<Left><Left><Left>' },
 

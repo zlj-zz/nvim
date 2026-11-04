@@ -50,15 +50,14 @@ Open Neovim once → `:Lazy sync` → `:checkhealth`.
 
 ```text
 ~/.config/nvim
-├── init.vim                 entry → env / settings / plugins / autocmds
+├── init.lua                 entry → env / settings / plugins / autocmds
 ├── lua/
 │   ├── plugin.lua           lazy.nvim specs
 │   ├── theme.lua            colorscheme cycle + persistence
 │   ├── settings/            options · mappings
 │   ├── plugincfg/           one file per plugin
 │   ├── funcs.lua            helpers (smart close, splits, …)
-│   └── utils.lua            map / opt / autocmd wrappers
-├── customplugins/           compile_run · replace
+│   └── utils.lua            map / opt wrappers
 └── ftplugin/                filetype locals (markdown snippets, …)
 ```
 
@@ -163,7 +162,7 @@ Cycle with `<leader>tc` (persisted). Default: **nordfox**.
 | `[h` `]h` | Prev / next hunk |
 | `<leader>hp` `hb` `hs` `hr` `hd` | Preview · blame · stage · reset · diff |
 | `<leader>fc` | Git conflict picker |
-| `<leader>sr` | Substitute (`:%s` / visual `:s`; also visual `rp`) |
+| `<leader>sr` | Substitute (`:%s` / visual `:s`) |
 
 ### LSP · diagnostics · format
 
@@ -264,7 +263,6 @@ Also: `:FlutterAttach` · `:FlutterDetach` · `:FlutterCopyProfilerUrl` · `:Flu
 - **Input method** — macOS only; switches to ABC on `InsertLeave` when `im-select` is installed. Missing binary → silent no-op.
 - **Supermaven** — first run: `:SupermavenUseFree`.
 - **Local plugins** — `loom.nvim`, `pigit.nvim`, `neominimap.nvim` resolve via `dir =` under `~/projects/…`.
-- **Linux IM** — optional `fcitx.vim` when `/usr/bin/fcitx` exists.
 
 ---
 

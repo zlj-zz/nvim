@@ -21,7 +21,7 @@ api.nvim_create_autocmd('BufReadPost', {
     desc = 'Restore cursor position and open folds',
 })
 
--- Disable syntax and linting for very large files (>10 MB).
+-- Disable syntax for very large files (>10 MB).
 api.nvim_create_autocmd('BufReadPre', {
     group = group,
     pattern = '*',
@@ -29,10 +29,9 @@ api.nvim_create_autocmd('BufReadPre', {
         local fsize = vim.fn.getfsize(vim.fn.expand('%'))
         if fsize > 10000000 then
             vim.cmd('syntax off')
-            vim.g.ale_enabled = 0
         end
     end,
-    desc = 'Disable syntax/linting for large files (>10MB)',
+    desc = 'Disable syntax for large files (>10MB)',
 })
 
 -- Speed up syntax highlighting for files with >2000 lines.
