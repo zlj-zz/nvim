@@ -181,14 +181,6 @@ require('lazy').setup({
 
 
     -- Other
-    {
-        'junegunn/goyo.vim',
-        cmd = { 'Goyo' },
-        keys = {
-            { '<leader>gy', ':Goyo<cr>', mode = '' },
-        },
-    },
-
     -- File Manager / Terminal
     {
         'akinsho/toggleterm.nvim',

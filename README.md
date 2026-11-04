@@ -93,7 +93,9 @@ Source of truth for keys and plugins: `lua/settings/mappings.lua` and `lua/plugi
 |--------|------|
 | [gitsigns](https://github.com/lewis6991/gitsigns.nvim) | Hunks · blame · stage |
 | [pigit.nvim](https://github.com/zlj-zz/pigit.nvim) | Git UI (local) |
-| [flutter-tools](https://github.com/akinsho/flutter-tools.nvim) | Flutter / Dart |
+| [flutter-tools](https://github.com/akinsho/flutter-tools.nvim) | Flutter run / hot reload / Dart LSP |
+| [dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin) | Dart filetype · `dartfmt` on save |
+| [pubspec-assist](https://github.com/f-person/pubspec-assist-nvim) | `pubspec.yaml` helpers |
 | [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim) | In-buffer markdown |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI inline completion |
 | [loom.nvim](https://github.com/zlj-zz/loom.nvim) | Session / workspace snaps (local) |
@@ -167,7 +169,6 @@ Cycle with `<leader>tc` (persisted). Default: **nordfox**.
 | `<leader>tc` | Cycle theme |
 | `<leader>ls`… | Loom save / load / workspace… |
 | `<space>y` | Yank history (Telescope) |
-| `<leader>gy` | Goyo |
 | `<leader>nm` | Neominimap toggle |
 | `<F4>` | Toggle transparent background |
 
@@ -190,9 +191,53 @@ Servers are enabled in `lua/plugincfg/lsp.lua`. Install the binaries yourself:
 | HTML / CSS / JSON | `html` · `cssls` · `jsonls` |
 | YAML | `yamlls` |
 | Swift | `sourcekit` (Xcode CLI) |
-| Dart / Flutter | via flutter-tools |
+| Dart / Flutter | [flutter-tools](https://github.com/akinsho/flutter-tools.nvim) (see below) |
 
 Formatters used by conform (when available): `stylua` · `black` · `prettier` · `shfmt` · `gofumpt` / `goimports`.
+
+---
+
+## Flutter / Dart
+
+Requires the [Flutter SDK](https://docs.flutter.dev/get-started/install) on `PATH` (`flutter` · `dart`). Open a `.dart` buffer to load the stack (`ft = dart`).
+
+### What’s enabled
+
+| Feature | Detail |
+|---------|--------|
+| Dart LSP | Via flutter-tools · same keys as above (`gd` `gh` `<leader>rn` …) |
+| Format on save | LSP format + `dart_format_on_save` (line length 100) |
+| Widget guides | Vertical guides for widget tree |
+| Closing tags | Virtual `// WidgetName` after closing `)` |
+| Statusline | App version · device · project config (lualine decorations) |
+| Dev log | Opens in a new tab |
+| Document color | Swatch via `vim.lsp.document_color` (Neovim 0.12+) |
+| Outline | Prefer Aerial (`ti`); `:FlutterOutlineToggle` still available |
+
+FVM is **off** (`fvm = false`). Debugger integration is **off**.
+
+### Commands
+
+No custom `<leader>f*` maps — use commands (or `:FlutterCommands` picker):
+
+| Command | Action |
+|---------|--------|
+| `:FlutterCommands` | Command palette |
+| `:FlutterRun` | Run app |
+| `:FlutterReload` | Hot reload |
+| `:FlutterRestart` | Hot restart |
+| `:FlutterQuit` | Stop app |
+| `:FlutterDevices` | Pick device |
+| `:FlutterEmulators` | List emulators |
+| `:FlutterDevTools` | Start DevTools |
+| `:FlutterPubGet` / `:FlutterPubUpgrade` | Pub |
+| `:FlutterLogToggle` / `:FlutterLogClear` | Dev log |
+| `:FlutterLspRestart` | Restart Dart analysis server |
+| `:FlutterRename` | Project-aware rename |
+
+Also: `:FlutterAttach` · `:FlutterDetach` · `:FlutterCopyProfilerUrl` · `:FlutterOpenDevTools` · `:FlutterInspectWidget`.
+
+> Note: `<leader>fc` is the **git conflict** picker, not Flutter.
 
 ---
 
