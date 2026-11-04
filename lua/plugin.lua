@@ -293,6 +293,21 @@ require('lazy').setup({
     --     end,
     -- },
     {
+        'EdenEast/nightfox.nvim',
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        'slugbyte/lackluster.nvim',
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        'nyoom-engineering/oxocarbon.nvim',
+        lazy = false,
+        priority = 1000,
+    },
+    {
         'silentium-theme/silentium.nvim',
         name = 'silentium',
         lazy = false,
@@ -310,10 +325,9 @@ require('lazy').setup({
         'evergardentheme/nvim',
         name = 'evergarden',
         lazy = false,
-        priority = 1001,
+        priority = 1000,
         config = function()
             require('evergarden').setup({ theme = { variant = 'winter' } })
-            vim.cmd.colorscheme('evergarden')
         end,
     },
     {
@@ -523,7 +537,7 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'evergarden' },
+        colorscheme = { 'carbonfox', 'oxocarbon', 'evergarden' },
     },
 })
 

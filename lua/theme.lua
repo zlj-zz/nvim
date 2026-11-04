@@ -1,6 +1,17 @@
 -- theme switcher with persistence
-local themes = { 'evergarden', 'silentium' }
-local default_theme = 'evergarden'
+-- lackluster variants: plain / hack (author fav) / mint
+local themes = {
+    'nordfox',
+    'nightfox',
+    'carbonfox',
+    'lackluster',
+    'lackluster-hack',
+    'lackluster-mint',
+    'oxocarbon',
+    'evergarden',
+    'silentium',
+}
+local default_theme = 'nordfox'
 
 -- state file to remember last chosen theme
 local state_file = vim.fn.stdpath('state') .. '/theme.txt'
@@ -14,6 +25,7 @@ end
 
 -- apply a theme and persist it
 local function apply_theme(name, persist)
+    vim.opt.background = 'dark'
     vim.cmd.colorscheme(name)
     post_apply(name)
     if persist then
@@ -25,15 +37,19 @@ local function apply_theme(name, persist)
     end
 end
 
--- on startup: restore last theme
+-- on startup: restore last theme, else default
+local chosen = default_theme
 local f = io.open(state_file, 'r')
 if f then
     local saved = f:read('*l')
     f:close()
     if saved and vim.tbl_contains(themes, saved) then
-        apply_theme(saved, false)
-        vim.notify('Theme restored: ' .. saved, vim.log.levels.INFO)
+        chosen = saved
     end
+end
+apply_theme(chosen, false)
+if chosen ~= default_theme then
+    vim.notify('Theme restored: ' .. chosen, vim.log.levels.INFO)
 end
 
 -- <leader>tc: cycle themes and persist choice
