@@ -3,9 +3,10 @@ return {
 
 	termguicolors = true,
 	number = true,
-	relativenumber = true,
+	relativenumber = false,
 	cursorline = true,
-	cursorlineopt = 'number',
+	cursorlineopt = 'both',
+	signcolumn = 'yes',
 	encoding = 'utf-8',
 	pyxversion = 3,
 	autoread = true,

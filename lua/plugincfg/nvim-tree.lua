@@ -21,7 +21,7 @@ require('nvim-tree').setup({
     },
     sort_by = 'case_sensitive',
     view = {
-        width = 39,
+        width = 30,
         side = 'left',
         number = false,
         relativenumber = false,
@@ -29,7 +29,15 @@ require('nvim-tree').setup({
     filters = {},
     renderer = {
         highlight_git = 'name',
+        highlight_opened_files = 'name',
+        indent_markers = { enable = true },
         icons = {
+            show = {
+                file = true,
+                folder = true,
+                folder_arrow = true,
+                git = true,
+            },
             glyphs = {
                 git = {
                     unstaged = '✗',

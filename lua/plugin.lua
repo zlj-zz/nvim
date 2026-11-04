@@ -233,6 +233,18 @@ require('lazy').setup({
         'EdenEast/nightfox.nvim',
         lazy = false,
         priority = 1000,
+        config = function()
+            require('nightfox').setup({
+                options = {
+                    styles = {
+                        comments = 'italic',
+                        keywords = 'bold',
+                        types = 'italic,bold',
+                        functions = 'bold',
+                    },
+                },
+            })
+        end,
     },
     {
         'slugbyte/lackluster.nvim',
@@ -270,28 +282,7 @@ require('lazy').setup({
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            vim.opt.laststatus = 2
-            require('lualine').setup({
-                options = {
-                    theme = 'auto',
-                    component_separators = '',
-                    section_separators = '',
-                },
-                sections = {
-                    lualine_a = { 'mode' },
-                    lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { 'filename' },
-                    lualine_x = { 'encoding', 'filetype' },
-                    lualine_y = { 'progress' },
-                    lualine_z = { 'location' },
-                },
-                tabline = {
-                    lualine_a = { { 'buffers', mode = 2 } },
-                    lualine_z = { 'tabs' },
-                },
-            })
-        end,
+        config = cfg('plugincfg.lualine'),
     },
     {
         'Isrothy/neominimap.nvim',

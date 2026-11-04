@@ -1,11 +1,29 @@
+<div align="center">
+
+<img src="assets/hero.jpg" alt="Neovim Config" width="920" />
+
 # Neovim Config
 
-Personal Neovim setup built on **lazy.nvim** + **Lua**.  
-macOS / Linux first-class · Windows partial (`g.isWin` guards).
+Personal Neovim setup built on **lazy.nvim** + **Lua**
 
-```text
-Neovim ≥ 0.10  ·  lazy.nvim  ·  treesitter  ·  LSP  ·  Telescope
-```
+macOS / Linux first-class · Windows partial
+
+<br />
+
+[![Neovim](https://img.shields.io/badge/Neovim-%E2%89%A5%200.10-57A143?style=for-the-badge&logo=neovim&logoColor=white)](https://neovim.io)
+[![Lua](https://img.shields.io/badge/Config-Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org)
+[![lazy.nvim](https://img.shields.io/badge/Plugin%20Manager-lazy.nvim-1a1b26?style=for-the-badge)](https://github.com/folke/lazy.nvim)
+[![License](https://img.shields.io/badge/License-Personal-6c7086?style=for-the-badge)](#license)
+
+`treesitter` · `LSP` · `Telescope` · `Flutter` · `nordfox`
+
+<br />
+
+<img src="assets/demo.jpg" alt="Live screenshot — nordfox · nvim-tree · lualine" width="920" />
+
+<sup>Live screenshot · <code>nordfox</code> · nvim-tree · lualine</sup>
+
+</div>
 
 ---
 
