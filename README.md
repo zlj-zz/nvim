@@ -121,7 +121,7 @@ Source of truth for keys and plugins: `lua/settings/mappings.lua` and `lua/plugi
 
 Cycle with `<leader>tc` (persisted). Default: **nordfox**.
 
-`nordfox` · `nightfox` · `carbonfox` · `lackluster` · `lackluster-hack` · `lackluster-mint` · `oxocarbon` · `evergarden` · `silentium`
+`nordfox` · `nightfox` · `carbonfox`
 
 ---
 

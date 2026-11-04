@@ -238,39 +238,6 @@ require('lazy').setup({
         end,
     },
     {
-        'slugbyte/lackluster.nvim',
-        lazy = false,
-        priority = 1000,
-    },
-    {
-        'nyoom-engineering/oxocarbon.nvim',
-        lazy = false,
-        priority = 1000,
-    },
-    {
-        'silentium-theme/silentium.nvim',
-        name = 'silentium',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            local silentium = require('silentium')
-            silentium.setup({
-                accent = '#f89a8a',
-                dark = '#232323',
-                light_gray = '#c2c2c2',
-            })
-        end,
-    },
-    {
-        'evergardentheme/nvim',
-        name = 'evergarden',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('evergarden').setup({ theme = { variant = 'winter' } })
-        end,
-    },
-    {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = cfg('plugincfg.lualine'),
@@ -420,7 +387,7 @@ require('lazy').setup({
         border = 'single',
     },
     install = {
-        colorscheme = { 'carbonfox', 'oxocarbon', 'evergarden' },
+        colorscheme = { 'nordfox' },
     },
 })
 

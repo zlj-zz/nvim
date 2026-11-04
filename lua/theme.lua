@@ -1,33 +1,16 @@
--- theme switcher with persistence
--- lackluster variants: plain / hack (author fav) / mint
+-- theme switcher with persistence (nightfox family only)
 local themes = {
     'nordfox',
     'nightfox',
     'carbonfox',
-    'lackluster',
-    'lackluster-hack',
-    'lackluster-mint',
-    'oxocarbon',
-    'evergarden',
-    'silentium',
 }
 local default_theme = 'nordfox'
 
--- state file to remember last chosen theme
 local state_file = vim.fn.stdpath('state') .. '/theme.txt'
 
--- apply silentium's inlay hint fix
-local function post_apply(name)
-    if name == 'silentium' then
-        vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = '#737373', italic = true })
-    end
-end
-
--- apply a theme and persist it
 local function apply_theme(name, persist)
     vim.opt.background = 'dark'
     vim.cmd.colorscheme(name)
-    post_apply(name)
     if persist then
         local f = io.open(state_file, 'w')
         if f then
@@ -37,7 +20,7 @@ local function apply_theme(name, persist)
     end
 end
 
--- on startup: restore last theme, else default
+-- restore last theme if still in the allow-list; unknown names fall back to default
 local chosen = default_theme
 local f = io.open(state_file, 'r')
 if f then
@@ -52,7 +35,6 @@ if chosen ~= default_theme then
     vim.notify('Theme restored: ' .. chosen, vim.log.levels.INFO)
 end
 
--- <leader>tc: cycle themes and persist choice
 vim.keymap.set('n', '<leader>tc', function()
     local current = vim.g.colors_name or default_theme
     for i, name in ipairs(themes) do
