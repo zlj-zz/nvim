@@ -86,8 +86,8 @@ return {
 				ts_move.goto_previous_start("@class.outer")
 			end)
 
-			vim.opt.foldmethod = "expr"
-			vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+			-- indent folds: cheaper than treesitter foldexpr on every redraw
+			vim.opt.foldmethod = "indent"
 		end,
 	},
 	{
@@ -110,7 +110,7 @@ return {
 		config = function()
 			require("ibl").setup({
 				indent = { char = "┆" },
-				scope = { enabled = true },
+				scope = { enabled = false }, -- scope tracking ≈ treesitter-context cost
 				exclude = {
 					filetypes = { "help", "terminal", "dashboard", "lazy", "neo-tree" },
 				},

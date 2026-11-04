@@ -34,7 +34,7 @@ local options = {
 	hlsearch = true,
 	mouse = "a",
 	scrolloff = 5,
-	updatetime = 200,
+	updatetime = 1000, -- was 200; CursorHold/LSP highlight less chatty while browsing
 	lazyredraw = true,
 
 	undofile = true,
