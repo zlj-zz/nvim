@@ -76,6 +76,8 @@ Global keys → `lua/config/keymaps.lua`. Plugin keys → owning `lua/plugins/*.
 | [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim) | Winbar breadcrumbs |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics panel |
 | [lualine](https://github.com/nvim-lualine/lualine.nvim) | Statusline · buffers |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify) | Notifications |
+| [dressing.nvim](https://github.com/stevearc/dressing.nvim) | `vim.ui` input / select |
 | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | Start screen |
 | [toggleterm](https://github.com/akinsho/toggleterm.nvim) | Integrated terminal |
 | [undotree](https://github.com/mbbill/undotree) | Undo history |

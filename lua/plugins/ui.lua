@@ -1,5 +1,36 @@
 return {
 	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			local notify = require("notify")
+			notify.setup({
+				stages = "fade",
+				timeout = 3000,
+				render = "wrapped-compact",
+				fps = 60,
+			})
+			vim.notify = notify
+		end,
+	},
+	{
+		-- Pretty vim.ui.input / vim.ui.select (LSP rename, code actions, …)
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+		opts = {
+			input = {
+				border = "single",
+				relative = "cursor",
+			},
+			select = {
+				backend = { "telescope", "builtin" },
+				builtin = {
+					border = "single",
+				},
+			},
+		},
+	},
+	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()
