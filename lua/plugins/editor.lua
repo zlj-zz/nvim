@@ -112,7 +112,7 @@ return {
 				indent = { char = "┆" },
 				scope = { enabled = true },
 				exclude = {
-					filetypes = { "help", "terminal", "dashboard", "lazy" },
+					filetypes = { "help", "terminal", "dashboard", "lazy", "neo-tree" },
 				},
 			})
 		end,

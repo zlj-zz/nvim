@@ -53,7 +53,7 @@ return {
 			vim.g.neominimap = {
 				auto_enable = false,
 				width = 15,
-				exclude_filetypes = { "help", "dashboard", "lazy", "mason" },
+				exclude_filetypes = { "help", "dashboard", "lazy", "mason", "neo-tree" },
 				viewport = {
 					enabled = true,
 				},

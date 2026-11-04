@@ -278,105 +278,57 @@ return {
 		end,
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		keys = {
+			{ "tt", "<cmd>Neotree toggle filesystem left<CR>", desc = "Toggle neo-tree" },
+		},
 		config = function()
-			local function my_on_attach(bufnr)
-				local api = require("nvim-tree.api")
-
-				local function opts(desc)
-					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-				end
-
-				api.map.on_attach.default(bufnr)
-
-				vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
-				vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
-			end
-
-			require("nvim-tree").setup({
-				on_attach = my_on_attach,
-				sync_root_with_cwd = true,
-				respect_buf_cwd = true,
-				update_focused_file = {
-					enable = true,
-					update_root = true,
-				},
-				sort_by = "case_sensitive",
-				view = {
-					width = 30,
-					side = "left",
-					number = false,
-					relativenumber = false,
-				},
-				filters = {},
-				renderer = {
-					highlight_git = "name",
-					highlight_opened_files = "name",
-					indent_markers = { enable = true },
-					icons = {
-						show = {
-							file = true,
-							folder = true,
-							folder_arrow = true,
-							git = true,
-						},
-						glyphs = {
-							git = {
-								unstaged = "✗",
-								staged = "✓",
-								unmerged = "✖",
-								renamed = "➜",
-								untracked = "★",
-								deleted = "✖",
-								ignored = "◌",
-							},
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				popup_border_style = "single",
+				enable_git_status = true,
+				enable_diagnostics = true,
+				default_component_configs = {
+					indent = { with_markers = true },
+					git_status = {
+						symbols = {
+							added = "✚",
+							modified = "✗",
+							deleted = "✖",
+							renamed = "➜",
+							untracked = "★",
+							ignored = "◌",
+							unstaged = "✗",
+							staged = "✓",
+							conflict = "✖",
 						},
 					},
 				},
-				git = {
-					enable = true,
-					ignore = false,
+				window = {
+					position = "left",
+					width = 30,
+					mappings = {
+						["<C-t>"] = "navigate_up",
+						["?"] = "show_help",
+					},
 				},
-				actions = {
-					open_file = {
-						quit_on_open = false,
-						resize_window = true,
+				filesystem = {
+					follow_current_file = { enabled = true },
+					use_libuv_file_watcher = true,
+					hijack_netrw_behavior = "open_default",
+					filtered_items = {
+						visible = false,
+						hide_dotfiles = false,
+						hide_gitignored = false,
 					},
 				},
 			})
-
-			-- VS Code-style git status colors
-			local hl = vim.api.nvim_set_hl
-			hl(0, "NvimTreeGitDirty", { fg = "#e5c07b" }) -- modified: orange/yellow
-			hl(0, "NvimTreeGitStaged", { fg = "#98c379" }) -- staged: green
-			hl(0, "NvimTreeGitNew", { fg = "#98c379" }) -- untracked: green
-			hl(0, "NvimTreeGitDeleted", { fg = "#e06c75" }) -- deleted: red
-			hl(0, "NvimTreeGitIgnored", { fg = "#636e7b" }) -- ignored: gray
-			hl(0, "NvimTreeGitRenamed", { fg = "#61afef" }) -- renamed: blue
-			hl(0, "NvimTreeGitMerge", { fg = "#c678dd" }) -- conflict: purple
-
-			-- global toggle keymap
-			vim.keymap.set("n", "tt", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
-
-			-- auto open on directory, skip when opening a file (including new files)
-			-- vim.api.nvim_create_autocmd('VimEnter', {
-			--     callback = function()
-			--         if vim.fn.argc() == 0 then
-			--             -- no args: nvim (opens cwd)
-			--             require('nvim-tree.api').tree.open()
-			--         else
-			--             local arg = vim.fn.argv(1)
-			--             if type(arg) == 'string' then
-			--                 local stat = vim.loop.fs_stat(arg)
-			--                 if stat and stat.type == 'directory' then
-			--                     -- first arg is a directory: nvim .
-			--                     require('nvim-tree.api').tree.open()
-			--                 end
-			--             end
-			--         end
-			--     end,
-			-- })
 		end,
 	},
 }

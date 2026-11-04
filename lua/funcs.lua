@@ -171,7 +171,7 @@ local function find_editable_win(exclude_win)
 	for _, win in ipairs(api.nvim_list_wins()) do
 		if win ~= exclude_win then
 			local buf = api.nvim_win_get_buf(win)
-			if vim.bo[buf].buftype ~= "terminal" and vim.bo[buf].filetype ~= "NvimTree" then
+			if vim.bo[buf].buftype ~= "terminal" and vim.bo[buf].filetype ~= "neo-tree" then
 				return win
 			end
 		end
@@ -193,7 +193,7 @@ local function open_path_in_editor(path)
 	local term_win = api.nvim_get_current_win()
 	vim.cmd("wincmd p")
 	local cur_buf = api.nvim_win_get_buf(0)
-	if vim.bo[cur_buf].buftype == "terminal" or vim.bo[cur_buf].filetype == "NvimTree" then
+	if vim.bo[cur_buf].buftype == "terminal" or vim.bo[cur_buf].filetype == "neo-tree" then
 		local win = find_editable_win(term_win)
 		api.nvim_set_current_win(win or term_win)
 	end

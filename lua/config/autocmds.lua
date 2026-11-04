@@ -71,13 +71,6 @@ api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 	desc = "Disable cursorline in insert mode",
 })
 
--- Close NvimTree if it's the last window.
-api.nvim_create_autocmd({ "QuitPre" }, {
-	callback = function()
-		vim.cmd("NvimTreeClose")
-	end,
-})
-
 -- Terminal: open file path on current line in editing area.
 api.nvim_create_autocmd("TermOpen", {
 	group = group,

@@ -10,9 +10,9 @@ Personal Neovim setup built on **lazy.nvim** + **Lua** · macOS / Linux first-cl
 
 `treesitter` · `LSP` · `Telescope` · `Flutter` · `nordfox`
 
-<img src="assets/demo.jpg" alt="Live screenshot — nordfox · nvim-tree · lualine" width="920" />
+<img src="assets/demo.jpg" alt="Live screenshot — nordfox · neo-tree · lualine" width="920" />
 
-<sup><code>nordfox</code> · nvim-tree · lualine</sup>
+<sup><code>nordfox</code> · neo-tree · lualine</sup>
 
 </div>
 
@@ -71,7 +71,7 @@ Global keys → `lua/config/keymaps.lua`. Plugin keys → owning `lua/plugins/*.
 | Plugin | Role |
 |--------|------|
 | [Telescope](https://github.com/nvim-telescope/telescope.nvim) (+ fzf-native) | Fuzzy find / grep |
-| [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) | File explorer |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | File explorer |
 | [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline |
 | [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim) | Winbar breadcrumbs |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics panel |
