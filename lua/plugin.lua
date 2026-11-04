@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Source local vimscript plugins
 for _, name in ipairs({
-    'md_quickmap.vim',
     'compile_run.vim',
     'replace.vim',
 }) do
@@ -446,23 +445,6 @@ require('lazy').setup({
         keys = {
             { '<leader>mr', '<cmd>RenderMarkdown toggle<cr>', desc = 'Toggle markdown render' },
         },
-    },
-    {
-        'dhruvasagar/vim-table-mode',
-        cmd = { 'TableModeToggle' },
-        init = function()
-            vim.g.table_mode_cell_text_object_i_map = 'k<Bar>'
-        end,
-        keys = {
-            { '<leader>tm', ':TableModeToggle<cr>', mode = '' },
-        },
-    },
-    {
-        'theniceboy/bullets.vim',
-        ft = { 'markdown' },
-        init = function()
-            vim.g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'scratch' }
-        end,
     },
 }, {
     ui = {

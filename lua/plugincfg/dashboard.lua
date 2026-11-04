@@ -35,7 +35,14 @@ end
 require('dashboard').setup({
     theme = 'hyper',
     config = {
-        header = require('headers').showdow,
+        header = {
+            [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
+            [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
+            [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
+            [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
+            [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
+            [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
+        },
         shortcut = {
             { desc = 'New file',       icon = ' ', group = 'Number',   action = 'ene',                                    key = 'e' },
             { desc = 'Sync plugins',   icon = ' ', group = 'String',   action = 'Lazy sync',                              key = 's' },
