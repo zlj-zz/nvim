@@ -220,6 +220,10 @@ return {
 			end
 
 			cmp.setup({
+				window = {
+					completion = { border = "single" },
+					documentation = { border = "single" },
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)

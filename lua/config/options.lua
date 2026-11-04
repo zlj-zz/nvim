@@ -4,6 +4,7 @@ local options = {
 	foldlevel = 99,
 
 	termguicolors = true,
+	winborder = "single",
 	number = true,
 	relativenumber = false,
 	cursorline = true,
@@ -28,6 +29,7 @@ local options = {
 
 	wildmenu = true,
 	showcmd = true,
+	showmode = false, -- lualine owns mode; hide native -- NORMAL --
 	ignorecase = true,
 	hlsearch = true,
 	mouse = "a",
@@ -44,6 +46,7 @@ local options = {
 
 	-- tip char.
 	listchars = "extends:❯,precedes:❮,tab:▸\\ ,trail:-",
+	fillchars = "eob: ,fold: ,foldopen:▾,foldclose:▸,foldsep: ",
 
 	hidden = true,
 

@@ -21,7 +21,7 @@ return {
 		config = function()
 			require("flutter-tools").setup({
 				ui = {
-					border = "rounded",
+					border = "single",
 					notification_style = "plugin",
 				},
 				decorations = {

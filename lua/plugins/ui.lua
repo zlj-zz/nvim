@@ -264,7 +264,6 @@ return {
 							"buffers",
 							mode = 2,
 							show_filename_only = true,
-							max_length = vim.o.columns * 2 / 3,
 							symbols = {
 								modified = " ●",
 								alternate_file = "",
@@ -272,7 +271,6 @@ return {
 							},
 						},
 					},
-					lualine_z = { "branch" },
 				},
 			})
 		end,
