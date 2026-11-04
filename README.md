@@ -73,6 +73,7 @@ Global keys → `lua/config/keymaps.lua`. Plugin keys → owning `lua/plugins/*.
 | [Telescope](https://github.com/nvim-telescope/telescope.nvim) (+ fzf-native) | Fuzzy find / grep |
 | [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) | File explorer |
 | [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline |
+| [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim) | Winbar breadcrumbs |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics panel |
 | [lualine](https://github.com/nvim-lualine/lualine.nvim) | Statusline · buffers |
 | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | Start screen |

@@ -10,6 +10,7 @@
   "dart-vim-plugin": { "branch": "master", "commit": "13fa42674f1685a1c5a095c1dac74d94e43a9849" },
   "dashboard-nvim": { "branch": "master", "commit": "f787e3462c2ee2b6117b17c1aa4ddf66cb6f57fe" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
+  "dropbar.nvim": { "branch": "master", "commit": "f7c6fa21e2a7c32576e7a1791774a3736987f467" },
   "flutter-tools.nvim": { "branch": "main", "commit": "7034ae42d5c67708db076d20937c269c6c6e8937" },
   "friendly-snippets": { "branch": "main", "commit": "b2ea5c41a150ba72fb656eedb4ed0a86d138d945" },
   "gitsigns.nvim": { "branch": "main", "commit": "4bcd99167c265f135886b282baad77afe06206b2" },
