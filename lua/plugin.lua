@@ -135,6 +135,44 @@ require('lazy').setup({
             })
         end,
     },
+    {
+        'kevinhwang91/nvim-hlslens',
+        event = 'VeryLazy',
+        config = function()
+            require('hlslens').setup({ calm_down = true })
+            local opts = { noremap = true, silent = true }
+            vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' .. v:count1 .. 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+            vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' .. v:count1 .. 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+            vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
+            vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
+        end,
+    },
+    {
+        'RRethy/vim-illuminate',
+        event = 'VeryLazy',
+        config = function()
+            require('illuminate').configure({
+                delay = 350,
+                under_cursor = false,
+                modes_denylist = { 'v', 'V', '\22' },
+                filetypes_denylist = { 'NvimTree', 'TelescopePrompt', 'dashboard', 'lazy' },
+            })
+        end,
+    },
+    {
+        'rachartier/tiny-glimmer.nvim',
+        event = 'VeryLazy',
+        config = function()
+            -- paste left to yanky highlight; only animate undo/redo
+            require('tiny-glimmer').setup({
+                overwrite = {
+                    paste = { enabled = false },
+                    undo = { enabled = true },
+                    redo = { enabled = true },
+                },
+            })
+        end,
+    },
 
     -- Editor Tools
     {
