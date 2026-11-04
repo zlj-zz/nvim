@@ -80,15 +80,20 @@ return {
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, opts)
 
-				-- Inlay hints
+				-- Inlay hints: off by default; <leader>ih toggles buffer-local
 				if client:supports_method("textDocument/inlayHint") then
-					vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+					vim.keymap.set("n", "<leader>ih", function()
+						local on = not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+						vim.lsp.inlay_hint.enable(on, { bufnr = bufnr })
+					end, vim.tbl_extend("force", opts, { desc = "Toggle inlay hints" }))
 				end
 
-				-- Code Lens
+				-- Code Lens: on demand only (no auto refresh/display)
 				if client:supports_method("textDocument/codeLens") then
-					vim.lsp.codelens.enable(true, { bufnr = bufnr })
-					vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, opts)
+					vim.keymap.set("n", "<leader>cl", function()
+						vim.lsp.codelens.refresh()
+						vim.lsp.codelens.run()
+					end, opts)
 				end
 
 				-- highlight word under cursor
@@ -115,14 +120,9 @@ return {
 						},
 						staticcheck = true,
 						gofumpt = true,
+						-- Keep call-site param names only; rest were redraw-heavy when inlays on.
 						hints = {
-							assignVariableTypes = true,
-							compositeLiteralFields = true,
-							compositeLiteralTypes = true,
-							constantValues = true,
-							functionTypeParameters = true,
 							parameterNames = true,
-							rangeVariableTypes = true,
 						},
 					},
 				},

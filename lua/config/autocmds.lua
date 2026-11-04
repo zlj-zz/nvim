@@ -21,27 +21,71 @@ api.nvim_create_autocmd("BufReadPost", {
 	desc = "Restore cursor position and open folds",
 })
 
--- Disable syntax for very large files (>10 MB).
-api.nvim_create_autocmd("BufReadPre", {
+-- Bigfile gate: skip TS / LSP / ibl on huge buffers (size or line count).
+local BIG_BYTES = 5 * 1024 * 1024 -- 5 MiB
+local BIG_LINES = 10000
+
+local function apply_bigfile(buf)
+	vim.b[buf].bigfile = true
+
+	vim.bo[buf].swapfile = false
+	vim.bo[buf].undofile = false
+
+	pcall(vim.treesitter.stop, buf)
+	pcall(function()
+		require("ibl").setup_buffer(buf, { enabled = false })
+	end)
+
+	-- After FileType plugins; keep regex syntax and LSP off.
+	vim.schedule(function()
+		if not api.nvim_buf_is_valid(buf) then
+			return
+		end
+		vim.bo[buf].syntax = "off"
+		pcall(vim.treesitter.stop, buf)
+		for _, client in ipairs(vim.lsp.get_clients({ bufnr = buf })) do
+			pcall(vim.lsp.buf_detach_client, buf, client.id)
+		end
+	end)
+end
+
+local function maybe_bigfile(buf)
+	if vim.bo[buf].buftype ~= "" then
+		return
+	end
+	if vim.b[buf].bigfile then
+		apply_bigfile(buf) -- FileType may revive syntax/TS; re-assert
+		return
+	end
+	local name = api.nvim_buf_get_name(buf)
+	local size = name ~= "" and vim.fn.getfsize(name) or 0
+	local lines = api.nvim_buf_line_count(buf)
+	if (size > BIG_BYTES) or (lines > BIG_LINES) then
+		apply_bigfile(buf)
+	end
+end
+
+api.nvim_create_autocmd({ "BufReadPost", "FileType" }, {
 	group = group,
 	pattern = "*",
-	callback = function()
-		local fsize = vim.fn.getfsize(vim.fn.expand("%"))
-		if fsize > 10000000 then
-			vim.cmd("syntax off")
+	callback = function(args)
+		maybe_bigfile(args.buf)
+	end,
+	desc = "Mark huge buffers as bigfile (disable TS/LSP/ibl)",
+})
+api.nvim_create_autocmd("LspAttach", {
+	group = group,
+	callback = function(args)
+		if vim.b[args.buf].bigfile then
+			vim.schedule(function()
+				if api.nvim_buf_is_valid(args.buf) then
+					pcall(vim.lsp.buf_detach_client, args.buf, args.data.client_id)
+				end
+			end)
 		end
 	end,
-	desc = "Disable syntax for large files (>10MB)",
+	desc = "Detach LSP from bigfile buffers",
 })
-
--- Speed up syntax highlighting for files with >2000 lines.
-api.nvim_create_autocmd("Syntax", {
-	group = group,
-	pattern = "*",
-	command = "if 2000 < line('$') | syntax sync maxlines=200 | endif",
-	desc = "Limit syntax sync for large files",
-})
-
 -- Re-detect filetype on save if it was empty.
 api.nvim_create_autocmd("BufWritePost", {
 	group = group,
