@@ -1,0 +1,163 @@
+local map = {
+
+	-- [file option]
+	{
+		"",
+		"S",
+		":w<CR>",
+		{ noremap = false },
+	},
+	{
+		"",
+		"Q",
+		'<cmd>lua require"funcs".smart_close()<CR>',
+		{ noremap = false },
+	},
+	{ "n", "<C-q>", ":qa!<CR>" },
+	{ "c", "w!!", "w !sudo tee >/dev/null %" },
+
+	{ "n", "<", "<<" },
+	{ "n", ">", ">>" },
+	{ "v", "<", "<gv" },
+	{ "v", ">", ">gv" },
+
+	{ "n", "Y", "y$" },
+	{ "v", "Y", '"+y' },
+	{
+		"n",
+		"<leader>va",
+		"ggVG",
+		{ noremap = false },
+	},
+
+	-- [cursor movement]
+	{ "", "K", "5k" },
+	{ "", "J", "5j" },
+	{ "", "L", "5l" },
+	{ "", "H", "5h" },
+
+	-- Ctrl + K or J will move up/down the view port without moving the cursor
+	{ "n", "<C-k>", "5<C-y>" },
+	{ "n", "<C-j>", "5<C-e>" },
+
+	-- Insert and Command Mode Cursor Movement.
+	{ "i", "<C-w>", "<Up>" },
+	{ "i", "<C-s>", "<Down>" },
+	{ "i", "<C-a>", "<Left>" },
+	{ "i", "<C-d>", "<Right>" },
+
+	-- [window management]
+	{ "", "s", "<nop>" },
+	{
+		"",
+		"sk",
+		function()
+			require("funcs").telescope_split("set nosplitbelow | split")
+		end,
+	},
+	{
+		"",
+		"sj",
+		function()
+			require("funcs").telescope_split("set splitbelow | split")
+		end,
+	},
+	{
+		"",
+		"sh",
+		function()
+			require("funcs").telescope_split("set nosplitright | vsplit")
+		end,
+	},
+	{
+		"",
+		"sl",
+		function()
+			require("funcs").telescope_split("set splitright | vsplit")
+		end,
+	},
+
+	{ "n", "tl", "<C-w>l" },
+	{ "n", "tk", "<C-w>k" },
+	{ "n", "tj", "<C-w>j" },
+	{ "n", "th", "<C-w>h" },
+
+	{ "", "<Up>", ":res +5<CR>" },
+	{ "", "<Down>", ":res -5<CR>" },
+	{ "", "<Left>", ":vertical resize-5<CR>" },
+	{ "", "<Right>", ":vertical resize+5<CR>" },
+
+	{ "n", "rk", "<C-w>t<C-w>K" },
+	{ "n", "rh", "<C-w>t<C-w>H" },
+
+	-- [table management]
+	{ "", "tn", ":table<CR>" },
+	{ "", "t-", ":-tabnext<CR>" },
+	{ "", "t=", ":+tabnext<CR>" },
+
+	{ "n", "<m-1>", "1gt" },
+	{ "n", "<m-2>", "2gt" },
+	{ "n", "<m-3>", "3gt" },
+	{ "n", "<m-4>", "4gt" },
+	{ "n", "<m-5>", "5gt" },
+	{ "n", "<m-6>", "6gt" },
+	{ "n", "<m-7>", "7gt" },
+	{ "n", "<m-8>", "8gt" },
+	{ "n", "<m-9>", "9gt" },
+
+	-- [outline]
+	{ "n", "ti", "<cmd>AerialToggle<CR>" },
+
+	-- [diagnostics]
+	{ "n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>" },
+	{ "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>" },
+	{ "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>" },
+	{ "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
+
+	-- [other]
+	{ "n", "<leader>sc", ":set spell!<CR>" },
+	{ "n", "<leader>pm", ":set paste!<CR>" },
+	{ "n", "<leader><cr>", ":nohlsearch<CR>" },
+
+	-- press space twice to jump to the next ':' and edit it
+	{ "n", "<leader><leader>", "<ESC>/<++><CR>:nohlsearch<CR>c4l" },
+
+	-- trim trailing whitespace
+	{ "n", "<leader>tr", ":%s/\\s\\+$//e<CR>" },
+
+	-- format (VS Code style: Shift+Alt+F)
+	{ "n", "<leader>cf", ":Format<CR>" },
+	{ "v", "<leader>cf", ":Format<CR>" },
+
+	-- quickfix
+	{ "n", "<leader>qf", ":copen<CR>" },
+
+	-- [search/replace in current buffer]
+	{ "n", "<leader>sr", ":%s/<C-r><C-w>//gc<Left><Left><Left>" },
+	{ "v", "<leader>sr", ":s///gc<Left><Left><Left>" },
+
+	-- functions
+	{ "n", "<leader>go", '<cmd>lua require"funcs".open_curr_on_browser()<cr>' },
+	{ "", "<f4>", '<cmd>lua require"funcs".switch_transparent_bg()<cr>' },
+	{ "", "<leader>z", '<cmd>lua require"funcs".switch_full_screen()<cr>' },
+
+	-- buffer
+	{ "n", "b-", ":bp<cr>" },
+	{ "n", "b=", ":bn<cr>" },
+	{ "n", "b#", ":b#<cr>" },
+}
+
+-- switch buf with index
+for i = 1, 9 do
+	table.insert(map, { "n", "b" .. i, '<cmd>lua require"funcs".buf_index(' .. i .. ")<cr>" })
+end
+
+local utils = require("utils")
+local g = vim.g
+local default_args = { silent = true, noremap = true }
+
+g.mapleader = " "
+for _, one_map in pairs(map) do
+	local opts = vim.tbl_deep_extend("force", default_args, one_map[4] or {})
+	utils.map(one_map[1], one_map[2], one_map[3], opts)
+end

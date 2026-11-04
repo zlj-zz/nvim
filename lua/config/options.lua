@@ -1,13 +1,15 @@
-return {
+local utils = require("utils")
+
+local options = {
 	foldlevel = 99,
 
 	termguicolors = true,
 	number = true,
 	relativenumber = false,
 	cursorline = true,
-	cursorlineopt = 'both',
-	signcolumn = 'yes',
-	encoding = 'utf-8',
+	cursorlineopt = "both",
+	signcolumn = "yes",
+	encoding = "utf-8",
 	pyxversion = 3,
 	autoread = true,
 
@@ -28,23 +30,26 @@ return {
 	showcmd = true,
 	ignorecase = true,
 	hlsearch = true,
-	mouse = 'a',
+	mouse = "a",
 	scrolloff = 5,
 	updatetime = 200,
 	lazyredraw = true,
 
 	undofile = true,
-	undodir = vim.g.home_path .. '/.tmp/undo',
+	undodir = vim.g.home_path .. "/.tmp/undo",
 
 	-- cursor can swap line.
-	backspace = 'eol,start,indent',
-	whichwrap = 'b,s,<,>,h,l',
+	backspace = "eol,start,indent",
+	whichwrap = "b,s,<,>,h,l",
 
 	-- tip char.
-	listchars = 'extends:❯,precedes:❮,tab:▸\\ ,trail:-',
+	listchars = "extends:❯,precedes:❮,tab:▸\\ ,trail:-",
 
 	hidden = true,
 
-	shortmess = 'atAF',
-
+	shortmess = "atAF",
 }
+
+for o, v in pairs(options) do
+	utils.opt(o, v)
+end

@@ -50,18 +50,16 @@ Open Neovim once → `:Lazy sync` → `:checkhealth`.
 
 ```text
 ~/.config/nvim
-├── init.lua                 entry → env / settings / plugins / autocmds
+├── init.lua                 entry → config/* → lazy → theme
 ├── lua/
-│   ├── plugin.lua           lazy.nvim specs
-│   ├── theme.lua            colorscheme cycle + persistence
-│   ├── settings/            options · mappings
-│   ├── plugincfg/           one file per plugin
+│   ├── config/              env · options · keymaps · autocmds · theme
+│   ├── plugins/             lazy specs by domain (spec + setup co-located)
 │   ├── funcs.lua            helpers (smart close, splits, …)
 │   └── utils.lua            map / opt wrappers
 └── ftplugin/                filetype locals (markdown snippets, …)
 ```
 
-Source of truth for keys and plugins: `lua/settings/mappings.lua` and `lua/plugin.lua`.
+Global keys → `lua/config/keymaps.lua`. Plugin keys → owning `lua/plugins/*.lua`.
 
 ---
 
@@ -195,7 +193,7 @@ Markdown insert snippets (`,b` bold, `,c` code fence, `,a` link, …) live in `f
 
 ## LSP setup
 
-Servers are enabled in `lua/plugincfg/lsp.lua`. Install the binaries yourself:
+Servers are enabled in `lua/plugins/lsp.lua`. Install the binaries yourself:
 
 | Language | Server / notes |
 |----------|----------------|
