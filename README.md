@@ -128,7 +128,6 @@ After installation, run `:checkhealth` in Neovim.
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git decorations, blame, hunk actions |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Yank history, telescope integration |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Formatting (prettier, black, stylua, etc.) |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | Keymap discovery popup |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Distraction-free mode |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Markdown table editing |
 
@@ -213,12 +212,11 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<CR>` | Confirm completion |
 | `<C-Space>` | Trigger completion |
 
-### Trouble (Diagnostics / Symbols)
+### Trouble (Diagnostics)
 
 | Key | Action |
 |-----|--------|
 | `<leader>xx` | Toggle diagnostics panel |
-| `<leader>xs` | Toggle symbols panel |
 
 ### Gitsigns
 
@@ -260,7 +258,6 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<leader>fr` | Flutter run |
 | `<leader>fR` | Flutter restart |
 | `<leader>fq` | Flutter quit |
-| `<leader>fo` | Toggle Flutter outline |
 | `<leader>fd` | Flutter DevTools |
 | `<leader>fe` | Flutter emulators |
 

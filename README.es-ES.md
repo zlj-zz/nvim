@@ -130,7 +130,6 @@ Después de la instalación, ejecuta `checkhealth` en Neovim.
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Decoraciones de Git, blame, acciones de hunk |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Historial de copiado, integración con Telescope |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Formateo (prettier, black, stylua, etc.) |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | Ventana emergente de descubrimiento de mapeos de teclas |
 | [goyo.vim](https://github.com/junegunn/goyo.vim) | Modo sin distracciones |
 | [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) | Edición de tablas Markdown |
 
@@ -215,12 +214,11 @@ En los selectores de Telescope, `<C-d>` elimina un buffer (en `:Telescope buffer
 | `<CR>` | Confirmar autocompletado |
 | `<C-Space>` | Activar autocompletado |
 
-### Trouble (Diagnósticos / Símbolos)
+### Trouble (Diagnósticos)
 
 | Tecla | Acción |
 |-----|--------|
 | `<leader>xx` | Alternar panel de diagnósticos |
-| `<leader>xs` | Alternar panel de símbolos |
 
 ### Gitsigns
 
@@ -262,7 +260,6 @@ En los selectores de Telescope, `<C-d>` elimina un buffer (en `:Telescope buffer
 | `<leader>fr` | Ejecutar Flutter |
 | `<leader>fR` | Reiniciar Flutter |
 | `<leader>fq` | Detener Flutter |
-| `<leader>fo` | Alternar esquema de Flutter |
 | `<leader>fd` | DevTools de Flutter |
 | `<leader>fe` | Emuladores de Flutter |
 

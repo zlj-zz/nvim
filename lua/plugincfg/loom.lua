@@ -15,7 +15,7 @@ require('loom').setup({
     },
 })
 
--- Manual keymaps (which-key is disabled)
+-- Manual keymaps
 local map = require('utils').map
 map('n', '<leader>ls', '<cmd>LoomSave<cr>')
 map('n', '<leader>ll', '<cmd>LoomLoad<cr>')

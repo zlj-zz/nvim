@@ -32,10 +32,6 @@ require('flutter-tools').setup({
         autostart = false,
         auto_open_browser = false,
     },
-    outline = {
-        open_cmd = '30vnew',
-        auto_open = false,
-    },
     lsp = {
         on_attach = function(client, bufnr)
             -- Enable document color via built-in LSP (Neovim 0.12+)

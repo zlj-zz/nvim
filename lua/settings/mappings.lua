@@ -72,7 +72,6 @@ local map = {
 
     -- [diagnostics]
     { 'n', '<leader>xx',       '<cmd>Trouble diagnostics toggle<CR>' },
-    { 'n', '<leader>xs',       '<cmd>Trouble symbols toggle<CR>' },
     { 'n', 'gl',               '<cmd>lua vim.diagnostic.open_float()<CR>' },
     { 'n', ']d',               '<cmd>lua vim.diagnostic.goto_next()<CR>' },
     { 'n', '[d',               '<cmd>lua vim.diagnostic.goto_prev()<CR>' },
@@ -95,9 +94,9 @@ local map = {
     -- quickfix
     { 'n', '<leader>qf',       ':copen<CR>' },
 
-    -- [search/replace in current buffer]
-    { 'n', '<leader>sr',       function() require('funcs').replace_float() end },
-    { 'v', '<leader>sr',       function() require('funcs').replace_float_visual() end },
+    -- [search/replace in current buffer] (visual: also `rp` → RepSelc)
+    { 'n', '<leader>sr',       ':%s/<C-r><C-w>//gc<Left><Left><Left>' },
+    { 'v', '<leader>sr',       ':s///gc<Left><Left><Left>' },
 
     -- git conflict picker
     { 'n', '<leader>fc',       function() require('git-conflicts').picker() end },

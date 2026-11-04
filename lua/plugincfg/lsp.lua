@@ -22,7 +22,7 @@ local function on_attach(client, bufnr)
         vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, opts)
     end
 
-    -- highlight word under cursor (replaces vim-illuminate)
+    -- highlight word under cursor
     if client:supports_method('textDocument/documentHighlight') then
         vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = bufnr,

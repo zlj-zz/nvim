@@ -87,28 +87,6 @@ require('lazy').setup({
         end,
     },
     {
-        'Bekaboo/dropbar.nvim',
-        dependencies = { 'nvim-telescope/telescope.nvim' },
-        config = function()
-            require('dropbar').setup({
-                menu = {
-                    preview = true,
-                    keymaps = {
-                        ['h'] = '<C-w>q',
-                        ['l'] = function()
-                            local menu = require('dropbar.utils').menu.get_current()
-                            if not menu then return end
-                            local cursor = vim.api.nvim_win_get_cursor(menu.win)
-                            local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
-                            if component then menu:click_on(component, nil, 1, 'l') end
-                        end,
-                    },
-                },
-            })
-        end,
-    },
-
-    {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
         config = function()
@@ -145,18 +123,6 @@ require('lazy').setup({
             vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' .. v:count1 .. 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
             vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
             vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
-        end,
-    },
-    {
-        'RRethy/vim-illuminate',
-        event = 'VeryLazy',
-        config = function()
-            require('illuminate').configure({
-                delay = 350,
-                under_cursor = false,
-                modes_denylist = { 'v', 'V', '\22' },
-                filetypes_denylist = { 'NvimTree', 'TelescopePrompt', 'dashboard', 'lazy' },
-            })
         end,
     },
     {
@@ -272,26 +238,6 @@ require('lazy').setup({
     },
 
     -- Style
-    -- {
-    --     'AlexvZyl/nordic.nvim',
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         require('nordic').setup({})
-    --         vim.cmd.colorscheme('nordic')
-    --     end,
-    -- },
-    -- {
-    --     'folke/tokyonight.nvim',
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         require('tokyonight').setup({
-    --             style = 'storm',
-    --         })
-    --         vim.cmd.colorscheme('tokyonight')
-    --     end,
-    -- },
     {
         'EdenEast/nightfox.nvim',
         lazy = false,
@@ -380,12 +326,6 @@ require('lazy').setup({
             { '<leader>nr', '<cmd>Neominimap Refresh<cr>', desc = 'Refresh minimap' },
         },
     },
-    -- Disabled: which-key popups interrupt fast typing flow.
-    -- {
-    --     'folke/which-key.nvim',
-    --     event = 'VeryLazy',
-    --     config = cfg('plugincfg.which-key'),
-    -- },
     {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
