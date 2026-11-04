@@ -117,7 +117,6 @@ Después de la instalación, ejecuta `checkhealth` en Neovim.
 | Plugin | Propósito |
 |--------|---------|
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal (abajo / derecha / flotante) |
-| [agent-bridge](lua/agent-bridge) | Envía contexto de código a agentes de IA (Claude / tmux / portapapeles) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | Autocompletado de código en línea con IA |
 
 ### Otros
@@ -234,13 +233,10 @@ En los selectores de Telescope, `<C-d>` elimina un buffer (en `:Telescope buffer
 | `<leader>hr` | Restablecer hunk |
 | `<leader>hd` | Ver diff de este archivo |
 
-### IA (agent-bridge + Supermaven)
+### IA (Supermaven)
 
 | Tecla | Acción |
 |-----|--------|
-| `<leader>ai` | Abrir ventana flotante de agent-bridge (visual / normal) |
-| `<C-s>` | Enviar prompt desde la ventana flotante |
-| `<Tab>` (en flotante) | Alternar modo de envío (auto → tmux → claude → portapapeles) |
 | `<C-l>` | Aceptar sugerencia de Supermaven |
 | `<C-j>` | Aceptar siguiente palabra de Supermaven |
 | `<C-\>` | Borrar sugerencia de Supermaven |
@@ -352,10 +348,6 @@ Si `im-select` no está presente, Neovim mostrará una advertencia al iniciar. E
 ## Notas para macOS / Plataforma
 
 - **Cambio automático de método de entrada**: `im-select` se utiliza para cambiar a la distribución ABC al salir del modo Inserción. Solo activo en macOS.
-- **Integración de IA**: `agent-bridge` soporta tres modos de envío:
-  - `tmux` — envía el prompt a un panel de tmux ejecutando `claude`
-  - `claude` — ejecuta `claude -p --continue` y captura stdout en una ventana flotante de resultados
-  - `clipboard` — copia el prompt al portapapeles del sistema
 - **Supermaven**: Autocompletado de IA gratuito. Ejecuta `:SupermavenUseFree` la primera vez que lo uses.
 
 ## Configuración para vim

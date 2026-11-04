@@ -427,14 +427,6 @@ require('lazy').setup({
         cond = function() return g.isWin == 0 and vim.fn.filereadable('/usr/bin/fcitx') == 1 end,
     },
 
-    -- Local plugin: agent-bridge
-    {
-        dir = vim.fn.stdpath('config') .. '/lua/agent-bridge',
-        config = function()
-            require('agent-bridge').setup()
-        end,
-    },
-
     -- AI completion
     {
         'supermaven-inc/supermaven-nvim',

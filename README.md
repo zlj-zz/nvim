@@ -115,7 +115,6 @@ After installation, run `:checkhealth` in Neovim.
 | Plugin | Purpose |
 |--------|---------|
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal (bottom / right / float) |
-| [agent-bridge](lua/agent-bridge) | Send code context to AI agents (Claude / tmux / clipboard) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI inline code completion |
 
 ### Other
@@ -232,13 +231,10 @@ In telescope pickers, `<C-d>` deletes a buffer (in `:Telescope buffers`).
 | `<leader>hr` | Reset hunk |
 | `<leader>hd` | Diff this file |
 
-### AI (agent-bridge + Supermaven)
+### AI (Supermaven)
 
 | Key | Action |
 |-----|--------|
-| `<leader>ai` | Open agent-bridge float (visual / normal) |
-| `<C-s>` | Send prompt from float |
-| `<Tab>` (in float) | Cycle sender mode (auto → tmux → claude → clipboard) |
 | `<C-l>` | Accept Supermaven suggestion |
 | `<C-j>` | Accept Supermaven next word |
 | `<C-\>` | Clear Supermaven suggestion |
@@ -350,10 +346,6 @@ If `im-select` is missing, Neovim will show a warning on startup. Run `:IMSelect
 ## macOS / Platform Notes
 
 - **Input method auto-switch**: `im-select` is used to switch to ABC layout when leaving Insert mode. Only active on macOS.
-- **AI integration**: `agent-bridge` supports three sender modes:
-  - `tmux` — sends prompt to a tmux pane running `claude`
-  - `claude` — runs `claude -p --continue` and captures stdout into a result float
-  - `clipboard` — copies prompt to system clipboard
 - **Supermaven**: Free AI inline completion. Run `:SupermavenUseFree` on first use.
 
 ## Configuration for vim

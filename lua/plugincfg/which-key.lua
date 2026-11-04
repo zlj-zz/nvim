@@ -49,7 +49,6 @@ wk.add({
     { '<leader>xs', desc = 'Symbols toggle' },
     { '<leader>z',  desc = 'Toggle fullscreen' },
     { '<leader><leader>', desc = 'Jump to <++>' },
-    { '<leader>ai', desc = 'Send to AI agent' },
 
     -- Single-key prefixes (from mappings.lua)
     { 'b', group = 'Buffer' },
