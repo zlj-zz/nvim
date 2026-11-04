@@ -1,6 +1,7 @@
 return {
 	{
 		"stevearc/conform.nvim",
+		event = "VeryLazy",
 		config = function()
 			local M = {}
 
@@ -57,6 +58,8 @@ return {
 				M.enabled = not M.enabled
 				vim.notify("Format on save: " .. (M.enabled and "ON" or "OFF"))
 			end, {})
+
+			vim.keymap.set({ "n", "v" }, "<leader>cf", ":Format<CR>", { silent = true, desc = "Format" })
 
 			return M
 		end,

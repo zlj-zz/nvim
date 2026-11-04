@@ -105,11 +105,7 @@ local map = {
 	{ "n", "<m-8>", "8gt" },
 	{ "n", "<m-9>", "9gt" },
 
-	-- [outline]
-	{ "n", "ti", "<cmd>AerialToggle<CR>" },
-
-	-- [diagnostics]
-	{ "n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>" },
+	-- [diagnostics] (Neovim built-in)
 	{ "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>" },
 	{ "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>" },
 	{ "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
@@ -119,15 +115,11 @@ local map = {
 	{ "n", "<leader>pm", ":set paste!<CR>" },
 	{ "n", "<leader><cr>", ":nohlsearch<CR>" },
 
-	-- press space twice to jump to the next ':' and edit it
+	-- press space twice to jump to the next '<++>' placeholder
 	{ "n", "<leader><leader>", "<ESC>/<++><CR>:nohlsearch<CR>c4l" },
 
 	-- trim trailing whitespace
 	{ "n", "<leader>tr", ":%s/\\s\\+$//e<CR>" },
-
-	-- format (VS Code style: Shift+Alt+F)
-	{ "n", "<leader>cf", ":Format<CR>" },
-	{ "v", "<leader>cf", ":Format<CR>" },
 
 	-- quickfix
 	{ "n", "<leader>qf", ":copen<CR>" },

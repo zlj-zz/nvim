@@ -214,9 +214,10 @@ return {
 					vim.keymap.set("n", "J", "5<plug>UndotreePreviousState", opts)
 				end,
 			})
-
-			vim.keymap.set("n", "tu", ":UndotreeToggle<CR>", { silent = true })
 		end,
+		keys = {
+			{ "tu", ":UndotreeToggle<CR>", desc = "Undotree toggle" },
+		},
 		cmd = { "UndotreeToggle" },
 	},
 	{
@@ -241,6 +242,9 @@ return {
 				},
 			})
 		end,
+		keys = {
+			{ "ti", "<cmd>AerialToggle<CR>", desc = "Aerial outline" },
+		},
 		cmd = { "AerialToggle", "AerialOpen", "AerialNavToggle" },
 	},
 	{
@@ -249,6 +253,9 @@ return {
 		config = function()
 			require("trouble").setup({})
 		end,
+		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", desc = "Trouble diagnostics" },
+		},
 		cmd = { "Trouble" },
 	},
 	{

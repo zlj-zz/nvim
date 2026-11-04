@@ -127,67 +127,10 @@ Cycle with `<leader>tc` (persisted). Default: **nordfox**.
 
 `<leader>` = `Space`.
 
-### Basics
+- Global → `lua/config/keymaps.lua`
+- Plugin → owning `lua/plugins/*.lua` (theme cycle in `lua/config/theme.lua`)
 
-| Key | Action |
-|-----|--------|
-| `S` | Save |
-| `Q` | Smart close |
-| `<C-q>` | Quit all |
-| `K` `J` `H` `L` | Move ×5 |
-| `<` `>` | Indent (visual keeps selection) |
-
-### Windows · tabs · buffers
-
-| Key | Action |
-|-----|--------|
-| `sk` `sj` `sh` `sl` | Split (up / down / left / right) |
-| `th` `tj` `tk` `tl` | Focus window |
-| `tn` · `t-` · `t=` | New tab · prev · next |
-| `<M-1>`…`<M-9>` | Jump to tab |
-| `b-` `b=` `b#` · `b1`…`b9` | Buffer prev / next / alt / by index |
-| `tt` | Toggle nvim-tree |
-| `ti` | Aerial outline |
-| `tu` | Undotree |
-
-### Telescope · Git · search
-
-| Key | Action |
-|-----|--------|
-| `,f` `,g` `,b` `,h` | Files · live grep · buffers · recent |
-| `,l` `,c` `,k` | Buffer fuzzy · cmd history · keymaps |
-| `,pp` `,ps` `,pg` | Pigit entrée · status · term |
-| `[h` `]h` | Prev / next hunk |
-| `<leader>hp` `hb` `hs` `hr` `hd` | Preview · blame · stage · reset · diff |
-| `<leader>fc` | Git conflict picker |
-| `<leader>sr` | Substitute (`:%s` / visual `:s`) |
-
-### LSP · diagnostics · format
-
-| Key | Action |
-|-----|--------|
-| `gd` `gr` `gi` `gy` `gh` | Definition · refs · impl · type · hover |
-| `<leader>rn` `<leader>a` | Rename · code action |
-| `<leader>cl` | Code lens |
-| `gl` · `[d` `]d` | Float diagnostic · prev / next |
-| `<leader>xx` | Trouble diagnostics |
-| `<leader>cf` | Format (conform) · `:FormatToggle` for format-on-save |
-
-### Terminal · AI · misc
-
-| Key | Action |
-|-----|--------|
-| `<C-t>` / `<C-l>` | Toggleterm bottom / right |
-| `<Esc><Esc>` | Terminal → normal |
-| `<C-l>` / `<C-j>` | Supermaven accept / accept word |
-| `<leader>mr` | Toggle markdown render |
-| `<leader>tc` | Cycle theme |
-| `<leader>ls`… | Loom save / load / workspace… |
-| `<space>y` | Yank history (Telescope) |
-| `<leader>nm` | Neominimap toggle |
-| `<F4>` | Toggle transparent background |
-
-Markdown insert snippets (`,b` bold, `,c` code fence, `,a` link, …) live in `ftplugin/markdown.vim`. Jump placeholder: `<leader><leader>` → next `<++>`.
+Markdown insert snippets live in `ftplugin/markdown.vim` (`,b` bold, `,c` fence, `,a` link, …). Placeholder jump: `<leader><leader>` → next `<++>`.
 
 ---
 
