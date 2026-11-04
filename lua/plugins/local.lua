@@ -5,6 +5,16 @@ return {
 		"zlj-zz/loom.nvim",
 		dir = utils.lazy_safe_dif("~/projects/loom.nvim"),
 		dependencies = { "nvim-lua/plenary.nvim" },
+		-- keys-only: avoid startup require of telescope via load_extension("loom")
+		keys = {
+			{ "<leader>ls", "<cmd>LoomSave<cr>", desc = "Loom save" },
+			{ "<leader>ll", "<cmd>LoomLoad<cr>", desc = "Loom load" },
+			{ "<leader>lL", "<cmd>LoomList<cr>", desc = "Loom list" },
+			{ "<leader>lw", "<cmd>LoomWorkspaceSave<cr>", desc = "Loom workspace save" },
+			{ "<leader>lW", "<cmd>LoomWorkspaceLoad<cr>", desc = "Loom workspace load" },
+			{ "<leader>lc", "<cmd>LoomCleanup<cr>", desc = "Loom cleanup" },
+			{ "<leader>lS", "<cmd>LoomSwitch<cr>", desc = "Loom switch" },
+		},
 		config = function()
 			require("loom").setup({
 				autosave = {
@@ -23,17 +33,6 @@ return {
 				},
 			})
 
-			-- Manual keymaps
-			local map = require("utils").map
-			map("n", "<leader>ls", "<cmd>LoomSave<cr>")
-			map("n", "<leader>ll", "<cmd>LoomLoad<cr>")
-			map("n", "<leader>lL", "<cmd>LoomList<cr>")
-			map("n", "<leader>lw", "<cmd>LoomWorkspaceSave<cr>")
-			map("n", "<leader>lW", "<cmd>LoomWorkspaceLoad<cr>")
-			map("n", "<leader>lc", "<cmd>LoomCleanup<cr>")
-			map("n", "<leader>lS", "<cmd>LoomSwitch<cr>")
-
-			-- Telescope extension
 			local ok, telescope = pcall(require, "telescope")
 			if ok then
 				telescope.load_extension("loom")
