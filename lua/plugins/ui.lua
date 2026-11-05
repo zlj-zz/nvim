@@ -164,7 +164,14 @@ return {
 						enable = true,
 						limit = 8,
 						label = " Recent Projects ",
-						action = "Telescope find_files cwd=",
+						-- dashboard prepends :lcd (window-local only). neo-tree follows
+						-- tab/global cwd via bind_to_cwd — do not force-open the tree.
+						action = function(path)
+							path = vim.fs.normalize(path)
+							vim.fn.chdir(path, "global")
+							vim.fn.chdir(path, "tabpage")
+							require("telescope.builtin").find_files({ cwd = path })
+						end,
 					},
 					mru = { limit = 10, cwd_only = false, label = " MRU " },
 					footer = { get_footer() },
