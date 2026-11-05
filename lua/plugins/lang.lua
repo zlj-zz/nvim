@@ -111,6 +111,7 @@ return {
 		ft = { "markdown" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		opts = {
+			enabled = false,
 			preset = "none",
 			max_file_size = 10.0,
 			debounce = 100,
@@ -151,6 +152,19 @@ return {
 		},
 		keys = {
 			{ "<leader>mr", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle markdown render" },
+		},
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_auto_close = 1
+		end,
+		keys = {
+			{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown browser preview" },
 		},
 	},
 }

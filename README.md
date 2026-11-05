@@ -106,6 +106,7 @@ Global keys → `lua/config/keymaps.lua`. Plugin keys → owning `lua/plugins/*.
 | [dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin) | Dart filetype · `dartfmt` on save |
 | [pubspec-assist](https://github.com/f-person/pubspec-assist-nvim) | `pubspec.yaml` helpers |
 | [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim) | In-buffer markdown |
+| [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Browser markdown preview |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI inline completion |
 | [loom.nvim](https://github.com/zlj-zz/loom.nvim) | Session / workspace snaps (local) |
 
