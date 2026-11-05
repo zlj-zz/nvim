@@ -160,8 +160,13 @@ return {
 						},
 					},
 					packages = { enable = true },
-					project = { enable = false },
-					mru = { limit = 10, cwd_only = true, label = "MRU " .. vim.fn.getcwd() },
+					project = {
+						enable = true,
+						limit = 8,
+						label = " Recent Projects ",
+						action = "Telescope find_files cwd=",
+					},
+					mru = { limit = 10, cwd_only = false, label = " MRU " },
 					footer = { get_footer() },
 				},
 			})
